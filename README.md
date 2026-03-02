@@ -68,6 +68,9 @@ uv run agent-interceptor replay --last 10
 # Show aggregate stats
 uv run agent-interceptor stats
 
+# Generate an interactive HTML dashboard
+uv run agent-interceptor visualize
+
 # Export to JSON
 uv run agent-interceptor export -o log.json
 
@@ -144,6 +147,54 @@ List all captured sessions.
 ```
 Options:
   --db TEXT   Database path
+```
+
+### `agent-interceptor conversations`
+
+List all tracked conversation threads with per-thread turn counts and token totals.
+
+```
+Options:
+  --db TEXT   Database path
+```
+
+### `agent-interceptor visualize`
+
+Generate an interactive HTML dashboard or static image charts from captured interactions.
+
+```
+Options:
+  --db TEXT                  Database path
+  -o, --output TEXT          Output path (default: report.html for html; ./charts for png/svg)
+  -f, --format [html|png|svg] Output format (default: html)
+  --last INTEGER             Limit to last N interactions (default: 200)
+  --provider TEXT            Filter by provider
+  --model TEXT               Filter by model
+  --session TEXT             Filter by session ID
+```
+
+The HTML report loads Plotly.js from CDN and requires an internet connection to view. It contains six charts:
+
+- **Latency Over Time** — total latency and TTFT scatter, colored by provider
+- **Token Usage** — input/output tokens per interaction as a grouped bar chart
+- **Cumulative Cost** — running USD cost as a filled line chart
+- **Provider Distribution** — pie or bar chart of request counts per provider
+- **Context Window Growth** — context depth over conversation turns, one trace per thread
+- **Latency Distribution** — histogram with mean marker
+
+Examples:
+
+```bash
+# Interactive HTML dashboard (default)
+uv run agent-interceptor visualize
+uv run agent-interceptor visualize -o my_report.html
+uv run agent-interceptor visualize --last 50 --provider anthropic
+uv run agent-interceptor visualize --session agent-a
+
+# Static PNG/SVG export (requires kaleido)
+uv sync --group viz-static
+uv run agent-interceptor visualize -f png            # → ./charts/
+uv run agent-interceptor visualize -f svg -o /tmp/charts
 ```
 
 ### `agent-interceptor save <session-id>`
@@ -345,7 +396,7 @@ uv run pyright
 agent_interception/
 ├── pyproject.toml
 ├── src/agent_interception/
-│   ├── cli.py                   # Click CLI: start, replay, export, stats, sessions, save
+│   ├── cli.py                   # Click CLI: start, replay, export, stats, sessions, save, conversations, visualize
 │   ├── config.py                # InterceptorConfig (pydantic-settings)
 │   ├── models.py                # Interaction, StreamChunk, TokenUsage, etc.
 │   ├── proxy/
@@ -362,7 +413,8 @@ agent_interception/
 │   │   ├── store.py             # Async SQLite CRUD
 │   │   └── migrations.py        # Schema DDL
 │   └── display/
-│       └── terminal.py          # Rich real-time display
+│       ├── terminal.py          # Rich real-time display
+│       └── charts.py            # Plotly chart generation + HTML/image export
 ├── scripts/                     # Demo scripts (Claude Agent SDK)
 └── tests/                       # pytest test suite
 ```

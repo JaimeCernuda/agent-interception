@@ -56,13 +56,15 @@ class ProviderRegistry:
                 self._config.openai_base_url,
             )
 
-        # Internal interceptor endpoints
+        # Internal interceptor endpoints — handled by server.py routes directly,
+        # this code path is only reached for paths that slip through (shouldn't happen)
         if path.startswith("/_interceptor/"):
             return Provider.UNKNOWN, self._openai, ""
 
-        # Unknown — treat as OpenAI-compatible as a fallback
+        # Non-/v1/ paths: route to Ollama (handles HEAD /, GET /api/tags, etc.)
+        # OpenAI and Anthropic always use /v1/ prefixes; anything else is Ollama.
         return (
-            Provider.UNKNOWN,
-            self._openai,
-            self._config.openai_base_url,
+            Provider.OLLAMA,
+            self._ollama,
+            self._config.ollama_base_url,
         )

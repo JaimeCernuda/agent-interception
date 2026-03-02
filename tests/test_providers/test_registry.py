@@ -50,10 +50,23 @@ class TestDetect:
         provider, _, _ = reg.detect("/api/generate", {})
         assert provider == Provider.OLLAMA
 
-    def test_unknown_path(self) -> None:
+    def test_root_head_routes_to_ollama(self) -> None:
         reg = make_registry()
-        provider, _, _ = reg.detect("/something/else", {})
-        assert provider == Provider.UNKNOWN
+        provider, _, url = reg.detect("/", {})
+        assert provider == Provider.OLLAMA
+        assert url == "http://localhost:11434"
+
+    def test_root_get_routes_to_ollama(self) -> None:
+        reg = make_registry()
+        provider, _, url = reg.detect("/", {})
+        assert provider == Provider.OLLAMA
+        assert url == "http://localhost:11434"
+
+    def test_non_v1_path_routes_to_ollama(self) -> None:
+        reg = make_registry()
+        provider, _, url = reg.detect("/some-other-path", {})
+        assert provider == Provider.OLLAMA
+        assert url == "http://localhost:11434"
 
     def test_internal_endpoint(self) -> None:
         reg = make_registry()
