@@ -70,6 +70,23 @@ class CostEstimate(BaseModel):
     note: str | None = Field(default=None, description="Notes about the estimate")
 
 
+class ContextMetrics(BaseModel):
+    """Computed metrics about the context window for a request."""
+
+    message_count: int = Field(description="Total messages in the request")
+    user_turn_count: int = Field(description="Messages with role=user")
+    assistant_turn_count: int = Field(description="Messages with role=assistant")
+    tool_result_count: int = Field(description="Messages with role=tool or tool_result")
+    context_depth_chars: int = Field(description="Approximate total chars of all message content")
+    new_messages_this_turn: int | None = Field(
+        default=None, description="Delta message count vs previous turn (None if unknown)"
+    )
+    system_prompt_length: int = Field(description="Chars in system prompt (0 if none)")
+    system_prompt_hash: str | None = Field(
+        default=None, description="First 16 hex chars of SHA-256 of system prompt"
+    )
+
+
 class Interaction(BaseModel):
     """A complete intercepted request-response interaction."""
 
@@ -133,3 +150,21 @@ class Interaction(BaseModel):
 
     # Error info
     error: str | None = Field(default=None, description="Error message if request failed")
+
+    # Conversation threading
+    conversation_id: str | None = Field(
+        default=None, description="Groups all turns in one conversation thread"
+    )
+    parent_interaction_id: str | None = Field(
+        default=None, description="Previous turn's interaction ID"
+    )
+    turn_number: int | None = Field(
+        default=None, description="1-based turn index within the conversation"
+    )
+    turn_type: str | None = Field(
+        default=None,
+        description="Turn classification: initial | continuation | tool_result | handoff",
+    )
+    context_metrics: ContextMetrics | None = Field(
+        default=None, description="Computed context window metrics for this turn"
+    )

@@ -319,3 +319,120 @@ async def _stats(db_path: str | None) -> None:
         display.display_stats(data)
     finally:
         await store.close()
+
+
+@cli.command()
+@click.option("--db", "db_path", default=None, help="Path to SQLite database")
+def conversations(db_path: str | None) -> None:
+    """List all tracked conversation threads."""
+    asyncio.run(_conversations(db_path))
+
+
+@cli.command()
+@click.option("--db", "db_path", default=None, help="Path to SQLite database")
+@click.option(
+    "--output",
+    "-o",
+    default=None,
+    help="Output path (default: report.html for html; ./charts for png/svg)",
+)
+@click.option(
+    "--format",
+    "-f",
+    "fmt",
+    default="html",
+    type=click.Choice(["html", "png", "svg"]),
+    show_default=True,
+    help="Output format. HTML loads Plotly.js from CDN and requires internet to view.",
+)
+@click.option(
+    "--last",
+    "limit",
+    default=200,
+    type=int,
+    show_default=True,
+    help="Limit to last N interactions",
+)
+@click.option("--provider", default=None, help="Filter by provider")
+@click.option("--model", default=None, help="Filter by model")
+@click.option("--session", "session_id", default=None, help="Filter by session ID")
+def visualize(
+    db_path: str | None,
+    output: str | None,
+    fmt: str,
+    limit: int,
+    provider: str | None,
+    model: str | None,
+    session_id: str | None,
+) -> None:
+    """Generate an interactive HTML dashboard or static PNG/SVG charts."""
+    asyncio.run(_visualize(db_path, output, fmt, limit, provider, model, session_id))
+
+
+async def _visualize(
+    db_path: str | None,
+    output: str | None,
+    fmt: str,
+    limit: int,
+    provider: str | None,
+    model: str | None,
+    session_id: str | None,
+) -> None:
+    overrides: dict[str, Any] = {}
+    if db_path is not None:
+        overrides["db_path"] = db_path
+
+    config = InterceptorConfig(**overrides)
+
+    # Resolve default output path based on format
+    if output is None:
+        output = "report.html" if fmt == "html" else "charts"
+
+    from agent_interception.display.charts import export_static_charts, generate_html_report
+    from agent_interception.storage.store import InteractionStore
+
+    store = InteractionStore(config)
+    await store.initialize()
+
+    try:
+        interactions = await store.list_interactions(
+            limit=limit, provider=provider, model=model, session_id=session_id
+        )
+        if not interactions:
+            click.echo("No interactions found.")
+            return
+
+        if fmt == "html":
+            generate_html_report(interactions, output)
+            click.echo(f"Generated HTML report: {output} ({len(interactions)} interactions)")
+        else:
+            export_static_charts(interactions, output, fmt)
+            click.echo(
+                f"Exported {fmt.upper()} charts to: {output}/ ({len(interactions)} interactions)"
+            )
+    finally:
+        await store.close()
+
+
+async def _conversations(db_path: str | None) -> None:
+    overrides: dict[str, Any] = {}
+    if db_path is not None:
+        overrides["db_path"] = db_path
+
+    config = InterceptorConfig(**overrides)
+
+    from agent_interception.display.terminal import TerminalDisplay
+    from agent_interception.storage.store import InteractionStore
+
+    display = TerminalDisplay(config)
+    store = InteractionStore(config)
+    await store.initialize()
+
+    try:
+        conversation_list = await store.list_conversations()
+        if not conversation_list:
+            display.console.print("[dim]No conversations found.[/dim]")
+            return
+        display.display_conversations_table(conversation_list)
+    finally:
+        await store.close()

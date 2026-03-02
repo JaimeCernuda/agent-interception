@@ -49,9 +49,7 @@ async def main() -> None:
 
         # --- Fetch all interactions ---
         summaries = (
-            await client.get(
-                f"{PROXY}/_interceptor/interactions", params={"limit": 500}
-            )
+            await client.get(f"{PROXY}/_interceptor/interactions", params={"limit": 500})
         ).json()
         print(f"\n  Fetched {len(summaries)} interaction summaries")
 
@@ -79,7 +77,7 @@ async def main() -> None:
 
             # Validate required fields
             if not entry.get("id"):
-                issues.append(f"Entry missing id")
+                issues.append("Entry missing id")
             if not entry.get("timestamp"):
                 issues.append(f"{entry.get('id', '?')}: missing timestamp")
             if not entry.get("provider"):
@@ -97,9 +95,15 @@ async def main() -> None:
 
         print(f"\n  Field coverage ({len(full_entries)} entries):")
         for f in [
-            "system_prompt", "messages", "tools", "tool_calls",
-            "response_text", "stream_chunks", "token_usage",
-            "cost_estimate", "total_latency_ms",
+            "system_prompt",
+            "messages",
+            "tools",
+            "tool_calls",
+            "response_text",
+            "stream_chunks",
+            "token_usage",
+            "cost_estimate",
+            "total_latency_ms",
         ]:
             n = count(f)
             pct = n / len(full_entries) * 100 if full_entries else 0

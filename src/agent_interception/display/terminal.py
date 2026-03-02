@@ -83,6 +83,31 @@ class TerminalDisplay:
         content_parts: list[str] = []
 
         if self._config.verbose:
+            # Conversation thread info
+            if interaction.conversation_id:
+                conv_short = interaction.conversation_id[:8]
+                thread_parts = [f"conv={conv_short}"]
+                if interaction.turn_number is not None:
+                    thread_parts.append(f"turn={interaction.turn_number}")
+                if interaction.turn_type:
+                    thread_parts.append(f"type={interaction.turn_type}")
+                content_parts.append(f"[dim]Thread:[/dim] [dim]{' '.join(thread_parts)}[/dim]")
+
+            # Context depth
+            if interaction.context_metrics:
+                cm = interaction.context_metrics
+                depth_parts = [f"{cm.message_count} msgs / ~{cm.context_depth_chars:,} chars"]
+                if cm.new_messages_this_turn is not None:
+                    depth_parts.append(f"+{cm.new_messages_this_turn} new")
+                sp_flag = ""
+                if cm.system_prompt_hash is None and cm.system_prompt_length == 0:
+                    sp_flag = ""
+                elif cm.system_prompt_length > 0:
+                    sp_flag = f"  sys={cm.system_prompt_hash}"
+                content_parts.append(
+                    f"[dim]Context:[/dim] [dim]{' / '.join(depth_parts)}{sp_flag}[/dim]"
+                )
+
             if interaction.system_prompt:
                 preview = _truncate(interaction.system_prompt, 200)
                 content_parts.append(f"[dim]System:[/dim] {preview}")
@@ -170,6 +195,48 @@ class TerminalDisplay:
 
         if stats["avg_latency_ms"] is not None:
             self._console.print(f"  Avg latency: {stats['avg_latency_ms']:.0f}ms")
+
+        # Context window stats
+        total_conv = stats.get("total_conversations", 0)
+        if total_conv:
+            self._console.print("\n  [bold]Context & Conversations[/bold]")
+            self._console.print(f"  Conversations tracked: [bold]{total_conv}[/bold]")
+            avg_msgs = stats.get("avg_messages_per_turn")
+            if avg_msgs is not None:
+                self._console.print(f"  Avg messages/turn: {avg_msgs:.1f}")
+            avg_chars = stats.get("avg_context_depth_chars")
+            if avg_chars is not None:
+                self._console.print(f"  Avg context depth: ~{avg_chars:,.0f} chars")
+            sp_changes = stats.get("system_prompt_changes", 0)
+            if sp_changes:
+                self._console.print(f"  System prompt changes: {sp_changes}")
+
+    def display_conversations_table(self, conversations: list[dict[str, Any]]) -> None:
+        """Display a table of conversation threads."""
+        table = Table(title="Conversation Threads", show_lines=True)
+        table.add_column("Conversation ID", width=36)
+        table.add_column("Turns", width=6)
+        table.add_column("Providers", width=18)
+        table.add_column("Models", max_width=30)
+        table.add_column("Tokens in/out", width=16)
+        table.add_column("Started", width=20)
+
+        for c in conversations:
+            providers = ", ".join(c.get("providers") or []) or "-"
+            models = ", ".join(c.get("models") or []) or "-"
+            in_tok = c.get("total_input_tokens") or 0
+            out_tok = c.get("total_output_tokens") or 0
+            tokens = f"{in_tok}/{out_tok}" if (in_tok or out_tok) else "-"
+            table.add_row(
+                c["conversation_id"],
+                str(c["turn_count"]),
+                providers,
+                models,
+                tokens,
+                c["first_turn"],
+            )
+
+        self._console.print(table)
 
     @staticmethod
     def _status_icon(status_code: int | None) -> str:

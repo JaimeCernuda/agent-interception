@@ -111,6 +111,43 @@ def create_app(
         count = await store.clear()
         return JSONResponse({"deleted": count})
 
+    async def list_conversations(request: Request) -> JSONResponse:
+        """List all conversation threads with aggregate info."""
+        conversations = await store.list_conversations()
+        return JSONResponse(conversations)
+
+    async def get_conversation(request: Request) -> JSONResponse:
+        """Get all turns in a conversation thread."""
+        conversation_id = request.path_params["conversation_id"]
+        turns = await store.get_conversation(conversation_id)
+        if not turns:
+            return JSONResponse({"error": "Not found"}, status_code=404)
+        return JSONResponse(
+            [
+                {
+                    "id": t.id,
+                    "session_id": t.session_id,
+                    "turn_number": t.turn_number,
+                    "turn_type": t.turn_type,
+                    "timestamp": t.timestamp.isoformat(),
+                    "provider": t.provider.value,
+                    "model": t.model,
+                    "parent_interaction_id": t.parent_interaction_id,
+                    "context_metrics": t.context_metrics.model_dump()
+                    if t.context_metrics
+                    else None,
+                    "response_text_preview": (
+                        t.response_text[:200] + "..."
+                        if t.response_text and len(t.response_text) > 200
+                        else t.response_text
+                    ),
+                    "tool_calls": t.tool_calls,
+                    "total_latency_ms": t.total_latency_ms,
+                }
+                for t in turns
+            ]
+        )
+
     async def proxy_catchall(request: Request) -> Response:
         """Catch-all handler that proxies requests to upstream providers."""
         assert handler is not None, "App not initialized"
@@ -125,6 +162,12 @@ def create_app(
         Route(
             "/_interceptor/interactions/{interaction_id}",
             get_interaction,
+            methods=["GET"],
+        ),
+        Route("/_interceptor/conversations", list_conversations, methods=["GET"]),
+        Route(
+            "/_interceptor/conversations/{conversation_id}",
+            get_conversation,
             methods=["GET"],
         ),
         # Catch-all proxy route — must be last

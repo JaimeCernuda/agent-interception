@@ -18,6 +18,7 @@ from agent_interception.config import InterceptorConfig
 from agent_interception.models import Interaction, Provider
 from agent_interception.providers.base import ProviderParser
 from agent_interception.providers.registry import ProviderRegistry
+from agent_interception.proxy.context import compute_context_metrics
 from agent_interception.proxy.streaming import (
     StreamInterceptor,
     inject_stream_options,
@@ -143,6 +144,11 @@ class ProxyHandler:
             provider=provider,
         )
 
+        # Read explicit conversation ID from request header
+        conv_id_header = request_headers.get("x-interceptor-conversation-id")
+        if conv_id_header:
+            interaction.conversation_id = conv_id_header
+
         # Parse request for provider-specific fields
         if body_dict and provider != Provider.UNKNOWN:
             parsed = parser.parse_request(body_dict)
@@ -151,6 +157,12 @@ class ProxyHandler:
             interaction.messages = parsed.get("messages")
             interaction.tools = parsed.get("tools")
             interaction.image_metadata = parsed.get("image_metadata")
+
+        # Compute context metrics (new_messages_this_turn resolved later in store.save)
+        interaction.context_metrics = compute_context_metrics(
+            interaction.messages,
+            interaction.system_prompt,
+        )
 
         # Check if we need to inject stream_options for OpenAI
         forward_body = raw_body

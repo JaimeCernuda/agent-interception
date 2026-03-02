@@ -12,6 +12,7 @@ dependencies = [
     "pydantic-settings>=2.7,<3",
     "rich>=13.9,<14",
     "click>=8.1,<9",
+    "plotly>=5.24,<6",
 ]
 
 [project.scripts]
@@ -49,4 +50,7 @@ dev = [
     "httpx>=0.28,<1",
     "pyright>=1.1,<2",
     "ruff>=0.8,<1",
+]
+viz-static = [
+    "kaleido>=0.2,<1",
 ]
