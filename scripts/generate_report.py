@@ -9,15 +9,22 @@ from __future__ import annotations
 
 import asyncio
 
-from _common import CLI_PATH, WORK_DIR, banner, start_session
-from claude_agent_sdk import ClaudeAgentOptions, query
+from _common import CLI_PATH, WORK_DIR, banner, safe_query, start_session
+from claude_agent_sdk import ClaudeAgentOptions
 
 
 async def main() -> None:
     session_id = start_session("generate-report")
     banner("Generate Report — run tests + create summary file", session_id)
 
-    async for msg in query(
+    options = ClaudeAgentOptions(
+        cli_path=CLI_PATH,
+        allowed_tools=["Bash", "Read", "Write", "Glob"],
+        permission_mode="bypassPermissions",
+        max_turns=15,
+        cwd=WORK_DIR,
+    )
+    async for msg in safe_query(
         prompt=(
             "Do the following steps:\n"
             "1. Run 'uv run pytest tests/ --co -q' to discover all test cases\n"
@@ -30,13 +37,7 @@ async def main() -> None:
             "   - A one-paragraph project summary based on what you observed\n"
             "5. Read back the file you created and confirm it looks right"
         ),
-        options=ClaudeAgentOptions(
-            cli_path=CLI_PATH,
-            allowed_tools=["Bash", "Read", "Write", "Glob"],
-            permission_mode="bypassPermissions",
-            max_turns=15,
-            cwd=WORK_DIR,
-        ),
+        options=options,
     ):
         if hasattr(msg, "result"):
             print(msg.result)

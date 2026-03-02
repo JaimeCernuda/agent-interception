@@ -8,9 +8,11 @@ Run with: uv run python scripts/design_discussion.py
 from __future__ import annotations
 
 import asyncio
+import dataclasses
 
 from _common import CLI_PATH, WORK_DIR, banner, start_session
 from claude_agent_sdk import ClaudeAgentOptions, query
+from claude_agent_sdk.types import ResultMessage
 
 
 async def main() -> None:
@@ -37,10 +39,10 @@ async def main() -> None:
         ),
         options=opts,
     ):
-        if hasattr(msg, "subtype") and msg.subtype == "init":
+        if isinstance(msg, ResultMessage):
             sdk_session_id = msg.session_id
-        if hasattr(msg, "result"):
-            print(msg.result)
+            if msg.result:
+                print(msg.result)
 
     if not sdk_session_id:
         print("ERROR: no session_id captured")
@@ -59,11 +61,9 @@ async def main() -> None:
             "- Storage schema implications\n"
             "Propose a concrete plan with file-level changes."
         ),
-        options=ClaudeAgentOptions(
-            **{**opts.model_dump(), "resume": sdk_session_id},
-        ),
+        options=dataclasses.replace(opts, resume=sdk_session_id),
     ):
-        if hasattr(msg, "result"):
+        if isinstance(msg, ResultMessage) and msg.result:
             print(msg.result)
 
     # --- Turn 3: Poke holes in the design ---
@@ -76,11 +76,9 @@ async def main() -> None:
             "and explain how the detection logic would need to change to "
             "distinguish WebSocket upgrade requests from normal HTTP."
         ),
-        options=ClaudeAgentOptions(
-            **{**opts.model_dump(), "resume": sdk_session_id},
-        ),
+        options=dataclasses.replace(opts, resume=sdk_session_id),
     ):
-        if hasattr(msg, "result"):
+        if isinstance(msg, ResultMessage) and msg.result:
             print(msg.result)
 
 

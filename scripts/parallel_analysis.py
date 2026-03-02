@@ -10,6 +10,7 @@ import asyncio
 
 from _common import CLI_PATH, WORK_DIR, banner, start_session
 from claude_agent_sdk import ClaudeAgentOptions, query
+from claude_agent_sdk.types import ResultMessage
 
 
 async def main() -> None:
@@ -37,7 +38,7 @@ async def main() -> None:
             cwd=WORK_DIR,
         ),
     ):
-        if hasattr(msg, "result"):
+        if isinstance(msg, ResultMessage) and msg.result:
             print(msg.result)
 
 

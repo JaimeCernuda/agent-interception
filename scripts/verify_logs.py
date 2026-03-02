@@ -79,7 +79,7 @@ async def main() -> None:
 
             # Validate required fields
             if not entry.get("id"):
-                issues.append(f"Entry missing id")
+                issues.append("Entry missing id")
             if not entry.get("timestamp"):
                 issues.append(f"{entry.get('id', '?')}: missing timestamp")
             if not entry.get("provider"):
