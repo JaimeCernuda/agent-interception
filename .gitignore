@@ -26,3 +26,7 @@ nul
 
 # uv
 .python-version
+
+# Frontend build artifacts
+frontend/node_modules/
+frontend/dist/

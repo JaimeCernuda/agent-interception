@@ -8,9 +8,11 @@ Run with: uv run python scripts/multi_turn_refactor.py
 from __future__ import annotations
 
 import asyncio
+import dataclasses
 
 from _common import CLI_PATH, WORK_DIR, banner, start_session
 from claude_agent_sdk import ClaudeAgentOptions, query
+from claude_agent_sdk.types import ResultMessage
 
 
 async def main() -> None:
@@ -37,10 +39,10 @@ async def main() -> None:
         ),
         options=base_opts,
     ):
-        if hasattr(msg, "subtype") and msg.subtype == "init":
+        if isinstance(msg, ResultMessage):
             sdk_session_id = msg.session_id
-        if hasattr(msg, "result"):
-            print(msg.result)
+            if msg.result:
+                print(msg.result)
 
     if not sdk_session_id:
         print("ERROR: no session_id captured")
@@ -56,11 +58,9 @@ async def main() -> None:
             "uv run ruff format src/agent_interception/display/terminal.py' "
             "to verify it passes lint."
         ),
-        options=ClaudeAgentOptions(
-            **{**base_opts.model_dump(), "resume": sdk_session_id},
-        ),
+        options=dataclasses.replace(base_opts, resume=sdk_session_id),
     ):
-        if hasattr(msg, "result"):
+        if isinstance(msg, ResultMessage) and msg.result:
             print(msg.result)
 
     # --- Turn 3: Verify and summarize ---
@@ -71,11 +71,9 @@ async def main() -> None:
             "make sure nothing broke. Then read the file one more time and "
             "give a brief before/after summary of what changed."
         ),
-        options=ClaudeAgentOptions(
-            **{**base_opts.model_dump(), "resume": sdk_session_id},
-        ),
+        options=dataclasses.replace(base_opts, resume=sdk_session_id),
     ):
-        if hasattr(msg, "result"):
+        if isinstance(msg, ResultMessage) and msg.result:
             print(msg.result)
 
 

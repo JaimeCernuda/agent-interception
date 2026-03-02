@@ -5,7 +5,7 @@ from __future__ import annotations
 import contextlib
 from typing import Any
 
-from rich.console import Console
+from rich.console import Console, Group
 from rich.panel import Panel
 from rich.table import Table
 from rich.text import Text
@@ -60,7 +60,7 @@ class TerminalDisplay:
         header.append(f" {interaction.method} {interaction.path}", style="dim")
 
         if interaction.model:
-            header.append(f"  model={interaction.model}", style=f"{color}")
+            header.append(f"  model={interaction.model}", style=color)
         if interaction.is_streaming:
             header.append("  [stream]", style="italic dim")
 
@@ -74,8 +74,8 @@ class TerminalDisplay:
         if interaction.time_to_first_token_ms is not None:
             metrics.append(f"ttft={interaction.time_to_first_token_ms:.0f}ms  ")
         if interaction.token_usage:
-            u = interaction.token_usage
-            metrics.append(f"tokens={u.input_tokens or 0}in/{u.output_tokens or 0}out  ")
+            usage = interaction.token_usage
+            metrics.append(f"tokens={usage.input_tokens or 0}in/{usage.output_tokens or 0}out  ")
         if interaction.cost_estimate and interaction.cost_estimate.total_cost > 0:
             metrics.append(f"cost=${interaction.cost_estimate.total_cost:.6f}  ")
 
@@ -139,8 +139,17 @@ class TerminalDisplay:
 
         content = "\n".join(content_parts) if content_parts else "[dim]No content[/dim]"
 
+        # Pass renderables through Group so that the Rich Text objects (header,
+        # metrics) are rendered with their styles intact.  Previously they were
+        # interpolated into an f-string, which called __str__() and stripped all
+        # markup and colour information.
+        renderables: list[Any] = [header]
+        if metrics:
+            renderables.append(metrics)
+        renderables.append(content)
+
         panel = Panel(
-            f"{header}\n{metrics}\n{content}",
+            Group(*renderables),
             border_style=color,
             padding=(0, 1),
         )
@@ -158,21 +167,22 @@ class TerminalDisplay:
         table.add_column("Tokens", width=15)
         table.add_column("Response", max_width=40)
 
-        for i in interactions:
-            color = PROVIDER_COLORS.get(i.provider, "dim")
+        for interaction in interactions:
+            color = PROVIDER_COLORS.get(interaction.provider, "dim")
             tokens = ""
-            if i.token_usage:
-                tokens = f"{i.token_usage.input_tokens or 0}/{i.token_usage.output_tokens or 0}"
+            if interaction.token_usage:
+                usage = interaction.token_usage
+                tokens = f"{usage.input_tokens or 0}/{usage.output_tokens or 0}"
 
             table.add_row(
-                i.timestamp.strftime("%Y-%m-%d %H:%M:%S"),
-                Text(i.provider.value, style=color),
-                i.model or "-",
-                i.path[:25],
-                str(i.status_code or "-"),
-                f"{i.total_latency_ms:.0f}ms" if i.total_latency_ms else "-",
+                interaction.timestamp.strftime("%Y-%m-%d %H:%M:%S"),
+                Text(interaction.provider.value, style=color),
+                interaction.model or "-",
+                interaction.path[:25],
+                str(interaction.status_code or "-"),
+                f"{interaction.total_latency_ms:.0f}ms" if interaction.total_latency_ms else "-",
                 tokens or "-",
-                _truncate(i.response_text or "-", 40),
+                _truncate(interaction.response_text or "-", 40),
             )
 
         self._console.print(table)

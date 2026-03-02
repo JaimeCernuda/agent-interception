@@ -1,0 +1,136 @@
+import { useEffect, useState, useCallback } from "react";
+import { listInteractions } from "../api";
+import type { InteractionSummary, Provider } from "../types";
+
+const PROVIDER_COLORS: Record<Provider, string> = {
+  openai: "bg-emerald-900 text-emerald-300",
+  anthropic: "bg-orange-900 text-orange-300",
+  ollama: "bg-blue-900 text-blue-300",
+  unknown: "bg-gray-700 text-gray-300",
+};
+
+function fmt(ms: number | null) {
+  if (ms == null) return "—";
+  return ms >= 1000 ? `${(ms / 1000).toFixed(1)}s` : `${Math.round(ms)}ms`;
+}
+
+function fmtTime(ts: string) {
+  return new Date(ts).toLocaleTimeString();
+}
+
+interface Props {
+  selectedId: string | null;
+  onSelect: (id: string) => void;
+}
+
+export default function InteractionsTable({ selectedId, onSelect }: Props) {
+  const [rows, setRows] = useState<InteractionSummary[]>([]);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  const refresh = useCallback(async () => {
+    try {
+      const data = await listInteractions({ limit: 100 });
+      setRows(data);
+      setError(null);
+    } catch (e) {
+      setError(String(e));
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    refresh();
+    const id = setInterval(refresh, 5000);
+    return () => clearInterval(id);
+  }, [refresh]);
+
+  if (loading) {
+    return <div className="text-gray-500 text-sm py-8 text-center">Loading…</div>;
+  }
+  if (error) {
+    return (
+      <div className="text-red-400 text-sm py-4">
+        Error: {error}
+        <button onClick={refresh} className="ml-3 underline">Retry</button>
+      </div>
+    );
+  }
+  if (rows.length === 0) {
+    return (
+      <div className="text-gray-500 text-sm py-8 text-center">
+        No interactions yet. Route LLM calls through the proxy to see them here.
+      </div>
+    );
+  }
+
+  return (
+    <div className="overflow-x-auto">
+      <table className="w-full text-sm border-collapse">
+        <thead>
+          <tr className="border-b border-gray-800 text-gray-400 text-xs uppercase tracking-wider">
+            <th className="text-left py-2 px-3 font-medium">Time</th>
+            <th className="text-left py-2 px-3 font-medium">Provider</th>
+            <th className="text-left py-2 px-3 font-medium">Model</th>
+            <th className="text-left py-2 px-3 font-medium">Endpoint</th>
+            <th className="text-center py-2 px-3 font-medium">Status</th>
+            <th className="text-center py-2 px-3 font-medium">Stream</th>
+            <th className="text-right py-2 px-3 font-medium">Latency</th>
+            <th className="text-left py-2 px-3 font-medium">Preview</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr
+              key={row.id}
+              onClick={() => onSelect(row.id)}
+              className={`border-b border-gray-800/50 cursor-pointer transition-colors hover:bg-gray-800/50 ${
+                selectedId === row.id ? "bg-gray-800" : ""
+              }`}
+            >
+              <td className="py-2 px-3 font-mono text-xs text-gray-400 whitespace-nowrap">
+                {fmtTime(row.timestamp)}
+              </td>
+              <td className="py-2 px-3">
+                <span className={`text-xs px-2 py-0.5 rounded font-medium ${PROVIDER_COLORS[row.provider]}`}>
+                  {row.provider}
+                </span>
+              </td>
+              <td className="py-2 px-3 text-xs text-gray-300 max-w-[140px] truncate">
+                {row.model ?? <span className="text-gray-600">—</span>}
+              </td>
+              <td className="py-2 px-3 font-mono text-xs text-gray-400">
+                <span className="text-gray-500">{row.method}</span> {row.path}
+              </td>
+              <td className="py-2 px-3 text-center">
+                <span
+                  className={`text-xs font-mono ${
+                    row.status_code == null
+                      ? "text-gray-600"
+                      : row.status_code < 300
+                      ? "text-green-400"
+                      : row.status_code < 400
+                      ? "text-yellow-400"
+                      : "text-red-400"
+                  }`}
+                >
+                  {row.status_code ?? "—"}
+                </span>
+              </td>
+              <td className="py-2 px-3 text-center text-gray-500 text-xs">
+                {row.is_streaming ? "~" : ""}
+              </td>
+              <td className="py-2 px-3 text-right font-mono text-xs text-gray-400 whitespace-nowrap">
+                {fmt(row.total_latency_ms)}
+              </td>
+              <td className="py-2 px-3 text-xs text-gray-500 max-w-[220px] truncate">
+                {row.response_text_preview}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}

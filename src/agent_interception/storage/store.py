@@ -305,7 +305,11 @@ class InteractionStore:
         return [self._row_to_interaction(row) for row in rows]
 
     async def list_sessions(self) -> list[dict[str, Any]]:
-        """List all sessions with summary info."""
+        """List all sessions with summary info.
+
+        Includes a virtual ``__unsessioned__`` entry for interactions
+        that were captured without a session prefix.
+        """
         cursor = await self.db.execute(
             """
             SELECT
@@ -323,7 +327,7 @@ class InteractionStore:
             """
         )
         rows = await cursor.fetchall()
-        return [
+        sessions = [
             {
                 "session_id": row[0],
                 "interaction_count": row[1],
@@ -336,6 +340,34 @@ class InteractionStore:
             for row in rows
         ]
 
+        # Include a virtual entry for interactions captured without a session prefix
+        cursor = await self.db.execute(
+            """
+            SELECT
+                COUNT(*) as interaction_count,
+                MIN(timestamp) as first_interaction,
+                MAX(timestamp) as last_interaction,
+                GROUP_CONCAT(DISTINCT provider) as providers,
+                GROUP_CONCAT(DISTINCT model) as models,
+                SUM(total_latency_ms) as total_latency_ms
+            FROM interactions
+            WHERE session_id IS NULL
+            """
+        )
+        row = await cursor.fetchone()
+        if row and row[0] and row[0] > 0:
+            sessions.append({
+                "session_id": "__unsessioned__",
+                "interaction_count": row[0],
+                "first_interaction": row[1],
+                "last_interaction": row[2],
+                "providers": row[3].split(",") if row[3] else [],
+                "models": row[4].split(",") if row[4] else [],
+                "total_latency_ms": row[5],
+            })
+
+        return sessions
+      
     async def get_recent_in_session(self, session_id: str, limit: int = 1) -> list[Interaction]:
         """Return the most recent interactions from a session, newest first."""
         cursor = await self.db.execute(
@@ -402,6 +434,338 @@ class InteractionStore:
         await self.db.execute("DELETE FROM interactions")
         await self.db.commit()
         return count
+
+    async def clear_by_scope(
+        self,
+        scope: str,
+        session_id: str | None = None,
+    ) -> int:
+        """Delete interactions by scope. Returns count deleted."""
+        if scope == "all":
+            return await self.clear()
+        elif scope == "24h":
+            cursor = await self.db.execute(
+                "SELECT COUNT(*) FROM interactions WHERE timestamp >= datetime('now', '-24 hours')"
+            )
+            count_row = await cursor.fetchone()
+            count = count_row[0] if count_row else 0
+            await self.db.execute(
+                "DELETE FROM interactions WHERE timestamp >= datetime('now', '-24 hours')"
+            )
+            await self.db.commit()
+            return count
+        elif scope == "session":
+            if not session_id:
+                # Fall back to most recent session
+                cursor = await self.db.execute(
+                    "SELECT session_id FROM interactions "
+                    "WHERE session_id IS NOT NULL ORDER BY timestamp DESC LIMIT 1"
+                )
+                row = await cursor.fetchone()
+                if not row:
+                    return 0
+                session_id = row[0]
+            cursor = await self.db.execute(
+                "SELECT COUNT(*) FROM interactions WHERE session_id = ?", (session_id,)
+            )
+            count_row = await cursor.fetchone()
+            count = count_row[0] if count_row else 0
+            await self.db.execute(
+                "DELETE FROM interactions WHERE session_id = ?", (session_id,)
+            )
+            await self.db.commit()
+            return count
+        return 0
+
+    async def get_session_graph(self, session_id: str) -> dict[str, Any]:
+        """Compute graph data for a session (nodes, edges, timeline).
+
+        Pass ``session_id="__unsessioned__"`` to get the graph for all
+        interactions that were captured without a session prefix.
+        """
+        if session_id == "__unsessioned__":
+            cursor = await self.db.execute(
+                """
+                SELECT id, timestamp, provider, model, tool_calls, status_code,
+                       total_latency_ms, time_to_first_token_ms, error,
+                       token_usage, cost_estimate, is_streaming, tools
+                FROM interactions
+                WHERE session_id IS NULL
+                ORDER BY timestamp ASC
+                """
+            )
+        else:
+            cursor = await self.db.execute(
+                """
+                SELECT id, timestamp, provider, model, tool_calls, status_code,
+                       total_latency_ms, time_to_first_token_ms, error,
+                       token_usage, cost_estimate, is_streaming, tools
+                FROM interactions
+                WHERE session_id = ?
+                ORDER BY timestamp ASC
+                """,
+                (session_id,),
+            )
+        rows = await cursor.fetchall()
+        if not rows:
+            return {"nodes": [], "edges": [], "timeline": []}
+
+        # Collect all interactions' parsed data
+        interactions_data: list[dict[str, Any]] = []
+        for row in rows:
+            token_data = _deserialize_json(row["token_usage"])
+            cost_data = _deserialize_json(row["cost_estimate"])
+            tool_calls = _deserialize_json(row["tool_calls"]) or []
+            tools_defs = _deserialize_json(row["tools"]) or []
+            # Extract tool names from tool_calls
+            tool_names: list[str] = []
+            for tc in tool_calls:
+                if isinstance(tc, dict):
+                    name = tc.get("name") or (tc.get("function", {}) or {}).get("name")
+                    if name:
+                        tool_names.append(str(name))
+            # Also gather tool names from definitions
+            for td in tools_defs:
+                if isinstance(td, dict):
+                    name = td.get("name")
+                    if name and name not in tool_names:
+                        tool_names.append(str(name))
+            interactions_data.append({
+                "id": row["id"],
+                "timestamp": row["timestamp"],
+                "provider": row["provider"],
+                "model": row["model"],
+                "status_code": row["status_code"],
+                "total_latency_ms": row["total_latency_ms"],
+                "time_to_first_token_ms": row["time_to_first_token_ms"],
+                "error": row["error"],
+                "is_streaming": bool(row["is_streaming"]),
+                "input_tokens": token_data.get("input_tokens") if token_data else None,
+                "output_tokens": token_data.get("output_tokens") if token_data else None,
+                "total_cost": cost_data.get("total_cost") if cost_data else None,
+                "tool_names": tool_names,
+            })
+
+        def _metrics(items: list[dict[str, Any]]) -> dict[str, Any]:
+            count = len(items)
+            errors = sum(1 for x in items if x.get("error") or (x.get("status_code") or 200) >= 400)
+            latencies = [x["total_latency_ms"] for x in items if x["total_latency_ms"] is not None]
+            tokens = sum(
+                (x.get("input_tokens") or 0) + (x.get("output_tokens") or 0) for x in items
+            )
+            cost = sum(x.get("total_cost") or 0.0 for x in items)
+            sorted_lat = sorted(latencies)
+            p95 = sorted_lat[int(len(sorted_lat) * 0.95)] if sorted_lat else None
+            return {
+                "callCount": count,
+                "errorRate": round(errors / count, 4) if count else 0,
+                "avgLatencyMs": round(sum(latencies) / len(latencies), 1) if latencies else None,
+                "p95LatencyMs": round(p95, 1) if p95 is not None else None,
+                "totalTokens": tokens,
+                "totalCostUsd": round(cost, 6),
+            }
+
+        all_metrics = _metrics(interactions_data)
+
+        # Build unique sets
+        providers = list(dict.fromkeys(x["provider"] for x in interactions_data))
+        # provider -> models
+        provider_models: dict[str, list[str]] = {}
+        for x in interactions_data:
+            p = x["provider"]
+            m = x["model"]
+            if m:
+                provider_models.setdefault(p, [])
+                if m not in provider_models[p]:
+                    provider_models[p].append(m)
+        all_tool_names: list[str] = []
+        for x in interactions_data:
+            for tn in x["tool_names"]:
+                if tn not in all_tool_names:
+                    all_tool_names.append(tn)
+
+        # Nodes
+        nodes: list[dict[str, Any]] = [
+            {"id": "agent", "type": "agent", "label": "Agent", "metrics": all_metrics},
+            {"id": "proxy", "type": "proxy", "label": "Interceptor", "metrics": all_metrics},
+        ]
+        for p in providers:
+            p_items = [x for x in interactions_data if x["provider"] == p]
+            nodes.append(
+                {
+                    "id": f"provider:{p}",
+                    "type": "provider",
+                    "label": p,
+                    "metrics": _metrics(p_items),
+                }
+            )
+        for p in providers:
+            for m in provider_models.get(p, []):
+                m_items = [x for x in interactions_data if x["model"] == m]
+                nodes.append(
+                    {"id": f"model:{m}", "type": "model", "label": m, "metrics": _metrics(m_items)}
+                )
+        for tn in all_tool_names:
+            t_items = [x for x in interactions_data if tn in x["tool_names"]]
+            nodes.append(
+                {"id": f"tool:{tn}", "type": "tool", "label": tn, "metrics": _metrics(t_items)}
+            )
+
+        # Edges
+        edges: list[dict[str, Any]] = []
+        # Agent → Proxy
+        edges.append({"from": "agent", "to": "proxy", **all_metrics})
+        # Agent → Tool
+        for tn in all_tool_names:
+            t_items = [x for x in interactions_data if tn in x["tool_names"]]
+            edges.append({"from": "agent", "to": f"tool:{tn}", **_metrics(t_items)})
+        # Proxy → Provider
+        for p in providers:
+            p_items = [x for x in interactions_data if x["provider"] == p]
+            edges.append({"from": "proxy", "to": f"provider:{p}", **_metrics(p_items)})
+        # Provider → Model
+        for p in providers:
+            for m in provider_models.get(p, []):
+                m_items = [x for x in interactions_data if x["model"] == m]
+                edges.append({"from": f"provider:{p}", "to": f"model:{m}", **_metrics(m_items)})
+
+        # Timeline
+        timeline = [
+            {
+                "interactionId": x["id"],
+                "timestamp": x["timestamp"],
+                "status": x["status_code"],
+                "latencyMs": x["total_latency_ms"],
+                "provider": x["provider"],
+                "isStreaming": x["is_streaming"],
+                "error": x["error"],
+            }
+            for x in interactions_data
+        ]
+
+        return {"nodes": nodes, "edges": edges, "timeline": timeline}
+
+    async def get_session_tool_sequence(self, session_id: str) -> list[dict[str, Any]]:
+        """Return ordered list of interactions with tool calls and results for a session.
+
+        Each entry represents one LLM API call and contains:
+        - interactionId, interactionIndex, timestamp, model, provider, latencyMs
+        - toolCalls: list of {id, name, input} from the LLM response
+        - toolResults: list of {toolCallId, content} parsed from this interaction's messages
+        """
+        if session_id == "__unsessioned__":
+            cursor = await self.db.execute(
+                """
+                SELECT id, timestamp, provider, model, tool_calls, messages,
+                       total_latency_ms, status_code, error
+                FROM interactions
+                WHERE session_id IS NULL
+                ORDER BY timestamp ASC
+                """
+            )
+        else:
+            cursor = await self.db.execute(
+                """
+                SELECT id, timestamp, provider, model, tool_calls, messages,
+                       total_latency_ms, status_code, error
+                FROM interactions
+                WHERE session_id = ?
+                ORDER BY timestamp ASC
+                """,
+                (session_id,),
+            )
+        rows = await cursor.fetchall()
+
+        def _extract_tool_calls(raw: Any) -> list[dict[str, Any]]:
+            calls = []
+            if not raw:
+                return calls
+            for tc in raw:
+                if not isinstance(tc, dict):
+                    continue
+                # Anthropic format: {type: "tool_use", id, name, input}
+                if tc.get("type") == "tool_use" or tc.get("name"):
+                    calls.append({
+                        "id": tc.get("id"),
+                        "name": tc.get("name"),
+                        "input": tc.get("input") or {},
+                    })
+                # OpenAI format: {id, type: "function", function: {name, arguments}}
+                elif "function" in tc:
+                    fn = tc.get("function") or {}
+                    raw_args = fn.get("arguments") or "{}"
+                    try:
+                        input_data = json.loads(raw_args) if isinstance(raw_args, str) else raw_args
+                    except Exception:
+                        input_data = {"raw": raw_args}
+                    calls.append({
+                        "id": tc.get("id"),
+                        "name": fn.get("name"),
+                        "input": input_data,
+                    })
+            return calls
+
+        def _extract_tool_results(messages: Any) -> list[dict[str, Any]]:
+            results = []
+            if not messages:
+                return results
+            for msg in messages:
+                if not isinstance(msg, dict):
+                    continue
+                role = msg.get("role")
+                content = msg.get("content")
+                # OpenAI format: role == "tool"
+                if role == "tool":
+                    results.append({
+                        "toolCallId": msg.get("tool_call_id"),
+                        "content": content if isinstance(content, str) else json.dumps(content),
+                    })
+                # Anthropic format: role == "user" with content list containing tool_result blocks
+                elif role == "user" and isinstance(content, list):
+                    for block in content:
+                        if isinstance(block, dict) and block.get("type") == "tool_result":
+                            block_content = block.get("content")
+                            if isinstance(block_content, list):
+                                text_parts = [
+                                    b.get("text", "") for b in block_content
+                                    if isinstance(b, dict) and b.get("type") == "text"
+                                ]
+                                content_str = "\n".join(text_parts)
+                            else:
+                                content_str = (
+                                    block_content
+                                    if isinstance(block_content, str)
+                                    else json.dumps(block_content)
+                                )
+                            results.append({
+                                "toolCallId": block.get("tool_use_id"),
+                                "content": content_str,
+                            })
+            return results
+
+        sequence = []
+        for idx, row in enumerate(rows):
+            raw_tool_calls = _deserialize_json(row["tool_calls"])
+            raw_messages = _deserialize_json(row["messages"])
+            tool_calls = _extract_tool_calls(raw_tool_calls)
+            tool_results = _extract_tool_results(raw_messages)
+            # Only include interactions that have tool calls or tool results
+            if not tool_calls and not tool_results:
+                continue
+            sequence.append({
+                "interactionId": row["id"],
+                "interactionIndex": idx,
+                "timestamp": row["timestamp"],
+                "provider": row["provider"],
+                "model": row["model"],
+                "latencyMs": row["total_latency_ms"],
+                "statusCode": row["status_code"],
+                "error": row["error"],
+                "toolCalls": tool_calls,
+                "toolResults": tool_results,
+            })
+
+        return sequence
 
     async def get_stats(self) -> dict[str, Any]:
         """Get aggregate statistics about stored interactions."""
