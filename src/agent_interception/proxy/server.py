@@ -255,6 +255,7 @@ def create_app(
         Route(
             "/api/interactions/{interaction_id}/download",
             api_download_interaction,
+        ),
         Route("/_interceptor/conversations", list_conversations, methods=["GET"]),
         Route(
             "/_interceptor/conversations/{conversation_id}",

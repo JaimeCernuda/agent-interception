@@ -368,8 +368,9 @@ def test_export_static_charts_raises_without_kaleido(
     import click
 
     # Remove kaleido from sys.modules if present and patch the import
-    with patch.dict(sys.modules, {"kaleido": None}), pytest.raises(
-        click.ClickException, match="kaleido"
+    with (
+        patch.dict(sys.modules, {"kaleido": None}),
+        pytest.raises(click.ClickException, match="kaleido"),
     ):
         export_static_charts(sample_interactions, tmp_path / "charts", "png")
 

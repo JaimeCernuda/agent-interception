@@ -19,6 +19,7 @@ from agent_interception.models import Interaction, Provider
 from agent_interception.providers.base import ProviderParser
 from agent_interception.providers.registry import ProviderRegistry
 from agent_interception.proxy.context import compute_context_metrics
+from agent_interception.proxy.fake_responses import build_session_required_response
 from agent_interception.proxy.streaming import (
     StreamInterceptor,
     inject_stream_options,
@@ -123,6 +124,14 @@ class ProxyHandler:
 
         # Detect provider
         provider, parser, upstream_base = self._registry.detect(path, request_headers)
+
+        # Reject requests without a session ID or explicit conversation ID.
+        # This prevents broken global-search threading when concurrent agents
+        # hit the proxy without session prefixes.
+        conv_id_header = request_headers.get("x-interceptor-conversation-id")
+        if session_id is None and not conv_id_header:
+            host = request_headers.get("host", f"{self._config.host}:{self._config.port}")
+            return build_session_required_response(provider, host=host)
 
         # Parse request body
         body_dict: dict[str, Any] | None = None

@@ -430,8 +430,7 @@ def export_static_charts(
         import kaleido  # noqa: F401  # type: ignore[import-untyped]
     except ImportError as exc:
         raise click.ClickException(
-            "Static image export requires kaleido.\n"
-            "Install it with:  uv sync --group viz-static"
+            "Static image export requires kaleido.\nInstall it with:  uv sync --group viz-static"
         ) from exc
 
     chart_fns = [
