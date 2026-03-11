@@ -346,7 +346,7 @@ class TestProxyForwarding:
             scope = {
                 "type": "http",
                 "method": "POST",
-                "path": "/v1/chat/completions",
+                "path": "/_session/test/v1/chat/completions",
                 "query_string": b"",
                 "headers": [
                     (b"content-type", b"application/json"),
@@ -444,7 +444,7 @@ class TestProxyForwarding:
             scope = {
                 "type": "http",
                 "method": "POST",
-                "path": "/v1/messages",
+                "path": "/_session/test/v1/messages",
                 "query_string": b"",
                 "headers": [
                     (b"content-type", b"application/json"),
@@ -511,7 +511,7 @@ class TestProxyForwarding:
             scope = {
                 "type": "http",
                 "method": "POST",
-                "path": "/v1/chat/completions",
+                "path": "/_session/test/v1/chat/completions",
                 "query_string": b"",
                 "headers": [(b"content-type", b"application/json")],
             }

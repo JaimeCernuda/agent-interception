@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import logging
 import uuid
 from typing import Any
 
@@ -19,6 +20,8 @@ from agent_interception.models import (
     TokenUsage,
 )
 from agent_interception.storage.migrations import apply_migrations
+
+logger = logging.getLogger(__name__)
 
 
 def _serialize_json(value: Any) -> str | None:
@@ -184,25 +187,13 @@ class InteractionStore:
                 interaction.turn_type = "initial"
 
         else:
-            # No session ID and no explicit conversation ID (e.g. agent uses
-            # ANTHROPIC_BASE_URL directly without a /_session/ prefix).
-            # Search recent interactions globally for a content-based continuation match.
-            recent = await self.list_interactions(limit=10)
-            for prev in recent:
-                if self._is_continuation(interaction, prev):
-                    interaction.conversation_id = prev.conversation_id or str(uuid.uuid4())
-                    interaction.parent_interaction_id = prev.id
-                    interaction.turn_number = (prev.turn_number or 1) + 1
-                    if prev.tool_calls and self._has_tool_results(interaction):
-                        interaction.turn_type = "tool_result"
-                    else:
-                        interaction.turn_type = "continuation"
-                    self._update_new_messages_delta(interaction, prev)
-                    return
-            # No match — start a fresh conversation thread.
-            interaction.conversation_id = str(uuid.uuid4())
-            interaction.turn_number = 1
-            interaction.turn_type = "initial"
+            # No session ID and no explicit conversation ID.
+            # This should not happen in normal proxy traffic (handler rejects these),
+            # but can occur if store.save() is called directly (tests, admin, etc.).
+            logger.warning(
+                "Interaction %s has no session_id or conversation_id — saving as orphan",
+                interaction.id,
+            )
 
     @staticmethod
     def _is_continuation(interaction: Interaction, prev: Interaction) -> bool:
@@ -356,18 +347,20 @@ class InteractionStore:
         )
         row = await cursor.fetchone()
         if row and row[0] and row[0] > 0:
-            sessions.append({
-                "session_id": "__unsessioned__",
-                "interaction_count": row[0],
-                "first_interaction": row[1],
-                "last_interaction": row[2],
-                "providers": row[3].split(",") if row[3] else [],
-                "models": row[4].split(",") if row[4] else [],
-                "total_latency_ms": row[5],
-            })
+            sessions.append(
+                {
+                    "session_id": "__unsessioned__",
+                    "interaction_count": row[0],
+                    "first_interaction": row[1],
+                    "last_interaction": row[2],
+                    "providers": row[3].split(",") if row[3] else [],
+                    "models": row[4].split(",") if row[4] else [],
+                    "total_latency_ms": row[5],
+                }
+            )
 
         return sessions
-      
+
     async def get_recent_in_session(self, session_id: str, limit: int = 1) -> list[Interaction]:
         """Return the most recent interactions from a session, newest first."""
         cursor = await self.db.execute(
@@ -470,9 +463,7 @@ class InteractionStore:
             )
             count_row = await cursor.fetchone()
             count = count_row[0] if count_row else 0
-            await self.db.execute(
-                "DELETE FROM interactions WHERE session_id = ?", (session_id,)
-            )
+            await self.db.execute("DELETE FROM interactions WHERE session_id = ?", (session_id,))
             await self.db.commit()
             return count
         return 0
@@ -530,21 +521,23 @@ class InteractionStore:
                     name = td.get("name")
                     if name and name not in tool_names:
                         tool_names.append(str(name))
-            interactions_data.append({
-                "id": row["id"],
-                "timestamp": row["timestamp"],
-                "provider": row["provider"],
-                "model": row["model"],
-                "status_code": row["status_code"],
-                "total_latency_ms": row["total_latency_ms"],
-                "time_to_first_token_ms": row["time_to_first_token_ms"],
-                "error": row["error"],
-                "is_streaming": bool(row["is_streaming"]),
-                "input_tokens": token_data.get("input_tokens") if token_data else None,
-                "output_tokens": token_data.get("output_tokens") if token_data else None,
-                "total_cost": cost_data.get("total_cost") if cost_data else None,
-                "tool_names": tool_names,
-            })
+            interactions_data.append(
+                {
+                    "id": row["id"],
+                    "timestamp": row["timestamp"],
+                    "provider": row["provider"],
+                    "model": row["model"],
+                    "status_code": row["status_code"],
+                    "total_latency_ms": row["total_latency_ms"],
+                    "time_to_first_token_ms": row["time_to_first_token_ms"],
+                    "error": row["error"],
+                    "is_streaming": bool(row["is_streaming"]),
+                    "input_tokens": token_data.get("input_tokens") if token_data else None,
+                    "output_tokens": token_data.get("output_tokens") if token_data else None,
+                    "total_cost": cost_data.get("total_cost") if cost_data else None,
+                    "tool_names": tool_names,
+                }
+            )
 
         def _metrics(items: list[dict[str, Any]]) -> dict[str, Any]:
             count = len(items)
@@ -687,11 +680,13 @@ class InteractionStore:
                     continue
                 # Anthropic format: {type: "tool_use", id, name, input}
                 if tc.get("type") == "tool_use" or tc.get("name"):
-                    calls.append({
-                        "id": tc.get("id"),
-                        "name": tc.get("name"),
-                        "input": tc.get("input") or {},
-                    })
+                    calls.append(
+                        {
+                            "id": tc.get("id"),
+                            "name": tc.get("name"),
+                            "input": tc.get("input") or {},
+                        }
+                    )
                 # OpenAI format: {id, type: "function", function: {name, arguments}}
                 elif "function" in tc:
                     fn = tc.get("function") or {}
@@ -700,11 +695,13 @@ class InteractionStore:
                         input_data = json.loads(raw_args) if isinstance(raw_args, str) else raw_args
                     except Exception:
                         input_data = {"raw": raw_args}
-                    calls.append({
-                        "id": tc.get("id"),
-                        "name": fn.get("name"),
-                        "input": input_data,
-                    })
+                    calls.append(
+                        {
+                            "id": tc.get("id"),
+                            "name": fn.get("name"),
+                            "input": input_data,
+                        }
+                    )
             return calls
 
         def _extract_tool_results(messages: Any) -> list[dict[str, Any]]:
@@ -718,10 +715,12 @@ class InteractionStore:
                 content = msg.get("content")
                 # OpenAI format: role == "tool"
                 if role == "tool":
-                    results.append({
-                        "toolCallId": msg.get("tool_call_id"),
-                        "content": content if isinstance(content, str) else json.dumps(content),
-                    })
+                    results.append(
+                        {
+                            "toolCallId": msg.get("tool_call_id"),
+                            "content": content if isinstance(content, str) else json.dumps(content),
+                        }
+                    )
                 # Anthropic format: role == "user" with content list containing tool_result blocks
                 elif role == "user" and isinstance(content, list):
                     for block in content:
@@ -729,7 +728,8 @@ class InteractionStore:
                             block_content = block.get("content")
                             if isinstance(block_content, list):
                                 text_parts = [
-                                    b.get("text", "") for b in block_content
+                                    b.get("text", "")
+                                    for b in block_content
                                     if isinstance(b, dict) and b.get("type") == "text"
                                 ]
                                 content_str = "\n".join(text_parts)
@@ -739,10 +739,12 @@ class InteractionStore:
                                     if isinstance(block_content, str)
                                     else json.dumps(block_content)
                                 )
-                            results.append({
-                                "toolCallId": block.get("tool_use_id"),
-                                "content": content_str,
-                            })
+                            results.append(
+                                {
+                                    "toolCallId": block.get("tool_use_id"),
+                                    "content": content_str,
+                                }
+                            )
             return results
 
         sequence = []

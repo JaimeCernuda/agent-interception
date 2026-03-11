@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from datetime import UTC, datetime
+
 import pytest
 
 from agent_interception.models import Interaction, Provider
@@ -176,3 +178,69 @@ async def test_request_headers_roundtrip(
     assert retrieved is not None
     assert retrieved.request_headers["content-type"] == "application/json"
     assert retrieved.request_headers["authorization"] == "Bearer sk-***"
+
+
+@pytest.mark.asyncio
+async def test_no_session_saved_as_orphan(store: InteractionStore) -> None:
+    """Interaction without session_id or conversation_id is saved as an unlinked orphan."""
+    interaction = Interaction(
+        id="orphan-1",
+        timestamp=datetime(2025, 2, 1, 12, 0, 0, tzinfo=UTC),
+        method="POST",
+        path="/v1/messages",
+        provider=Provider.ANTHROPIC,
+        model="claude-sonnet-4-20250514",
+        messages=[{"role": "user", "content": "Hello"}],
+        response_text="Hi there",
+        status_code=200,
+    )
+    await store.save(interaction)
+    retrieved = await store.get("orphan-1")
+
+    assert retrieved is not None
+    assert retrieved.conversation_id is None
+    assert retrieved.parent_interaction_id is None
+    assert retrieved.turn_number is None
+    assert retrieved.turn_type is None
+
+
+@pytest.mark.asyncio
+async def test_no_session_does_not_link_to_previous(store: InteractionStore) -> None:
+    """Two interactions without session_id should NOT be linked via global search."""
+    first = Interaction(
+        id="nosession-1",
+        timestamp=datetime(2025, 2, 1, 12, 0, 0, tzinfo=UTC),
+        method="POST",
+        path="/v1/messages",
+        provider=Provider.ANTHROPIC,
+        model="claude-sonnet-4-20250514",
+        messages=[{"role": "user", "content": "First message"}],
+        response_text="First response",
+        status_code=200,
+    )
+    second = Interaction(
+        id="nosession-2",
+        timestamp=datetime(2025, 2, 1, 12, 0, 1, tzinfo=UTC),
+        method="POST",
+        path="/v1/messages",
+        provider=Provider.ANTHROPIC,
+        model="claude-sonnet-4-20250514",
+        messages=[
+            {"role": "user", "content": "First message"},
+            {"role": "assistant", "content": "First response"},
+            {"role": "user", "content": "Second message"},
+        ],
+        status_code=200,
+    )
+    await store.save(first)
+    await store.save(second)
+
+    retrieved_first = await store.get("nosession-1")
+    retrieved_second = await store.get("nosession-2")
+
+    assert retrieved_first is not None
+    assert retrieved_second is not None
+    # Neither should have threading metadata
+    assert retrieved_first.conversation_id is None
+    assert retrieved_second.conversation_id is None
+    assert retrieved_second.parent_interaction_id is None

@@ -35,7 +35,7 @@ uv sync --dev
 uv run agent-interceptor start
 ```
 
-This starts the proxy on `http://127.0.0.1:8080` with default settings. The SQLite database is created at `interceptor.db`.
+This starts the proxy on `http://127.0.0.1:8080` with default settings. The SQLite database is created at `interceptor.db`. All requests require a session ID — see [Session ID (Required)](#session-id-required) below.
 
 ### 2. Point your agent at the proxy
 
@@ -43,20 +43,20 @@ Set the appropriate environment variable for your agent:
 
 | Agent | Env Var | Value |
 |---|---|---|
-| Claude Code | `ANTHROPIC_BASE_URL` | `http://localhost:8080` |
-| Aider | `OPENAI_API_BASE` | `http://localhost:8080/v1` |
-| Continue.dev | `apiBase` in config | `http://localhost:8080/v1` |
-| LangChain (OpenAI) | `OPENAI_BASE_URL` | `http://localhost:8080/v1` |
-| LangChain (Anthropic) | `ANTHROPIC_BASE_URL` | `http://localhost:8080` |
-| CrewAI | `OPENAI_BASE_URL` | `http://localhost:8080/v1` |
-| Ollama clients | `OLLAMA_HOST` | `http://localhost:8080` |
-| OpenAI SDK | `OPENAI_BASE_URL` | `http://localhost:8080/v1` |
-| Anthropic SDK | `ANTHROPIC_BASE_URL` | `http://localhost:8080` |
+| Claude Code | `ANTHROPIC_BASE_URL` | `http://localhost:8080/_session/default` |
+| Aider | `OPENAI_API_BASE` | `http://localhost:8080/_session/default/v1` |
+| Continue.dev | `apiBase` in config | `http://localhost:8080/_session/default/v1` |
+| LangChain (OpenAI) | `OPENAI_BASE_URL` | `http://localhost:8080/_session/default/v1` |
+| LangChain (Anthropic) | `ANTHROPIC_BASE_URL` | `http://localhost:8080/_session/default` |
+| CrewAI | `OPENAI_BASE_URL` | `http://localhost:8080/_session/default/v1` |
+| Ollama clients | `OLLAMA_HOST` | `http://localhost:8080/_session/default` |
+| OpenAI SDK | `OPENAI_BASE_URL` | `http://localhost:8080/_session/default/v1` |
+| Anthropic SDK | `ANTHROPIC_BASE_URL` | `http://localhost:8080/_session/default` |
 
 Example with Claude Code:
 
 ```bash
-ANTHROPIC_BASE_URL=http://localhost:8080 claude -p "Hello"
+ANTHROPIC_BASE_URL=http://localhost:8080/_session/default claude -p "Hello"
 ```
 
 ### 3. View captured interactions
@@ -240,16 +240,37 @@ curl http://localhost:8080/_interceptor/interactions/<id>
 curl -X DELETE http://localhost:8080/_interceptor/interactions
 ```
 
-## Session Tracking
+## Session ID (Required)
 
-When multiple agents run simultaneously, their API calls are interleaved. To separate them, use **session-tagged URLs** — encode a session ID in the base URL path:
+Every request **must** include a session ID. The proxy uses session IDs to link multi-turn conversations correctly. Without one, the proxy returns a fake LLM response explaining how to set it up (no upstream request is made).
+
+There are two ways to provide a session ID:
+
+| Method | How | Example |
+|---|---|---|
+| URL prefix (recommended) | `/_session/{id}/` in the base URL | `http://localhost:8080/_session/my-agent/` |
+| Header | `X-Interceptor-Conversation-Id` on each request | `X-Interceptor-Conversation-Id: conv-123` |
+
+The URL prefix approach is simplest — set it once in your base URL environment variable and forget it:
 
 ```bash
-# Instead of this:
-ANTHROPIC_BASE_URL=http://localhost:8080
+# Anthropic-based agents
+ANTHROPIC_BASE_URL=http://localhost:8080/_session/my-agent
 
-# Use this:
-ANTHROPIC_BASE_URL=http://localhost:8080/_session/my-session-name
+# OpenAI-based agents
+OPENAI_BASE_URL=http://localhost:8080/_session/my-agent/v1
+```
+
+### Multi-agent setup
+
+When running multiple agents simultaneously, give each a unique session ID so their conversations don't get interleaved:
+
+```bash
+# Terminal 1
+ANTHROPIC_BASE_URL=http://localhost:8080/_session/agent-a claude -p "Review code"
+
+# Terminal 2
+ANTHROPIC_BASE_URL=http://localhost:8080/_session/agent-b claude -p "Write tests"
 ```
 
 The proxy strips the `/_session/{id}` prefix, records the session ID on every interaction, then routes normally. Each agent gets its own session ID, and you can list and export sessions independently.
@@ -266,16 +287,10 @@ uv run agent-interceptor save <session-id> -o custom-name.json
 uv run agent-interceptor save <session-id> --format jsonl
 ```
 
-### Example: Two agents at once
+### Example: Viewing sessions
 
 ```bash
-# Terminal 1: Agent A
-ANTHROPIC_BASE_URL=http://localhost:8080/_session/agent-a claude -p "Review code"
-
-# Terminal 2: Agent B
-ANTHROPIC_BASE_URL=http://localhost:8080/_session/agent-b claude -p "Write tests"
-
-# See them separated
+# See sessions separated
 uv run agent-interceptor sessions
 # SESSION ID       COUNT  MODELS                STARTED
 # agent-a              7  claude-opus-4-6       2026-02-10T...
