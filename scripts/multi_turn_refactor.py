@@ -32,7 +32,7 @@ async def main() -> None:
     print("[Turn 1] Reading and assessing the display module...")
     async for msg in query(
         prompt=(
-            "Read src/agent_interception/display/terminal.py carefully. "
+            f"Read {WORK_DIR}/src/agent_interception/display/terminal.py carefully. "
             "Identify every potential improvement: code style, missing edge "
             "cases, robustness issues, missing features. List them clearly "
             "but do NOT make changes yet."

@@ -166,4 +166,8 @@ export interface ToolCallStep {
   error: string | null;
   toolCalls: ToolCallInfo[];
   toolResults: ToolResultInfo[];
+  responseText: string | null;
+  systemPromptPreview: string | null;
+  inputTokens: number | null;
+  outputTokens: number | null;
 }
