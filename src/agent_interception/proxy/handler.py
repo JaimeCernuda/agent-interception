@@ -261,6 +261,22 @@ class ProxyHandler:
             body_dict = json.loads(raw_text)
             interaction.response_body = body_dict
 
+            # Extract error message for HTTP error responses
+            status = interaction.status_code or 0
+            if status >= 400:
+                # Anthropic: {"type":"error","error":{"type":"...","message":"..."}}
+                # OpenAI:    {"error":{"message":"...","type":"..."}}
+                err_obj = body_dict.get("error")
+                if isinstance(err_obj, dict):
+                    msg = err_obj.get("message")
+                    err_type = err_obj.get("type", "")
+                    if msg:
+                        interaction.error = f"{err_type}: {msg}" if err_type else msg
+                elif isinstance(err_obj, str):
+                    interaction.error = err_obj
+                elif not interaction.error:
+                    interaction.error = f"HTTP {status}"
+
             if interaction.provider != Provider.UNKNOWN:
                 parsed = parser.parse_response(body_dict)
                 interaction.response_text = parsed.get("response_text")
@@ -273,7 +289,8 @@ class ProxyHandler:
                     interaction.model, interaction.token_usage
                 )
         except (json.JSONDecodeError, UnicodeDecodeError):
-            pass
+            if (interaction.status_code or 0) >= 400 and not interaction.error:
+                interaction.error = f"HTTP {interaction.status_code}"
 
         await self._finalize(interaction)
 
