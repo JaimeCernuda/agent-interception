@@ -139,6 +139,7 @@ export default function VisualizePage() {
                 <div>
                   <TimelineScrubber
                     entries={filteredTimeline.length > 0 ? filteredTimeline : graph.timeline}
+                    toolSequence={toolSequence ?? []}
                     onRangeChange={(from, to) => setTimeRange({ from, to })}
                   />
                 </div>

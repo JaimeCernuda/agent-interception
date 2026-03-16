@@ -650,7 +650,8 @@ class InteractionStore:
             cursor = await self.db.execute(
                 """
                 SELECT id, timestamp, provider, model, tool_calls, messages,
-                       total_latency_ms, status_code, error
+                       total_latency_ms, status_code, error,
+                       response_text, token_usage, system_prompt, response_body
                 FROM interactions
                 WHERE session_id IS NULL
                 ORDER BY timestamp ASC
@@ -660,7 +661,8 @@ class InteractionStore:
             cursor = await self.db.execute(
                 """
                 SELECT id, timestamp, provider, model, tool_calls, messages,
-                       total_latency_ms, status_code, error
+                       total_latency_ms, status_code, error,
+                       response_text, token_usage, system_prompt, response_body
                 FROM interactions
                 WHERE session_id = ?
                 ORDER BY timestamp ASC
@@ -749,25 +751,44 @@ class InteractionStore:
         for idx, row in enumerate(rows):
             raw_tool_calls = _deserialize_json(row["tool_calls"])
             raw_messages = _deserialize_json(row["messages"])
+            token_data = _deserialize_json(row["token_usage"])
             tool_calls = _extract_tool_calls(raw_tool_calls)
             tool_results = _extract_tool_results(raw_messages)
-            # Only include interactions that have tool calls or tool results
-            if not tool_calls and not tool_results:
-                continue
-            sequence.append(
-                {
-                    "interactionId": row["id"],
-                    "interactionIndex": idx,
-                    "timestamp": row["timestamp"],
-                    "provider": row["provider"],
-                    "model": row["model"],
-                    "latencyMs": row["total_latency_ms"],
-                    "statusCode": row["status_code"],
-                    "error": row["error"],
-                    "toolCalls": tool_calls,
-                    "toolResults": tool_results,
-                }
-            )
+            resp_text = row["response_text"]
+            sys_prompt = row["system_prompt"]
+            # Resolve error message: stored error takes priority, otherwise
+            # try to extract from response_body for HTTP errors (handles old records)
+            error_msg = row["error"]
+            status_code = row["status_code"]
+            if not error_msg and status_code and status_code >= 400:
+                resp_body = _deserialize_json(row["response_body"])
+                if isinstance(resp_body, dict):
+                    err_obj = resp_body.get("error")
+                    if isinstance(err_obj, dict):
+                        msg = err_obj.get("message")
+                        err_type = err_obj.get("type", "")
+                        if msg:
+                            error_msg = f"{err_type}: {msg}" if err_type else msg
+                    elif isinstance(err_obj, str):
+                        error_msg = err_obj
+                if not error_msg:
+                    error_msg = f"HTTP {status_code}"
+            sequence.append({
+                "interactionId": row["id"],
+                "interactionIndex": idx,
+                "timestamp": row["timestamp"],
+                "provider": row["provider"],
+                "model": row["model"],
+                "latencyMs": row["total_latency_ms"],
+                "statusCode": status_code,
+                "error": error_msg,
+                "toolCalls": tool_calls,
+                "toolResults": tool_results,
+                "responseText": resp_text[:300] if resp_text else None,
+                "systemPromptPreview": sys_prompt[:300] if sys_prompt else None,
+                "inputTokens": token_data.get("input_tokens") if token_data else None,
+                "outputTokens": token_data.get("output_tokens") if token_data else None,
+            })
 
         return sequence
 

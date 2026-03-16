@@ -2,10 +2,12 @@
 
 from __future__ import annotations
 
+import asyncio
 import contextlib
 from typing import Any
 
 from rich.console import Console, Group
+from rich.markup import escape
 from rich.panel import Panel
 from rich.table import Table
 from rich.text import Text
@@ -21,12 +23,28 @@ PROVIDER_COLORS: dict[Provider, str] = {
 }
 
 
+def _info_line(label: str, value: str, *, value_style: str = "") -> Text:
+    """Build a single labelled content line as a Rich Text object.
+
+    The label is rendered dim; *value* is appended as plain text so that
+    user-controlled content can never inject Rich markup, regardless of
+    whether the caller remembered to call escape().
+    """
+    t = Text()
+    t.append(f"{label}: ", style="dim")
+    t.append(value, style=value_style)
+    return t
+
+
 class TerminalDisplay:
     """Rich terminal display for real-time interaction logging."""
 
     def __init__(self, config: InterceptorConfig) -> None:
         self._config = config
         self._console = Console()
+        # Serialises concurrent on_interaction calls so that panels are never
+        # interleaved when multiple requests complete at the same time.
+        self._print_lock = asyncio.Lock()
 
     @property
     def console(self) -> Console:
@@ -34,19 +52,34 @@ class TerminalDisplay:
         return self._console
 
     async def on_interaction(self, interaction: Interaction) -> None:
-        """Display a completed interaction in the terminal."""
+        """Display a completed interaction in the terminal.
+
+        Console.print() is blocking I/O, so we push it onto the default
+        thread-pool executor to avoid stalling the event loop.  The lock
+        ensures that concurrent interactions are printed one at a time —
+        without it, two executor threads could interleave their output and
+        corrupt the panel layout.
+        """
         if self._config.quiet:
             return
-        try:
-            self._display_interaction(interaction)
-        except (UnicodeEncodeError, OSError):
-            # Fallback for terminals that can't render certain characters (e.g. Windows cp1252)
-            with contextlib.suppress(Exception):
-                self._console.print(
-                    f"[dim]{interaction.provider.value}[/dim] "
-                    f"{interaction.method} {interaction.path} "
-                    f"status={interaction.status_code}"
-                )
+        loop = asyncio.get_running_loop()
+        async with self._print_lock:
+            try:
+                await loop.run_in_executor(None, self._display_interaction, interaction)
+            except (UnicodeEncodeError, OSError):
+                # Fallback for terminals that can't render certain characters
+                # (e.g. Windows cp1252).  Build a Text object so that
+                # user-controlled fields (method, path) are never parsed as
+                # Rich markup — the same contract upheld by _display_interaction.
+                with contextlib.suppress(UnicodeEncodeError, OSError):
+                    t = Text()
+                    t.append(interaction.provider.value, style="dim")
+                    t.append(" ")
+                    t.append(interaction.method)
+                    t.append(" ")
+                    t.append(interaction.path)
+                    t.append(f" status={interaction.status_code}")
+                    await loop.run_in_executor(None, self._console.print, t)
 
     def _display_interaction(self, interaction: Interaction) -> None:
         """Render an interaction to the terminal."""
@@ -79,8 +112,12 @@ class TerminalDisplay:
         if interaction.cost_estimate and interaction.cost_estimate.total_cost > 0:
             metrics.append(f"cost=${interaction.cost_estimate.total_cost:.6f}  ")
 
-        # Build content
-        content_parts: list[str] = []
+        # Build content lines as Text objects so that user-controlled values
+        # (model outputs, tool names, system prompts, …) are *never* parsed as
+        # Rich markup.  Previously these were assembled into raw markup strings
+        # via f-strings; one missed escape() call would allow AI-generated text
+        # to inject arbitrary styling or corrupt the panel layout.
+        content_lines: list[Text] = []
 
         if self._config.verbose:
             # Conversation thread info
@@ -91,7 +128,7 @@ class TerminalDisplay:
                     thread_parts.append(f"turn={interaction.turn_number}")
                 if interaction.turn_type:
                     thread_parts.append(f"type={interaction.turn_type}")
-                content_parts.append(f"[dim]Thread:[/dim] [dim]{' '.join(thread_parts)}[/dim]")
+                content_lines.append(_info_line("Thread", " ".join(thread_parts)))
 
             # Context depth
             if interaction.context_metrics:
@@ -99,18 +136,15 @@ class TerminalDisplay:
                 depth_parts = [f"{cm.message_count} msgs / ~{cm.context_depth_chars:,} chars"]
                 if cm.new_messages_this_turn is not None:
                     depth_parts.append(f"+{cm.new_messages_this_turn} new")
-                sp_flag = ""
-                if cm.system_prompt_hash is None and cm.system_prompt_length == 0:
-                    sp_flag = ""
-                elif cm.system_prompt_length > 0:
-                    sp_flag = f"  sys={cm.system_prompt_hash}"
-                content_parts.append(
-                    f"[dim]Context:[/dim] [dim]{' / '.join(depth_parts)}{sp_flag}[/dim]"
-                )
+                sp_suffix = ""
+                if cm.system_prompt_length > 0:
+                    sp_suffix = f"  sys={cm.system_prompt_hash}"
+                content_lines.append(_info_line("Context", " / ".join(depth_parts) + sp_suffix))
 
             if interaction.system_prompt:
-                preview = _truncate(interaction.system_prompt, 200)
-                content_parts.append(f"[dim]System:[/dim] {preview}")
+                content_lines.append(
+                    _info_line("System", _truncate(interaction.system_prompt, 200))
+                )
 
             if interaction.messages:
                 last_user = None
@@ -120,33 +154,30 @@ class TerminalDisplay:
                         break
                 if last_user:
                     content_text = _extract_text(last_user.get("content"))
-                    preview = _truncate(content_text, 300)
-                    content_parts.append(f"[dim]User:[/dim] {preview}")
+                    content_lines.append(_info_line("User", _truncate(content_text, 300)))
 
         if interaction.response_text:
-            preview = _truncate(interaction.response_text, 300)
-            content_parts.append(f"[dim]Response:[/dim] {preview}")
+            content_lines.append(_info_line("Response", _truncate(interaction.response_text, 300)))
 
         if interaction.tool_calls:
             names = [
-                tc.get("name") or tc.get("function", {}).get("name", "?")
+                tc.get("name") or (tc.get("function") or {}).get("name", "?")
                 for tc in interaction.tool_calls
             ]
-            content_parts.append(f"[dim]Tool calls:[/dim] {', '.join(names)}")
+            content_lines.append(_info_line("Tool calls", ", ".join(names)))
 
         if interaction.error:
-            content_parts.append(f"[red]Error:[/red] {interaction.error}")
+            content_lines.append(_info_line("Error", interaction.error, value_style="red"))
 
-        content = "\n".join(content_parts) if content_parts else "[dim]No content[/dim]"
-
-        # Pass renderables through Group so that the Rich Text objects (header,
-        # metrics) are rendered with their styles intact.  Previously they were
-        # interpolated into an f-string, which called __str__() and stripped all
-        # markup and colour information.
+        # Assemble renderables — Group preserves Rich Text styles rather than
+        # collapsing everything to a plain string via __str__().
         renderables: list[Any] = [header]
-        if metrics:
+        if metrics.plain:
             renderables.append(metrics)
-        renderables.append(content)
+        if content_lines:
+            renderables.extend(content_lines)
+        else:
+            renderables.append(Text("No content", style="dim"))
 
         panel = Panel(
             Group(*renderables),
@@ -177,40 +208,67 @@ class TerminalDisplay:
             table.add_row(
                 interaction.timestamp.strftime("%Y-%m-%d %H:%M:%S"),
                 Text(interaction.provider.value, style=color),
-                interaction.model or "-",
-                interaction.path[:25],
+                escape(interaction.model or "-"),
+                escape(interaction.path[:25]),
                 str(interaction.status_code or "-"),
                 f"{interaction.total_latency_ms:.0f}ms" if interaction.total_latency_ms else "-",
                 tokens or "-",
-                _truncate(interaction.response_text or "-", 40),
+                escape(_truncate(interaction.response_text or "-", 40)),
             )
 
         self._console.print(table)
 
     def display_stats(self, stats: dict[str, Any]) -> None:
-        """Display aggregate statistics."""
+        """Display aggregate statistics.
+
+        All user-controlled values (provider names, model names) are appended to
+        Rich Text objects rather than interpolated into markup strings, so they
+        cannot inject arbitrary styles even if they contain bracket characters.
+        Dict keys are accessed via .get() with safe defaults so a partially-
+        populated stats dict never raises KeyError.
+        """
         self._console.print(Panel("[bold]Interceptor Statistics[/bold]"))
-        self._console.print(f"  Total interactions: [bold]{stats['total_interactions']}[/bold]")
 
-        if stats["by_provider"]:
+        total = stats.get("total_interactions", 0)
+        total_line = Text("  Total interactions: ")
+        total_line.append(str(total), style="bold")
+        self._console.print(total_line)
+
+        by_provider: dict[str, Any] = stats.get("by_provider") or {}
+        if by_provider:
             self._console.print("  By provider:")
-            for prov, count in stats["by_provider"].items():
-                color = PROVIDER_COLORS.get(Provider(prov), "dim")
-                self._console.print(f"    [{color}]{prov}[/{color}]: {count}")
+            for prov, count in by_provider.items():
+                # Guard against provider strings that are not in the enum (future
+                # providers, typos, etc.) — fall back to "dim" instead of raising.
+                try:
+                    color = PROVIDER_COLORS.get(Provider(prov), "dim")
+                except ValueError:
+                    color = "dim"
+                row = Text("    ")
+                row.append(prov, style=color)
+                row.append(f": {count}")
+                self._console.print(row)
 
-        if stats["by_model"]:
+        by_model: dict[str, Any] = stats.get("by_model") or {}
+        if by_model:
             self._console.print("  Top models:")
-            for model, count in stats["by_model"].items():
-                self._console.print(f"    {model}: {count}")
+            for model, count in by_model.items():
+                row = Text("    ")
+                row.append(model)  # plain append — never parsed as markup
+                row.append(f": {count}")
+                self._console.print(row)
 
-        if stats["avg_latency_ms"] is not None:
-            self._console.print(f"  Avg latency: {stats['avg_latency_ms']:.0f}ms")
+        avg_latency = stats.get("avg_latency_ms")
+        if avg_latency is not None:
+            self._console.print(f"  Avg latency: {avg_latency:.0f}ms")
 
         # Context window stats
         total_conv = stats.get("total_conversations", 0)
         if total_conv:
             self._console.print("\n  [bold]Context & Conversations[/bold]")
-            self._console.print(f"  Conversations tracked: [bold]{total_conv}[/bold]")
+            conv_line = Text("  Conversations tracked: ")
+            conv_line.append(str(total_conv), style="bold")
+            self._console.print(conv_line)
             avg_msgs = stats.get("avg_messages_per_turn")
             if avg_msgs is not None:
                 self._console.print(f"  Avg messages/turn: {avg_msgs:.1f}")
@@ -232,8 +290,8 @@ class TerminalDisplay:
         table.add_column("Started", width=20)
 
         for c in conversations:
-            providers = ", ".join(c.get("providers") or []) or "-"
-            models = ", ".join(c.get("models") or []) or "-"
+            providers = escape(", ".join(c.get("providers") or []) or "-")
+            models = escape(", ".join(c.get("models") or []) or "-")
             in_tok = c.get("total_input_tokens") or 0
             out_tok = c.get("total_output_tokens") or 0
             tokens = f"{in_tok}/{out_tok}" if (in_tok or out_tok) else "-"
