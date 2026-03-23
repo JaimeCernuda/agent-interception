@@ -911,6 +911,6 @@ class InteractionStore:
                 else None,
             )
         except Exception as exc:
-            row_id = row["id"] if "id" in row.keys() else "<unknown>"
+            row_id = row["id"] if row and "id" in row else "<unknown>"
             logger.warning("Skipping malformed interaction row %s: %s", row_id, exc)
             return None
