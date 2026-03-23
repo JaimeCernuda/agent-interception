@@ -108,7 +108,7 @@ class TestSessionGuard:
             ],
         }
 
-        async def receive() -> dict[str, bytes]:
+        async def receive() -> dict[str, object]:
             body = json.dumps({"model": "claude-sonnet-4-20250514", "messages": []}).encode()
             return {"type": "http.request", "body": body}
 
@@ -118,7 +118,7 @@ class TestSessionGuard:
         response = await handler.handle(request)
 
         assert response.status_code == 200
-        body = json.loads(response.body)
+        body = json.loads(bytes(response.body))
         assert body["type"] == "message"
         assert "/_session/" in body["content"][0]["text"]
 
@@ -144,7 +144,7 @@ class TestSessionGuard:
             ],
         }
 
-        async def receive() -> dict[str, bytes]:
+        async def receive() -> dict[str, object]:
             body = json.dumps({"model": "gpt-4", "messages": []}).encode()
             return {"type": "http.request", "body": body}
 
@@ -154,7 +154,7 @@ class TestSessionGuard:
         response = await handler.handle(request)
 
         assert response.status_code == 200
-        body = json.loads(response.body)
+        body = json.loads(bytes(response.body))
         assert body["object"] == "chat.completion"
         assert "/_session/" in body["choices"][0]["message"]["content"]
 
@@ -177,7 +177,7 @@ class TestSessionGuard:
             ],
         }
 
-        async def receive() -> dict[str, bytes]:
+        async def receive() -> dict[str, object]:
             body = json.dumps({"model": "claude-sonnet-4-20250514", "messages": []}).encode()
             return {"type": "http.request", "body": body}
 
@@ -191,7 +191,7 @@ class TestSessionGuard:
         # The key assertion: the response was NOT our fake session-required message.
         # If status_code is 200, verify the body isn't our fake response.
         if response.status_code == 200:
-            body = json.loads(response.body)
+            body = json.loads(bytes(response.body))
             assert body.get("model") != "interceptor-proxy"
         else:
             # Any non-200 means the request was forwarded upstream (correct behavior)
@@ -217,7 +217,7 @@ class TestSessionGuard:
             ],
         }
 
-        async def receive() -> dict[str, bytes]:
+        async def receive() -> dict[str, object]:
             body = json.dumps({"model": "claude-sonnet-4-20250514", "messages": []}).encode()
             return {"type": "http.request", "body": body}
 
@@ -228,7 +228,7 @@ class TestSessionGuard:
 
         # The key assertion: the response was NOT our fake session-required message.
         if response.status_code == 200:
-            body = json.loads(response.body)
+            body = json.loads(bytes(response.body))
             assert body.get("model") != "interceptor-proxy"
         else:
             assert response.status_code != 200
