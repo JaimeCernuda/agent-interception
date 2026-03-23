@@ -205,6 +205,47 @@ async def test_no_session_saved_as_orphan(store: InteractionStore) -> None:
 
 
 @pytest.mark.asyncio
+async def test_malformed_row_skipped_in_list(
+    store: InteractionStore, sample_interaction: Interaction
+) -> None:
+    """A malformed DB row should be skipped without crashing list_interactions."""
+    await store.save(sample_interaction)
+
+    # Corrupt the request_headers column of the saved row to invalid JSON
+    await store.db.execute(
+        "UPDATE interactions SET request_headers = 'not-valid-json' WHERE id = ?",
+        (sample_interaction.id,),
+    )
+    await store.db.commit()
+
+    # Should return an empty list instead of raising
+    results = await store.list_interactions()
+    assert results == []
+
+
+@pytest.mark.asyncio
+async def test_malformed_row_does_not_affect_other_rows(
+    store: InteractionStore,
+    sample_interaction: Interaction,
+    sample_streaming_interaction: Interaction,
+) -> None:
+    """A malformed row should be skipped; valid rows in the same query are still returned."""
+    await store.save(sample_interaction)
+    await store.save(sample_streaming_interaction)
+
+    # Corrupt only the first interaction
+    await store.db.execute(
+        "UPDATE interactions SET request_headers = 'not-valid-json' WHERE id = ?",
+        (sample_interaction.id,),
+    )
+    await store.db.commit()
+
+    results = await store.list_interactions()
+    assert len(results) == 1
+    assert results[0].id == sample_streaming_interaction.id
+
+
+@pytest.mark.asyncio
 async def test_no_session_does_not_link_to_previous(store: InteractionStore) -> None:
     """Two interactions without session_id should NOT be linked via global search."""
     first = Interaction(

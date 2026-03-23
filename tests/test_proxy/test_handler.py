@@ -45,6 +45,26 @@ class TestRedactHeaders:
         result = redact_headers(headers)
         assert result["x-api-key"] == "***"
 
+    def test_redacts_api_key_in_non_standard_header_value(self) -> None:
+        """API key pattern in a non-standard header name should still be redacted."""
+        headers = {"x-custom-token": "sk-abc123defghijklmno"}
+        result = redact_headers(headers)
+        assert result["x-custom-token"].endswith("***")
+        assert "sk-abc123defghijklmno" not in result["x-custom-token"]
+
+    def test_redacts_bearer_token_in_non_standard_header_value(self) -> None:
+        """Bearer token in a non-standard header name should still be redacted."""
+        headers = {"x-forwarded-auth": "Bearer supersecrettoken123"}
+        result = redact_headers(headers)
+        assert result["x-forwarded-auth"].endswith("***")
+        assert "supersecrettoken123" not in result["x-forwarded-auth"]
+
+    def test_preserves_non_sensitive_value_in_custom_header(self) -> None:
+        """Non-sensitive values in custom headers should be left alone."""
+        headers = {"x-request-id": "abc-123-def"}
+        result = redact_headers(headers)
+        assert result["x-request-id"] == "abc-123-def"
+
 
 @pytest.fixture
 async def handler_deps(
