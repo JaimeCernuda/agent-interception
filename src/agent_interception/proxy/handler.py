@@ -70,7 +70,7 @@ def redact_headers(headers: dict[str, str], *, redact: bool = True) -> dict[str,
     result = {}
     sensitive_keys = {"authorization", "x-api-key", "api-key", "openai-api-key"}
     for key, value in headers.items():
-        if key.lower() in sensitive_keys:
+        if key.lower() in sensitive_keys or SENSITIVE_HEADER_PATTERNS.search(value):
             # Keep first 8 chars + mask the rest
             if len(value) > 12:
                 result[key] = value[:12] + "***"

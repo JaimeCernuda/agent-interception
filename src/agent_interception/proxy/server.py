@@ -100,16 +100,8 @@ def create_app(
         sessions = await store.list_sessions()
         return JSONResponse(sessions)
 
-    async def get_interaction(request: Request) -> Response:
-        """Get a single interaction by ID."""
-        interaction_id = request.path_params["interaction_id"]
-        interaction = await store.get(interaction_id)
-        if interaction is None:
-            return JSONResponse({"error": "Not found"}, status_code=404)
-        return JSONResponse(interaction.model_dump(mode="json"))
-
     async def api_get_interaction(request: Request) -> Response:
-        """API endpoint: get a single interaction by ID (for UI lazy loading)."""
+        """Get a single interaction by ID."""
         interaction_id = request.path_params["interaction_id"]
         interaction = await store.get(interaction_id)
         if interaction is None:
@@ -235,7 +227,7 @@ def create_app(
         Route("/_interceptor/interactions", clear_interactions, methods=["DELETE"]),
         Route(
             "/_interceptor/interactions/{interaction_id}",
-            get_interaction,
+            api_get_interaction,
             methods=["GET"],
         ),
         # UI API endpoints

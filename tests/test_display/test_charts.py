@@ -154,7 +154,7 @@ def sample_interactions() -> list[Interaction]:
 def test_latency_over_time_returns_figure(sample_interactions: list[Interaction]) -> None:
     fig = chart_latency_over_time(sample_interactions)
     assert isinstance(fig, go.Figure)
-    assert len(fig.data) >= 1
+    assert len(fig.data) >= 1  # type: ignore[arg-type]
 
 
 def test_latency_over_time_empty() -> None:
@@ -164,7 +164,7 @@ def test_latency_over_time_empty() -> None:
 
 def test_latency_over_time_includes_ttft(sample_interactions: list[Interaction]) -> None:
     fig = chart_latency_over_time(sample_interactions)
-    names = [t.name for t in fig.data]
+    names = [t.name for t in fig.data]  # type: ignore[union-attr]
     assert any("TTFT" in (n or "") for n in names)
 
 
@@ -176,7 +176,7 @@ def test_latency_over_time_includes_ttft(sample_interactions: list[Interaction])
 def test_token_usage_returns_figure(sample_interactions: list[Interaction]) -> None:
     fig = chart_token_usage(sample_interactions)
     assert isinstance(fig, go.Figure)
-    assert len(fig.data) >= 1
+    assert len(fig.data) >= 1  # type: ignore[arg-type]
 
 
 def test_token_usage_empty() -> None:
@@ -198,7 +198,7 @@ def test_token_usage_bar_traces(sample_interactions: list[Interaction]) -> None:
 def test_cumulative_cost_returns_figure(sample_interactions: list[Interaction]) -> None:
     fig = chart_cumulative_cost(sample_interactions)
     assert isinstance(fig, go.Figure)
-    assert len(fig.data) >= 1
+    assert len(fig.data) >= 1  # type: ignore[arg-type]
 
 
 def test_cumulative_cost_empty() -> None:
@@ -216,7 +216,7 @@ def test_cumulative_cost_monotonically_nondecreasing(
     shuffled = list(sample_interactions)
     random.shuffle(shuffled)
     fig = chart_cumulative_cost(shuffled)
-    y_values = list(fig.data[0].y)
+    y_values = list(fig.data[0].y)  # type: ignore[union-attr]
     for a, b in itertools.pairwise(y_values):
         assert b >= a, f"Cumulative cost decreased: {a} -> {b}"
 
@@ -229,7 +229,7 @@ def test_cumulative_cost_monotonically_nondecreasing(
 def test_provider_distribution_returns_figure(sample_interactions: list[Interaction]) -> None:
     fig = chart_provider_distribution(sample_interactions)
     assert isinstance(fig, go.Figure)
-    assert len(fig.data) >= 1
+    assert len(fig.data) >= 1  # type: ignore[arg-type]
 
 
 def test_provider_distribution_empty() -> None:
@@ -262,7 +262,7 @@ def test_provider_distribution_bar_for_few_providers() -> None:
 def test_context_window_growth_returns_figure(sample_interactions: list[Interaction]) -> None:
     fig = chart_context_window_growth(sample_interactions)
     assert isinstance(fig, go.Figure)
-    assert len(fig.data) >= 1
+    assert len(fig.data) >= 1  # type: ignore[arg-type]
 
 
 def test_context_window_growth_empty() -> None:
@@ -278,7 +278,7 @@ def test_context_window_growth_excludes_no_context() -> None:
     ]
     fig = chart_context_window_growth(interactions)
     # Should have at least 1 trace with data
-    assert any(len(t.y) > 0 for t in fig.data if hasattr(t, "y") and t.y is not None)
+    assert any(len(t.y) > 0 for t in fig.data if hasattr(t, "y") and t.y is not None)  # type: ignore[union-attr]
 
 
 def test_context_window_growth_caps_at_20_traces() -> None:
@@ -294,8 +294,8 @@ def test_context_window_growth_caps_at_20_traces() -> None:
         )
     fig = chart_context_window_growth(interactions)
     # Should have 20 named traces + 1 "other" trace = 21 total
-    assert len(fig.data) == 21
-    other_traces = [t for t in fig.data if t.name == "other"]
+    assert len(fig.data) == 21  # type: ignore[arg-type]
+    other_traces = [t for t in fig.data if t.name == "other"]  # type: ignore[union-attr]
     assert len(other_traces) == 1
 
 
@@ -307,7 +307,7 @@ def test_context_window_growth_caps_at_20_traces() -> None:
 def test_latency_histogram_returns_figure(sample_interactions: list[Interaction]) -> None:
     fig = chart_latency_histogram(sample_interactions)
     assert isinstance(fig, go.Figure)
-    assert len(fig.data) >= 1
+    assert len(fig.data) >= 1  # type: ignore[arg-type]
 
 
 def test_latency_histogram_empty() -> None:

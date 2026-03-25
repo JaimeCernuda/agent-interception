@@ -45,6 +45,26 @@ class TestRedactHeaders:
         result = redact_headers(headers)
         assert result["x-api-key"] == "***"
 
+    def test_redacts_api_key_in_non_standard_header_value(self) -> None:
+        """API key pattern in a non-standard header name should still be redacted."""
+        headers = {"x-custom-token": "sk-abc123defghijklmno"}
+        result = redact_headers(headers)
+        assert result["x-custom-token"].endswith("***")
+        assert "sk-abc123defghijklmno" not in result["x-custom-token"]
+
+    def test_redacts_bearer_token_in_non_standard_header_value(self) -> None:
+        """Bearer token in a non-standard header name should still be redacted."""
+        headers = {"x-forwarded-auth": "Bearer supersecrettoken123"}
+        result = redact_headers(headers)
+        assert result["x-forwarded-auth"].endswith("***")
+        assert "supersecrettoken123" not in result["x-forwarded-auth"]
+
+    def test_preserves_non_sensitive_value_in_custom_header(self) -> None:
+        """Non-sensitive values in custom headers should be left alone."""
+        headers = {"x-request-id": "abc-123-def"}
+        result = redact_headers(headers)
+        assert result["x-request-id"] == "abc-123-def"
+
 
 @pytest.fixture
 async def handler_deps(
@@ -88,7 +108,7 @@ class TestSessionGuard:
             ],
         }
 
-        async def receive() -> dict[str, bytes]:
+        async def receive() -> dict[str, object]:
             body = json.dumps({"model": "claude-sonnet-4-20250514", "messages": []}).encode()
             return {"type": "http.request", "body": body}
 
@@ -98,7 +118,7 @@ class TestSessionGuard:
         response = await handler.handle(request)
 
         assert response.status_code == 200
-        body = json.loads(response.body)
+        body = json.loads(bytes(response.body))
         assert body["type"] == "message"
         assert "/_session/" in body["content"][0]["text"]
 
@@ -124,7 +144,7 @@ class TestSessionGuard:
             ],
         }
 
-        async def receive() -> dict[str, bytes]:
+        async def receive() -> dict[str, object]:
             body = json.dumps({"model": "gpt-4", "messages": []}).encode()
             return {"type": "http.request", "body": body}
 
@@ -134,7 +154,7 @@ class TestSessionGuard:
         response = await handler.handle(request)
 
         assert response.status_code == 200
-        body = json.loads(response.body)
+        body = json.loads(bytes(response.body))
         assert body["object"] == "chat.completion"
         assert "/_session/" in body["choices"][0]["message"]["content"]
 
@@ -157,7 +177,7 @@ class TestSessionGuard:
             ],
         }
 
-        async def receive() -> dict[str, bytes]:
+        async def receive() -> dict[str, object]:
             body = json.dumps({"model": "claude-sonnet-4-20250514", "messages": []}).encode()
             return {"type": "http.request", "body": body}
 
@@ -171,7 +191,7 @@ class TestSessionGuard:
         # The key assertion: the response was NOT our fake session-required message.
         # If status_code is 200, verify the body isn't our fake response.
         if response.status_code == 200:
-            body = json.loads(response.body)
+            body = json.loads(bytes(response.body))
             assert body.get("model") != "interceptor-proxy"
         else:
             # Any non-200 means the request was forwarded upstream (correct behavior)
@@ -197,7 +217,7 @@ class TestSessionGuard:
             ],
         }
 
-        async def receive() -> dict[str, bytes]:
+        async def receive() -> dict[str, object]:
             body = json.dumps({"model": "claude-sonnet-4-20250514", "messages": []}).encode()
             return {"type": "http.request", "body": body}
 
@@ -208,7 +228,7 @@ class TestSessionGuard:
 
         # The key assertion: the response was NOT our fake session-required message.
         if response.status_code == 200:
-            body = json.loads(response.body)
+            body = json.loads(bytes(response.body))
             assert body.get("model") != "interceptor-proxy"
         else:
             assert response.status_code != 200

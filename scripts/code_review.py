@@ -34,7 +34,7 @@ async def main() -> None:
         ),
     ):
         if hasattr(msg, "result"):
-            print(msg.result)
+            print(msg.result)  # type: ignore[union-attr]
 
 
 if __name__ == "__main__":

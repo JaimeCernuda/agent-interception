@@ -293,7 +293,7 @@ class InteractionStore:
 
         cursor = await self.db.execute(query, params)
         rows = await cursor.fetchall()
-        return [self._row_to_interaction(row) for row in rows]
+        return [r for row in rows if (r := self._row_to_interaction(row)) is not None]
 
     async def list_sessions(self) -> list[dict[str, Any]]:
         """List all sessions with summary info.
@@ -368,7 +368,7 @@ class InteractionStore:
             (session_id, limit),
         )
         rows = await cursor.fetchall()
-        return [self._row_to_interaction(row) for row in rows]
+        return [r for row in rows if (r := self._row_to_interaction(row)) is not None]
 
     async def list_conversations(self) -> list[dict[str, Any]]:
         """Return aggregate stats per conversation thread."""
@@ -417,7 +417,7 @@ class InteractionStore:
             (conversation_id,),
         )
         rows = await cursor.fetchall()
-        return [self._row_to_interaction(row) for row in rows]
+        return [r for row in rows if (r := self._row_to_interaction(row)) is not None]
 
     async def clear(self) -> int:
         """Delete all interactions. Returns the number of rows deleted."""
@@ -865,47 +865,52 @@ class InteractionStore:
             "system_prompt_changes": system_prompt_changes,
         }
 
-    def _row_to_interaction(self, row: aiosqlite.Row) -> Interaction:
-        """Convert a database row to an Interaction model."""
-        token_usage_data = _deserialize_json(row["token_usage"])
-        cost_data = _deserialize_json(row["cost_estimate"])
-        image_data = _deserialize_json(row["image_metadata"])
-        chunks_data = _deserialize_json(row["stream_chunks"])
-        context_metrics_data = _deserialize_json(row["context_metrics"])
+    def _row_to_interaction(self, row: aiosqlite.Row) -> Interaction | None:
+        """Convert a database row to an Interaction model. Returns None on deserialization error."""
+        try:
+            token_usage_data = _deserialize_json(row["token_usage"])
+            cost_data = _deserialize_json(row["cost_estimate"])
+            image_data = _deserialize_json(row["image_metadata"])
+            chunks_data = _deserialize_json(row["stream_chunks"])
+            context_metrics_data = _deserialize_json(row["context_metrics"])
 
-        return Interaction(
-            id=row["id"],
-            session_id=row["session_id"],
-            timestamp=row["timestamp"],
-            method=row["method"],
-            path=row["path"],
-            request_headers=json.loads(row["request_headers"]),
-            request_body=_deserialize_json(row["request_body"]),
-            raw_request_body=row["raw_request_body"],
-            provider=Provider(row["provider"]),
-            model=row["model"],
-            system_prompt=row["system_prompt"],
-            messages=_deserialize_json(row["messages"]),
-            tools=_deserialize_json(row["tools"]),
-            image_metadata=ImageMetadata(**image_data) if image_data else None,
-            status_code=row["status_code"],
-            response_headers=json.loads(row["response_headers"]),
-            response_body=_deserialize_json(row["response_body"]),
-            raw_response_body=row["raw_response_body"],
-            is_streaming=bool(row["is_streaming"]),
-            stream_chunks=[StreamChunk(**c) for c in chunks_data] if chunks_data else [],
-            response_text=row["response_text"],
-            tool_calls=_deserialize_json(row["tool_calls"]),
-            token_usage=TokenUsage(**token_usage_data) if token_usage_data else None,
-            cost_estimate=CostEstimate(**cost_data) if cost_data else None,
-            time_to_first_token_ms=row["time_to_first_token_ms"],
-            total_latency_ms=row["total_latency_ms"],
-            error=row["error"],
-            conversation_id=row["conversation_id"],
-            parent_interaction_id=row["parent_interaction_id"],
-            turn_number=row["turn_number"],
-            turn_type=row["turn_type"],
-            context_metrics=ContextMetrics(**context_metrics_data)
-            if context_metrics_data
-            else None,
-        )
+            return Interaction(
+                id=row["id"],
+                session_id=row["session_id"],
+                timestamp=row["timestamp"],
+                method=row["method"],
+                path=row["path"],
+                request_headers=json.loads(row["request_headers"]),
+                request_body=_deserialize_json(row["request_body"]),
+                raw_request_body=row["raw_request_body"],
+                provider=Provider(row["provider"]),
+                model=row["model"],
+                system_prompt=row["system_prompt"],
+                messages=_deserialize_json(row["messages"]),
+                tools=_deserialize_json(row["tools"]),
+                image_metadata=ImageMetadata(**image_data) if image_data else None,
+                status_code=row["status_code"],
+                response_headers=json.loads(row["response_headers"]),
+                response_body=_deserialize_json(row["response_body"]),
+                raw_response_body=row["raw_response_body"],
+                is_streaming=bool(row["is_streaming"]),
+                stream_chunks=[StreamChunk(**c) for c in chunks_data] if chunks_data else [],
+                response_text=row["response_text"],
+                tool_calls=_deserialize_json(row["tool_calls"]),
+                token_usage=TokenUsage(**token_usage_data) if token_usage_data else None,
+                cost_estimate=CostEstimate(**cost_data) if cost_data else None,
+                time_to_first_token_ms=row["time_to_first_token_ms"],
+                total_latency_ms=row["total_latency_ms"],
+                error=row["error"],
+                conversation_id=row["conversation_id"],
+                parent_interaction_id=row["parent_interaction_id"],
+                turn_number=row["turn_number"],
+                turn_type=row["turn_type"],
+                context_metrics=ContextMetrics(**context_metrics_data)
+                if context_metrics_data
+                else None,
+            )
+        except Exception as exc:
+            row_id = row["id"] if row and "id" in row else "<unknown>"
+            logger.warning("Skipping malformed interaction row %s: %s", row_id, exc)
+            return None
