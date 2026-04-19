@@ -232,3 +232,36 @@ class TestSessionGuard:
             assert body.get("model") != "interceptor-proxy"
         else:
             assert response.status_code != 200
+
+    @pytest.mark.asyncio
+    async def test_agent_role_extracted_from_header(
+        self, handler_deps: tuple[ProxyHandler, InteractionStore]
+    ) -> None:
+        """X-Agent-Role: orchestrator header is stored on the saved interaction."""
+        handler, store = handler_deps
+
+        scope = {
+            "type": "http",
+            "method": "POST",
+            "path": "/_session/test-agent/v1/messages",
+            "query_string": b"",
+            "headers": [
+                (b"content-type", b"application/json"),
+                (b"authorization", b"Bearer sk-test"),
+                (b"host", b"localhost:8080"),
+                (b"x-agent-role", b"orchestrator"),
+            ],
+        }
+
+        async def receive() -> dict[str, object]:
+            body = json.dumps({"model": "claude-sonnet-4-20250514", "messages": []}).encode()
+            return {"type": "http.request", "body": body}
+
+        from starlette.requests import Request
+
+        request = Request(scope, receive)
+        await handler.handle(request)
+
+        interactions = await store.list_interactions()
+        assert len(interactions) == 1
+        assert interactions[0].agent_role == "orchestrator"

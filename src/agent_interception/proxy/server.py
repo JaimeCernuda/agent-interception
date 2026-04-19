@@ -208,6 +208,29 @@ def create_app(
             ]
         )
 
+    async def api_list_conversations(request: Request) -> JSONResponse:
+        """API endpoint: list conversations with summary stats."""
+        conversations = await store.list_conversations()
+        return JSONResponse(
+            [
+                {
+                    "conversationId": c["conversation_id"],
+                    "turnCount": c["turn_count"],
+                    "firstTurn": c["first_turn"],
+                    "lastTurn": c["last_turn"],
+                }
+                for c in conversations
+            ]
+        )
+
+    async def api_agent_graph(request: Request) -> Response:
+        """API endpoint: multi-agent graph for a conversation."""
+        conversation_id = request.path_params["conversation_id"]
+        graph = await store.get_agent_graph(conversation_id)
+        if not graph.nodes:
+            return JSONResponse({"error": "Not found"}, status_code=404)
+        return JSONResponse(graph.model_dump(mode="json"))
+
     async def proxy_catchall(request: Request) -> Response:
         """Catch-all handler that proxies requests to upstream providers."""
         assert handler is not None, "App not initialized"
@@ -252,6 +275,12 @@ def create_app(
         Route(
             "/_interceptor/conversations/{conversation_id}",
             get_conversation,
+            methods=["GET"],
+        ),
+        Route("/api/conversations", api_list_conversations, methods=["GET"]),
+        Route(
+            "/api/conversations/{conversation_id}/agent-graph",
+            api_agent_graph,
             methods=["GET"],
         ),
         # Catch-all proxy route — must be last

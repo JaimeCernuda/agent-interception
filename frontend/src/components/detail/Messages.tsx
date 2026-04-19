@@ -1,3 +1,4 @@
+import { useState } from "react";
 import type { Interaction } from "../../types";
 
 const ROLE_STYLES: Record<string, string> = {
@@ -8,7 +9,7 @@ const ROLE_STYLES: Record<string, string> = {
 };
 
 function RoleBadge({ role }: { role: string }) {
-  const cls = ROLE_STYLES[role] ?? "bg-gray-800 text-gray-400 border-gray-700";
+  const cls = ROLE_STYLES[role] ?? "bg-surface text-fg-secondary border-border";
   return (
     <span className={`text-xs px-2 py-0.5 rounded border font-medium ${cls}`}>
       {role}
@@ -23,10 +24,10 @@ function ContentBlock({ content }: { content: unknown }) {
     if (content.includes("```")) {
       const parts = content.split(/(```[\s\S]*?```)/g);
       return (
-        <div className="text-sm text-gray-200 whitespace-pre-wrap space-y-1">
+        <div className="text-sm text-fg-primary whitespace-pre-wrap space-y-1">
           {parts.map((part, i) =>
             part.startsWith("```") ? (
-              <pre key={i} className="bg-gray-900 rounded p-2 text-xs font-mono overflow-x-auto border border-gray-700">
+              <pre key={i} className="bg-elevate rounded p-2 text-xs font-mono overflow-x-auto border border-border">
                 {part.replace(/^```\w*\n?/, "").replace(/```$/, "")}
               </pre>
             ) : (
@@ -36,7 +37,7 @@ function ContentBlock({ content }: { content: unknown }) {
         </div>
       );
     }
-    return <p className="text-sm text-gray-200 whitespace-pre-wrap">{content}</p>;
+    return <p className="text-sm text-fg-primary whitespace-pre-wrap">{content}</p>;
   }
   if (Array.isArray(content)) {
     return (
@@ -48,7 +49,7 @@ function ContentBlock({ content }: { content: unknown }) {
             if (b.type === "text") return <ContentBlock key={i} content={b.text} />;
             if (b.type === "image") {
               return (
-                <div key={i} className="text-xs text-gray-500 italic bg-gray-800 rounded px-2 py-1 border border-gray-700">
+                <div key={i} className="text-xs text-fg-secondary italic bg-surface rounded px-2 py-1 border border-border">
                   [Image: {String(b.media_type ?? "unknown")}, ~{String(b.approximate_size ?? "?")} bytes]
                 </div>
               );
@@ -73,14 +74,14 @@ function ContentBlock({ content }: { content: unknown }) {
             }
             if (b.type === "thinking") {
               return (
-                <div key={i} className="rounded border border-gray-600 bg-gray-800/50 p-2 text-xs text-gray-400 italic">
+                <div key={i} className="rounded border border-border bg-surface/50 p-2 text-xs text-fg-secondary italic">
                   [thinking]: {String(b.thinking ?? "")}
                 </div>
               );
             }
           }
           return (
-            <pre key={i} className="text-xs font-mono text-gray-400 overflow-x-auto">
+            <pre key={i} className="text-xs font-mono text-fg-secondary overflow-x-auto">
               {JSON.stringify(block, null, 2)}
             </pre>
           );
@@ -89,7 +90,7 @@ function ContentBlock({ content }: { content: unknown }) {
     );
   }
   return (
-    <pre className="text-xs font-mono text-gray-400 overflow-x-auto whitespace-pre-wrap">
+    <pre className="text-xs font-mono text-fg-secondary overflow-x-auto whitespace-pre-wrap">
       {JSON.stringify(content, null, 2)}
     </pre>
   );
@@ -103,13 +104,13 @@ interface MessageBubble {
 
 function Bubble({ msg }: { msg: MessageBubble }) {
   return (
-    <div className="flex gap-3 py-2 border-b border-gray-800/50">
+    <div className="flex gap-3 py-2 border-b border-border/50">
       <div className="pt-0.5 shrink-0">
         <RoleBadge role={msg.role} />
       </div>
       <div className="flex-1 min-w-0">
         {msg.name && (
-          <div className="text-xs text-gray-500 mb-1">name: {msg.name}</div>
+          <div className="text-xs text-fg-secondary mb-1">name: {msg.name}</div>
         )}
         <ContentBlock content={msg.content} />
       </div>
@@ -117,10 +118,55 @@ function Bubble({ msg }: { msg: MessageBubble }) {
   );
 }
 
+const LONG_SYSTEM_PROMPT_THRESHOLD = 500;
+
+function SystemPromptCard({ content }: { content: string }) {
+  const [open, setOpen] = useState(false);
+  const preview = content.slice(0, 180).trim() + (content.length > 180 ? "…" : "");
+  return (
+    <div className="mb-3 rounded-lg border border-border-soft bg-surface">
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className="w-full flex items-center justify-between px-3 py-2 text-left hover:bg-elevate transition-colors rounded-lg"
+      >
+        <div className="flex items-center gap-2 min-w-0">
+          <span className="text-[10px] uppercase tracking-wider font-semibold px-1.5 py-0.5 rounded"
+            style={{
+              color: "rgb(var(--role-tool))",
+              backgroundColor: "rgb(var(--role-tool) / 0.15)",
+              border: "1px solid rgb(var(--role-tool) / 0.3)",
+            }}
+          >
+            System prompt
+          </span>
+          <span className="text-xs text-fg-muted tabular-nums">
+            {content.length.toLocaleString()} chars
+          </span>
+        </div>
+        <span className="text-fg-muted text-xs shrink-0">{open ? "▾" : "▸"}</span>
+      </button>
+      {!open && (
+        <div className="px-3 pb-2 text-xs text-fg-muted italic line-clamp-2">
+          {preview}
+        </div>
+      )}
+      {open && (
+        <div className="px-3 pb-3 border-t border-border-soft pt-3">
+          <ContentBlock content={content} />
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function Messages({ interaction: i }: { interaction: Interaction }) {
   const messages: MessageBubble[] = [];
 
-  if (i.system_prompt) {
+  // System prompt: handled separately if long.
+  const longSystem = i.system_prompt && i.system_prompt.length > LONG_SYSTEM_PROMPT_THRESHOLD
+    ? i.system_prompt
+    : null;
+  if (i.system_prompt && !longSystem) {
     messages.push({ role: "system", content: i.system_prompt });
   }
 
@@ -147,15 +193,25 @@ export default function Messages({ interaction: i }: { interaction: Interaction 
     messages.push({ role: "assistant", content: assistantContent.length === 1 ? assistantContent[0] : assistantContent });
   }
 
-  if (messages.length === 0) {
-    return <div className="text-gray-600 text-sm py-4">No messages available.</div>;
+  if (messages.length === 0 && !longSystem) {
+    return <div className="text-fg-muted text-sm py-4">No messages available.</div>;
   }
 
   return (
-    <div className="space-y-0">
-      {messages.map((msg, idx) => (
-        <Bubble key={idx} msg={msg} />
-      ))}
+    <div>
+      {longSystem && <SystemPromptCard content={longSystem} />}
+      {messages.length > 0 && (
+        <>
+          <div className="text-[10px] uppercase tracking-wider text-fg-muted mb-2">
+            {messages.length} message{messages.length === 1 ? "" : "s"}
+          </div>
+          <div className="space-y-0">
+            {messages.map((msg, idx) => (
+              <Bubble key={idx} msg={msg} />
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 }

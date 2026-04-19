@@ -32,19 +32,19 @@ export default function ClearModal({ onConfirm, onCancel, currentSessionId }: Pr
       <div className="absolute inset-0 bg-black/70" onClick={onCancel} />
 
       {/* Modal */}
-      <div className="relative bg-gray-900 border border-gray-700 rounded-xl shadow-2xl w-full max-w-md mx-4 p-6">
+      <div className="relative bg-elevate border border-border rounded-xl shadow-2xl w-full max-w-md mx-4 p-6">
         <div className="flex items-start gap-3 mb-4">
           <span className="text-red-400 text-xl mt-0.5">⚠</span>
           <div>
-            <h2 className="text-base font-semibold text-gray-100">Clear interaction data?</h2>
-            <p className="text-sm text-gray-400 mt-1">
+            <h2 className="text-base font-semibold text-fg-primary">Clear interaction data?</h2>
+            <p className="text-sm text-fg-secondary mt-1">
               This action is destructive and cannot be undone.
             </p>
           </div>
         </div>
 
         <div className="mb-5">
-          <div className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2">
+          <div className="text-xs font-semibold uppercase tracking-wider text-fg-secondary mb-2">
             Scope
           </div>
           <div className="space-y-2">
@@ -62,13 +62,13 @@ export default function ClearModal({ onConfirm, onCancel, currentSessionId }: Pr
                 <span
                   className={`text-sm ${
                     s === "session" && !currentSessionId
-                      ? "text-gray-600"
-                      : "text-gray-300"
+                      ? "text-fg-muted"
+                      : "text-fg-primary"
                   }`}
                 >
                   {SCOPE_LABELS[s]}
                   {s === "session" && !currentSessionId && (
-                    <span className="text-gray-600 ml-1">(no session selected)</span>
+                    <span className="text-fg-muted ml-1">(no session selected)</span>
                   )}
                 </span>
               </label>
@@ -80,7 +80,7 @@ export default function ClearModal({ onConfirm, onCancel, currentSessionId }: Pr
           <button
             onClick={onCancel}
             disabled={loading}
-            className="px-4 py-2 text-sm rounded-lg border border-gray-700 text-gray-300 hover:text-gray-100 hover:border-gray-500 transition-colors disabled:opacity-50"
+            className="px-4 py-2 text-sm rounded-lg border border-border text-fg-primary hover:text-fg-primary hover:border-fg-muted transition-colors disabled:opacity-50"
           >
             Cancel
           </button>

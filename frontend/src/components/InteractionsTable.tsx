@@ -6,7 +6,7 @@ const PROVIDER_COLORS: Record<Provider, string> = {
   openai: "bg-emerald-900 text-emerald-300",
   anthropic: "bg-orange-900 text-orange-300",
   ollama: "bg-blue-900 text-blue-300",
-  unknown: "bg-gray-700 text-gray-300",
+  unknown: "bg-hover text-fg-primary",
 };
 
 function fmt(ms: number | null) {
@@ -47,7 +47,7 @@ export default function InteractionsTable({ selectedId, onSelect }: Props) {
   }, [refresh]);
 
   if (loading) {
-    return <div className="text-gray-500 text-sm py-8 text-center">Loading…</div>;
+    return <div className="text-fg-secondary text-sm py-8 text-center">Loading…</div>;
   }
   if (error) {
     return (
@@ -59,7 +59,7 @@ export default function InteractionsTable({ selectedId, onSelect }: Props) {
   }
   if (rows.length === 0) {
     return (
-      <div className="text-gray-500 text-sm py-8 text-center">
+      <div className="text-fg-secondary text-sm py-8 text-center">
         No interactions yet. Route LLM calls through the proxy to see them here.
       </div>
     );
@@ -69,7 +69,7 @@ export default function InteractionsTable({ selectedId, onSelect }: Props) {
     <div className="overflow-x-auto">
       <table className="w-full text-sm border-collapse">
         <thead>
-          <tr className="border-b border-gray-800 text-gray-400 text-xs uppercase tracking-wider">
+          <tr className="border-b border-border text-fg-secondary text-xs uppercase tracking-wider">
             <th className="text-left py-2 px-3 font-medium">Time</th>
             <th className="text-left py-2 px-3 font-medium">Provider</th>
             <th className="text-left py-2 px-3 font-medium">Model</th>
@@ -85,11 +85,11 @@ export default function InteractionsTable({ selectedId, onSelect }: Props) {
             <tr
               key={row.id}
               onClick={() => onSelect(row.id)}
-              className={`border-b border-gray-800/50 cursor-pointer transition-colors hover:bg-gray-800/50 ${
-                selectedId === row.id ? "bg-gray-800" : ""
+              className={`border-b border-border/50 cursor-pointer transition-colors hover:bg-elevate/50 ${
+                selectedId === row.id ? "bg-surface" : ""
               }`}
             >
-              <td className="py-2 px-3 font-mono text-xs text-gray-400 whitespace-nowrap">
+              <td className="py-2 px-3 font-mono text-xs text-fg-secondary whitespace-nowrap">
                 {fmtTime(row.timestamp)}
               </td>
               <td className="py-2 px-3">
@@ -97,17 +97,17 @@ export default function InteractionsTable({ selectedId, onSelect }: Props) {
                   {row.provider}
                 </span>
               </td>
-              <td className="py-2 px-3 text-xs text-gray-300 max-w-[140px] truncate">
-                {row.model ?? <span className="text-gray-600">—</span>}
+              <td className="py-2 px-3 text-xs text-fg-primary max-w-[140px] truncate">
+                {row.model ?? <span className="text-fg-muted">—</span>}
               </td>
-              <td className="py-2 px-3 font-mono text-xs text-gray-400">
-                <span className="text-gray-500">{row.method}</span> {row.path}
+              <td className="py-2 px-3 font-mono text-xs text-fg-secondary">
+                <span className="text-fg-secondary">{row.method}</span> {row.path}
               </td>
               <td className="py-2 px-3 text-center">
                 <span
                   className={`text-xs font-mono ${
                     row.status_code == null
-                      ? "text-gray-600"
+                      ? "text-fg-muted"
                       : row.status_code < 300
                       ? "text-green-400"
                       : row.status_code < 400
@@ -118,13 +118,13 @@ export default function InteractionsTable({ selectedId, onSelect }: Props) {
                   {row.status_code ?? "—"}
                 </span>
               </td>
-              <td className="py-2 px-3 text-center text-gray-500 text-xs">
+              <td className="py-2 px-3 text-center text-fg-secondary text-xs">
                 {row.is_streaming ? "~" : ""}
               </td>
-              <td className="py-2 px-3 text-right font-mono text-xs text-gray-400 whitespace-nowrap">
+              <td className="py-2 px-3 text-right font-mono text-xs text-fg-secondary whitespace-nowrap">
                 {fmt(row.total_latency_ms)}
               </td>
-              <td className="py-2 px-3 text-xs text-gray-500 max-w-[220px] truncate">
+              <td className="py-2 px-3 text-xs text-fg-secondary max-w-[220px] truncate">
                 {row.response_text_preview}
               </td>
             </tr>

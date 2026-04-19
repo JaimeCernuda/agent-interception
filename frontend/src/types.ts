@@ -142,6 +142,50 @@ export interface SessionGraph {
   timeline: TimelineEntry[];
 }
 
+export interface AgentNode {
+  session_id: string;
+  agent_role: string | null;
+  interaction_count: number;
+  total_tokens: number;
+  total_cost_usd: number;
+}
+
+export interface AgentEdge {
+  from_session_id: string;
+  to_session_id: string;
+  interaction_id: string;
+  turn_number: number;
+  latency_ms: number | null;
+}
+
+export interface AgentGraph {
+  conversation_id: string;
+  nodes: AgentNode[];
+  edges: AgentEdge[];
+}
+
+export interface ConversationSummary {
+  conversationId: string;
+  turnCount: number;
+  firstTurn: string;
+  lastTurn: string;
+}
+
+export interface ConversationTurn {
+  id: string;
+  session_id: string | null;
+  turn_number: number;
+  turn_type: string | null;
+  timestamp: string;
+  provider: string;
+  model: string | null;
+  parent_interaction_id: string | null;
+  context_metrics: Record<string, unknown> | null;
+  response_text_preview: string | null;
+  tool_calls: Record<string, unknown>[] | null;
+  total_latency_ms: number | null;
+}
+
 export type ClearScope = "all" | "24h" | "session";
 
 export interface ToolCallInfo {

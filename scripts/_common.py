@@ -12,6 +12,25 @@ from pathlib import Path
 from typing import Any
 
 
+def _load_dotenv() -> None:
+    """Load a .env file from the scripts/ directory into os.environ (if it exists)."""
+    env_file = Path(__file__).resolve().parent / ".env"
+    if not env_file.is_file():
+        return
+    for line in env_file.read_text().splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, _, value = line.partition("=")
+        key = key.strip()
+        value = value.strip().strip('"').strip("'")
+        if key and key not in os.environ:
+            os.environ[key] = value
+
+
+_load_dotenv()
+
+
 def _patch_sdk_parser() -> None:
     """Make the SDK parser treat unknown message types as SystemMessage instead of crashing.
 

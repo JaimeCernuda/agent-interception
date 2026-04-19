@@ -17,7 +17,7 @@ export default function CopyButton({ text, className = "" }: CopyButtonProps) {
   return (
     <button
       onClick={handleCopy}
-      className={`text-xs px-2 py-1 rounded border border-gray-700 hover:border-gray-500 text-gray-400 hover:text-gray-200 transition-colors ${className}`}
+      className={`text-xs px-2 py-1 rounded border border-border hover:border-fg-muted text-fg-secondary hover:text-fg-primary transition-colors ${className}`}
     >
       {copied ? "✓ Copied" : "Copy"}
     </button>

@@ -11,6 +11,9 @@ import aiosqlite
 
 from agent_interception.config import InterceptorConfig
 from agent_interception.models import (
+    AgentEdge,
+    AgentGraph,
+    AgentNode,
     ContextMetrics,
     CostEstimate,
     ImageMetadata,
@@ -94,10 +97,10 @@ class InteractionStore:
                 tool_calls, token_usage, cost_estimate, time_to_first_token_ms,
                 total_latency_ms, error,
                 conversation_id, parent_interaction_id, turn_number, turn_type,
-                context_metrics
+                context_metrics, agent_role
             ) VALUES (
                 ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
-                ?, ?, ?, ?, ?
+                ?, ?, ?, ?, ?, ?
             )
             """,
             (
@@ -133,6 +136,7 @@ class InteractionStore:
                 interaction.turn_number,
                 interaction.turn_type,
                 _serialize_json(interaction.context_metrics),
+                interaction.agent_role,
             ),
         )
         await self.db.commit()
@@ -792,6 +796,56 @@ class InteractionStore:
 
         return sequence
 
+    async def get_agent_graph(self, conversation_id: str) -> AgentGraph:
+        """Build a multi-agent graph for a conversation.
+
+        Nodes are grouped by session_id; edges are created for handoff turns.
+        """
+        interactions = await self.get_conversation(conversation_id)
+        if not interactions:
+            return AgentGraph(conversation_id=conversation_id, nodes=[], edges=[])
+
+        # Build nodes: group by session_id
+        node_map: dict[str, dict[str, Any]] = {}
+        for ix in interactions:
+            sid = ix.session_id or "__unknown__"
+            if sid not in node_map:
+                node_map[sid] = {
+                    "session_id": sid,
+                    "agent_role": ix.agent_role,
+                    "interaction_count": 0,
+                    "total_tokens": 0,
+                    "total_cost_usd": 0.0,
+                }
+            node_map[sid]["interaction_count"] += 1
+            if ix.token_usage:
+                node_map[sid]["total_tokens"] += (
+                    ix.token_usage.input_tokens or 0
+                ) + (ix.token_usage.output_tokens or 0)
+            if ix.cost_estimate:
+                node_map[sid]["total_cost_usd"] += ix.cost_estimate.total_cost
+
+        nodes = [AgentNode(**data) for data in node_map.values()]
+
+        # Build edges: for each handoff interaction, look up its parent's session_id
+        id_to_interaction = {ix.id: ix for ix in interactions}
+        edges: list[AgentEdge] = []
+        for ix in interactions:
+            if ix.turn_type == "handoff" and ix.parent_interaction_id:
+                parent = id_to_interaction.get(ix.parent_interaction_id)
+                if parent is not None:
+                    edges.append(
+                        AgentEdge(
+                            from_session_id=parent.session_id or "__unknown__",
+                            to_session_id=ix.session_id or "__unknown__",
+                            interaction_id=ix.id,
+                            turn_number=ix.turn_number or 0,
+                            latency_ms=ix.total_latency_ms,
+                        )
+                    )
+
+        return AgentGraph(conversation_id=conversation_id, nodes=nodes, edges=edges)
+
     async def get_stats(self) -> dict[str, Any]:
         """Get aggregate statistics about stored interactions."""
         cursor = await self.db.execute("SELECT COUNT(*) FROM interactions")
@@ -909,6 +963,7 @@ class InteractionStore:
                 context_metrics=ContextMetrics(**context_metrics_data)
                 if context_metrics_data
                 else None,
+                agent_role=row["agent_role"],
             )
         except Exception as exc:
             row_id = row["id"] if row and "id" in row else "<unknown>"

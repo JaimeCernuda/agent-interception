@@ -12,7 +12,7 @@ function colorize(json: string): string {
       } else if (/true|false/.test(match)) {
         cls = "text-purple-300";
       } else if (/null/.test(match)) {
-        cls = "text-gray-400";
+        cls = "text-fg-secondary";
       }
       return `<span class="${cls}">${match}</span>`;
     });
@@ -34,12 +34,12 @@ export default function JsonViewer({ data, label, initiallyExpanded = true }: Js
   const highlighted = colorize(displayed.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"));
 
   return (
-    <div className="rounded border border-gray-700 bg-gray-900 overflow-hidden">
+    <div className="rounded border border-border bg-elevate overflow-hidden">
       {label && (
-        <div className="flex items-center justify-between px-3 py-1.5 border-b border-gray-700 bg-gray-800">
+        <div className="flex items-center justify-between px-3 py-1.5 border-b border-border bg-surface">
           <button
             onClick={() => setExpanded((v) => !v)}
-            className="text-xs font-medium text-gray-300 hover:text-white"
+            className="text-xs font-medium text-fg-primary hover:text-white"
           >
             {expanded ? "▾" : "▸"} {label}
           </button>
@@ -54,7 +54,7 @@ export default function JsonViewer({ data, label, initiallyExpanded = true }: Js
             </div>
           )}
           <pre
-            className="text-xs p-3 overflow-x-auto font-mono text-gray-200 leading-relaxed"
+            className="text-xs p-3 overflow-x-auto font-mono text-fg-primary leading-relaxed"
             dangerouslySetInnerHTML={{ __html: highlighted }}
           />
           {truncated && (

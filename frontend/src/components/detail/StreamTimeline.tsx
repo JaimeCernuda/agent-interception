@@ -1,5 +1,7 @@
 import { useState } from "react";
 import type { Interaction, StreamChunk } from "../../types";
+import ChunkSparkline from "./ChunkSparkline";
+import { formatBytes, formatLatency } from "../../lib/format";
 
 const PREVIEW_LEN = 120;
 
@@ -34,21 +36,28 @@ function ChunkRow({ chunk, provider, firstMs }: { chunk: StreamChunk; provider: 
 
   return (
     <div
-      className="border-b border-gray-800/40 hover:bg-gray-800/30 cursor-pointer"
+      className="border-b border-border-soft hover:bg-surface/30 cursor-pointer"
       onClick={() => setExpanded((v) => !v)}
     >
       <div className="flex items-baseline gap-3 px-2 py-1.5 text-xs">
-        <span className="text-gray-600 font-mono w-6 text-right shrink-0">{chunk.index}</span>
-        <span className="text-gray-500 font-mono whitespace-nowrap">{isNaN(ts) ? "?" : fmtRelMs(firstMs, ts)}</span>
-        <span className="text-blue-400 font-mono whitespace-nowrap">{eventType}</span>
-        <span className="text-gray-600 font-mono whitespace-nowrap">{chunk.data.length}B</span>
-        {chunk.delta_text && (
-          <span className="text-green-400 truncate">{chunk.delta_text.slice(0, 40)}</span>
-        )}
-        <span className="text-gray-600 font-mono truncate hidden sm:block">{preview}</span>
+        <span className="text-fg-muted font-mono w-6 text-right shrink-0 select-none">
+          {expanded ? "▾" : "▸"}{chunk.index}
+        </span>
+        <span className="text-fg-secondary font-mono whitespace-nowrap w-16 shrink-0">
+          {isNaN(ts) ? "?" : fmtRelMs(firstMs, ts)}
+        </span>
+        <span className="text-accent font-mono whitespace-nowrap w-24 truncate shrink-0">{eventType}</span>
+        <span className="text-fg-muted font-mono whitespace-nowrap w-16 shrink-0">{formatBytes(chunk.data.length)}</span>
+        <span className="flex-1 min-w-0 truncate">
+          {chunk.delta_text ? (
+            <span className="text-role-subagent">{chunk.delta_text.slice(0, 60)}</span>
+          ) : (
+            <span className="text-fg-muted font-mono">{preview}</span>
+          )}
+        </span>
       </div>
       {expanded && (
-        <pre className="mx-2 mb-2 p-2 bg-gray-900 rounded border border-gray-700 text-xs font-mono text-gray-200 overflow-x-auto whitespace-pre-wrap">
+        <pre className="mx-2 mb-2 p-2 bg-elevate rounded border border-border text-xs font-mono text-fg-primary overflow-x-auto whitespace-pre-wrap">
           {chunk.data}
         </pre>
       )}
@@ -61,7 +70,7 @@ export default function StreamTimeline({ interaction: i }: { interaction: Intera
 
   if (!i.is_streaming || chunks.length === 0) {
     return (
-      <div className="text-gray-600 text-sm py-4">No stream chunks recorded.</div>
+      <div className="text-fg-muted text-sm py-4">No stream chunks recorded.</div>
     );
   }
 
@@ -69,37 +78,33 @@ export default function StreamTimeline({ interaction: i }: { interaction: Intera
   const lastMs = new Date(chunks[chunks.length - 1].timestamp).getTime();
   const streamDuration = isNaN(firstMs) || isNaN(lastMs) ? null : lastMs - firstMs;
 
+  const reconstructed = i.response_text?.length ?? 0;
+
   return (
     <div>
-      {/* Summary row */}
-      <div className="flex gap-6 text-xs mb-4 flex-wrap">
-        <span className="text-gray-500">
-          <span className="text-gray-300 font-semibold">{chunks.length}</span> chunks
-        </span>
-        {i.time_to_first_token_ms != null && (
-          <span className="text-gray-500">
-            TTFT: <span className="text-gray-300 font-semibold">{i.time_to_first_token_ms.toFixed(1)}ms</span>
-          </span>
-        )}
-        {streamDuration != null && (
-          <span className="text-gray-500">
-            Stream duration: <span className="text-gray-300 font-semibold">{streamDuration.toFixed(0)}ms</span>
-          </span>
-        )}
-        {i.response_text && (
-          <span className="text-gray-500">
-            Reconstructed: <span className="text-gray-300 font-semibold">{i.response_text.length.toLocaleString()} chars</span>
-          </span>
-        )}
+      {/* Summary KPI strip */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3">
+        <Kpi label="Chunks" value={String(chunks.length)} />
+        <Kpi label="TTFT"   value={formatLatency(i.time_to_first_token_ms)} />
+        <Kpi label="Duration" value={formatLatency(streamDuration)} />
+        <Kpi label="Reconstructed" value={reconstructed ? `${reconstructed.toLocaleString()} ch` : "—"} />
+      </div>
+
+      {/* Arrival-rate sparkline */}
+      <div className="rounded border border-border-soft bg-surface p-3 mb-4">
+        <div className="text-[10px] uppercase tracking-wider text-fg-muted mb-1">
+          Arrival rate
+        </div>
+        <ChunkSparkline chunks={chunks} />
       </div>
 
       {/* Header */}
-      <div className="flex gap-3 px-2 py-1 text-xs text-gray-600 border-b border-gray-800 font-medium">
+      <div className="flex gap-3 px-2 py-1 text-[10px] uppercase tracking-wider text-fg-muted border-b border-border font-medium">
         <span className="w-6 text-right shrink-0">#</span>
         <span className="w-16">Offset</span>
         <span className="w-24">Event</span>
-        <span className="w-12">Size</span>
-        <span>Delta / Preview</span>
+        <span className="w-16">Size</span>
+        <span className="flex-1">Delta / preview</span>
       </div>
 
       {/* Scrollable list */}
@@ -113,6 +118,15 @@ export default function StreamTimeline({ interaction: i }: { interaction: Intera
           />
         ))}
       </div>
+    </div>
+  );
+}
+
+function Kpi({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded border border-border-soft bg-surface px-3 py-2">
+      <div className="text-[10px] uppercase tracking-wider text-fg-muted">{label}</div>
+      <div className="text-sm font-semibold text-fg-primary tabular-nums">{value}</div>
     </div>
   );
 }

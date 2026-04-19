@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import aiosqlite
 
-SCHEMA_VERSION = 3
+SCHEMA_VERSION = 4
 
 CREATE_INTERACTIONS_TABLE = """
 CREATE TABLE IF NOT EXISTS interactions (
@@ -84,5 +84,12 @@ async def apply_migrations(db: aiosqlite.Connection) -> None:
             "ON interactions(conversation_id)"
         )
         await db.execute("INSERT INTO schema_version (version) VALUES (?)", (3,))
+
+    if current_version < 4:
+        await db.execute("ALTER TABLE interactions ADD COLUMN agent_role TEXT")
+        await db.execute(
+            "CREATE INDEX IF NOT EXISTS idx_interactions_agent_role ON interactions(agent_role)"
+        )
+        await db.execute("INSERT INTO schema_version (version) VALUES (?)", (4,))
 
     await db.commit()

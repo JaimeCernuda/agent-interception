@@ -37,6 +37,8 @@ uv run agent-interceptor start
 
 This starts the proxy on `http://127.0.0.1:8080` with default settings. The SQLite database is created at `interceptor.db`. All requests require a session ID — see [Session ID (Required)](#session-id-required) below.
 
+The web UI is served at `http://127.0.0.1:8080/_ui/` — open it in a browser to browse sessions, inspect interactions, and view multi-agent graphs. The prebuilt frontend ships with the package, so no extra build step is needed. To rebuild from source, see [Frontend Development](#frontend-development).
+
 ### 2. Point your agent at the proxy
 
 Set the appropriate environment variable for your agent:
@@ -60,6 +62,8 @@ ANTHROPIC_BASE_URL=http://localhost:8080/_session/default claude -p "Hello"
 ```
 
 ### 3. View captured interactions
+
+Open the web UI at [http://127.0.0.1:8080/_ui/](http://127.0.0.1:8080/_ui/) while the proxy is running, or use the CLI:
 
 ```bash
 # Show recent interactions in the terminal
@@ -385,6 +389,25 @@ The proxy routes requests based on URL path:
 | `/v1/*` (anything else) | OpenAI | Default for `/v1/` paths |
 | `/api/*` | Ollama | Path prefix |
 | Unknown | Passthrough | Raw logging only |
+
+## Frontend Development
+
+The React UI lives in `frontend/` and is built into `src/agent_interception/ui/static/`, which the proxy serves at `/_ui/`. The prebuilt assets are committed, so `uv run agent-interceptor start` exposes the UI without any extra step.
+
+To work on the UI:
+
+```bash
+cd frontend
+npm install
+
+# Dev server with hot reload (proxies /api and /_interceptor to localhost:8080)
+npm run dev
+
+# Rebuild the production bundle into src/agent_interception/ui/static/
+npm run build
+```
+
+During `npm run dev`, run the proxy separately (`uv run agent-interceptor start`) so the Vite dev server can proxy API requests to it.
 
 ## Running Tests
 

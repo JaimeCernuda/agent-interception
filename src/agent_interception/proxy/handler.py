@@ -141,6 +141,12 @@ class ProxyHandler:
             except (json.JSONDecodeError, UnicodeDecodeError):
                 body_dict = None
 
+        # Extract optional agent role from header
+        agent_role_header = request_headers.get("x-agent-role")
+        agent_role: str | None = None
+        if agent_role_header in ("orchestrator", "subagent", "tool"):
+            agent_role = agent_role_header
+
         # Start building the interaction
         interaction = Interaction(
             session_id=session_id,
@@ -151,6 +157,7 @@ class ProxyHandler:
             request_body=body_dict,
             raw_request_body=raw_body.decode("utf-8", errors="replace") if raw_body else None,
             provider=provider,
+            agent_role=agent_role,
         )
 
         # Read explicit conversation ID from request header

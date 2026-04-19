@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { getInteraction, downloadUrl } from "../api";
 import type { Interaction } from "../types";
-import Overview from "./detail/Overview";
-import MetricsGrid from "./detail/MetricsGrid";
+import SummaryTab from "./detail/SummaryTab";
 import Messages from "./detail/Messages";
-import RequestResponse from "./detail/RequestResponse";
-import StreamTimeline from "./detail/StreamTimeline";
+import ToolsTab from "./detail/ToolsTab";
+import RawTab from "./detail/RawTab";
+import ErrorBanner from "./detail/ErrorBanner";
 import CopyButton from "./ui/CopyButton";
 
-type Tab = "overview" | "metrics" | "messages" | "raw" | "stream";
+type Tab = "summary" | "messages" | "tools" | "raw";
 
 interface Props {
   id: string;
@@ -19,7 +19,7 @@ export default function InteractionDrawer({ id, onClose }: Props) {
   const [interaction, setInteraction] = useState<Interaction | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [tab, setTab] = useState<Tab>("overview");
+  const [tab, setTab] = useState<Tab>("summary");
 
   useEffect(() => {
     setLoading(true);
@@ -36,12 +36,11 @@ export default function InteractionDrawer({ id, onClose }: Props) {
       });
   }, [id]);
 
-  const tabs: { key: Tab; label: string; hidden?: boolean }[] = [
-    { key: "overview", label: "Overview" },
-    { key: "metrics", label: "Metrics" },
+  const tabs: { key: Tab; label: string }[] = [
+    { key: "summary",  label: "Summary" },
     { key: "messages", label: "Messages" },
-    { key: "raw", label: "Request/Response" },
-    { key: "stream", label: "Stream", hidden: !interaction?.is_streaming },
+    { key: "tools",    label: "Tools" },
+    { key: "raw",      label: "Raw" },
   ];
 
   // Close on Escape
@@ -61,11 +60,11 @@ export default function InteractionDrawer({ id, onClose }: Props) {
         onClick={onClose}
       />
       {/* Drawer */}
-      <div className="fixed right-0 top-0 h-full w-full max-w-3xl bg-gray-900 border-l border-gray-800 z-50 flex flex-col shadow-2xl">
+      <div className="fixed right-0 top-0 h-full w-full max-w-3xl bg-elevate border-l border-border z-50 flex flex-col shadow-2xl">
         {/* Header */}
-        <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-800 shrink-0">
+        <div className="flex items-center gap-3 px-4 py-3 border-b border-border shrink-0">
           <div className="flex-1 min-w-0">
-            <div className="text-xs text-gray-500 truncate font-mono">{id}</div>
+            <div className="text-xs text-fg-secondary truncate font-mono">{id}</div>
           </div>
           <div className="flex items-center gap-2">
             {interaction && (
@@ -74,7 +73,7 @@ export default function InteractionDrawer({ id, onClose }: Props) {
                 <a
                   href={downloadUrl(id)}
                   download
-                  className="text-xs px-2 py-1 rounded border border-gray-700 hover:border-gray-500 text-gray-400 hover:text-gray-200 transition-colors"
+                  className="text-xs px-2 py-1 rounded border border-border hover:border-fg-muted text-fg-secondary hover:text-fg-primary transition-colors"
                 >
                   Download
                 </a>
@@ -82,7 +81,7 @@ export default function InteractionDrawer({ id, onClose }: Props) {
             )}
             <button
               onClick={onClose}
-              className="text-gray-500 hover:text-gray-200 text-lg leading-none px-2"
+              className="text-fg-secondary hover:text-fg-primary text-lg leading-none px-2"
               aria-label="Close"
             >
               ✕
@@ -91,39 +90,37 @@ export default function InteractionDrawer({ id, onClose }: Props) {
         </div>
 
         {/* Tabs */}
-        <div className="flex border-b border-gray-800 px-1 shrink-0">
-          {tabs
-            .filter((t) => !t.hidden)
-            .map((t) => (
-              <button
-                key={t.key}
-                onClick={() => setTab(t.key)}
-                className={`px-4 py-2 text-sm transition-colors border-b-2 -mb-px ${
-                  tab === t.key
-                    ? "border-blue-500 text-blue-400"
-                    : "border-transparent text-gray-500 hover:text-gray-300"
-                }`}
-              >
-                {t.label}
-              </button>
-            ))}
+        <div className="flex border-b border-border px-1 shrink-0">
+          {tabs.map((t) => (
+            <button
+              key={t.key}
+              onClick={() => setTab(t.key)}
+              className={`px-4 py-2 text-sm transition-colors border-b-2 -mb-px ${
+                tab === t.key
+                  ? "border-accent text-fg-primary"
+                  : "border-transparent text-fg-secondary hover:text-fg-primary"
+              }`}
+            >
+              {t.label}
+            </button>
+          ))}
         </div>
 
         {/* Content */}
         <div className="flex-1 overflow-y-auto p-4">
           {loading && (
-            <div className="text-gray-500 text-sm py-8 text-center">Loading…</div>
+            <div className="text-fg-secondary text-sm py-8 text-center">Loading…</div>
           )}
           {error && (
-            <div className="text-red-400 text-sm py-4">Error: {error}</div>
+            <div className="text-error text-sm py-4">Error: {error}</div>
           )}
           {interaction && (
             <>
-              {tab === "overview" && <Overview interaction={interaction} />}
-              {tab === "metrics" && <MetricsGrid interaction={interaction} />}
-              {tab === "messages" && <Messages interaction={interaction} />}
-              {tab === "raw" && <RequestResponse interaction={interaction} />}
-              {tab === "stream" && <StreamTimeline interaction={interaction} />}
+              <ErrorBanner error={interaction.error} />
+              {tab === "summary"  && <SummaryTab interaction={interaction} />}
+              {tab === "messages" && <Messages   interaction={interaction} />}
+              {tab === "tools"    && <ToolsTab   interaction={interaction} />}
+              {tab === "raw"      && <RawTab     interaction={interaction} />}
             </>
           )}
         </div>

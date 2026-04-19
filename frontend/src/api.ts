@@ -1,4 +1,4 @@
-import type { ClearScope, Interaction, InteractionSummary, SessionGraph, SessionInfo, ToolCallStep } from "./types";
+import type { AgentGraph, ClearScope, ConversationSummary, ConversationTurn, Interaction, InteractionSummary, SessionGraph, SessionInfo, ToolCallStep } from "./types";
 
 interface ListParams {
   limit?: number;
@@ -50,6 +50,31 @@ export async function getSessionToolSequence(sessionId: string): Promise<ToolCal
   const res = await fetch(`/api/sessions/${encodeURIComponent(sessionId)}/tool-sequence`);
   if (!res.ok) throw new Error(`Failed to get tool sequence: ${res.status}`);
   return res.json();
+}
+
+export async function getConversations(): Promise<ConversationSummary[]> {
+  const res = await fetch("/api/conversations");
+  if (!res.ok) throw new Error(`Failed to list conversations: ${res.status}`);
+  const data: unknown = await res.json();
+  return Array.isArray(data) ? data : [];
+}
+
+export async function getConversationTurns(conversationId: string): Promise<ConversationTurn[]> {
+  const res = await fetch(`/_interceptor/conversations/${encodeURIComponent(conversationId)}`);
+  if (!res.ok) throw new Error(`Failed to get conversation turns: ${res.status}`);
+  const data: unknown = await res.json();
+  return Array.isArray(data) ? (data as ConversationTurn[]) : [];
+}
+
+export async function getAgentGraph(conversationId: string): Promise<AgentGraph> {
+  const res = await fetch(`/api/conversations/${encodeURIComponent(conversationId)}/agent-graph`);
+  if (!res.ok) throw new Error(`Failed to get agent graph: ${res.status}`);
+  const data = await res.json() as Partial<AgentGraph>;
+  return {
+    conversation_id: data.conversation_id ?? conversationId,
+    nodes: Array.isArray(data.nodes) ? data.nodes : [],
+    edges: Array.isArray(data.edges) ? data.edges : [],
+  };
 }
 
 export async function clearInteractions(

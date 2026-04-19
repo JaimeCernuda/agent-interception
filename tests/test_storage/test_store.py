@@ -6,7 +6,7 @@ from datetime import UTC, datetime
 
 import pytest
 
-from agent_interception.models import Interaction, Provider
+from agent_interception.models import AgentGraph, Interaction, Provider
 from agent_interception.storage.store import InteractionStore
 
 
@@ -285,3 +285,75 @@ async def test_no_session_does_not_link_to_previous(store: InteractionStore) -> 
     assert retrieved_first.conversation_id is None
     assert retrieved_second.conversation_id is None
     assert retrieved_second.parent_interaction_id is None
+
+
+@pytest.mark.asyncio
+async def test_agent_graph_single_agent(store: InteractionStore) -> None:
+    """Two interactions with the same session_id → 1 node, 0 edges."""
+    i1 = Interaction(
+        id="ag-single-1",
+        session_id="session-A",
+        conversation_id="conv-single",
+        method="POST",
+        path="/v1/messages",
+        provider=Provider.ANTHROPIC,
+    )
+    i2 = Interaction(
+        id="ag-single-2",
+        session_id="session-A",
+        conversation_id="conv-single",
+        method="POST",
+        path="/v1/messages",
+        provider=Provider.ANTHROPIC,
+    )
+    await store.save(i1)
+    await store.save(i2)
+
+    graph = await store.get_agent_graph("conv-single")
+    assert isinstance(graph, AgentGraph)
+    assert len(graph.nodes) == 1
+    assert graph.nodes[0].session_id == "session-A"
+    assert len(graph.edges) == 0
+
+
+@pytest.mark.asyncio
+async def test_agent_graph_handoff(store: InteractionStore) -> None:
+    """Two interactions with different session_ids and a handoff → 2 nodes, 1 edge."""
+    conv_id = "conv-handoff"
+    i1 = Interaction(
+        id="ag-handoff-1",
+        session_id="session-A",
+        conversation_id=conv_id,
+        method="POST",
+        path="/v1/messages",
+        provider=Provider.ANTHROPIC,
+    )
+    await store.save(i1)
+
+    # Second interaction in a different session — threading detects handoff
+    i2 = Interaction(
+        id="ag-handoff-2",
+        session_id="session-B",
+        conversation_id=conv_id,
+        method="POST",
+        path="/v1/messages",
+        provider=Provider.ANTHROPIC,
+    )
+    await store.save(i2)
+
+    graph = await store.get_agent_graph(conv_id)
+    assert isinstance(graph, AgentGraph)
+    assert len(graph.nodes) == 2
+    assert len(graph.edges) == 1
+    edge = graph.edges[0]
+    assert edge.from_session_id == "session-A"
+    assert edge.to_session_id == "session-B"
+
+
+@pytest.mark.asyncio
+async def test_agent_graph_not_found(store: InteractionStore) -> None:
+    """get_agent_graph for a nonexistent conversation → empty graph, no exception."""
+    graph = await store.get_agent_graph("nonexistent-conv")
+    assert isinstance(graph, AgentGraph)
+    assert graph.nodes == []
+    assert graph.edges == []

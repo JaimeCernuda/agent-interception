@@ -168,3 +168,36 @@ class Interaction(BaseModel):
     context_metrics: ContextMetrics | None = Field(
         default=None, description="Computed context window metrics for this turn"
     )
+
+    # Multi-agent role
+    agent_role: str | None = Field(
+        default=None, description="Agent role: orchestrator | subagent | tool"
+    )
+
+
+class AgentNode(BaseModel):
+    """A single agent session node in the multi-agent graph."""
+
+    session_id: str
+    agent_role: str | None
+    interaction_count: int
+    total_tokens: int
+    total_cost_usd: float
+
+
+class AgentEdge(BaseModel):
+    """A directed edge representing an agent handoff."""
+
+    from_session_id: str
+    to_session_id: str
+    interaction_id: str
+    turn_number: int
+    latency_ms: float | None
+
+
+class AgentGraph(BaseModel):
+    """Multi-agent interaction graph for a conversation."""
+
+    conversation_id: str
+    nodes: list[AgentNode]
+    edges: list[AgentEdge]

@@ -30,3 +30,8 @@ nul
 # Frontend build artifacts
 frontend/node_modules/
 frontend/dist/
+
+# Environment files (never commit — contain secrets)
+.env
+.env.*
+!.env.example
