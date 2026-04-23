@@ -2,7 +2,11 @@
 
 from __future__ import annotations
 
-from collections.abc import AsyncGenerator
+import asyncio
+import contextlib
+import json
+import logging
+from collections.abc import AsyncGenerator, AsyncIterator
 from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Any
@@ -10,14 +14,60 @@ from typing import Any
 import httpx
 from starlette.applications import Starlette
 from starlette.requests import Request
-from starlette.responses import JSONResponse, Response
+from starlette.responses import JSONResponse, Response, StreamingResponse
 from starlette.routing import Mount, Route
 from starlette.staticfiles import StaticFiles
 
 from agent_interception.config import InterceptorConfig
+from agent_interception.models import Interaction
 from agent_interception.providers.registry import ProviderRegistry
+from agent_interception.proxy.broadcaster import InteractionBroadcaster
 from agent_interception.proxy.handler import ProxyHandler
 from agent_interception.storage.store import InteractionStore
+
+logger = logging.getLogger(__name__)
+
+_SSE_KEEPALIVE_SECONDS = 15.0
+
+
+def _make_fanout(
+    broadcaster: InteractionBroadcaster,
+    on_interaction: Any | None,
+) -> Any:
+    """Build the `_finalize`-side callback that publishes to live subscribers
+    and then invokes the user-supplied callback.
+
+    Each leg is isolated so one failing cannot block or break the other.
+    """
+
+    async def fanout(interaction: Interaction) -> None:
+        with contextlib.suppress(Exception):
+            await broadcaster.publish(interaction)
+        if on_interaction is not None:
+            with contextlib.suppress(Exception):
+                await on_interaction(interaction)
+
+    return fanout
+
+
+def _interaction_summary_payload(i: Interaction) -> dict[str, Any]:
+    """Same row shape used by the list endpoint and the live SSE stream."""
+    preview = i.response_text
+    if preview and len(preview) > 200:
+        preview = preview[:200] + "..."
+    return {
+        "id": i.id,
+        "session_id": i.session_id,
+        "timestamp": i.timestamp.isoformat(),
+        "provider": i.provider.value,
+        "model": i.model,
+        "method": i.method,
+        "path": i.path,
+        "status_code": i.status_code,
+        "is_streaming": i.is_streaming,
+        "total_latency_ms": i.total_latency_ms,
+        "response_text_preview": preview,
+    }
 
 
 def create_app(
@@ -28,8 +78,11 @@ def create_app(
 
     store = InteractionStore(config)
     registry = ProviderRegistry(config)
+    broadcaster = InteractionBroadcaster()
     handler: ProxyHandler | None = None
     client: httpx.AsyncClient | None = None
+
+    fanout = _make_fanout(broadcaster, on_interaction)
 
     @asynccontextmanager
     async def lifespan(app: Starlette) -> AsyncGenerator[None, None]:
@@ -41,12 +94,21 @@ def create_app(
             registry=registry,
             store=store,
             http_client=client,
-            on_interaction=on_interaction,
+            on_interaction=fanout,
+        )
+        logger.info(
+            "proxy started",
+            extra={
+                "host": config.host,
+                "port": config.port,
+                "db_path": config.db_path,
+            },
         )
         yield
         if client:
             await client.aclose()
         await store.close()
+        logger.info("proxy stopped")
 
     async def health(request: Request) -> JSONResponse:
         """Health check endpoint."""
@@ -72,27 +134,41 @@ def create_app(
             model=model,
             session_id=session_id,
         )
-        return JSONResponse(
-            [
-                {
-                    "id": i.id,
-                    "session_id": i.session_id,
-                    "timestamp": i.timestamp.isoformat(),
-                    "provider": i.provider.value,
-                    "model": i.model,
-                    "method": i.method,
-                    "path": i.path,
-                    "status_code": i.status_code,
-                    "is_streaming": i.is_streaming,
-                    "total_latency_ms": i.total_latency_ms,
-                    "response_text_preview": (
-                        i.response_text[:200] + "..."
-                        if i.response_text and len(i.response_text) > 200
-                        else i.response_text
-                    ),
-                }
-                for i in interactions
-            ]
+        return JSONResponse([_interaction_summary_payload(i) for i in interactions])
+
+    async def live(request: Request) -> Response:
+        """Server-Sent Events stream of newly-persisted interactions.
+
+        Each event uses the same summary shape as the list endpoint. A blank
+        `: ping` comment is sent periodically so idle proxies don't close the
+        connection.
+        """
+
+        async def event_stream() -> AsyncIterator[bytes]:
+            queue = broadcaster.subscribe()
+            try:
+                yield b": connected\n\n"
+                while True:
+                    try:
+                        interaction = await asyncio.wait_for(
+                            queue.get(), timeout=_SSE_KEEPALIVE_SECONDS
+                        )
+                    except TimeoutError:
+                        yield b": ping\n\n"
+                        continue
+                    payload = json.dumps(_interaction_summary_payload(interaction))
+                    yield f"event: interaction\ndata: {payload}\n\n".encode()
+            finally:
+                broadcaster.unsubscribe(queue)
+
+        return StreamingResponse(
+            event_stream(),
+            media_type="text/event-stream",
+            headers={
+                "Cache-Control": "no-cache",
+                "X-Accel-Buffering": "no",
+                "Connection": "keep-alive",
+            },
         )
 
     async def list_sessions(request: Request) -> JSONResponse:
@@ -203,6 +279,12 @@ def create_app(
                     ),
                     "tool_calls": t.tool_calls,
                     "total_latency_ms": t.total_latency_ms,
+                    "status_code": t.status_code,
+                    "error": t.error,
+                    "input_tokens": t.token_usage.input_tokens if t.token_usage else None,
+                    "output_tokens": t.token_usage.output_tokens if t.token_usage else None,
+                    "total_tokens": t.token_usage.total_tokens if t.token_usage else None,
+                    "total_cost_usd": t.cost_estimate.total_cost if t.cost_estimate else None,
                 }
                 for t in turns
             ]
@@ -246,6 +328,7 @@ def create_app(
         Route("/_interceptor/health", health, methods=["GET"]),
         Route("/_interceptor/stats", stats, methods=["GET"]),
         Route("/_interceptor/sessions", list_sessions, methods=["GET"]),
+        Route("/_interceptor/live", live, methods=["GET"]),
         Route("/_interceptor/interactions", list_interactions, methods=["GET"]),
         Route("/_interceptor/interactions", clear_interactions, methods=["DELETE"]),
         Route(
@@ -299,5 +382,6 @@ def create_app(
         routes=routes,
         lifespan=lifespan,
     )
+    app.state.broadcaster = broadcaster
 
     return app

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import contextlib
 import json
+import logging
 import re
 import time
 from collections.abc import AsyncIterator
@@ -16,16 +17,23 @@ from starlette.responses import Response, StreamingResponse
 
 from agent_interception.config import InterceptorConfig
 from agent_interception.models import Interaction, Provider
+from agent_interception.observability import bind_request_context
 from agent_interception.providers.base import ProviderParser
 from agent_interception.providers.registry import ProviderRegistry
 from agent_interception.proxy.context import compute_context_metrics
 from agent_interception.proxy.fake_responses import build_session_required_response
+from agent_interception.proxy.prompt_cache import (
+    inject_prompt_cache,
+    should_inject_prompt_cache,
+)
 from agent_interception.proxy.streaming import (
     StreamInterceptor,
     inject_stream_options,
     should_inject_stream_options,
 )
 from agent_interception.storage.store import InteractionStore
+
+logger = logging.getLogger(__name__)
 
 # Headers to not forward (hop-by-hop + encoding headers that the proxy handles)
 HOP_BY_HOP_HEADERS = frozenset(
@@ -165,6 +173,22 @@ class ProxyHandler:
         if conv_id_header:
             interaction.conversation_id = conv_id_header
 
+        # Bind all IDs we know right now; later logs inherit them automatically.
+        bind_request_context(
+            session_id=session_id,
+            conversation_id=interaction.conversation_id,
+            interaction_id=interaction.id,
+            agent_role=agent_role,
+        )
+        logger.info(
+            "proxy request received",
+            extra={
+                "method": method,
+                "path": path,
+                "provider": provider.value,
+            },
+        )
+
         # Parse request for provider-specific fields
         if body_dict and provider != Provider.UNKNOWN:
             parsed = parser.parse_request(body_dict)
@@ -180,13 +204,25 @@ class ProxyHandler:
             interaction.system_prompt,
         )
 
-        # Check if we need to inject stream_options for OpenAI
+        # Possibly mutate the outbound body: OpenAI stream_options, Anthropic
+        # prompt-cache markers. The two paths are mutually exclusive by provider.
         forward_body = raw_body
         injected_usage = False
-        if body_dict and should_inject_stream_options(body_dict, provider):
-            modified = inject_stream_options(body_dict)
-            forward_body = json.dumps(modified).encode("utf-8")
-            injected_usage = True
+        injected_prompt_cache = False
+        if body_dict:
+            modified: dict[str, Any] | None = None
+            if should_inject_stream_options(body_dict, provider):
+                modified = inject_stream_options(body_dict)
+                injected_usage = True
+            if self._config.inject_prompt_cache and should_inject_prompt_cache(
+                body_dict, provider
+            ):
+                modified = inject_prompt_cache(modified or body_dict)
+                injected_prompt_cache = True
+            if modified is not None:
+                forward_body = json.dumps(modified).encode("utf-8")
+        if injected_prompt_cache:
+            logger.info("injected prompt-cache markers")
 
         # Build upstream URL
         upstream_url = f"{upstream_base}{path}"
@@ -242,6 +278,11 @@ class ProxyHandler:
         except httpx.ConnectError as e:
             interaction.error = f"Connection error: {e}"
             interaction.total_latency_ms = (time.monotonic() - start_time) * 1000
+            logger.error(
+                "upstream connection error",
+                extra={"upstream_url": upstream_url, "latency_ms": interaction.total_latency_ms},
+                exc_info=e,
+            )
             await self._finalize(interaction)
             return Response(
                 content=json.dumps({"error": str(e)}),
@@ -251,6 +292,11 @@ class ProxyHandler:
         except httpx.TimeoutException as e:
             interaction.error = f"Timeout: {e}"
             interaction.total_latency_ms = (time.monotonic() - start_time) * 1000
+            logger.error(
+                "upstream timeout",
+                extra={"upstream_url": upstream_url, "latency_ms": interaction.total_latency_ms},
+                exc_info=e,
+            )
             await self._finalize(interaction)
             return Response(
                 content=json.dumps({"error": str(e)}),
@@ -308,6 +354,25 @@ class ProxyHandler:
             if (interaction.status_code or 0) >= 400 and not interaction.error:
                 interaction.error = f"HTTP {interaction.status_code}"
 
+        if interaction.error:
+            logger.warning(
+                "upstream returned error",
+                extra={
+                    "status_code": interaction.status_code,
+                    "error": interaction.error,
+                    "latency_ms": interaction.total_latency_ms,
+                },
+            )
+        else:
+            logger.info(
+                "upstream response ok",
+                extra={
+                    "status_code": interaction.status_code,
+                    "latency_ms": interaction.total_latency_ms,
+                    "model": interaction.model,
+                },
+            )
+
         await self._finalize(interaction)
 
         # Forward response headers, removing hop-by-hop and stale encoding headers
@@ -361,6 +426,17 @@ class ProxyHandler:
                         interaction.model, interaction.token_usage
                     )
 
+                logger.info(
+                    "stream complete",
+                    extra={
+                        "status_code": interaction.status_code,
+                        "latency_ms": interaction.total_latency_ms,
+                        "ttft_ms": interaction.time_to_first_token_ms,
+                        "chunk_count": len(interceptor.chunks),
+                        "model": interaction.model,
+                    },
+                )
+
                 await self._finalize(interaction)
 
         # Forward response headers, stripping stale encoding headers
@@ -378,6 +454,9 @@ class ProxyHandler:
     async def _finalize(self, interaction: Interaction) -> None:
         """Save the interaction and notify listeners."""
         await self._store.save(interaction)
+        # Threading may have assigned a conversation_id during save; re-bind so
+        # any downstream logs in this request see the resolved value.
+        bind_request_context(conversation_id=interaction.conversation_id)
         if self._on_interaction:
             with contextlib.suppress(Exception):
                 await self._on_interaction(interaction)

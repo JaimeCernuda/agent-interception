@@ -1,12 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import ResizableSplit from "../components/workspace/ResizableSplit";
 import ConversationHeader from "../components/workspace/ConversationHeader";
 import AgentFlowGraph from "../components/workspace/AgentFlowGraph";
 import TimelineView from "../components/workspace/TimelineView";
 import DetailPanel from "../components/workspace/DetailPanel";
 import ErrorBoundary from "../components/ErrorBoundary";
+import Toast, { type ToastState } from "../components/ui/Toast";
 import { useConversationData } from "../hooks/useConversationData";
 import { usePlayhead } from "../hooks/usePlayhead";
+import type { NormalizedTurn } from "../hooks/useConversationData";
+
+function errorToastMessage(turn: NormalizedTurn): string {
+  const raw = turn.error ?? `HTTP ${turn.statusCode ?? "?"}`;
+  const trimmed = raw.length > 160 ? raw.slice(0, 160) + "…" : raw;
+  return `ERROR: ${trimmed}`;
+}
 
 interface Props {
   onOpenRawLog?: () => void;
@@ -30,6 +38,24 @@ export default function WorkspacePage({ onOpenRawLog }: Props) {
   const data = useConversationData(conversationId);
   const playhead = usePlayhead(data.turns.length);
   const currentTurn = data.turns[playhead.idx] ?? null;
+
+  // Error toast lives exactly as long as the playhead is on an error turn.
+  // Moves to the next turn → toast disappears. Scrubs back → toast returns.
+  const errorToast = useMemo<ToastState | null>(
+    () =>
+      currentTurn?.isError
+        ? { type: "error", message: errorToastMessage(currentTurn) }
+        : null,
+    [currentTurn],
+  );
+
+  // Collapsible detail panel. Persist the choice so a full refresh preserves it.
+  const [detailHidden, setDetailHidden] = useState<boolean>(() => {
+    return window.localStorage.getItem("workspace.detail.hidden") === "1";
+  });
+  useEffect(() => {
+    window.localStorage.setItem("workspace.detail.hidden", detailHidden ? "1" : "0");
+  }, [detailHidden]);
 
   // Keyboard shortcuts.
   useEffect(() => {
@@ -77,26 +103,44 @@ export default function WorkspacePage({ onOpenRawLog }: Props) {
             max={0.85}
             storageKey="workspace.split.vertical"
             first={
-              <ResizableSplit
-                direction="horizontal"
-                initial={0.66}
-                min={0.3}
-                max={0.85}
-                storageKey="workspace.split.horizontal"
-                first={
+              detailHidden ? (
+                <div className="relative h-full">
                   <ErrorBoundary label="Agent graph">
                     <AgentFlowGraph
                       data={data}
                       playhead={playhead}
                     />
                   </ErrorBoundary>
-                }
-                second={
-                  <ErrorBoundary label="Detail panel">
-                    <DetailPanel turn={currentTurn} />
-                  </ErrorBoundary>
-                }
-              />
+                  <button
+                    onClick={() => setDetailHidden(false)}
+                    className="absolute top-2 right-2 z-10 text-xs px-2.5 py-1 rounded-md border border-border bg-surface/90 text-fg-secondary hover:text-fg-primary hover:bg-elevate shadow-sm backdrop-blur-sm"
+                    title="Show detail panel"
+                  >
+                    Show details
+                  </button>
+                </div>
+              ) : (
+                <ResizableSplit
+                  direction="horizontal"
+                  initial={0.66}
+                  min={0.3}
+                  max={0.85}
+                  storageKey="workspace.split.horizontal"
+                  first={
+                    <ErrorBoundary label="Agent graph">
+                      <AgentFlowGraph
+                        data={data}
+                        playhead={playhead}
+                      />
+                    </ErrorBoundary>
+                  }
+                  second={
+                    <ErrorBoundary label="Detail panel">
+                      <DetailPanel turn={currentTurn} onClose={() => setDetailHidden(true)} />
+                    </ErrorBoundary>
+                  }
+                />
+              )
             }
             second={
               <ErrorBoundary label="Timeline">
@@ -106,6 +150,14 @@ export default function WorkspacePage({ onOpenRawLog }: Props) {
           />
         </div>
       )}
+
+      <Toast
+        toast={errorToast}
+        onDismiss={() => { /* controlled by playhead */ }}
+        autoDismissMs={null}
+        hideIcon
+        hideClose
+      />
     </div>
   );
 }

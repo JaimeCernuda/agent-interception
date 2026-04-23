@@ -89,3 +89,22 @@ export async function clearInteractions(
   if (!res.ok) throw new Error(`Clear failed: ${res.status}`);
   return res.json();
 }
+
+export function openInteractionStream(
+  onEvent: (row: InteractionSummary) => void,
+  onError: () => void
+): EventSource {
+  const source = new EventSource("/_interceptor/live");
+  source.addEventListener("interaction", (ev) => {
+    try {
+      const data = JSON.parse((ev as MessageEvent).data) as InteractionSummary;
+      onEvent(data);
+    } catch {
+      // Bad frame — ignore; the fallback will eventually resync via listInteractions.
+    }
+  });
+  source.addEventListener("error", () => {
+    onError();
+  });
+  return source;
+}

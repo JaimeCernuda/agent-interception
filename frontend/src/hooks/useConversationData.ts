@@ -16,6 +16,13 @@ export interface NormalizedTurn {
   parentInteractionId: string | null;
   responsePreview: string | null;
   toolCalls: Record<string, unknown>[];
+  statusCode: number | null;
+  error: string | null;
+  inputTokens: number | null;
+  outputTokens: number | null;
+  totalTokens: number | null;
+  totalCostUsd: number | null;
+  isError: boolean;
 }
 
 export interface ConversationData {
@@ -101,6 +108,7 @@ export function useConversationData(conversationId: string | null): Conversation
       const role = roleBySession.get(sessionId) ?? "unknown";
       const ts = new Date(t.timestamp).getTime();
       const hasLatency = t.total_latency_ms != null && !Number.isNaN(t.total_latency_ms);
+      const isError = (t.status_code != null && t.status_code >= 400) || t.error != null;
       return {
         id: t.id,
         sessionId,
@@ -115,6 +123,13 @@ export function useConversationData(conversationId: string | null): Conversation
         parentInteractionId: t.parent_interaction_id,
         responsePreview: t.response_text_preview,
         toolCalls: Array.isArray(t.tool_calls) ? t.tool_calls : [],
+        statusCode: t.status_code ?? null,
+        error: t.error ?? null,
+        inputTokens: t.input_tokens ?? null,
+        outputTokens: t.output_tokens ?? null,
+        totalTokens: t.total_tokens ?? null,
+        totalCostUsd: t.total_cost_usd ?? null,
+        isError,
       };
     });
 

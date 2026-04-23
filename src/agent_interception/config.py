@@ -47,3 +47,13 @@ class InterceptorConfig(BaseSettings):
         default=True,
         description="Redact API keys from logged headers",
     )
+
+    # Prompt-cache injection (Anthropic only)
+    inject_prompt_cache: bool = Field(
+        default=False,
+        description=(
+            "Inject Anthropic prompt-cache markers on the system+tools prefix "
+            "before forwarding upstream. Dramatically reduces billed input "
+            "tokens on tool-loop-heavy agents."
+        ),
+    )

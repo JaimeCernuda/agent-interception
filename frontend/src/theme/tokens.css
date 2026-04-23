@@ -34,7 +34,7 @@
   /* Status */
   --ok:    34 197 94;
   --warn:  234 179 8;
-  --error: 239 68 68;
+  --error: 244 63 94;   /* rose-500 — more distinct from role-subagent orange */
 }
 
 [data-theme="light"] {
@@ -60,7 +60,7 @@
 
   --ok:    22 163 74;
   --warn:  202 138 4;
-  --error: 220 38 38;
+  --error: 225 29 72;   /* rose-600 — more distinct from role-subagent orange */
 }
 
 /* Base body styling so pages with no explicit bg inherit the canvas. */

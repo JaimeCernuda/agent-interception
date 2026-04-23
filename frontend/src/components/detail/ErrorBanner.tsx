@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { parseError } from "../../lib/parseError";
 import CopyButton from "../ui/CopyButton";
 
@@ -11,8 +11,36 @@ const MAX_INLINE_MESSAGE = 480;
 export default function ErrorBanner({ error }: Props) {
   const [showMore, setShowMore] = useState(false);
   const [showRaw, setShowRaw] = useState(false);
+  const [hidden, setHidden] = useState(false);
+
+  // Reset collapse state when the error content changes (new interaction).
+  useEffect(() => {
+    setHidden(false);
+    setShowMore(false);
+    setShowRaw(false);
+  }, [error]);
+
   const parsed = parseError(error);
   if (!parsed) return null;
+
+  if (hidden) {
+    return (
+      <button
+        onClick={() => setHidden(false)}
+        className="mb-4 inline-flex items-center gap-2 text-xs rounded-md border px-2.5 py-1 hover:brightness-110 transition-[filter]"
+        style={{
+          borderColor: "rgb(var(--error) / 0.4)",
+          backgroundColor: "rgb(var(--error) / 0.08)",
+          color: "rgb(var(--error))",
+        }}
+        title="Show error details"
+      >
+        <span aria-hidden>⚠</span>
+        <span className="uppercase tracking-wider font-semibold">{parsed.type}</span>
+        <span className="text-fg-muted">show</span>
+      </button>
+    );
+  }
 
   const long = parsed.message.length > MAX_INLINE_MESSAGE;
   const displayedMessage = long && !showMore
@@ -72,6 +100,14 @@ export default function ErrorBanner({ error }: Props) {
           </pre>
         )}
       </div>
+      <button
+        onClick={() => setHidden(true)}
+        className="shrink-0 self-start text-fg-muted hover:text-fg-primary text-sm leading-none px-1"
+        title="Hide error details"
+        aria-label="Hide error details"
+      >
+        ✕
+      </button>
     </div>
   );
 }

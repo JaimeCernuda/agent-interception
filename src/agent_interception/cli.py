@@ -29,6 +29,12 @@ def cli() -> None:
 @click.option("--quiet", "-q", is_flag=True, default=False, help="Suppress terminal output")
 @click.option("--no-redact", is_flag=True, default=False, help="Disable API key redaction")
 @click.option("--no-store-chunks", is_flag=True, default=False, help="Don't store stream chunks")
+@click.option(
+    "--inject-prompt-cache",
+    is_flag=True,
+    default=False,
+    help="Inject Anthropic prompt-cache markers on system+tools prefix (cuts rate-limit pressure)",
+)
 def start(
     host: str | None,
     port: int | None,
@@ -40,6 +46,7 @@ def start(
     quiet: bool,
     no_redact: bool,
     no_store_chunks: bool,
+    inject_prompt_cache: bool,
 ) -> None:
     """Start the interceptor proxy server."""
     # Build config from CLI overrides (env vars handled by pydantic-settings)
@@ -64,11 +71,16 @@ def start(
         overrides["redact_api_keys"] = False
     if no_store_chunks:
         overrides["store_stream_chunks"] = False
+    if inject_prompt_cache:
+        overrides["inject_prompt_cache"] = True
 
     config = InterceptorConfig(**overrides)
 
     from agent_interception.display.terminal import TerminalDisplay
+    from agent_interception.observability import configure_logging
     from agent_interception.proxy.server import create_app
+
+    configure_logging(verbose=verbose)
 
     display = TerminalDisplay(config)
 

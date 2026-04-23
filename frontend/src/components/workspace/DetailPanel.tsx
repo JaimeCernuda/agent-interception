@@ -13,6 +13,7 @@ type Tab = typeof TABS[number];
 
 interface Props {
   turn: NormalizedTurn | null;
+  onClose?: () => void;
 }
 
 const CACHE_LIMIT = 40;
@@ -26,7 +27,7 @@ function roleTokenVar(role: string): string {
   }
 }
 
-export default function DetailPanel({ turn }: Props) {
+export default function DetailPanel({ turn, onClose }: Props) {
   const [tab, setTab] = useState<Tab>("Summary");
   const [interaction, setInteraction] = useState<Interaction | null>(null);
   const [loading, setLoading] = useState(false);
@@ -76,8 +77,22 @@ export default function DetailPanel({ turn }: Props) {
 
   if (!turn) {
     return (
-      <div className="h-full flex items-center justify-center text-fg-muted text-sm bg-canvas">
-        Select a turn to see details.
+      <div className="h-full flex flex-col bg-canvas border-l border-border-soft">
+        {onClose && (
+          <div className="flex justify-end px-2 py-1 border-b border-border-soft">
+            <button
+              onClick={onClose}
+              className="text-fg-muted hover:text-fg-primary text-sm leading-none px-2 py-0.5"
+              title="Hide detail panel"
+              aria-label="Hide detail panel"
+            >
+              ✕
+            </button>
+          </div>
+        )}
+        <div className="flex-1 flex items-center justify-center text-fg-muted text-sm">
+          Select a turn to see details.
+        </div>
       </div>
     );
   }
@@ -112,6 +127,16 @@ export default function DetailPanel({ turn }: Props) {
           {turn.hasLatency && <div>{turn.latencyMs.toFixed(0)}ms</div>}
           <div>{new Date(turn.startTs).toLocaleTimeString()}</div>
         </div>
+        {onClose && (
+          <button
+            onClick={onClose}
+            className="shrink-0 self-start text-fg-muted hover:text-fg-primary text-sm leading-none px-1"
+            title="Hide detail panel"
+            aria-label="Hide detail panel"
+          >
+            ✕
+          </button>
+        )}
       </div>
 
       {/* Tab bar */}

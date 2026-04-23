@@ -184,6 +184,12 @@ export interface ConversationTurn {
   response_text_preview: string | null;
   tool_calls: Record<string, unknown>[] | null;
   total_latency_ms: number | null;
+  status_code: number | null;
+  error: string | null;
+  input_tokens: number | null;
+  output_tokens: number | null;
+  total_tokens: number | null;
+  total_cost_usd: number | null;
 }
 
 export type ClearScope = "all" | "24h" | "session";

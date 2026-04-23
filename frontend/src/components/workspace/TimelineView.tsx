@@ -12,10 +12,17 @@ interface Props {
 }
 
 const LANE_HEIGHT = 28;
-const LANE_LABEL_WIDTH = 140;
+const LANE_LABEL_WIDTH = 160;
 const TOP_PADDING = 28;       // leaves room for the axis
 const BOTTOM_PADDING = 32;
 const MIN_BAR_WIDTH = 3;
+const LABEL_MAX_CHARS = 18;
+
+interface TooltipState {
+  turn: NormalizedTurn;
+  x: number;
+  y: number;
+}
 
 function roleColorVar(role: string): string {
   switch (role) {
@@ -26,15 +33,32 @@ function roleColorVar(role: string): string {
   }
 }
 
+function truncate(s: string, max: number): string {
+  return s.length > max ? s.slice(0, max - 1) + "…" : s;
+}
+
 function formatDuration(ms: number): string {
   if (ms < 1000) return `${ms.toFixed(0)}ms`;
   return `${(ms / 1000).toFixed(1)}s`;
 }
 
+function formatTokens(n: number | null): string {
+  if (n == null) return "—";
+  if (n >= 1000) return `${(n / 1000).toFixed(1)}k`;
+  return String(n);
+}
+
+function formatCost(usd: number | null): string {
+  if (usd == null) return "—";
+  if (usd < 0.01) return `$${usd.toFixed(4)}`;
+  return `$${usd.toFixed(3)}`;
+}
+
 export default function TimelineView({ data, playhead }: Props) {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
+  const chartScrollRef = useRef<HTMLDivElement | null>(null);
   const [width, setWidth] = useState(600);
-  const [hoverTurn, setHoverTurn] = useState<NormalizedTurn | null>(null);
+  const [tooltip, setTooltip] = useState<TooltipState | null>(null);
 
   useEffect(() => {
     if (!wrapperRef.current) return;
@@ -55,6 +79,12 @@ export default function TimelineView({ data, playhead }: Props) {
     const last = turns[turns.length - 1];
     const end = last.startTs + (last.hasLatency ? last.latencyMs : 0);
     return { t0: start, duration: Math.max(end - start, 1) };
+  }, [turns]);
+
+  const callsByLane = useMemo(() => {
+    const m = new Map<string, number>();
+    for (const t of turns) m.set(t.sessionId, (m.get(t.sessionId) ?? 0) + 1);
+    return m;
   }, [turns]);
 
   const chartWidth = Math.max(width - LANE_LABEL_WIDTH - 16, 200);
@@ -92,6 +122,39 @@ export default function TimelineView({ data, playhead }: Props) {
   }, [turns, xScale, t0, chartWidth, playhead]);
 
   const scrubberDragging = useRef(false);
+
+  const handleBarEnter = useCallback(
+    (turn: NormalizedTurn, evt: React.MouseEvent) => {
+      const container = chartScrollRef.current;
+      if (!container) return;
+      const rect = container.getBoundingClientRect();
+      setTooltip({
+        turn,
+        x: evt.clientX - rect.left + container.scrollLeft,
+        y: evt.clientY - rect.top + container.scrollTop,
+      });
+    },
+    [],
+  );
+
+  const handleBarMove = useCallback(
+    (evt: React.MouseEvent) => {
+      setTooltip((prev) => {
+        if (!prev) return prev;
+        const container = chartScrollRef.current;
+        if (!container) return prev;
+        const rect = container.getBoundingClientRect();
+        return {
+          turn: prev.turn,
+          x: evt.clientX - rect.left + container.scrollLeft,
+          y: evt.clientY - rect.top + container.scrollTop,
+        };
+      });
+    },
+    [],
+  );
+
+  const handleBarLeave = useCallback(() => setTooltip(null), []);
 
   return (
     <div ref={wrapperRef} className="h-full w-full bg-canvas border-t border-border-soft flex flex-col">
@@ -137,23 +200,34 @@ export default function TimelineView({ data, playhead }: Props) {
 
         <div className="flex-1" />
 
-        {hoverTurn && (
-          <div className="text-[11px] text-fg-muted flex gap-3">
-            <span className="font-mono">turn {hoverTurn.turnNumber}</span>
-            <span>{hoverTurn.agentRole}</span>
-            <span className="tabular-nums">{formatDuration(hoverTurn.hasLatency ? hoverTurn.latencyMs : 0)}</span>
-          </div>
-        )}
+        {/* Legend: one dot per distinct role + error swatch */}
+        <div className="flex items-center gap-3 text-[10px] text-fg-muted">
+          {Array.from(new Set(Array.from(roleBySession.values()))).map((role) => (
+            <span key={role} className="inline-flex items-center gap-1">
+              <span className="h-2 w-2 rounded-full" style={{ background: `rgb(${roleColorVar(role)})` }} />
+              {role}
+            </span>
+          ))}
+          <span className="inline-flex items-center gap-1">
+            <span className="h-2 w-2 rounded-full bg-[color:var(--error)]" />
+            error
+          </span>
+        </div>
       </div>
 
       {/* Chart */}
-      <div className="flex-1 overflow-auto relative">
+      <div ref={chartScrollRef} className="flex-1 overflow-auto relative">
         <svg width={width} height={svgHeight} className="block">
-          {/* Lane backgrounds + labels */}
+          {/* Lane backgrounds + labels — clickable, jump to first turn in lane */}
           {lanes.map((sid, i) => {
             const y = TOP_PADDING + i * LANE_HEIGHT;
             const role = roleBySession.get(sid) ?? "unknown";
             const isCurrent = currentTurn?.sessionId === sid;
+            const calls = callsByLane.get(sid) ?? 0;
+            const onClickLane = () => {
+              const idx = turns.findIndex((t) => t.sessionId === sid);
+              if (idx >= 0) playhead.setIdx(idx);
+            };
             return (
               <Group key={sid}>
                 <rect
@@ -165,85 +239,37 @@ export default function TimelineView({ data, playhead }: Props) {
                 />
                 <line x1={LANE_LABEL_WIDTH} y1={y + LANE_HEIGHT} x2={width} y2={y + LANE_HEIGHT}
                   stroke="rgb(var(--border-soft))" strokeWidth="1" />
-                <circle cx={10} cy={y + LANE_HEIGHT / 2} r={4} fill={`rgb(${roleColorVar(role)})`} />
-                <text
-                  x={22} y={y + LANE_HEIGHT / 2 + 4}
-                  fontSize="11"
-                  fill="rgb(var(--fg-secondary))"
-                  style={{ fontFamily: "ui-monospace, monospace" }}
-                >
-                  {sid.length > 14 ? sid.slice(0, 14) + "…" : sid}
-                </text>
-                <text
-                  x={LANE_LABEL_WIDTH - 6} y={y + LANE_HEIGHT / 2 + 4}
-                  fontSize="10"
-                  textAnchor="end"
-                  fill="rgb(var(--fg-muted))"
-                >
-                  {role}
-                </text>
+                {/* Clickable label group */}
+                <g onClick={onClickLane} style={{ cursor: "pointer" }}>
+                  <rect
+                    x={0} y={y} width={LANE_LABEL_WIDTH} height={LANE_HEIGHT}
+                    fill="transparent"
+                  />
+                  <circle cx={10} cy={y + LANE_HEIGHT / 2} r={4} fill={`rgb(${roleColorVar(role)})`} />
+                  <text
+                    x={22} y={y + LANE_HEIGHT / 2 + 4}
+                    fontSize="11"
+                    fill="rgb(var(--fg-secondary))"
+                    style={{ fontFamily: "ui-monospace, monospace" }}
+                  >
+                    {truncate(sid, LABEL_MAX_CHARS)}
+                  </text>
+                  <text
+                    x={LANE_LABEL_WIDTH - 6} y={y + LANE_HEIGHT / 2 + 4}
+                    fontSize="10"
+                    textAnchor="end"
+                    fill="rgb(var(--fg-muted))"
+                    style={{ fontFeatureSettings: "'tnum'" }}
+                  >
+                    {calls}
+                  </text>
+                </g>
               </Group>
             );
           })}
 
-          {/* Bars */}
-          <Group left={LANE_LABEL_WIDTH}>
-            {turns.map((turn, i) => {
-              const x = xScale(turn.startTs - t0);
-              const w = Math.max(xScale(turn.hasLatency ? turn.latencyMs : 0), MIN_BAR_WIDTH);
-              const y = laneY(turn.sessionId);
-              const isActive = i === playhead.idx;
-              const isPast = i < playhead.idx;
-              const color = `rgb(${roleColorVar(turn.agentRole)})`;
-              return (
-                <g key={turn.id}
-                  onMouseEnter={() => setHoverTurn(turn)}
-                  onMouseLeave={() => setHoverTurn(null)}
-                  onClick={() => playhead.setIdx(i)}
-                  style={{ cursor: "pointer" }}
-                >
-                  <rect
-                    x={x} y={y} width={w} height={18} rx={3}
-                    fill={color}
-                    opacity={isActive ? 1 : isPast ? 0.65 : 0.25}
-                    stroke={isActive ? "rgb(var(--fg-primary))" : "transparent"}
-                    strokeWidth={isActive ? 1.5 : 0}
-                  />
-                </g>
-              );
-            })}
-          </Group>
-
-          {/* Playhead line */}
-          {currentTurn && (
-            <Group left={LANE_LABEL_WIDTH}>
-              <line
-                x1={playheadX} x2={playheadX}
-                y1={TOP_PADDING - 6} y2={TOP_PADDING + chartHeight + 2}
-                stroke="rgb(var(--accent))" strokeWidth="1.5"
-                strokeDasharray="3 3"
-              />
-              <circle cx={playheadX} cy={TOP_PADDING - 6} r={4} fill="rgb(var(--accent))" />
-            </Group>
-          )}
-
-          {/* Axis */}
-          <Group left={LANE_LABEL_WIDTH} top={TOP_PADDING + chartHeight + 2}>
-            <AxisBottom
-              scale={xScale}
-              numTicks={6}
-              tickFormat={(v) => formatDuration(Number(v))}
-              stroke="rgb(var(--border))"
-              tickStroke="rgb(var(--border))"
-              tickLabelProps={() => ({
-                fill: "rgb(var(--fg-muted))",
-                fontSize: 10,
-                textAnchor: "middle",
-              })}
-            />
-          </Group>
-
-          {/* Scrub overlay — captures drag anywhere in chart area */}
+          {/* Scrub overlay — FIRST (under bars) so empty area scrubs but bars
+              receive click/hover themselves. */}
           <rect
             x={LANE_LABEL_WIDTH} y={TOP_PADDING - 12}
             width={chartWidth} height={chartHeight + 14}
@@ -263,8 +289,137 @@ export default function TimelineView({ data, playhead }: Props) {
               try { (e.target as Element).releasePointerCapture?.(e.pointerId); } catch { /* noop */ }
             }}
           />
+
+          {/* Bars — on top so clicks/hovers hit them first */}
+          <Group left={LANE_LABEL_WIDTH}>
+            {turns.map((turn, i) => {
+              const x = xScale(turn.startTs - t0);
+              const w = Math.max(xScale(turn.hasLatency ? turn.latencyMs : 0), MIN_BAR_WIDTH);
+              const y = laneY(turn.sessionId);
+              const isActive = i === playhead.idx;
+              const isPast = i < playhead.idx;
+              const color = turn.isError
+                ? "rgb(var(--error))"
+                : `rgb(${roleColorVar(turn.agentRole)})`;
+              const baseOpacity = isActive ? 1 : isPast ? 0.75 : 0.3;
+              // Errors never dim — they must read as "this failed" at a glance.
+              const opacity = turn.isError ? 1 : baseOpacity;
+              const stroke = isActive
+                ? "rgb(var(--fg-primary))"
+                : turn.isError
+                ? "rgb(var(--error))"
+                : "transparent";
+              const strokeWidth = isActive ? 1.5 : turn.isError ? 2 : 0;
+              return (
+                <g
+                  key={turn.id}
+                  onMouseEnter={(e) => handleBarEnter(turn, e)}
+                  onMouseMove={handleBarMove}
+                  onMouseLeave={handleBarLeave}
+                  onClick={() => playhead.setIdx(i)}
+                  style={{ cursor: "pointer" }}
+                >
+                  <rect
+                    x={x} y={y} width={w} height={18} rx={3}
+                    fill={color}
+                    opacity={opacity}
+                    stroke={stroke}
+                    strokeWidth={strokeWidth}
+                  />
+                </g>
+              );
+            })}
+          </Group>
+
+          {/* Playhead line — turns red when the active turn is an error */}
+          {currentTurn && (
+            <Group left={LANE_LABEL_WIDTH}>
+              <line
+                x1={playheadX} x2={playheadX}
+                y1={TOP_PADDING - 6} y2={TOP_PADDING + chartHeight + 2}
+                stroke={`rgb(var(${currentTurn.isError ? "--error" : "--accent"}))`}
+                strokeWidth="1.5"
+                strokeDasharray="3 3"
+              />
+              <circle
+                cx={playheadX} cy={TOP_PADDING - 6} r={4}
+                fill={`rgb(var(${currentTurn.isError ? "--error" : "--accent"}))`}
+              />
+            </Group>
+          )}
+
+          {/* Axis */}
+          <Group left={LANE_LABEL_WIDTH} top={TOP_PADDING + chartHeight + 2}>
+            <AxisBottom
+              scale={xScale}
+              numTicks={6}
+              tickFormat={(v) => formatDuration(Number(v))}
+              stroke="rgb(var(--border))"
+              tickStroke="rgb(var(--border))"
+              tickLabelProps={() => ({
+                fill: "rgb(var(--fg-muted))",
+                fontSize: 10,
+                textAnchor: "middle",
+              })}
+            />
+          </Group>
         </svg>
+
+        {tooltip && <TurnTooltip {...tooltip} />}
       </div>
+    </div>
+  );
+}
+
+function TurnTooltip({ turn, x, y }: TooltipState) {
+  // Offset slightly so the tooltip doesn't sit under the cursor.
+  const left = x + 12;
+  const top = y + 12;
+  return (
+    <div
+      className="pointer-events-none absolute z-10 rounded-md border border-border bg-surface/95 px-3 py-2 text-xs shadow-lg backdrop-blur-sm min-w-[200px]"
+      style={{ left, top }}
+    >
+      <div className="flex items-center gap-2 mb-1">
+        <span className="font-mono text-fg-primary">turn {turn.turnNumber}</span>
+        <span className="text-fg-muted">·</span>
+        <span className="text-fg-secondary">{turn.agentRole}</span>
+        {turn.isError && (
+          <span className="ml-auto text-[10px] px-1.5 py-0.5 rounded bg-[color:var(--error)]/20 text-[color:var(--error)]">
+            error
+          </span>
+        )}
+      </div>
+      <div className="font-mono text-[10px] text-fg-muted truncate mb-1">
+        {turn.sessionId}
+      </div>
+      <div className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5 text-[11px]">
+        <span className="text-fg-muted">model</span>
+        <span className="text-fg-secondary truncate">{turn.model ?? "—"}</span>
+        <span className="text-fg-muted">status</span>
+        <span className="text-fg-secondary tabular-nums">{turn.statusCode ?? "—"}</span>
+        <span className="text-fg-muted">latency</span>
+        <span className="text-fg-secondary tabular-nums">
+          {turn.hasLatency ? formatDuration(turn.latencyMs) : "—"}
+        </span>
+        <span className="text-fg-muted">tokens</span>
+        <span className="text-fg-secondary tabular-nums">
+          {formatTokens(turn.inputTokens)} in · {formatTokens(turn.outputTokens)} out
+        </span>
+        <span className="text-fg-muted">cost</span>
+        <span className="text-fg-secondary tabular-nums">{formatCost(turn.totalCostUsd)}</span>
+        {turn.toolCalls.length > 0 && (
+          <>
+            <span className="text-fg-muted">tools</span>
+            <span className="text-fg-secondary tabular-nums">{turn.toolCalls.length}</span>
+          </>
+        )}
+      </div>
+      {turn.error && (
+        <div className="mt-1.5 pt-1.5 border-t border-border-soft text-[10px] text-[color:var(--error)] break-words">
+          {turn.error.length > 140 ? turn.error.slice(0, 140) + "…" : turn.error}
+        </div>
+      )}
     </div>
   );
 }
