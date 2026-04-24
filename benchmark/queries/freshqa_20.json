@@ -1,0 +1,382 @@
+{
+  "dataset": "FreshQA April 21 2025",
+  "source": "https://docs.google.com/spreadsheets/d/1_8mi-yuK30mvoDJu1KQXD6ODem7MKMcIgVAwDSzJkjM/",
+  "selection_seed": 42,
+  "selection_filter": "split=TEST, false_premise=FALSE",
+  "stratification": {
+    "one_hop_never": 4,
+    "one_hop_slow": 5,
+    "one_hop_fast": 4,
+    "multi_hop_slow": 4,
+    "multi_hop_fast": 3
+  },
+  "queries": [
+    {
+      "query_id": "q001",
+      "question": "Who was the first elected female Governor of Massachusetts?",
+      "freshqa_id": "326",
+      "bucket": "one_hop_never",
+      "fact_type": "never-changing",
+      "num_hops": "one-hop",
+      "effective_year": "2022",
+      "reference_answers": [
+        "Maura Healey",
+        "Maura Tracy Healey"
+      ],
+      "urls": [
+        "https://www.npr.org/2022/11/08/1134199246/massachusetts-governor-results-maura-healey",
+        "https://www.nbcnews.com/nbc-out/out-politics-and-policy/first-woman-lgbtq-person-elected-massachusetts-governor-sworn-rcna64622",
+        "https://apnews.com/article/politics-massachusetts-state-government-maura-healey-charlie-baker-c71e3d6b9ad31b26b90dfbea6a6f36b3",
+        "http://www.mawomenscaucus.com/history-of-women-in-massachusetts-government"
+      ]
+    },
+    {
+      "query_id": "q002",
+      "question": "Who wrote the book titled Orientalism?",
+      "freshqa_id": "259",
+      "bucket": "one_hop_never",
+      "fact_type": "never-changing",
+      "num_hops": "one-hop",
+      "effective_year": "before 2022",
+      "reference_answers": [
+        "Edward W. Sa\u00efd",
+        "Edward W. Said",
+        "Edward Said"
+      ],
+      "urls": [
+        "https://www.britannica.com/biography/Edward-Said",
+        "https://www.britannica.com/topic/Orientalism-by-Said"
+      ]
+    },
+    {
+      "query_id": "q003",
+      "question": "What city was connected with the earliest cases of COVID-19?",
+      "freshqa_id": "248",
+      "bucket": "one_hop_never",
+      "fact_type": "never-changing",
+      "num_hops": "one-hop",
+      "effective_year": "before 2022",
+      "reference_answers": [
+        "Wuhan",
+        "Wuhan, China",
+        "Huanan Seafood Wholesale Market",
+        "Huanan Market",
+        "China"
+      ],
+      "urls": [
+        "https://www.britannica.com/event/COVID-19-pandemic",
+        "https://www.britannica.com/place/Wuhan"
+      ]
+    },
+    {
+      "query_id": "q004",
+      "question": "Who was the first African American woman to appear on a quarter in the United States?",
+      "freshqa_id": "339",
+      "bucket": "one_hop_never",
+      "fact_type": "never-changing",
+      "num_hops": "one-hop",
+      "effective_year": "2022",
+      "reference_answers": [
+        "Maya Angelou"
+      ],
+      "urls": [
+        "https://mymodernmet.com/maya-angelou-quarter/",
+        "https://www.kqed.org/arts/13907987/maya-angelou-is-the-first-black-woman-to-be-featured-on-a-u-s-quarter",
+        "https://www.goodmorningamerica.com/living/story/maya-angelou-anna-wong-notable-women-featured-us-80448382",
+        "https://www.nyhistory.org/blogs/womens-history-the-new-maya-angelou-quarter"
+      ]
+    },
+    {
+      "query_id": "q005",
+      "question": "How many children does Elon Musk have, including his deceased child?",
+      "freshqa_id": "159",
+      "bucket": "one_hop_slow",
+      "fact_type": "slow-changing",
+      "num_hops": "one-hop",
+      "effective_year": "2025",
+      "reference_answers": [
+        "14",
+        "fourteen",
+        "at least 14",
+        "at least fourteen"
+      ],
+      "urls": [
+        "https://www.bbc.com/news/articles/c0r1975ded7o",
+        "https://www.ibtimes.co.uk/how-many-kids-does-elon-musk-have-billionaire-brings-more-oval-office-meeting-indian-pm-1731026",
+        "https://www.thefamouspeople.com/profiles/elon-musk-5562.php",
+        "https://www.independent.co.uk/life-style/elon-musk-children-mothers-born-b2118194.html"
+      ]
+    },
+    {
+      "query_id": "q006",
+      "question": "What country became the latest country to adopt the Euro?",
+      "freshqa_id": "155",
+      "bucket": "one_hop_slow",
+      "fact_type": "slow-changing",
+      "num_hops": "one-hop",
+      "effective_year": "2026",
+      "reference_answers": [
+        "Bulgaria"
+      ],
+      "urls": [
+        "https://www.linkedin.com/posts/european-central-bank_with-bulgaria-becoming-the-21st-country-to-activity-7412796029013692416-_yK8",
+        "https://www.independent.com.mt/articles/2026-01-01/world-news/Bulgaria-becomes-21st-country-to-join-the-euro-deepening-EU-ties-despite-fears-6736286029",
+        "https://www.voanews.com/a/latvia-becomes-18th-country-to-adopt-euro/1821176.html",
+        "https://archive.nytimes.com/www.nytimes.com/library/review/062500greek-euro-review.html"
+      ]
+    },
+    {
+      "query_id": "q007",
+      "question": "What was the shortest war in history?",
+      "freshqa_id": "152",
+      "bucket": "one_hop_slow",
+      "fact_type": "slow-changing",
+      "num_hops": "one-hop",
+      "effective_year": "before 2022",
+      "reference_answers": [
+        "Anglo-Zanzibar War"
+      ],
+      "urls": [
+        "https://todayinhistory.blog/tag/shortest-war/",
+        "https://todayinhistory.blog/2019/08/27/august-27-1896-the-shortest-war-in-history/",
+        "https://todayinhistory.blog/2017/08/27/august-27-1896-shortest-war-in-history/",
+        "https://historyfacts.com/world-history/article/the-shortest-wars-in-history/"
+      ]
+    },
+    {
+      "query_id": "q008",
+      "question": "What is the best-selling jazz album of all time?",
+      "freshqa_id": "141",
+      "bucket": "one_hop_slow",
+      "fact_type": "slow-changing",
+      "num_hops": "one-hop",
+      "effective_year": "before 2022",
+      "reference_answers": [
+        "Kind of Blue"
+      ],
+      "urls": [
+        "https://bestofjazz.org/what-is-the-best-selling-jazz-album-of-all-time/",
+        "https://www.milesdavis.com/news/still-the-best-selling-jazz-album-ever/"
+      ]
+    },
+    {
+      "query_id": "q009",
+      "question": "Who is the most recent female recipient of the Fields Medal?",
+      "freshqa_id": "218",
+      "bucket": "one_hop_slow",
+      "fact_type": "slow-changing",
+      "num_hops": "one-hop",
+      "effective_year": "2022",
+      "reference_answers": [
+        "Maryna Viazovska"
+      ],
+      "urls": [
+        "https://www.quantamagazine.org/ukrainian-mathematician-maryna-viazovska-wins-fields-medal-20220705/",
+        "https://stats.areppim.com/listes/list_fieldsxmedal.htm",
+        "https://www.scientificamerican.com/article/ukrainian-mathematician-becomes-second-woman-to-win-prestigious-fields-medal/"
+      ]
+    },
+    {
+      "query_id": "q010",
+      "question": "How much does the Netflix standard plan without ads cost in the US?",
+      "freshqa_id": "383",
+      "bucket": "one_hop_fast",
+      "fact_type": "fast-changing",
+      "num_hops": "one-hop",
+      "effective_year": "2026",
+      "reference_answers": [
+        "$19.99",
+        "$19.99 / month",
+        "$19.99 a month",
+        "$19.99 per month"
+      ],
+      "urls": [
+        "https://arstechnica.com/civis/threads/netflix-kills-basic-plan-making-its-cheapest-ad-free-tier-15-49.1493661/",
+        "https://tvline.com/news/netflix-basic-ad-free-plan-ending-1235138395/",
+        "https://tvline.com/news/netflix-eliminates-basic-ad-free-subscription-tier-1235016022/",
+        "https://www.aftvnews.com/netflix-announces-new-ad-supported-plan-for-6-99-per-month/"
+      ]
+    },
+    {
+      "query_id": "q011",
+      "question": "What is the youngest age eligible for COVID-19 vaccination in the United States?",
+      "freshqa_id": "456",
+      "bucket": "one_hop_fast",
+      "fact_type": "fast-changing",
+      "num_hops": "one-hop",
+      "effective_year": "2022",
+      "reference_answers": [
+        "6 months"
+      ],
+      "urls": [
+        "https://www.bbc.com/news/world-us-canada-55305720",
+        "https://ourworldindata.org/coronavirus",
+        "https://link.springer.com/article/10.1007/s10865-024-00487-1",
+        "https://www.nationalgeographic.com/science/article/is-a-twindemic-of-flu-and-covid-19-about-to-hit-the-us"
+      ]
+    },
+    {
+      "query_id": "q012",
+      "question": "Which drama series won the most recent Primetime Emmy Award for Outstanding Drama Series?",
+      "freshqa_id": "439",
+      "bucket": "one_hop_fast",
+      "fact_type": "fast-changing",
+      "num_hops": "one-hop",
+      "effective_year": "2025",
+      "reference_answers": [
+        "The Pitt",
+        "The Pitt (Season 1)"
+      ],
+      "urls": [
+        "https://www.imdb.com/list/ls567931975/",
+        "https://www.indiewire.com/awards/results/the-pitt-wins-emmy-best-drama-series-1235150436/",
+        "https://deadline.com/lists/emmys-2025-winners-list/",
+        "https://deadline.com/gallery/emmy-best-drama-winners-list/"
+      ]
+    },
+    {
+      "query_id": "q013",
+      "question": "What is the current best-selling children's book on Amazon?",
+      "freshqa_id": "381",
+      "bucket": "one_hop_fast",
+      "fact_type": "fast-changing",
+      "num_hops": "one-hop",
+      "effective_year": "2026",
+      "reference_answers": [
+        "Harry Potter and the Half-Blood Prince"
+      ],
+      "urls": [
+        "https://www.amazon.com/Best-Sellers-Children's-Books/zgbs/books/4",
+        "https://www.nytimes.com/books/best-sellers/",
+        "https://www.aaastateofplay.com/the-best-selling-childrens-books-of-all-time/",
+        "https://www.billboard.com/culture/product-recommendations/country-music-star-maren-morris-releases-bestselling-childrens-book-1235661468/"
+      ]
+    },
+    {
+      "query_id": "q014",
+      "question": "Who has the most liked post on Instagram?",
+      "freshqa_id": "239",
+      "bucket": "multi_hop_slow",
+      "fact_type": "slow-changing",
+      "num_hops": "multi-hop",
+      "effective_year": "2022",
+      "reference_answers": [
+        "Lionel Messi"
+      ],
+      "urls": [
+        "https://www.brandwatch.com/blog/most-liked-pictures-on-instagram/",
+        "https://www.nbclosangeles.com/entertainment/entertainment-news/most-liked-instagram-post/3770355/",
+        "https://www.statista.com/statistics/673810/instagram-posts-most-likes/",
+        "https://www.influize.com/blog/most-liked-photos-on-instagram"
+      ]
+    },
+    {
+      "query_id": "q015",
+      "question": "Who is the vice-chancellor of the largest university by enrollment in the world?",
+      "freshqa_id": "234",
+      "bucket": "multi_hop_slow",
+      "fact_type": "slow-changing",
+      "num_hops": "multi-hop",
+      "effective_year": "2024",
+      "reference_answers": [
+        "Uma Kanjilal",
+        "Prof. Uma Kanjilal has been appointed as the Acting Vice Chancellor of Indira Gandhi National Open University."
+      ],
+      "urls": [
+        "https://www.youtube.com/watch?v=pz1Y_FKa9CU",
+        "https://www.worldatlas.com/articles/universities-with-the-largest-enrollments-in-the-world.html",
+        "https://www.abc.net.au/news/2014-07-30/anu-vice-chancellor-ian-young-delivers-damning-uni-report-card/5635964"
+      ]
+    },
+    {
+      "query_id": "q016",
+      "question": "The UN Secretary general is from which country?",
+      "freshqa_id": "222",
+      "bucket": "multi_hop_slow",
+      "fact_type": "slow-changing",
+      "num_hops": "multi-hop",
+      "effective_year": "before 2022",
+      "reference_answers": [
+        "Portugal",
+        "Timor-Leste",
+        "Portugal and Timor-Leste"
+      ],
+      "urls": [
+        "https://cssmpt.com/the-current-un-secretary-general-belongs-to-which-country/",
+        "https://www.everycrsreport.com/reports/IF10454.html",
+        "https://unctad.org/about/office-of-the-secretary-general",
+        "https://www.cfr.org/backgrounders/role-un-secretary-general"
+      ]
+    },
+    {
+      "query_id": "q017",
+      "question": "What is the total height of the tallest building in the world?",
+      "freshqa_id": "221",
+      "bucket": "multi_hop_slow",
+      "fact_type": "slow-changing",
+      "num_hops": "multi-hop",
+      "effective_year": "before 2022",
+      "reference_answers": [
+        "829.8 m",
+        "2,722 ft"
+      ],
+      "urls": [
+        "https://www.dimensionsguide.com/what-is-the-tallest-building/",
+        "https://www.dimensionsguide.com/tallest-building-in-the-world/",
+        "https://www.statista.com/statistics/264732/height-of-the-tallest-skyscrapers-in-the-world/",
+        "https://www.luckyji.com/10-worlds-tallest-buildings/"
+      ]
+    },
+    {
+      "query_id": "q018",
+      "question": "Do the Toronto Raptors have a winning record in the latest NBA season?",
+      "freshqa_id": "463",
+      "bucket": "multi_hop_fast",
+      "fact_type": "fast-changing",
+      "num_hops": "multi-hop",
+      "effective_year": "2026",
+      "reference_answers": [
+        "Yes"
+      ],
+      "urls": [
+        "https://www.blogto.com/sports_play/2020/02/toronto-raptors-smash-another-sports-record-15th-consecutive-win/",
+        "https://www.theglobeandmail.com/sports/basketball/article-toronto-raptors-have-different-feel-than-last-year-as-nba-season-winds/",
+        "https://www.raptorsrepublic.com/2018/04/06/raptors-set-franchise-mark-for-wins-and-home-wins-win-atlantic-clinch-1-seed/",
+        "https://www.raptorsrepublic.com/2020/02/18/morning-coffee-tue-feb-18/"
+      ]
+    },
+    {
+      "query_id": "q019",
+      "question": "Who posted the most-liked Instagram post last year?",
+      "freshqa_id": "471",
+      "bucket": "multi_hop_fast",
+      "fact_type": "fast-changing",
+      "num_hops": "multi-hop",
+      "effective_year": "2026",
+      "reference_answers": [
+        "Lionel Messi"
+      ],
+      "urls": [
+        "https://www.dashsocial.com/blog/most-liked-instagram-post",
+        "https://www.statista.com/statistics/673810/instagram-posts-most-likes/",
+        "https://www.deccanherald.com/lifestyle/10-most-liked-posts-on-instagram-in-2025-3707823",
+        "https://thunderclap.com/list-of-top-most-liked-instagram-posts/"
+      ]
+    },
+    {
+      "query_id": "q020",
+      "question": "In what month and year was the price of Bitcoin last above $40,000?",
+      "freshqa_id": "472",
+      "bucket": "multi_hop_fast",
+      "fact_type": "fast-changing",
+      "num_hops": "multi-hop",
+      "effective_year": "2026",
+      "reference_answers": [
+        "April 2026"
+      ],
+      "urls": [
+        "https://www.bankrate.com/investing/bitcoin-price-history/"
+      ]
+    }
+  ]
+}

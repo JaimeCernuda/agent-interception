@@ -1,4 +1,17 @@
-import type { AgentGraph, ClearScope, ConversationSummary, ConversationTurn, Interaction, InteractionSummary, SessionGraph, SessionInfo, ToolCallStep } from "./types";
+import type {
+  AgentGraph,
+  AnalyticsMetrics,
+  AnalyticsSession,
+  AnalyticsSessionSummary,
+  ClearScope,
+  ConversationSummary,
+  ConversationTurn,
+  Interaction,
+  InteractionSummary,
+  SessionGraph,
+  SessionInfo,
+  ToolCallStep,
+} from "./types";
 
 interface ListParams {
   limit?: number;
@@ -87,6 +100,44 @@ export async function clearInteractions(
     body: JSON.stringify({ scope, sessionId }),
   });
   if (!res.ok) throw new Error(`Clear failed: ${res.status}`);
+  return res.json();
+}
+
+// ---- Analytics (Path B: forwarded OTel spans) --------------------------
+
+export async function listAnalyticsSessions(
+  params: { limit?: number; offset?: number } = {}
+): Promise<AnalyticsSessionSummary[]> {
+  const qs = new URLSearchParams();
+  if (params.limit != null) qs.set("limit", String(params.limit));
+  if (params.offset != null) qs.set("offset", String(params.offset));
+  const url = `/api/analytics/sessions${qs.toString() ? `?${qs}` : ""}`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Failed to list analytics sessions: ${res.status}`);
+  return res.json();
+}
+
+export async function getAnalyticsSession(traceId: string): Promise<AnalyticsSession> {
+  const res = await fetch(`/api/analytics/sessions/${encodeURIComponent(traceId)}`);
+  if (!res.ok) throw new Error(`Failed to get analytics session: ${res.status}`);
+  return res.json();
+}
+
+export async function getAnalyticsMetrics(traceId: string): Promise<AnalyticsMetrics> {
+  const res = await fetch(`/api/analytics/sessions/${encodeURIComponent(traceId)}/metrics`);
+  if (!res.ok) throw new Error(`Failed to get analytics metrics: ${res.status}`);
+  return res.json();
+}
+
+export async function listAnalyticsMetrics(
+  params: { limit?: number; offset?: number } = {}
+): Promise<AnalyticsMetrics[]> {
+  const qs = new URLSearchParams();
+  if (params.limit != null) qs.set("limit", String(params.limit));
+  if (params.offset != null) qs.set("offset", String(params.offset));
+  const url = `/api/analytics/metrics${qs.toString() ? `?${qs}` : ""}`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Failed to list analytics metrics: ${res.status}`);
   return res.json();
 }
 

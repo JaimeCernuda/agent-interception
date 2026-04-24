@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import WorkspacePage from "./pages/WorkspacePage";
+import AnalyticsPage from "./pages/AnalyticsPage";
 import InteractionsTable from "./components/InteractionsTable";
 import InteractionDrawer from "./components/InteractionDrawer";
 import ClearModal from "./components/ClearModal";
@@ -9,6 +10,7 @@ import { clearInteractions } from "./api";
 import type { ClearScope } from "./types";
 
 type Theme = "dark" | "light";
+type View = "workspace" | "analytics";
 
 function getInitialTheme(): Theme {
   const attr = document.documentElement.dataset.theme;
@@ -18,6 +20,7 @@ function getInitialTheme(): Theme {
 
 export default function App() {
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
+  const [view, setView] = useState<View>("workspace");
   const [showClearModal, setShowClearModal] = useState(false);
   const [showRawLog, setShowRawLog] = useState(false);
   const [rawSelectedId, setRawSelectedId] = useState<string | null>(null);
@@ -49,7 +52,31 @@ export default function App() {
     <div className="h-screen flex flex-col bg-canvas text-fg-primary">
       <header className="border-b border-border-soft px-4 py-2 flex items-center gap-3 shrink-0">
         <span className="text-base font-semibold tracking-tight">Agent Interceptor</span>
-        <span className="text-[10px] uppercase tracking-widest text-fg-muted">Workspace</span>
+
+        <nav className="flex items-center gap-1 ml-2">
+          <button
+            onClick={() => setView("workspace")}
+            className={
+              "px-2.5 py-1 text-[11px] rounded-md transition-colors " +
+              (view === "workspace"
+                ? "bg-elevate text-fg-primary"
+                : "text-fg-muted hover:text-fg-primary hover:bg-hover")
+            }
+          >
+            Workspace
+          </button>
+          <button
+            onClick={() => setView("analytics")}
+            className={
+              "px-2.5 py-1 text-[11px] rounded-md transition-colors " +
+              (view === "analytics"
+                ? "bg-elevate text-fg-primary"
+                : "text-fg-muted hover:text-fg-primary hover:bg-hover")
+            }
+          >
+            Analytics
+          </button>
+        </nav>
 
         <div className="flex-1" />
 
@@ -87,9 +114,15 @@ export default function App() {
       </header>
 
       <main className="flex-1 min-h-0">
-        <ErrorBoundary label="Workspace">
-          <WorkspacePage onOpenRawLog={() => setShowRawLog(true)} />
-        </ErrorBoundary>
+        {view === "workspace" ? (
+          <ErrorBoundary label="Workspace">
+            <WorkspacePage onOpenRawLog={() => setShowRawLog(true)} />
+          </ErrorBoundary>
+        ) : (
+          <ErrorBoundary label="Analytics">
+            <AnalyticsPage />
+          </ErrorBoundary>
+        )}
       </main>
 
       {showRawLog && (

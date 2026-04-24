@@ -89,12 +89,33 @@ def start_session(label: str) -> str:
     return session_id
 
 
-async def safe_query(prompt: str, options: Any, max_retries: int = 3) -> AsyncIterator[Any]:
-    """Wrapper around claude_agent_sdk.query that retries on rate_limit_event.
+def _is_rate_limit_error(exc: BaseException) -> bool:
+    """Match both SDK `rate_limit_event` parse errors and CLI-level 429s.
 
-    The SDK raises MessageParseError for event types it doesn't know (e.g.
-    ``rate_limit_event``). We retry with a wait on rate limits and skip truly
-    unknown event types so the script doesn't crash mid-run.
+    The Claude CLI exits fatally on an upstream 429 with a generic
+    ``Exception("Command failed with exit code 1…")`` whose message leaks
+    through the stderr text containing "429" / "rate limit". We treat those
+    the same as the SDK's structured rate-limit events so safe_query can
+    back off and retry instead of crashing the script.
+    """
+    msg = str(exc)
+    return (
+        "rate_limit_event" in msg
+        or "rate limit" in msg.lower()
+        or "429" in msg
+    )
+
+
+async def safe_query(prompt: str, options: Any, max_retries: int = 3) -> AsyncIterator[Any]:
+    """Wrapper around claude_agent_sdk.query that retries on rate limits.
+
+    Handles two distinct surfaces:
+      * ``MessageParseError`` for the ``rate_limit_event`` stream event the
+        SDK doesn't natively parse.
+      * Plain ``Exception`` that wraps the CLI's fatal exit on an upstream
+        429 response.
+
+    Both trigger a 60/120/180s backoff. Unknown stream events are skipped.
     """
     from claude_agent_sdk import query
     from claude_agent_sdk._errors import MessageParseError
@@ -118,6 +139,28 @@ async def safe_query(prompt: str, options: Any, max_retries: int = 3) -> AsyncIt
             elif "Unknown message type" in msg_str:
                 print(f"\n[warning] skipped unknown event: {exc}")
                 return
+            else:
+                raise
+        except Exception as exc:
+            if _is_rate_limit_error(exc):
+                if attempt < max_retries:
+                    rate_limited = True
+                    wait = 60 * attempt
+                    print(
+                        f"\n[rate limit, CLI-level] waiting {wait}s "
+                        f"before retry {attempt}/{max_retries}…"
+                    )
+                    await asyncio.sleep(wait)
+                else:
+                    print(
+                        "\n[rate limit] max retries reached. Your first API call exceeds "
+                        "the per-minute input-token budget. Options:\n"
+                        "  - Wait 60s+ for the bucket to fully refill, then rerun.\n"
+                        "  - Run the proxy with `--inject-prompt-cache` (only helps rounds 2+).\n"
+                        "  - Lower `max_turns` or shrink the prompt/tool list.\n"
+                        "  - Upgrade to a higher Anthropic rate-limit tier."
+                    )
+                    return
             else:
                 raise
         if not rate_limited:

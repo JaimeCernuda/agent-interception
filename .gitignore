@@ -35,3 +35,19 @@ frontend/dist/
 .env
 .env.*
 !.env.example
+
+# Paper repo (read-only upstream reference, cloned locally)
+external/
+
+# Benchmark trace outputs and intermediate results
+benchmark/traces/**/*.json
+!benchmark/traces/**/.gitkeep
+benchmark/results/*.png
+benchmark/results/*.csv
+
+# Paper PDF drop (keep markdown extraction in repo, not the PDF/html snapshot)
+2511.00739v3.pdf
+2511.00739v3/
+
+
+

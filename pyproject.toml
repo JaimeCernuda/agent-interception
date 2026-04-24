@@ -56,3 +56,15 @@ dev = [
 viz-static = [
     "kaleido>=0.2,<1",
 ]
+benchmark = [
+    "opentelemetry-api>=1.27,<2",
+    "opentelemetry-sdk>=1.27,<2",
+    "sumy>=0.11,<1",
+    "nltk>=3.9,<4",
+    "beautifulsoup4>=4.12,<5",
+    "trafilatura>=1.12,<2",
+    "ddgs>=9.0,<10",
+    "matplotlib>=3.9,<4",
+    "pandas>=2.2,<3",
+    "python-dotenv>=1.0,<2",
+]

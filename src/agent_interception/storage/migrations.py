@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import aiosqlite
 
-SCHEMA_VERSION = 4
+SCHEMA_VERSION = 5
 
 CREATE_INTERACTIONS_TABLE = """
 CREATE TABLE IF NOT EXISTS interactions (
@@ -91,5 +91,52 @@ async def apply_migrations(db: aiosqlite.Connection) -> None:
             "CREATE INDEX IF NOT EXISTS idx_interactions_agent_role ON interactions(agent_role)"
         )
         await db.execute("INSERT INTO schema_version (version) VALUES (?)", (4,))
+
+    if current_version < 5:
+        # ingested_spans holds OTel-style spans forwarded by instrumented agents.
+        # One trace = one "session" in the analytics UI. Separate from interactions/
+        # so the two feature-families stay decoupled (Path B: rich, opt-in).
+        await db.execute(
+            """
+            CREATE TABLE IF NOT EXISTS ingested_spans (
+                span_id TEXT PRIMARY KEY,
+                trace_id TEXT NOT NULL,
+                parent_id TEXT,
+                name TEXT NOT NULL,
+                kind TEXT NOT NULL,
+                start_ns INTEGER NOT NULL,
+                end_ns INTEGER NOT NULL,
+                wall_time_ms REAL NOT NULL,
+                cpu_time_ms REAL,
+                attrs TEXT NOT NULL DEFAULT '{}',
+                status TEXT NOT NULL DEFAULT 'ok',
+                error TEXT,
+                received_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+            );
+            """
+        )
+        await db.execute(
+            "CREATE INDEX IF NOT EXISTS idx_ingested_spans_trace ON ingested_spans(trace_id);"
+        )
+        await db.execute(
+            "CREATE INDEX IF NOT EXISTS idx_ingested_spans_received ON ingested_spans(received_at);"
+        )
+        # Companion table for top-level trace metadata (config, query_id, label).
+        # Populated from the ingestion payload's top-level fields.
+        await db.execute(
+            """
+            CREATE TABLE IF NOT EXISTS ingested_traces (
+                trace_id TEXT PRIMARY KEY,
+                config TEXT,
+                query_id TEXT,
+                label TEXT,
+                received_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+            );
+            """
+        )
+        await db.execute(
+            "CREATE INDEX IF NOT EXISTS idx_ingested_traces_received ON ingested_traces(received_at);"
+        )
+        await db.execute("INSERT INTO schema_version (version) VALUES (?)", (5,))
 
     await db.commit()

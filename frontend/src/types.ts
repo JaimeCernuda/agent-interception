@@ -221,3 +221,69 @@ export interface ToolCallStep {
   inputTokens: number | null;
   outputTokens: number | null;
 }
+
+// ---- Analytics (Path B: forwarded OTel spans) ----------------------------
+
+export interface AnalyticsSessionSummary {
+  trace_id: string;
+  config: string | null;
+  query_id: string | null;
+  label: string | null;
+  received_at: string;
+  span_count: number;
+  total_wall_ms: number;
+  llm_time_ms: number;
+  tool_time_ms: number;
+  llm_turns: number;
+  tool_calls: number;
+}
+
+export interface AnalyticsSpan {
+  name: string;
+  trace_id: string;
+  span_id: string;
+  parent_id: string | null;
+  start_ns: number;
+  end_ns: number;
+  wall_time_ms: number;
+  cpu_time_ms: number | null;
+  kind: "root" | "tool" | "llm" | "internal";
+  attrs: Record<string, unknown>;
+  status: string;
+  error: string | null;
+}
+
+export interface AnalyticsSession {
+  trace_id: string;
+  config: string | null;
+  query_id: string | null;
+  label: string | null;
+  received_at: string;
+  spans: AnalyticsSpan[];
+}
+
+export interface AnalyticsMetrics {
+  trace_id: string;
+  config: string | null;
+  query_id: string | null;
+  label: string | null;
+  total_latency_ms: number;
+  active_latency_ms: number;
+  tool_search_ms: number;
+  tool_fetch_ms: number;
+  tool_summarize_ms: number;
+  tool_time_ms: number;
+  llm_time_ms: number;
+  framework_overhead_ms: number;
+  rate_limit_pause_ms: number;
+  retry_wait_ms: number;
+  tool_time_fraction: number;
+  llm_time_fraction: number;
+  num_tool_calls: number;
+  num_retries: number;
+  num_parse_errors: number;
+  num_llm_turns: number;
+  num_retry_waits: number;
+  input_tokens_total: number;
+  output_tokens_total: number;
+}

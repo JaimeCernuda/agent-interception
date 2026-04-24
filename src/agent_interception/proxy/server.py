@@ -23,6 +23,7 @@ from agent_interception.models import Interaction
 from agent_interception.providers.registry import ProviderRegistry
 from agent_interception.proxy.broadcaster import InteractionBroadcaster
 from agent_interception.proxy.handler import ProxyHandler
+from agent_interception.storage.spans_store import SpansStore
 from agent_interception.storage.store import InteractionStore
 
 logger = logging.getLogger(__name__)
@@ -77,6 +78,7 @@ def create_app(
     """Create and configure the Starlette proxy application."""
 
     store = InteractionStore(config)
+    spans_store = SpansStore(config.db_path)
     registry = ProviderRegistry(config)
     broadcaster = InteractionBroadcaster()
     handler: ProxyHandler | None = None
@@ -313,6 +315,56 @@ def create_app(
             return JSONResponse({"error": "Not found"}, status_code=404)
         return JSONResponse(graph.model_dump(mode="json"))
 
+    # --- Analytics / Path B span ingestion ------------------------------
+
+    async def ingest_spans(request: Request) -> JSONResponse:
+        """Accept a forwarded OTel-shape trace from an instrumented agent.
+
+        Body mirrors benchmark/traces/*.json: {trace_id, config, query_id,
+        label, spans: [...]}. Idempotent on span_id.
+        """
+        try:
+            payload = await request.json()
+        except Exception as e:
+            return JSONResponse({"error": f"invalid JSON: {e}"}, status_code=400)
+        try:
+            trace_id, inserted = await spans_store.insert_trace(payload)
+        except ValueError as e:
+            return JSONResponse({"error": str(e)}, status_code=400)
+        except Exception as e:
+            logger.exception("failed to insert trace")
+            return JSONResponse({"error": str(e)}, status_code=500)
+        return JSONResponse(
+            {"trace_id": trace_id, "spans_inserted": inserted}, status_code=201
+        )
+
+    async def list_analytics_sessions(request: Request) -> JSONResponse:
+        limit = int(request.query_params.get("limit", "100"))
+        offset = int(request.query_params.get("offset", "0"))
+        sessions = await spans_store.list_traces(limit=limit, offset=offset)
+        return JSONResponse(sessions)
+
+    async def get_analytics_session(request: Request) -> Response:
+        trace_id = request.path_params["trace_id"]
+        trace = await spans_store.get_trace(trace_id)
+        if trace is None:
+            return JSONResponse({"error": "Not found"}, status_code=404)
+        return JSONResponse(trace)
+
+    async def get_analytics_metrics(request: Request) -> Response:
+        trace_id = request.path_params["trace_id"]
+        metrics = await spans_store.trace_metrics(trace_id)
+        if metrics is None:
+            return JSONResponse({"error": "Not found"}, status_code=404)
+        return JSONResponse(metrics)
+
+    async def list_analytics_metrics(request: Request) -> JSONResponse:
+        """Bulk per-session metrics for the all-sessions comparison view."""
+        limit = int(request.query_params.get("limit", "200"))
+        offset = int(request.query_params.get("offset", "0"))
+        metrics = await spans_store.list_metrics(limit=limit, offset=offset)
+        return JSONResponse(metrics)
+
     async def proxy_catchall(request: Request) -> Response:
         """Catch-all handler that proxies requests to upstream providers."""
         assert handler is not None, "App not initialized"
@@ -366,6 +418,20 @@ def create_app(
             api_agent_graph,
             methods=["GET"],
         ),
+        # Analytics / Path B: forwarded OTel-style spans
+        Route("/api/spans", ingest_spans, methods=["POST"]),
+        Route("/api/analytics/sessions", list_analytics_sessions, methods=["GET"]),
+        Route(
+            "/api/analytics/sessions/{trace_id}",
+            get_analytics_session,
+            methods=["GET"],
+        ),
+        Route(
+            "/api/analytics/sessions/{trace_id}/metrics",
+            get_analytics_metrics,
+            methods=["GET"],
+        ),
+        Route("/api/analytics/metrics", list_analytics_metrics, methods=["GET"]),
         # Catch-all proxy route — must be last
         Route(
             "/{path:path}",
