@@ -1,0 +1,159 @@
+{
+  "trace_id": "b35357b731bd120269af3389d3e87a31",
+  "config": "cell_concurrent_py_b64",
+  "query_id": "q016",
+  "label": "cell_concurrent_py_b64",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "b35357b731bd120269af3389d3e87a31",
+      "span_id": "29c6476c1387f094",
+      "parent_id": null,
+      "start_ns": 1777167757418427000,
+      "end_ns": 1777167764450285000,
+      "wall_time_ms": 7031.858,
+      "cpu_time_ms": 16993.346,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b64",
+        "query_id": "q016",
+        "query_text": "The UN Secretary general is from which country?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 64
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "b35357b731bd120269af3389d3e87a31",
+      "span_id": "e76be7603bda0ab4",
+      "parent_id": "29c6476c1387f094",
+      "start_ns": 1777167757418574000,
+      "end_ns": 1777167757418649000,
+      "wall_time_ms": 0.075,
+      "cpu_time_ms": 0.121,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "static",
+        "tool.input_hash": "795d7b5cf38d124d",
+        "tool.retry_count": 0,
+        "tool.num_results": 4,
+        "tool.output_size_bytes": 243
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "b35357b731bd120269af3389d3e87a31",
+      "span_id": "eb50dcd5d7330276",
+      "parent_id": "29c6476c1387f094",
+      "start_ns": 1777167757418815000,
+      "end_ns": 1777167760370128000,
+      "wall_time_ms": 2951.313,
+      "cpu_time_ms": 8984.252,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "951758280713669a",
+        "tool.url": "https://cssmpt.com/the-current-un-secretary-general-belongs-to-which-country/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 337
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "b35357b731bd120269af3389d3e87a31",
+      "span_id": "60488bc181516f88",
+      "parent_id": "29c6476c1387f094",
+      "start_ns": 1777167760370255000,
+      "end_ns": 1777167762448966000,
+      "wall_time_ms": 2078.711,
+      "cpu_time_ms": 5436.671,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "55b643069354ecf8",
+        "tool.url": "https://www.everycrsreport.com/reports/IF10454.html",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 10000
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "b35357b731bd120269af3389d3e87a31",
+      "span_id": "04cbe0666f4c78d7",
+      "parent_id": "29c6476c1387f094",
+      "start_ns": 1777167762449118000,
+      "end_ns": 1777167762590608000,
+      "wall_time_ms": 141.49,
+      "cpu_time_ms": 212.807,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "23c45d71b920277f",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 2,
+        "tool.output_size_bytes": 168
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "b35357b731bd120269af3389d3e87a31",
+      "span_id": "5e57ccf7f2c67344",
+      "parent_id": "29c6476c1387f094",
+      "start_ns": 1777167762591344000,
+      "end_ns": 1777167762801319000,
+      "wall_time_ms": 209.975,
+      "cpu_time_ms": 238.693,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "b68718f721a267ab",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 79,
+        "tool.output_size_bytes": 201
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "b35357b731bd120269af3389d3e87a31",
+      "span_id": "07765a7f2681d761",
+      "parent_id": "29c6476c1387f094",
+      "start_ns": 1777167762802268000,
+      "end_ns": 1777167764450218000,
+      "wall_time_ms": 1647.95,
+      "cpu_time_ms": 2118.145,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 110,
+        "llm.output_tokens": 62,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

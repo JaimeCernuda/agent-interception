@@ -1,0 +1,10 @@
+Architecture x model comparison on FreshQA-20. The four cell bars use the same per-query trace data as fig 1 (pipeline) and the superseded agentic runs preserved under benchmark/results/cell_{haiku,opus}_agentic/. The Raj et al. bar is identical to fig 1's. All bars are normalized to 100% of active wall time per query (active = wall time minus llm.retry_wait spans).
+
+Read order:
+  - Bars 1-2 (agentic block): the same Haiku -> Opus model swap moves LLM share by +9.3 pp because each query incurs 3-5 LLM calls.
+  - Bars 3-4 (pipeline block): the same swap moves LLM share by only +0.1 pp because the pipeline structurally caps LLM calls at exactly one per query.
+  - Compare bars 2 and 3 (or 1 and 4): switching the orchestrator architecture from agentic to pipeline shifts LLM share by ~20-30 pp while holding the model constant. The orchestrator choice is the single largest cost-breakdown lever we measured.
+
+Median active wall time per query is annotated above each bar; the Raj bar's annotation is the total cited in their figure 2c. Error caps on individual segments show the 95% confidence interval of that stage's share across the 20 queries in each cell. The Raj bar has no error caps; its 105% sum is a rounding artifact of the source figure preserved here without rescaling.
+
+tool.summarize is visible only on pipeline bars: the agentic loop did not invoke summarization in any of the 40 agentic runs, while the pipeline always calls it on each fetched page.

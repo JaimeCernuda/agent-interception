@@ -1,0 +1,199 @@
+{
+  "config": "cell_concurrent_go_b64",
+  "label": "cell_concurrent_go_b64",
+  "query_id": "q019",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 64,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 2,
+        "agent.num_urls_fetched": 2,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b64",
+        "query_id": "q019",
+        "query_text": "Who posted the most-liked Instagram post last year?"
+      },
+      "cpu_time_ms": 16914.284,
+      "end_ns": 1777167799036715000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "93a2411b5a3e008a",
+      "start_ns": 1777167782122431000,
+      "status": "ok",
+      "trace_id": "530d4178b58787a5395d9ed977437e84",
+      "wall_time_ms": 16914.284
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "36273eee9807a55b",
+        "tool.name": "static",
+        "tool.num_results": 4,
+        "tool.output_size_bytes": 277,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 0.003,
+      "end_ns": 1777167782122446000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "93a2411b5a3e008a",
+      "span_id": "b8a95b421c79db3c",
+      "start_ns": 1777167782122443000,
+      "status": "ok",
+      "trace_id": "530d4178b58787a5395d9ed977437e84",
+      "wall_time_ms": 0.003
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "e1e02290a4036edc",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 18651,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.dashsocial.com/blog/most-liked-instagram-post"
+      },
+      "cpu_time_ms": 899.853,
+      "end_ns": 1777167783022303000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "93a2411b5a3e008a",
+      "span_id": "5ff38b61e5d74d1f",
+      "start_ns": 1777167782122450000,
+      "status": "ok",
+      "trace_id": "530d4178b58787a5395d9ed977437e84",
+      "wall_time_ms": 899.853
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "9e301b48d5ee789e",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 24119,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.statista.com/statistics/673810/instagram-posts-most-likes/"
+      },
+      "cpu_time_ms": 1700.376,
+      "end_ns": 1777167784722688000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "93a2411b5a3e008a",
+      "span_id": "5c4c3ba81c135f25",
+      "start_ns": 1777167783022312000,
+      "status": "ok",
+      "trace_id": "530d4178b58787a5395d9ed977437e84",
+      "wall_time_ms": 1700.376
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "a1cce154dac695d2",
+        "tool.n_sentences_in": 142,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 1038,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 17.055,
+      "end_ns": 1777167784739820000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "93a2411b5a3e008a",
+      "span_id": "a89e051fb6478724",
+      "start_ns": 1777167784722765000,
+      "status": "ok",
+      "trace_id": "530d4178b58787a5395d9ed977437e84",
+      "wall_time_ms": 17.055
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "50891f1177e731cc",
+        "tool.n_sentences_in": 80,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 608,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 9.867,
+      "end_ns": 1777167784749788000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "93a2411b5a3e008a",
+      "span_id": "9c364e2cfef8ed6a",
+      "start_ns": 1777167784739922000,
+      "status": "ok",
+      "trace_id": "530d4178b58787a5395d9ed977437e84",
+      "wall_time_ms": 9.866
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.rate_limited": true,
+        "llm.status_code": 429
+      },
+      "cpu_time_ms": 460.232,
+      "end_ns": 1777167785210057000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "93a2411b5a3e008a",
+      "span_id": "c275af1a09abeb0a",
+      "start_ns": 1777167784749826000,
+      "status": "ok",
+      "trace_id": "530d4178b58787a5395d9ed977437e84",
+      "wall_time_ms": 460.231
+    },
+    {
+      "attrs": {
+        "llm.retry_after_s": 12,
+        "llm.retry_attempt": 1,
+        "llm.retry_trigger": "http_429"
+      },
+      "cpu_time_ms": 12000.301,
+      "end_ns": 1777167797210370000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.retry_wait",
+      "parent_id": "93a2411b5a3e008a",
+      "span_id": "caf98ecfebb77422",
+      "start_ns": 1777167785210070000,
+      "status": "ok",
+      "trace_id": "530d4178b58787a5395d9ed977437e84",
+      "wall_time_ms": 12000.3
+    },
+    {
+      "attrs": {
+        "llm.attempt": 1,
+        "llm.input_tokens": 422,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 94,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1826.246,
+      "end_ns": 1777167799036704000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "93a2411b5a3e008a",
+      "span_id": "e75754e0182a2ac6",
+      "start_ns": 1777167797210458000,
+      "status": "ok",
+      "trace_id": "530d4178b58787a5395d9ed977437e84",
+      "wall_time_ms": 1826.246
+    }
+  ],
+  "trace_id": "530d4178b58787a5395d9ed977437e84"
+}

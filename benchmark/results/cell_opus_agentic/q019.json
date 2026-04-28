@@ -1,0 +1,201 @@
+{
+  "trace_id": "fe1aac11ae77a4645183b91c97f36008",
+  "config": "opus_custom",
+  "query_id": "q019",
+  "label": "cell_opus_custom",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "fe1aac11ae77a4645183b91c97f36008",
+      "span_id": "74e27fad207fbfb3",
+      "parent_id": null,
+      "start_ns": 1777075001216218000,
+      "end_ns": 1777075028230536000,
+      "wall_time_ms": 27014.318,
+      "cpu_time_ms": 490.063,
+      "kind": "root",
+      "attrs": {
+        "config": "opus_custom",
+        "query_id": "q019",
+        "query_text": "Who posted the most-liked Instagram post last year?",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.max_turns": 10
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "fe1aac11ae77a4645183b91c97f36008",
+      "span_id": "4f46558280e889e1",
+      "parent_id": "74e27fad207fbfb3",
+      "start_ns": 1777075001216318000,
+      "end_ns": 1777075001902316000,
+      "wall_time_ms": 685.998,
+      "cpu_time_ms": 9.574,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 820,
+        "llm.output_tokens": 78,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "fe1aac11ae77a4645183b91c97f36008",
+      "span_id": "f6af7eccdac0d47e",
+      "parent_id": "74e27fad207fbfb3",
+      "start_ns": 1777075001902512000,
+      "end_ns": 1777075005966851000,
+      "wall_time_ms": 4064.339,
+      "cpu_time_ms": 22.713,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "4f5d684be4c22519",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 679
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "fe1aac11ae77a4645183b91c97f36008",
+      "span_id": "ba9bdc9393fb77bf",
+      "parent_id": "74e27fad207fbfb3",
+      "start_ns": 1777075010972352000,
+      "end_ns": 1777075012006437000,
+      "wall_time_ms": 1034.085,
+      "cpu_time_ms": 20.171,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1175,
+        "llm.output_tokens": 90,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "fe1aac11ae77a4645183b91c97f36008",
+      "span_id": "622d662809098c1c",
+      "parent_id": "74e27fad207fbfb3",
+      "start_ns": 1777075012006696000,
+      "end_ns": 1777075014159133000,
+      "wall_time_ms": 2152.437,
+      "cpu_time_ms": 194.093,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "0045df7aa174e238",
+        "tool.url": "https://en.wikipedia.org/wiki/List_of_most-liked_Instagram_posts",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "fe1aac11ae77a4645183b91c97f36008",
+      "span_id": "ce5a4bc445e208f0",
+      "parent_id": "74e27fad207fbfb3",
+      "start_ns": 1777075019162612000,
+      "end_ns": 1777075020303252000,
+      "wall_time_ms": 1140.64,
+      "cpu_time_ms": 19.883,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1291,
+        "llm.output_tokens": 158,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "fe1aac11ae77a4645183b91c97f36008",
+      "span_id": "294e254f9b69d6d8",
+      "parent_id": "74e27fad207fbfb3",
+      "start_ns": 1777075020303502000,
+      "end_ns": 1777075020683884000,
+      "wall_time_ms": 380.382,
+      "cpu_time_ms": 87.797,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "1dcceab400b21d14",
+        "tool.url": "https://uproxx.com/pop/most-liked-instagram-posts-2024-selena-gomez-justin-bieber/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 1354
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "fe1aac11ae77a4645183b91c97f36008",
+      "span_id": "00714c2187d216ab",
+      "parent_id": "74e27fad207fbfb3",
+      "start_ns": 1777075020684013000,
+      "end_ns": 1777075021156840000,
+      "wall_time_ms": 472.827,
+      "cpu_time_ms": 108.527,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "ed14373866f94a04",
+        "tool.url": "https://news.abplive.com/web-stories/technology/most-liked-posts-on-instagram-2024-1699544",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 1790
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "fe1aac11ae77a4645183b91c97f36008",
+      "span_id": "0bf558b159df9b09",
+      "parent_id": "74e27fad207fbfb3",
+      "start_ns": 1777075026160095000,
+      "end_ns": 1777075028230422000,
+      "wall_time_ms": 2070.327,
+      "cpu_time_ms": 25.902,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 2378,
+        "llm.output_tokens": 229,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

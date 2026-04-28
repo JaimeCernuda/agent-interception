@@ -1,0 +1,160 @@
+{
+  "config": "cell_concurrent_go_b1",
+  "label": "cell_concurrent_go_b1",
+  "query_id": "q016",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 1,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 2,
+        "agent.num_urls_fetched": 2,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b1",
+        "query_id": "q016",
+        "query_text": "The UN Secretary general is from which country?"
+      },
+      "cpu_time_ms": 3611.647,
+      "end_ns": 1777167383545915000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "fc6ec7e9a2537c4b",
+      "start_ns": 1777167379934268000,
+      "status": "ok",
+      "trace_id": "916e002e6c23233b787c849c9d723228",
+      "wall_time_ms": 3611.647
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "795d7b5cf38d124d",
+        "tool.name": "ddg",
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 744,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 1231.548,
+      "end_ns": 1777167381165826000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "fc6ec7e9a2537c4b",
+      "span_id": "759f44ab5ee2c8ed",
+      "start_ns": 1777167379934278000,
+      "status": "ok",
+      "trace_id": "916e002e6c23233b787c849c9d723228",
+      "wall_time_ms": 1231.548
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "bc0f991cb021bae9",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 37865,
+        "tool.retry_count": 0,
+        "tool.url": "https://en.wikipedia.org/wiki/Secretary-General_of_the_United_Nations"
+      },
+      "cpu_time_ms": 196.941,
+      "end_ns": 1777167381362814000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "fc6ec7e9a2537c4b",
+      "span_id": "c8421b87791111db",
+      "start_ns": 1777167381165873000,
+      "status": "ok",
+      "trace_id": "916e002e6c23233b787c849c9d723228",
+      "wall_time_ms": 196.941
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "27b97d6be96c33e8",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 5682,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.worldatlas.com/articles/a-list-of-secretary-generals-of-the-united-nations.html"
+      },
+      "cpu_time_ms": 1221.303,
+      "end_ns": 1777167382584129000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "fc6ec7e9a2537c4b",
+      "span_id": "0d2f301dd83db6ee",
+      "start_ns": 1777167381362827000,
+      "status": "ok",
+      "trace_id": "916e002e6c23233b787c849c9d723228",
+      "wall_time_ms": 1221.302
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "ca30f89eb0289e90",
+        "tool.n_sentences_in": 194,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 34,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 29.795,
+      "end_ns": 1777167382614113000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "fc6ec7e9a2537c4b",
+      "span_id": "409594fcbd5abe67",
+      "start_ns": 1777167382584318000,
+      "status": "ok",
+      "trace_id": "916e002e6c23233b787c849c9d723228",
+      "wall_time_ms": 29.795
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "17a42a57ad87e939",
+        "tool.n_sentences_in": 53,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 127,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 3.034,
+      "end_ns": 1777167382617182000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "fc6ec7e9a2537c4b",
+      "span_id": "cee2bb62a0662ce8",
+      "start_ns": 1777167382614147000,
+      "status": "ok",
+      "trace_id": "916e002e6c23233b787c849c9d723228",
+      "wall_time_ms": 3.035
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 73,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 59,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 928.688,
+      "end_ns": 1777167383545904000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "fc6ec7e9a2537c4b",
+      "span_id": "3dea634e3ef71075",
+      "start_ns": 1777167382617217000,
+      "status": "ok",
+      "trace_id": "916e002e6c23233b787c849c9d723228",
+      "wall_time_ms": 928.687
+    }
+  ],
+  "trace_id": "916e002e6c23233b787c849c9d723228"
+}

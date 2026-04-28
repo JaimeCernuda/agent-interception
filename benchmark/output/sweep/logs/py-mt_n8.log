@@ -1,0 +1,12 @@
+[sweep] mode=py-mt Ns=[8] runs=3 warmup=4 out=/Users/anna/Desktop/agent-interception/benchmark/output/sweep
+[sweep] cold-start probe (py-mt, N=1, 1 query, fresh process)
+[sweep]   cold_start_ms = 18974.5
+[sweep] warmup: 4 queries at N=8
+[sweep] measured run 1/3 (mode=py-mt, N=8, queries=20)
+[sweep]   wallclock_ms=66022.5 failures=0/20
+[sweep] measured run 2/3 (mode=py-mt, N=8, queries=20)
+[sweep]   wallclock_ms=67154.6 failures=0/20
+[sweep] measured run 3/3 (mode=py-mt, N=8, queries=20)
+[sweep]   wallclock_ms=65308.9 failures=0/20
+[sweep] wrote /Users/anna/Desktop/agent-interception/benchmark/output/sweep/py-mt_n8/summary.json
+[sweep] done in 246.5s

@@ -1,0 +1,201 @@
+{
+  "trace_id": "cd6aaf2042db10bbcd3bcff83e28dac3",
+  "config": "cell_concurrent_py_b4",
+  "query_id": "q019",
+  "label": "cell_concurrent_py_b4",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "cd6aaf2042db10bbcd3bcff83e28dac3",
+      "span_id": "15fb4f54ab0e8511",
+      "parent_id": null,
+      "start_ns": 1777167472902481000,
+      "end_ns": 1777167489457372000,
+      "wall_time_ms": 16554.891,
+      "cpu_time_ms": 3287.222,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b4",
+        "query_id": "q019",
+        "query_text": "Who posted the most-liked Instagram post last year?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 4
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "cd6aaf2042db10bbcd3bcff83e28dac3",
+      "span_id": "02285256324b6cd3",
+      "parent_id": "15fb4f54ab0e8511",
+      "start_ns": 1777167472902657000,
+      "end_ns": 1777167478047643000,
+      "wall_time_ms": 5144.986,
+      "cpu_time_ms": 1011.081,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "36273eee9807a55b",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 512
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "cd6aaf2042db10bbcd3bcff83e28dac3",
+      "span_id": "00b32491ba75e8bc",
+      "parent_id": "15fb4f54ab0e8511",
+      "start_ns": 1777167478047785000,
+      "end_ns": 1777167480948691000,
+      "wall_time_ms": 2900.906,
+      "cpu_time_ms": 824.308,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "0045df7aa174e238",
+        "tool.url": "https://en.wikipedia.org/wiki/List_of_most-liked_Instagram_posts",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "cd6aaf2042db10bbcd3bcff83e28dac3",
+      "span_id": "8eb1beffee2b142f",
+      "parent_id": "15fb4f54ab0e8511",
+      "start_ns": 1777167480948851000,
+      "end_ns": 1777167484324868000,
+      "wall_time_ms": 3376.017,
+      "cpu_time_ms": 548.085,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "4bb4a4a17337ed63",
+        "tool.url": "https://www.pathsocial.com/resources/most-liked-ig-posts/",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "cd6aaf2042db10bbcd3bcff83e28dac3",
+      "span_id": "9aba6fae511c4842",
+      "parent_id": "15fb4f54ab0e8511",
+      "start_ns": 1777167484325108000,
+      "end_ns": 1777167485902190000,
+      "wall_time_ms": 1577.082,
+      "cpu_time_ms": 343.373,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "99dbb1d9070ed3d3",
+        "tool.url": "https://www.brandwatch.com/blog/most-liked-pictures-on-instagram/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 839
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "cd6aaf2042db10bbcd3bcff83e28dac3",
+      "span_id": "9980f39ee07a4391",
+      "parent_id": "15fb4f54ab0e8511",
+      "start_ns": 1777167485902345000,
+      "end_ns": 1777167486977621000,
+      "wall_time_ms": 1075.276,
+      "cpu_time_ms": 444.146,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "d93d128d32b73791",
+        "tool.url": "https://www.youtube.com/watch?v=cXpwKKmaPLk",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 173
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "cd6aaf2042db10bbcd3bcff83e28dac3",
+      "span_id": "7bb1f4a6a0af654f",
+      "parent_id": "15fb4f54ab0e8511",
+      "start_ns": 1777167486977786000,
+      "end_ns": 1777167487024473000,
+      "wall_time_ms": 46.687,
+      "cpu_time_ms": 46.407,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "3185956da11032ff",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 7,
+        "tool.output_size_bytes": 249
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "cd6aaf2042db10bbcd3bcff83e28dac3",
+      "span_id": "2bae2b380aed3958",
+      "parent_id": "15fb4f54ab0e8511",
+      "start_ns": 1777167487025309000,
+      "end_ns": 1777167487065505000,
+      "wall_time_ms": 40.196,
+      "cpu_time_ms": 40.139,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "6a7a2438a8beff97",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 1,
+        "tool.output_size_bytes": 173
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "cd6aaf2042db10bbcd3bcff83e28dac3",
+      "span_id": "738457558ffdbd1a",
+      "parent_id": "15fb4f54ab0e8511",
+      "start_ns": 1777167487066072000,
+      "end_ns": 1777167489457244000,
+      "wall_time_ms": 2391.172,
+      "cpu_time_ms": 27.483,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 121,
+        "llm.output_tokens": 123,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

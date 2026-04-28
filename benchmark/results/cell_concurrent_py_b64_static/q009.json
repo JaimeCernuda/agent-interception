@@ -1,0 +1,159 @@
+{
+  "trace_id": "63e84b58c645d7a670bbba67c82142cb",
+  "config": "cell_concurrent_py_b64",
+  "query_id": "q009",
+  "label": "cell_concurrent_py_b64",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "63e84b58c645d7a670bbba67c82142cb",
+      "span_id": "cb034bed3f263bda",
+      "parent_id": null,
+      "start_ns": 1777167757421192000,
+      "end_ns": 1777167767831907000,
+      "wall_time_ms": 10410.715,
+      "cpu_time_ms": 19940.593,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b64",
+        "query_id": "q009",
+        "query_text": "Who is the most recent female recipient of the Fields Medal?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 64
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "63e84b58c645d7a670bbba67c82142cb",
+      "span_id": "1ce657557a1f069e",
+      "parent_id": "cb034bed3f263bda",
+      "start_ns": 1777167757421308000,
+      "end_ns": 1777167757421358000,
+      "wall_time_ms": 0.05,
+      "cpu_time_ms": 0.089,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "static",
+        "tool.input_hash": "2764dd5a718b083a",
+        "tool.retry_count": 0,
+        "tool.num_results": 3,
+        "tool.output_size_bytes": 273
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "63e84b58c645d7a670bbba67c82142cb",
+      "span_id": "c24d3d84d0e7d877",
+      "parent_id": "cb034bed3f263bda",
+      "start_ns": 1777167757421432000,
+      "end_ns": 1777167760900427000,
+      "wall_time_ms": 3478.995,
+      "cpu_time_ms": 11419.915,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "db0fe683d35fef84",
+        "tool.url": "https://www.quantamagazine.org/ukrainian-mathematician-maryna-viazovska-wins-fields-medal-20220705/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 25891
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "63e84b58c645d7a670bbba67c82142cb",
+      "span_id": "ae734616a193f9a9",
+      "parent_id": "cb034bed3f263bda",
+      "start_ns": 1777167760900563000,
+      "end_ns": 1777167764172000000,
+      "wall_time_ms": 3271.437,
+      "cpu_time_ms": 5189.463,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "ec7b2346f1b9e930",
+        "tool.url": "https://stats.areppim.com/listes/list_fieldsxmedal.htm",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 6142
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "63e84b58c645d7a670bbba67c82142cb",
+      "span_id": "e4883674df4c46b8",
+      "parent_id": "cb034bed3f263bda",
+      "start_ns": 1777167764176807000,
+      "end_ns": 1777167765005627000,
+      "wall_time_ms": 828.82,
+      "cpu_time_ms": 937.74,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "0dce8e45573e521a",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 172,
+        "tool.output_size_bytes": 697
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "63e84b58c645d7a670bbba67c82142cb",
+      "span_id": "59ee9b49405440ba",
+      "parent_id": "cb034bed3f263bda",
+      "start_ns": 1777167765006919000,
+      "end_ns": 1777167765076108000,
+      "wall_time_ms": 69.189,
+      "cpu_time_ms": 96.837,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "23335594486382ee",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 3,
+        "tool.output_size_bytes": 76
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "63e84b58c645d7a670bbba67c82142cb",
+      "span_id": "b2cedf41f2ab0c90",
+      "parent_id": "cb034bed3f263bda",
+      "start_ns": 1777167765076971000,
+      "end_ns": 1777167767831843000,
+      "wall_time_ms": 2754.872,
+      "cpu_time_ms": 2289.384,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 212,
+        "llm.output_tokens": 152,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

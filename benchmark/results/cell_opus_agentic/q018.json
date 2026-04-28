@@ -1,0 +1,137 @@
+{
+  "trace_id": "195c6d1fe1c3a196e9578bb0eaad4ed2",
+  "config": "opus_custom",
+  "query_id": "q018",
+  "label": "cell_opus_custom",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "195c6d1fe1c3a196e9578bb0eaad4ed2",
+      "span_id": "e69d1940d57eaa49",
+      "parent_id": null,
+      "start_ns": 1777074980763706000,
+      "end_ns": 1777074996158971000,
+      "wall_time_ms": 15395.265,
+      "cpu_time_ms": 377.608,
+      "kind": "root",
+      "attrs": {
+        "config": "opus_custom",
+        "query_id": "q018",
+        "query_text": "Do the Toronto Raptors have a winning record in the latest NBA season?",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.max_turns": 10
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "195c6d1fe1c3a196e9578bb0eaad4ed2",
+      "span_id": "d17e000bda145512",
+      "parent_id": "e69d1940d57eaa49",
+      "start_ns": 1777074980763805000,
+      "end_ns": 1777074981661657000,
+      "wall_time_ms": 897.852,
+      "cpu_time_ms": 9.643,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 826,
+        "llm.output_tokens": 86,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "195c6d1fe1c3a196e9578bb0eaad4ed2",
+      "span_id": "0c157565090ff498",
+      "parent_id": "e69d1940d57eaa49",
+      "start_ns": 1777074981661907000,
+      "end_ns": 1777074983627435000,
+      "wall_time_ms": 1965.528,
+      "cpu_time_ms": 51.39,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "a581c757d558b7a6",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 582
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "195c6d1fe1c3a196e9578bb0eaad4ed2",
+      "span_id": "5a79549ed128edcc",
+      "parent_id": "e69d1940d57eaa49",
+      "start_ns": 1777074988630078000,
+      "end_ns": 1777074989589584000,
+      "wall_time_ms": 959.506,
+      "cpu_time_ms": 17.094,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1196,
+        "llm.output_tokens": 93,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "195c6d1fe1c3a196e9578bb0eaad4ed2",
+      "span_id": "f977196642e4f0ee",
+      "parent_id": "e69d1940d57eaa49",
+      "start_ns": 1777074989589783000,
+      "end_ns": 1777074989939522000,
+      "wall_time_ms": 349.739,
+      "cpu_time_ms": 279.849,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "b872a1413ac3fade",
+        "tool.url": "https://www.espn.com/nba/team/_/name/tor/toronto-raptors",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 1001
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "195c6d1fe1c3a196e9578bb0eaad4ed2",
+      "span_id": "07224d49f284b96c",
+      "parent_id": "e69d1940d57eaa49",
+      "start_ns": 1777074994940370000,
+      "end_ns": 1777074996158877000,
+      "wall_time_ms": 1218.507,
+      "cpu_time_ms": 18.578,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1778,
+        "llm.output_tokens": 67,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

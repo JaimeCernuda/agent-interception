@@ -1,0 +1,306 @@
+{
+  "trace_id": "d4a979abcbe3fed2a88897a75497101c",
+  "config": "cell_concurrent_py_hotpot_b64",
+  "query_id": "q001",
+  "label": "cell_concurrent_py_hotpot_b64",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "d4a979abcbe3fed2a88897a75497101c",
+      "span_id": "220462d434179d16",
+      "parent_id": null,
+      "start_ns": 1777183067265432000,
+      "end_ns": 1777183107180179000,
+      "wall_time_ms": 39914.747,
+      "cpu_time_ms": 32172.69,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b64",
+        "query_id": "q001",
+        "query_text": "In which county does the  8th Military Police Brigade  of the United States Army's Barracks located?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 1,
+        "agent.num_summaries": 1,
+        "agent.concurrent_batch_size": 64
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "d4a979abcbe3fed2a88897a75497101c",
+      "span_id": "165dd5fc52ec8f15",
+      "parent_id": "220462d434179d16",
+      "start_ns": 1777183067265523000,
+      "end_ns": 1777183071667648000,
+      "wall_time_ms": 4402.125,
+      "cpu_time_ms": 1653.886,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "61c232f8d2244b72",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 559
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "d4a979abcbe3fed2a88897a75497101c",
+      "span_id": "5dd0cb66a2b80bd8",
+      "parent_id": "220462d434179d16",
+      "start_ns": 1777183071667904000,
+      "end_ns": 1777183074550406000,
+      "wall_time_ms": 2882.502,
+      "cpu_time_ms": 3906.407,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "9ce0663e1380a69e",
+        "tool.url": "https://en.wikipedia.org/wiki/7th_Infantry_Division_(United_States)",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "d4a979abcbe3fed2a88897a75497101c",
+      "span_id": "b2552cde3cb0a274",
+      "parent_id": "220462d434179d16",
+      "start_ns": 1777183074550560000,
+      "end_ns": 1777183077720589000,
+      "wall_time_ms": 3170.029,
+      "cpu_time_ms": 6297.046,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "29d768c200823ddc",
+        "tool.url": "https://en.wikipedia.org/wiki/Missouri_National_Guard",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "d4a979abcbe3fed2a88897a75497101c",
+      "span_id": "35c34be81c18417f",
+      "parent_id": "220462d434179d16",
+      "start_ns": 1777183077720779000,
+      "end_ns": 1777183082216919000,
+      "wall_time_ms": 4496.14,
+      "cpu_time_ms": 6836.646,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "04f0be6370c23018",
+        "tool.url": "https://en.wikipedia.org/wiki/77th_Sustainment_Brigade",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "d4a979abcbe3fed2a88897a75497101c",
+      "span_id": "8d57d319d3ef40ac",
+      "parent_id": "220462d434179d16",
+      "start_ns": 1777183082217361000,
+      "end_ns": 1777183085179792000,
+      "wall_time_ms": 2962.431,
+      "cpu_time_ms": 4915.335,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "3bc7a8b7fc68578b",
+        "tool.url": "https://en.wikipedia.org/wiki/Fort_Riley",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "d4a979abcbe3fed2a88897a75497101c",
+      "span_id": "4fc37bc419fa4c4f",
+      "parent_id": "220462d434179d16",
+      "start_ns": 1777183085179940000,
+      "end_ns": 1777183088112652000,
+      "wall_time_ms": 2932.712,
+      "cpu_time_ms": 1462.815,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "a3f58035095ff381",
+        "tool.url": "https://en.wikipedia.org/wiki/56th_(London)_Infantry_Division",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "d4a979abcbe3fed2a88897a75497101c",
+      "span_id": "a74f77d745fd2517",
+      "parent_id": "220462d434179d16",
+      "start_ns": 1777183088112777000,
+      "end_ns": 1777183091664558000,
+      "wall_time_ms": 3551.781,
+      "cpu_time_ms": 2051.5,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "410340e768416d1e",
+        "tool.url": "https://military-history.fandom.com/wiki/1st_Regiment,_Royal_Military_Police",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "d4a979abcbe3fed2a88897a75497101c",
+      "span_id": "c377ed68a6227278",
+      "parent_id": "220462d434179d16",
+      "start_ns": 1777183091664692000,
+      "end_ns": 1777183096034198000,
+      "wall_time_ms": 4369.506,
+      "cpu_time_ms": 3047.527,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "a517dd742d973494",
+        "tool.url": "https://wikimili.com/en/Fort_Riley",
+        "tool.retry_count": 3,
+        "tool.http_status": 0,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "d4a979abcbe3fed2a88897a75497101c",
+      "span_id": "b4d6ef96d88f8618",
+      "parent_id": "220462d434179d16",
+      "start_ns": 1777183096034454000,
+      "end_ns": 1777183100126263000,
+      "wall_time_ms": 4091.809,
+      "cpu_time_ms": 477.664,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "bfc645fed0355c68",
+        "tool.url": "https://wikimili.com/en/James_Whiteside_McCay",
+        "tool.retry_count": 3,
+        "tool.http_status": 0,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "d4a979abcbe3fed2a88897a75497101c",
+      "span_id": "7bf90a0a72912e0b",
+      "parent_id": "220462d434179d16",
+      "start_ns": 1777183100126460000,
+      "end_ns": 1777183100966134000,
+      "wall_time_ms": 839.674,
+      "cpu_time_ms": 225.963,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "d356454bc17daf42",
+        "tool.url": "https://agnesschildorfer.com/chevy/us-army-units-bamberg-germany",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 25086
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "d4a979abcbe3fed2a88897a75497101c",
+      "span_id": "617fe846813ab0b1",
+      "parent_id": "220462d434179d16",
+      "start_ns": 1777183100966285000,
+      "end_ns": 1777183104315147000,
+      "wall_time_ms": 3348.862,
+      "cpu_time_ms": 441.74,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "b8dde74ad24527e3",
+        "tool.url": "https://military-history.fandom.com/wiki/Royal_Yorkshire_Regiment",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "d4a979abcbe3fed2a88897a75497101c",
+      "span_id": "193be464691e3c3a",
+      "parent_id": "220462d434179d16",
+      "start_ns": 1777183104315577000,
+      "end_ns": 1777183105157097000,
+      "wall_time_ms": 841.52,
+      "cpu_time_ms": 839.101,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "cee70ff09ff65434",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 220,
+        "tool.output_size_bytes": 224
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "d4a979abcbe3fed2a88897a75497101c",
+      "span_id": "ea46fe04703fa1fd",
+      "parent_id": "220462d434179d16",
+      "start_ns": 1777183105158140000,
+      "end_ns": 1777183107180111000,
+      "wall_time_ms": 2021.971,
+      "cpu_time_ms": 13.773,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 90,
+        "llm.output_tokens": 121,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

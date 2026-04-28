@@ -1,0 +1,180 @@
+{
+  "trace_id": "20723b873f59b0773d574e277906c680",
+  "config": "cell_concurrent_py_b4",
+  "query_id": "q012",
+  "label": "cell_concurrent_py_b4",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "20723b873f59b0773d574e277906c680",
+      "span_id": "5e5f3c63be868d06",
+      "parent_id": null,
+      "start_ns": 1777167453099438000,
+      "end_ns": 1777167463442530000,
+      "wall_time_ms": 10343.092,
+      "cpu_time_ms": 4367.126,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b4",
+        "query_id": "q012",
+        "query_text": "Which drama series won the most recent Primetime Emmy Award for Outstanding Drama Series?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 4
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "20723b873f59b0773d574e277906c680",
+      "span_id": "3aeef5c27228a7de",
+      "parent_id": "5e5f3c63be868d06",
+      "start_ns": 1777167453099558000,
+      "end_ns": 1777167454815452000,
+      "wall_time_ms": 1715.894,
+      "cpu_time_ms": 930.467,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "e4dfccfe8445ac51",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 766
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "20723b873f59b0773d574e277906c680",
+      "span_id": "523e028af14b5802",
+      "parent_id": "5e5f3c63be868d06",
+      "start_ns": 1777167454815646000,
+      "end_ns": 1777167457672795000,
+      "wall_time_ms": 2857.149,
+      "cpu_time_ms": 1487.152,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "efe0b1263278f0fe",
+        "tool.url": "https://en.wikipedia.org/wiki/Primetime_Emmy_Award_for_Outstanding_Drama_Series",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "20723b873f59b0773d574e277906c680",
+      "span_id": "2620ab2536a85d67",
+      "parent_id": "5e5f3c63be868d06",
+      "start_ns": 1777167457673039000,
+      "end_ns": 1777167459088331000,
+      "wall_time_ms": 1415.292,
+      "cpu_time_ms": 376.489,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "b1eff50575a2658e",
+        "tool.url": "https://www.bbc.com/news/articles/clyxn4wqkq0o",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 7169
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "20723b873f59b0773d574e277906c680",
+      "span_id": "9cad39e61aaf9a68",
+      "parent_id": "5e5f3c63be868d06",
+      "start_ns": 1777167459088467000,
+      "end_ns": 1777167461150012000,
+      "wall_time_ms": 2061.545,
+      "cpu_time_ms": 537.816,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "bdbe2531783989e7",
+        "tool.url": "https://technode.global/prnasia/3-body-problem-nominated-for-outstanding-drama-series-at-the-76th-primetime-emmy-awards/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 4235
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "20723b873f59b0773d574e277906c680",
+      "span_id": "dffc68be24252429",
+      "parent_id": "5e5f3c63be868d06",
+      "start_ns": 1777167461150187000,
+      "end_ns": 1777167461222251000,
+      "wall_time_ms": 72.064,
+      "cpu_time_ms": 140.461,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "f011d8653b8da9f9",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 5,
+        "tool.output_size_bytes": 190
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "20723b873f59b0773d574e277906c680",
+      "span_id": "08a66698fcf47e22",
+      "parent_id": "5e5f3c63be868d06",
+      "start_ns": 1777167461222954000,
+      "end_ns": 1777167461281323000,
+      "wall_time_ms": 58.369,
+      "cpu_time_ms": 114.892,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "bacbf1be45bdd0d0",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 22,
+        "tool.output_size_bytes": 141
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "20723b873f59b0773d574e277906c680",
+      "span_id": "a19d0a1e842ce96a",
+      "parent_id": "5e5f3c63be868d06",
+      "start_ns": 1777167461282008000,
+      "end_ns": 1777167463442469000,
+      "wall_time_ms": 2160.461,
+      "cpu_time_ms": 771.951,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 111,
+        "llm.output_tokens": 139,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

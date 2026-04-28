@@ -1,0 +1,76 @@
+{
+  "config": "cell_concurrent_go_b64",
+  "label": "cell_concurrent_go_b64",
+  "query_id": "q006",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 64,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 0,
+        "agent.num_urls_fetched": 0,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b64",
+        "query_id": "q006",
+        "query_text": "What country became the latest country to adopt the Euro?"
+      },
+      "cpu_time_ms": 37227.455,
+      "end_ns": 1777167711519198000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "f2761f54e97dacbd",
+      "start_ns": 1777167674291743000,
+      "status": "ok",
+      "trace_id": "58453b3977f872ec5defa2d0fd5f36d5",
+      "wall_time_ms": 37227.455
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "974813d7ec0f4ad6",
+        "tool.name": "ddg",
+        "tool.num_results": 0,
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3
+      },
+      "cpu_time_ms": 36006.577,
+      "end_ns": 1777167710298363000,
+      "error": "Post \"https://html.duckduckgo.com/html/\": context deadline exceeded",
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "f2761f54e97dacbd",
+      "span_id": "7f51840bf9446e43",
+      "start_ns": 1777167674291786000,
+      "status": "error",
+      "trace_id": "58453b3977f872ec5defa2d0fd5f36d5",
+      "wall_time_ms": 36006.577
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 26,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 51,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1217.393,
+      "end_ns": 1777167711519190000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "f2761f54e97dacbd",
+      "span_id": "2bda0b970ba024f8",
+      "start_ns": 1777167710301798000,
+      "status": "ok",
+      "trace_id": "58453b3977f872ec5defa2d0fd5f36d5",
+      "wall_time_ms": 1217.392
+    }
+  ],
+  "trace_id": "58453b3977f872ec5defa2d0fd5f36d5"
+}

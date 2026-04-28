@@ -1,0 +1,222 @@
+{
+  "trace_id": "587e163ff34e512706ba58d0a3065b23",
+  "config": "cell_concurrent_py_hotpot_b16",
+  "query_id": "q012",
+  "label": "cell_concurrent_py_hotpot_b16",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "587e163ff34e512706ba58d0a3065b23",
+      "span_id": "ee15569fc5a3e580",
+      "parent_id": null,
+      "start_ns": 1777183002740100000,
+      "end_ns": 1777183021805744000,
+      "wall_time_ms": 19065.644,
+      "cpu_time_ms": 20147.955,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b16",
+        "query_id": "q012",
+        "query_text": "In between Burton C. Bell and Billy Idol who is known professionally as Billy Idol?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 16
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "587e163ff34e512706ba58d0a3065b23",
+      "span_id": "9dc7f36177e51a52",
+      "parent_id": "ee15569fc5a3e580",
+      "start_ns": 1777183002740195000,
+      "end_ns": 1777183005069093000,
+      "wall_time_ms": 2328.898,
+      "cpu_time_ms": 717.75,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "a0a281d6d82e91ed",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 520
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "587e163ff34e512706ba58d0a3065b23",
+      "span_id": "a12e61e680a0047c",
+      "parent_id": "ee15569fc5a3e580",
+      "start_ns": 1777183005069253000,
+      "end_ns": 1777183007955428000,
+      "wall_time_ms": 2886.175,
+      "cpu_time_ms": 1847.117,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "be9e739db8cda781",
+        "tool.url": "https://en.wikipedia.org/wiki/Billy_Idol",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "587e163ff34e512706ba58d0a3065b23",
+      "span_id": "eab8b2960ca1f0be",
+      "parent_id": "ee15569fc5a3e580",
+      "start_ns": 1777183007955673000,
+      "end_ns": 1777183011010429000,
+      "wall_time_ms": 3054.756,
+      "cpu_time_ms": 4328.744,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "e71123f35c126532",
+        "tool.url": "https://ru.wikipedia.org/wiki/\u0410\u0439\u0434\u043e\u043b,_\u0411\u0438\u043b\u043b\u0438",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "587e163ff34e512706ba58d0a3065b23",
+      "span_id": "b9bcda4f253975ae",
+      "parent_id": "ee15569fc5a3e580",
+      "start_ns": 1777183011010683000,
+      "end_ns": 1777183013796607000,
+      "wall_time_ms": 2785.924,
+      "cpu_time_ms": 5222.954,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "1d55af8e3e0f546c",
+        "tool.url": "https://www.youtube.com/watch?v=VdphvuyaV_I",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 173
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "587e163ff34e512706ba58d0a3065b23",
+      "span_id": "7b3a5519362505c5",
+      "parent_id": "ee15569fc5a3e580",
+      "start_ns": 1777183013796780000,
+      "end_ns": 1777183017900377000,
+      "wall_time_ms": 4103.597,
+      "cpu_time_ms": 6552.371,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "060d5b07ddd263d7",
+        "tool.url": "https://www.concertarchives.org/bands/billy-idol",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "587e163ff34e512706ba58d0a3065b23",
+      "span_id": "e1d754faf8a5ebb5",
+      "parent_id": "ee15569fc5a3e580",
+      "start_ns": 1777183017900503000,
+      "end_ns": 1777183019138970000,
+      "wall_time_ms": 1238.467,
+      "cpu_time_ms": 363.556,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "3fc907f21a28d501",
+        "tool.url": "https://www.tiktok.com/discover/willem-wolfe-broad-billy-idol",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 46
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "587e163ff34e512706ba58d0a3065b23",
+      "span_id": "93da90b4c727e9d1",
+      "parent_id": "ee15569fc5a3e580",
+      "start_ns": 1777183019139115000,
+      "end_ns": 1777183019200167000,
+      "wall_time_ms": 61.052,
+      "cpu_time_ms": 80.918,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "6a7a2438a8beff97",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 1,
+        "tool.output_size_bytes": 173
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "587e163ff34e512706ba58d0a3065b23",
+      "span_id": "cd809e73cd8edb19",
+      "parent_id": "ee15569fc5a3e580",
+      "start_ns": 1777183019200827000,
+      "end_ns": 1777183019251033000,
+      "wall_time_ms": 50.206,
+      "cpu_time_ms": 49.656,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "ae234bb932d4d978",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 1,
+        "tool.output_size_bytes": 22
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "587e163ff34e512706ba58d0a3065b23",
+      "span_id": "67d1eb10d031eac7",
+      "parent_id": "ee15569fc5a3e580",
+      "start_ns": 1777183019251676000,
+      "end_ns": 1777183021805613000,
+      "wall_time_ms": 2553.937,
+      "cpu_time_ms": 982.202,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 79,
+        "llm.output_tokens": 110,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

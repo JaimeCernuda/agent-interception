@@ -1,0 +1,201 @@
+{
+  "trace_id": "77030c83eefbcf18d5d33db9bb43ea3f",
+  "config": "cell_concurrent_py_b16",
+  "query_id": "q009",
+  "label": "cell_concurrent_py_b16",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "77030c83eefbcf18d5d33db9bb43ea3f",
+      "span_id": "4c96c9e1ea70d35e",
+      "parent_id": null,
+      "start_ns": 1777167541862424000,
+      "end_ns": 1777167557512514000,
+      "wall_time_ms": 15650.09,
+      "cpu_time_ms": 18918.124,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b16",
+        "query_id": "q009",
+        "query_text": "Who is the most recent female recipient of the Fields Medal?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 16
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "77030c83eefbcf18d5d33db9bb43ea3f",
+      "span_id": "27ff0f7a87c6871d",
+      "parent_id": "4c96c9e1ea70d35e",
+      "start_ns": 1777167541862575000,
+      "end_ns": 1777167545953676000,
+      "wall_time_ms": 4091.101,
+      "cpu_time_ms": 1268.193,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "2764dd5a718b083a",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 841
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "77030c83eefbcf18d5d33db9bb43ea3f",
+      "span_id": "a2cfe0f525b1f2f0",
+      "parent_id": "4c96c9e1ea70d35e",
+      "start_ns": 1777167545953869000,
+      "end_ns": 1777167548907601000,
+      "wall_time_ms": 2953.732,
+      "cpu_time_ms": 4803.329,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "301e2a4515fcbd3b",
+        "tool.url": "https://en.wikipedia.org/wiki/Fields_Medal",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "77030c83eefbcf18d5d33db9bb43ea3f",
+      "span_id": "bf8714c1fc269e75",
+      "parent_id": "4c96c9e1ea70d35e",
+      "start_ns": 1777167548907996000,
+      "end_ns": 1777167550592427000,
+      "wall_time_ms": 1684.431,
+      "cpu_time_ms": 3630.981,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "baadfb83b5170dc2",
+        "tool.url": "https://www.bbc.com/news/world-62051150",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 2573
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "77030c83eefbcf18d5d33db9bb43ea3f",
+      "span_id": "d8e848a54376a588",
+      "parent_id": "4c96c9e1ea70d35e",
+      "start_ns": 1777167550592600000,
+      "end_ns": 1777167554397017000,
+      "wall_time_ms": 3804.417,
+      "cpu_time_ms": 6809.159,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "3610ffb3261b62a0",
+        "tool.url": "https://www.smithsonianmag.com/smart-news/years-fields-medal-winners-include-kurdish-refugee-and-30-year-old-professor-180969810/",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "77030c83eefbcf18d5d33db9bb43ea3f",
+      "span_id": "4241bc11dbd1291e",
+      "parent_id": "4c96c9e1ea70d35e",
+      "start_ns": 1777167554397155000,
+      "end_ns": 1777167555455809000,
+      "wall_time_ms": 1058.654,
+      "cpu_time_ms": 1134.831,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "26c43c7171fa6f20",
+        "tool.url": "https://www.mathunion.org/imu-awards/fields-medal",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 2947
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "77030c83eefbcf18d5d33db9bb43ea3f",
+      "span_id": "2666212d3c640a71",
+      "parent_id": "4c96c9e1ea70d35e",
+      "start_ns": 1777167555455972000,
+      "end_ns": 1777167555511293000,
+      "wall_time_ms": 55.321,
+      "cpu_time_ms": 58.802,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "02cfb609cbcd5eb4",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 21,
+        "tool.output_size_bytes": 54
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "77030c83eefbcf18d5d33db9bb43ea3f",
+      "span_id": "5e800d95e904f6d6",
+      "parent_id": "4c96c9e1ea70d35e",
+      "start_ns": 1777167555512104000,
+      "end_ns": 1777167555572943000,
+      "wall_time_ms": 60.839,
+      "cpu_time_ms": 113.178,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "97f8a760359e077e",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 21,
+        "tool.output_size_bytes": 219
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "77030c83eefbcf18d5d33db9bb43ea3f",
+      "span_id": "3293e60f03e3d9f0",
+      "parent_id": "4c96c9e1ea70d35e",
+      "start_ns": 1777167555573974000,
+      "end_ns": 1777167557512447000,
+      "wall_time_ms": 1938.473,
+      "cpu_time_ms": 1095.837,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 79,
+        "llm.output_tokens": 104,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+[run] config=haiku_custom  label='cell_haiku_custom'  queries=20  out=benchmark/results/cell_haiku_custom
+[probe] sanity-checking models before sweep
+[probe]   claude-haiku-4-5-20251001              OK
+[probe]   claude-opus-4-7                        OK
+  [  1/20] q001 ok (21.03s)  answer='Based on the search results and article, **Maura Healey** was the first elected female Governor of M'
+  [  2/20] q002 ok (13.59s)  answer='The book titled **Orientalism** was written by **Edward W. Said**. It was published in 1978 and is a'
+  [  3/20] q003 ok (22.70s)  answer='Based on the information retrieved, **Wuhan, China** was the city connected with the earliest cases '
+  [  4/20] q004 ok (11.43s)  answer='Based on the search results, **Maya Angelou** was the first African American woman to appear on a U.'
+  [  5/20] q005 ok (31.41s)  answer='Based on the information I found, **Elon Musk has 13 confirmed children plus 1 deceased child, for a'
+  [  6/20] q006 ok (20.13s)  answer='Based on the search results, **Bulgaria** is the latest country to adopt the Euro. Bulgaria official'
+  [  7/20] q007 ok (26.13s)  answer='Based on the search results, **the shortest war in history is the Anglo-Zanzibar War**, which lasted'
+  [  8/20] q008 ok (19.24s)  answer='Based on the search results, **"Come Away with Me" by Norah Jones** is the best-selling jazz album o'
+  [  9/20] q009 ok (77.67s)  answer='Let me try a different approach:'
+  [ 10/20] q010 ok (16.47s)  answer='Based on the search results, **the Netflix Standard plan without ads costs $15.49 per month in the U'
+  [ 11/20] q011 ok (35.65s)  answer='Based on the current CDC ACIP recommendations, **the youngest age eligible for COVID-19 vaccination '
+  [ 12/20] q012 ok (52.60s)  answer='Perfect! Based on the official Television Academy website, **Shōgun** won the most recent Primetime '
+  [ 13/20] q013 ok (77.00s)  answer="Great! Let me fetch the 2025 bestselling children's books article."
+  [ 14/20] q014 ok (18.90s)  answer='Based on my search, **Lionel Messi** has the most liked post on Instagram.   According to the latest'
+  [ 15/20] q015 ok (41.10s)  answer='Based on my research, **Professor Uma Kanjilal** is the Vice-Chancellor (actually the head position,'
+  [ 16/20] q016 ok (15.48s)  answer='Based on the information, the current UN Secretary-General is **António Guterres, who is from Portug'
+  [ 17/20] q017 ok (17.25s)  answer='Based on the information from Guinness World Records, **the tallest building in the world is the Bur'
+  [ 18/20] q018 ok (17.55s)  answer='Based on the latest information, **no, the Toronto Raptors do not have a winning record**.   The Rap'
+  [ 19/20] q019 ok (40.07s)  answer='Based on the search results, **Lionel Messi** posted the most-liked Instagram post historically and '
+  [ 20/20] q020 ok (117.21s)  answer='Let me try a different approach with a more general search.'
+[run] done. 20/20 succeeded, 0 failed.
+
+[summary] cell_haiku_custom
+  ----------------------------------------------------------------------
+  queries completed         20 / 20
+  median active_latency_ms    11,004.9
+  mean LLM share of active       36.7%
+  mean tool share of active      63.3%
+  total llm.retry_wait               0
+  ----------------------------------------------------------------------

@@ -1,0 +1,179 @@
+{
+  "trace_id": "3e50de99584cde6d9eb6cadaeb72a3b9",
+  "config": "pipeline_haiku_hotpot",
+  "query_id": "q005",
+  "label": "cell_haiku_pipeline_hotpot",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "3e50de99584cde6d9eb6cadaeb72a3b9",
+      "span_id": "288e6e80c042d711",
+      "parent_id": null,
+      "start_ns": 1777169794196716000,
+      "end_ns": 1777169815889468000,
+      "wall_time_ms": 21692.752,
+      "cpu_time_ms": 5070.051,
+      "kind": "root",
+      "attrs": {
+        "config": "pipeline_haiku_hotpot",
+        "query_id": "q005",
+        "query_text": "Where was one of the runners born who almost broke Craig Virgin's Illinois Boys Cross Country record?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "3e50de99584cde6d9eb6cadaeb72a3b9",
+      "span_id": "2281e463074c92c8",
+      "parent_id": "288e6e80c042d711",
+      "start_ns": 1777169794196928000,
+      "end_ns": 1777169802347485000,
+      "wall_time_ms": 8150.557,
+      "cpu_time_ms": 41.268,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "f2f83d728a6b25be",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 553
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "3e50de99584cde6d9eb6cadaeb72a3b9",
+      "span_id": "752bd520edb4ee02",
+      "parent_id": "288e6e80c042d711",
+      "start_ns": 1777169802347656000,
+      "end_ns": 1777169805951735000,
+      "wall_time_ms": 3604.079,
+      "cpu_time_ms": 189.181,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "9a8a5c3233815f83",
+        "tool.url": "https://www.letsrun.com/2010/week-1213.php",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "3e50de99584cde6d9eb6cadaeb72a3b9",
+      "span_id": "9610953607aa296c",
+      "parent_id": "288e6e80c042d711",
+      "start_ns": 1777169805952002000,
+      "end_ns": 1777169806829995000,
+      "wall_time_ms": 877.993,
+      "cpu_time_ms": 82.518,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "9439068961de9ca4",
+        "tool.url": "http://nbnm.net/fast-women/www.fast-women.com/news/footlocker02/stories/postrace.html",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 16218
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "3e50de99584cde6d9eb6cadaeb72a3b9",
+      "span_id": "886ca2f897062106",
+      "parent_id": "288e6e80c042d711",
+      "start_ns": 1777169806830137000,
+      "end_ns": 1777169808931436000,
+      "wall_time_ms": 2101.299,
+      "cpu_time_ms": 305.225,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "b3bed2bc7be74aaf",
+        "tool.url": "https://www.nytimes.com/sitemap/1926/10/29/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 41506
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "3e50de99584cde6d9eb6cadaeb72a3b9",
+      "span_id": "d93cde7b78d98701",
+      "parent_id": "288e6e80c042d711",
+      "start_ns": 1777169808931687000,
+      "end_ns": 1777169809517937000,
+      "wall_time_ms": 586.25,
+      "cpu_time_ms": 517.107,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "2798985fc28ea2ca",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 138,
+        "tool.output_size_bytes": 96
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "3e50de99584cde6d9eb6cadaeb72a3b9",
+      "span_id": "4c63d9b17b27dd59",
+      "parent_id": "288e6e80c042d711",
+      "start_ns": 1777169809519159000,
+      "end_ns": 1777169813666574000,
+      "wall_time_ms": 4147.415,
+      "cpu_time_ms": 3918.811,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "adcb25b5db104e8d",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 539,
+        "tool.output_size_bytes": 22
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "3e50de99584cde6d9eb6cadaeb72a3b9",
+      "span_id": "629ed49c131aa4ab",
+      "parent_id": "288e6e80c042d711",
+      "start_ns": 1777169813667742000,
+      "end_ns": 1777169815889154000,
+      "wall_time_ms": 2221.412,
+      "cpu_time_ms": 12.704,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 68,
+        "llm.output_tokens": 112,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

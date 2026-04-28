@@ -1,0 +1,160 @@
+{
+  "config": "cell_concurrent_go_b1",
+  "label": "cell_concurrent_go_b1",
+  "query_id": "q006",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 1,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 2,
+        "agent.num_urls_fetched": 2,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b1",
+        "query_id": "q006",
+        "query_text": "What country became the latest country to adopt the Euro?"
+      },
+      "cpu_time_ms": 4023.518,
+      "end_ns": 1777167313385868000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "10d3820f9fbf5643",
+      "start_ns": 1777167309362351000,
+      "status": "ok",
+      "trace_id": "1c999ce002c60aaac1029a18ae61f449",
+      "wall_time_ms": 4023.517
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "974813d7ec0f4ad6",
+        "tool.name": "ddg",
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 998,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 906.007,
+      "end_ns": 1777167310268365000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "10d3820f9fbf5643",
+      "span_id": "3987b9a75d66b7d8",
+      "start_ns": 1777167309362358000,
+      "status": "ok",
+      "trace_id": "1c999ce002c60aaac1029a18ae61f449",
+      "wall_time_ms": 906.007
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "a44e75d0bd9f9a3c",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 7475,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.europarl.europa.eu/topics/en/article/20250709STO29570/the-euro-over-the-years-its-history-and-benefits"
+      },
+      "cpu_time_ms": 1130.182,
+      "end_ns": 1777167311398557000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "10d3820f9fbf5643",
+      "span_id": "f574c075003fe66e",
+      "start_ns": 1777167310268376000,
+      "status": "ok",
+      "trace_id": "1c999ce002c60aaac1029a18ae61f449",
+      "wall_time_ms": 1130.181
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "17f69ab732595430",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 99321,
+        "tool.retry_count": 0,
+        "tool.url": "https://en.wikipedia.org/wiki/Enlargement_of_the_eurozone"
+      },
+      "cpu_time_ms": 388.144,
+      "end_ns": 1777167311786712000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "10d3820f9fbf5643",
+      "span_id": "e0cb2f2e37230216",
+      "start_ns": 1777167311398569000,
+      "status": "ok",
+      "trace_id": "1c999ce002c60aaac1029a18ae61f449",
+      "wall_time_ms": 388.143
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "ad8ce3f8c4caff2f",
+        "tool.n_sentences_in": 37,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 153,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 2.688,
+      "end_ns": 1777167311789442000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "10d3820f9fbf5643",
+      "span_id": "b2eb33ac12f4164c",
+      "start_ns": 1777167311786754000,
+      "status": "ok",
+      "trace_id": "1c999ce002c60aaac1029a18ae61f449",
+      "wall_time_ms": 2.688
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "cd6e025f2e39a6ff",
+        "tool.n_sentences_in": 728,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 60,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 506.157,
+      "end_ns": 1777167312296000000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "10d3820f9fbf5643",
+      "span_id": "bfded0e534182f94",
+      "start_ns": 1777167311789842000,
+      "status": "ok",
+      "trace_id": "1c999ce002c60aaac1029a18ae61f449",
+      "wall_time_ms": 506.158
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 91,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 56,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1089.679,
+      "end_ns": 1777167313385794000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "10d3820f9fbf5643",
+      "span_id": "c3a211aefed82222",
+      "start_ns": 1777167312296114000,
+      "status": "ok",
+      "trace_id": "1c999ce002c60aaac1029a18ae61f449",
+      "wall_time_ms": 1089.68
+    }
+  ],
+  "trace_id": "1c999ce002c60aaac1029a18ae61f449"
+}

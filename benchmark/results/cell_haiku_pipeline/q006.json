@@ -1,0 +1,200 @@
+{
+  "trace_id": "8d5384104fab14b304370604f9f8d1e8",
+  "config": "pipeline_haiku",
+  "query_id": "q006",
+  "label": "cell_haiku_pipeline",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "8d5384104fab14b304370604f9f8d1e8",
+      "span_id": "502e192141852d82",
+      "parent_id": null,
+      "start_ns": 1777154328234568000,
+      "end_ns": 1777154345446809000,
+      "wall_time_ms": 17212.241,
+      "cpu_time_ms": 1139.973,
+      "kind": "root",
+      "attrs": {
+        "config": "pipeline_haiku",
+        "query_id": "q006",
+        "query_text": "What country became the latest country to adopt the Euro?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "8d5384104fab14b304370604f9f8d1e8",
+      "span_id": "e275f09917f65b54",
+      "parent_id": "502e192141852d82",
+      "start_ns": 1777154328234691000,
+      "end_ns": 1777154333993414000,
+      "wall_time_ms": 5758.723,
+      "cpu_time_ms": 56.165,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "974813d7ec0f4ad6",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 753
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "8d5384104fab14b304370604f9f8d1e8",
+      "span_id": "e16fa53fc6df8033",
+      "parent_id": "502e192141852d82",
+      "start_ns": 1777154333993559000,
+      "end_ns": 1777154337102445000,
+      "wall_time_ms": 3108.886,
+      "cpu_time_ms": 191.236,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "8c10d78f9584157f",
+        "tool.url": "https://en.wikipedia.org/wiki/Bulgaria_and_the_euro",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "8d5384104fab14b304370604f9f8d1e8",
+      "span_id": "171d911bc76965ed",
+      "parent_id": "502e192141852d82",
+      "start_ns": 1777154337102683000,
+      "end_ns": 1777154339980817000,
+      "wall_time_ms": 2878.134,
+      "cpu_time_ms": 189.095,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "17f69ab732595430",
+        "tool.url": "https://en.wikipedia.org/wiki/Enlargement_of_the_eurozone",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "8d5384104fab14b304370604f9f8d1e8",
+      "span_id": "0ed94899f22c8d4a",
+      "parent_id": "502e192141852d82",
+      "start_ns": 1777154339981059000,
+      "end_ns": 1777154341746505000,
+      "wall_time_ms": 1765.446,
+      "cpu_time_ms": 447.791,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "d703b9cfa460a3f9",
+        "tool.url": "https://www.youtube.com/watch?v=8cZKpzAx0x4",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 173
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "8d5384104fab14b304370604f9f8d1e8",
+      "span_id": "2e41d9287a8f0d95",
+      "parent_id": "502e192141852d82",
+      "start_ns": 1777154341746678000,
+      "end_ns": 1777154343012349000,
+      "wall_time_ms": 1265.671,
+      "cpu_time_ms": 107.003,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "a44e75d0bd9f9a3c",
+        "tool.url": "https://www.europarl.europa.eu/topics/en/article/20250709STO29570/the-euro-over-the-years-its-history-and-benefits",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 3677
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "8d5384104fab14b304370604f9f8d1e8",
+      "span_id": "d6ec6a58c9617402",
+      "parent_id": "502e192141852d82",
+      "start_ns": 1777154343012506000,
+      "end_ns": 1777154343085355000,
+      "wall_time_ms": 72.849,
+      "cpu_time_ms": 71.822,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "6a7a2438a8beff97",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 1,
+        "tool.output_size_bytes": 173
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "8d5384104fab14b304370604f9f8d1e8",
+      "span_id": "2381c5b5db2832fa",
+      "parent_id": "502e192141852d82",
+      "start_ns": 1777154343085966000,
+      "end_ns": 1777154343151056000,
+      "wall_time_ms": 65.09,
+      "cpu_time_ms": 64.981,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "5f4bca570c14ea8c",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 34,
+        "tool.output_size_bytes": 141
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "8d5384104fab14b304370604f9f8d1e8",
+      "span_id": "0092789c101089c4",
+      "parent_id": "502e192141852d82",
+      "start_ns": 1777154343151678000,
+      "end_ns": 1777154345446694000,
+      "wall_time_ms": 2295.016,
+      "cpu_time_ms": 9.867,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 99,
+        "llm.output_tokens": 83,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

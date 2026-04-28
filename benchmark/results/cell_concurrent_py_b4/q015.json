@@ -1,0 +1,201 @@
+{
+  "trace_id": "e4f748171b0b61fb428551403c262075",
+  "config": "cell_concurrent_py_b4",
+  "query_id": "q015",
+  "label": "cell_concurrent_py_b4",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "e4f748171b0b61fb428551403c262075",
+      "span_id": "01968ca803ecdfc9",
+      "parent_id": null,
+      "start_ns": 1777167459463444000,
+      "end_ns": 1777167474176611000,
+      "wall_time_ms": 14713.167,
+      "cpu_time_ms": 4613.277,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b4",
+        "query_id": "q015",
+        "query_text": "Who is the vice-chancellor of the largest university by enrollment in the world?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 4
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "e4f748171b0b61fb428551403c262075",
+      "span_id": "f91bf213be68afad",
+      "parent_id": "01968ca803ecdfc9",
+      "start_ns": 1777167459463610000,
+      "end_ns": 1777167463262520000,
+      "wall_time_ms": 3798.91,
+      "cpu_time_ms": 1167.362,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "69499afd09a35f3c",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 921
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "e4f748171b0b61fb428551403c262075",
+      "span_id": "845f6e6cccef7d38",
+      "parent_id": "01968ca803ecdfc9",
+      "start_ns": 1777167463262663000,
+      "end_ns": 1777167466145627000,
+      "wall_time_ms": 2882.964,
+      "cpu_time_ms": 1069.061,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "3cd12adcbfaf1724",
+        "tool.url": "https://en.wikipedia.org/wiki/List_of_largest_universities_and_university_networks_by_enrollment",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "e4f748171b0b61fb428551403c262075",
+      "span_id": "d92438d9fb94174a",
+      "parent_id": "01968ca803ecdfc9",
+      "start_ns": 1777167466145750000,
+      "end_ns": 1777167467161920000,
+      "wall_time_ms": 1016.17,
+      "cpu_time_ms": 311.937,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "5649ca08f01f0abc",
+        "tool.url": "https://www.youtube.com/watch?v=pz1Y_FKa9CU",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 173
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "e4f748171b0b61fb428551403c262075",
+      "span_id": "6ce404ac50b1633f",
+      "parent_id": "01968ca803ecdfc9",
+      "start_ns": 1777167467162064000,
+      "end_ns": 1777167470956000000,
+      "wall_time_ms": 3793.936,
+      "cpu_time_ms": 1258.006,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "1a78e55d6617c7d2",
+        "tool.url": "https://www.quora.com/",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "e4f748171b0b61fb428551403c262075",
+      "span_id": "fda4d0748d85305d",
+      "parent_id": "01968ca803ecdfc9",
+      "start_ns": 1777167470956136000,
+      "end_ns": 1777167471730638000,
+      "wall_time_ms": 774.502,
+      "cpu_time_ms": 340.646,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "2af1c609a18267f6",
+        "tool.url": "https://www.worldatlas.com/articles/universities-with-the-largest-enrollments-in-the-world.html",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 3275
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "e4f748171b0b61fb428551403c262075",
+      "span_id": "9bad4ec1848068d0",
+      "parent_id": "01968ca803ecdfc9",
+      "start_ns": 1777167471730822000,
+      "end_ns": 1777167471795674000,
+      "wall_time_ms": 64.852,
+      "cpu_time_ms": 59.299,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "6a7a2438a8beff97",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 1,
+        "tool.output_size_bytes": 173
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "e4f748171b0b61fb428551403c262075",
+      "span_id": "e014ba9821da4227",
+      "parent_id": "01968ca803ecdfc9",
+      "start_ns": 1777167471796378000,
+      "end_ns": 1777167471866732000,
+      "wall_time_ms": 70.354,
+      "cpu_time_ms": 65.749,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "ac4585ea8b3da6dc",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 29,
+        "tool.output_size_bytes": 39
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "e4f748171b0b61fb428551403c262075",
+      "span_id": "a909139aaef4156b",
+      "parent_id": "01968ca803ecdfc9",
+      "start_ns": 1777167471867621000,
+      "end_ns": 1777167474176527000,
+      "wall_time_ms": 2308.906,
+      "cpu_time_ms": 339.049,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 77,
+        "llm.output_tokens": 120,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

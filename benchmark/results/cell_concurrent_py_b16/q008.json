@@ -1,0 +1,180 @@
+{
+  "trace_id": "fe0201cd2d326facd597f5988e00fc38",
+  "config": "cell_concurrent_py_b16",
+  "query_id": "q008",
+  "label": "cell_concurrent_py_b16",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "fe0201cd2d326facd597f5988e00fc38",
+      "span_id": "b5eba89465595ffc",
+      "parent_id": null,
+      "start_ns": 1777167541864948000,
+      "end_ns": 1777167557394606000,
+      "wall_time_ms": 15529.658,
+      "cpu_time_ms": 18852.493,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b16",
+        "query_id": "q008",
+        "query_text": "What is the best-selling jazz album of all time?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 16
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "fe0201cd2d326facd597f5988e00fc38",
+      "span_id": "91f40346ed3d1a07",
+      "parent_id": "b5eba89465595ffc",
+      "start_ns": 1777167541865047000,
+      "end_ns": 1777167548555134000,
+      "wall_time_ms": 6690.087,
+      "cpu_time_ms": 5197.814,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "32c28547ed2dceb0",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 570
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "fe0201cd2d326facd597f5988e00fc38",
+      "span_id": "19835f8948495fe0",
+      "parent_id": "b5eba89465595ffc",
+      "start_ns": 1777167548555311000,
+      "end_ns": 1777167551536607000,
+      "wall_time_ms": 2981.296,
+      "cpu_time_ms": 7053.687,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "e3c3c0f1a0b66000",
+        "tool.url": "https://en.wikipedia.org/wiki/Bill_Evans",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "fe0201cd2d326facd597f5988e00fc38",
+      "span_id": "e16d5ac1490f9b16",
+      "parent_id": "b5eba89465595ffc",
+      "start_ns": 1777167551536746000,
+      "end_ns": 1777167553991134000,
+      "wall_time_ms": 2454.388,
+      "cpu_time_ms": 3828.97,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "b82f3717b1af7bbe",
+        "tool.url": "https://www.youtube.com/watch?v=Kx4NiU58zSc",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 173
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "fe0201cd2d326facd597f5988e00fc38",
+      "span_id": "87380f0734607e79",
+      "parent_id": "b5eba89465595ffc",
+      "start_ns": 1777167553991275000,
+      "end_ns": 1777167555210519000,
+      "wall_time_ms": 1219.244,
+      "cpu_time_ms": 1216.776,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "1f866758db962e49",
+        "tool.url": "https://www.newsweek.com/how-kind-blue-became-best-selling-jazz-album-ever-77791",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 8604
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "fe0201cd2d326facd597f5988e00fc38",
+      "span_id": "75ffa302fb07196d",
+      "parent_id": "b5eba89465595ffc",
+      "start_ns": 1777167555210694000,
+      "end_ns": 1777167555266287000,
+      "wall_time_ms": 55.593,
+      "cpu_time_ms": 75.628,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "6a7a2438a8beff97",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 1,
+        "tool.output_size_bytes": 173
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "fe0201cd2d326facd597f5988e00fc38",
+      "span_id": "4641ab2783b11341",
+      "parent_id": "b5eba89465595ffc",
+      "start_ns": 1777167555267004000,
+      "end_ns": 1777167555435471000,
+      "wall_time_ms": 168.467,
+      "cpu_time_ms": 247.007,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "03e266c3caa80745",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 69,
+        "tool.output_size_bytes": 197
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "fe0201cd2d326facd597f5988e00fc38",
+      "span_id": "e218fad0f4832071",
+      "parent_id": "b5eba89465595ffc",
+      "start_ns": 1777167555436574000,
+      "end_ns": 1777167557394456000,
+      "wall_time_ms": 1957.882,
+      "cpu_time_ms": 1230.145,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 109,
+        "llm.output_tokens": 107,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

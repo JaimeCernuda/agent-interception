@@ -1,0 +1,160 @@
+{
+  "config": "cell_concurrent_go_b64",
+  "label": "cell_concurrent_go_b64",
+  "query_id": "q007",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 64,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 2,
+        "agent.num_urls_fetched": 2,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b64",
+        "query_id": "q007",
+        "query_text": "What was the shortest war in history?"
+      },
+      "cpu_time_ms": 3518.513,
+      "end_ns": 1777167785640954000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "1fc871cdbe34877f",
+      "start_ns": 1777167782122441000,
+      "status": "ok",
+      "trace_id": "cd1083304e15df9e59c842a7d2d0ce7a",
+      "wall_time_ms": 3518.513
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "28ee672e27b21aa7",
+        "tool.name": "static",
+        "tool.num_results": 4,
+        "tool.output_size_bytes": 281,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 0.016,
+      "end_ns": 1777167782122479000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "1fc871cdbe34877f",
+      "span_id": "3288194d78654fe4",
+      "start_ns": 1777167782122464000,
+      "status": "ok",
+      "trace_id": "cd1083304e15df9e59c842a7d2d0ce7a",
+      "wall_time_ms": 0.015
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "d97ca9844f7ab35c",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 10716,
+        "tool.retry_count": 0,
+        "tool.url": "https://todayinhistory.blog/tag/shortest-war/"
+      },
+      "cpu_time_ms": 1144.461,
+      "end_ns": 1777167783266942000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "1fc871cdbe34877f",
+      "span_id": "6a038ff681e76687",
+      "start_ns": 1777167782122482000,
+      "status": "ok",
+      "trace_id": "cd1083304e15df9e59c842a7d2d0ce7a",
+      "wall_time_ms": 1144.46
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "73a49b5b365ab9e8",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 8661,
+        "tool.retry_count": 0,
+        "tool.url": "https://todayinhistory.blog/2019/08/27/august-27-1896-the-shortest-war-in-history/"
+      },
+      "cpu_time_ms": 729.583,
+      "end_ns": 1777167783996534000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "1fc871cdbe34877f",
+      "span_id": "978f480b070b1117",
+      "start_ns": 1777167783266952000,
+      "status": "ok",
+      "trace_id": "cd1083304e15df9e59c842a7d2d0ce7a",
+      "wall_time_ms": 729.582
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "127747b220501e16",
+        "tool.n_sentences_in": 57,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 415,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 4.91,
+      "end_ns": 1777167784001490000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "1fc871cdbe34877f",
+      "span_id": "0721c7702c2d05ab",
+      "start_ns": 1777167783996581000,
+      "status": "ok",
+      "trace_id": "cd1083304e15df9e59c842a7d2d0ce7a",
+      "wall_time_ms": 4.909
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "3f3d13517eb8d137",
+        "tool.n_sentences_in": 46,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 349,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 3.538,
+      "end_ns": 1777167784005068000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "1fc871cdbe34877f",
+      "span_id": "3370ff36175c738b",
+      "start_ns": 1777167784001529000,
+      "status": "ok",
+      "trace_id": "cd1083304e15df9e59c842a7d2d0ce7a",
+      "wall_time_ms": 3.539
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 256,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 108,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1635.83,
+      "end_ns": 1777167785640944000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "1fc871cdbe34877f",
+      "span_id": "c256c6a6bcb050d7",
+      "start_ns": 1777167784005115000,
+      "status": "ok",
+      "trace_id": "cd1083304e15df9e59c842a7d2d0ce7a",
+      "wall_time_ms": 1635.829
+    }
+  ],
+  "trace_id": "cd1083304e15df9e59c842a7d2d0ce7a"
+}

@@ -1,0 +1,305 @@
+{
+  "trace_id": "7644952a3c9499ad9a70432dc968164c",
+  "config": "pipeline_haiku_hotpot",
+  "query_id": "q018",
+  "label": "cell_haiku_pipeline_hotpot",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "7644952a3c9499ad9a70432dc968164c",
+      "span_id": "2ca778110e08769d",
+      "parent_id": null,
+      "start_ns": 1777170117940630000,
+      "end_ns": 1777170159387587000,
+      "wall_time_ms": 41446.957,
+      "cpu_time_ms": 1832.001,
+      "kind": "root",
+      "attrs": {
+        "config": "pipeline_haiku_hotpot",
+        "query_id": "q018",
+        "query_text": "Are Florida Atlantic University and Cleveland State University both colleges in the US?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "7644952a3c9499ad9a70432dc968164c",
+      "span_id": "b4027aaded4a8864",
+      "parent_id": "2ca778110e08769d",
+      "start_ns": 1777170117940753000,
+      "end_ns": 1777170127460082000,
+      "wall_time_ms": 9519.329,
+      "cpu_time_ms": 50.567,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "4f8a522704f10e35",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 729
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "7644952a3c9499ad9a70432dc968164c",
+      "span_id": "d851212007cb1e47",
+      "parent_id": "2ca778110e08769d",
+      "start_ns": 1777170127460248000,
+      "end_ns": 1777170130374753000,
+      "wall_time_ms": 2914.505,
+      "cpu_time_ms": 191.231,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "ff2a3bcf3e1fe754",
+        "tool.url": "https://en.wikipedia.org/wiki/Cleveland_State_University",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "7644952a3c9499ad9a70432dc968164c",
+      "span_id": "0296aa4646346ee6",
+      "parent_id": "2ca778110e08769d",
+      "start_ns": 1777170130375001000,
+      "end_ns": 1777170133250091000,
+      "wall_time_ms": 2875.09,
+      "cpu_time_ms": 193.387,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "ee04ba4eff4230aa",
+        "tool.url": "https://en.wikipedia.org/wiki/Jacksonville_University",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "7644952a3c9499ad9a70432dc968164c",
+      "span_id": "db74accd0a852c73",
+      "parent_id": "2ca778110e08769d",
+      "start_ns": 1777170133250372000,
+      "end_ns": 1777170136120453000,
+      "wall_time_ms": 2870.081,
+      "cpu_time_ms": 193.601,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "6c36dbd3a07283ba",
+        "tool.url": "https://en.wikipedia.org/wiki/University_of_North_Florida",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "7644952a3c9499ad9a70432dc968164c",
+      "span_id": "af6a598b410b1251",
+      "parent_id": "2ca778110e08769d",
+      "start_ns": 1777170136120701000,
+      "end_ns": 1777170139731289000,
+      "wall_time_ms": 3610.588,
+      "cpu_time_ms": 202.572,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "f0fffb738e3ee865",
+        "tool.url": "https://www.collegesimply.com/colleges/compare/florida-atlantic-university-vs-cleveland-state-university-vs-cleveland-state-university",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "7644952a3c9499ad9a70432dc968164c",
+      "span_id": "2510fbe7af9c1bb8",
+      "parent_id": "2ca778110e08769d",
+      "start_ns": 1777170139731448000,
+      "end_ns": 1777170142497732000,
+      "wall_time_ms": 2766.284,
+      "cpu_time_ms": 105.367,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "5149f15a5bf27859",
+        "tool.url": "https://www.fau.edu/about/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 2197
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "7644952a3c9499ad9a70432dc968164c",
+      "span_id": "cd8b88276c237c10",
+      "parent_id": "2ca778110e08769d",
+      "start_ns": 1777170142497868000,
+      "end_ns": 1777170148419346000,
+      "wall_time_ms": 5921.478,
+      "cpu_time_ms": 201.063,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "fe9046cef6060d9e",
+        "tool.url": "https://www.flbog.edu/university/florida-atlantic-university/",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "7644952a3c9499ad9a70432dc968164c",
+      "span_id": "25eb538422f8a997",
+      "parent_id": "2ca778110e08769d",
+      "start_ns": 1777170148419587000,
+      "end_ns": 1777170151559073000,
+      "wall_time_ms": 3139.486,
+      "cpu_time_ms": 196.958,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "71b97cb7f1b16978",
+        "tool.url": "https://www.shiksha.com/studyabroad/compare-florida-atlantic-university-vs-cleveland-state-university-159685-159919",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "7644952a3c9499ad9a70432dc968164c",
+      "span_id": "80d24481096864d6",
+      "parent_id": "2ca778110e08769d",
+      "start_ns": 1777170151559275000,
+      "end_ns": 1777170155012459000,
+      "wall_time_ms": 3453.184,
+      "cpu_time_ms": 200.374,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "8c48860543cd8202",
+        "tool.url": "https://www.wikiwand.com/en/articles/Florida_Atlantic_University",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "7644952a3c9499ad9a70432dc968164c",
+      "span_id": "ff4cd54d0909d009",
+      "parent_id": "2ca778110e08769d",
+      "start_ns": 1777170155012849000,
+      "end_ns": 1777170156319567000,
+      "wall_time_ms": 1306.718,
+      "cpu_time_ms": 179.528,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "4ebddabeb7ab771f",
+        "tool.url": "https://www.britannica.com/topic/Florida-Atlantic-University",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 1186
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "7644952a3c9499ad9a70432dc968164c",
+      "span_id": "7e9203dceb0d2982",
+      "parent_id": "2ca778110e08769d",
+      "start_ns": 1777170156319758000,
+      "end_ns": 1777170156377883000,
+      "wall_time_ms": 58.125,
+      "cpu_time_ms": 54.687,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "b48e05d819c698b5",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 15,
+        "tool.output_size_bytes": 139
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "7644952a3c9499ad9a70432dc968164c",
+      "span_id": "9e9a2aa49cf57827",
+      "parent_id": "2ca778110e08769d",
+      "start_ns": 1777170156378821000,
+      "end_ns": 1777170156426774000,
+      "wall_time_ms": 47.953,
+      "cpu_time_ms": 47.279,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "14baf3d6a785ea34",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 8,
+        "tool.output_size_bytes": 404
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "7644952a3c9499ad9a70432dc968164c",
+      "span_id": "e3442bce5829a84b",
+      "parent_id": "2ca778110e08769d",
+      "start_ns": 1777170156427549000,
+      "end_ns": 1777170159387506000,
+      "wall_time_ms": 2959.957,
+      "cpu_time_ms": 12.136,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 134,
+        "llm.output_tokens": 148,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

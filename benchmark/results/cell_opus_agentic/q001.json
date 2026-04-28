@@ -1,0 +1,94 @@
+{
+  "trace_id": "620ca88dd9dc55e668e36ee4f3835188",
+  "config": "opus_custom",
+  "query_id": "q001",
+  "label": "cell_opus_custom",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "620ca88dd9dc55e668e36ee4f3835188",
+      "span_id": "cbe7fd91dc363c0e",
+      "parent_id": null,
+      "start_ns": 1777074383887597000,
+      "end_ns": 1777074392529041000,
+      "wall_time_ms": 8641.444,
+      "cpu_time_ms": 487.19,
+      "kind": "root",
+      "attrs": {
+        "config": "opus_custom",
+        "query_id": "q001",
+        "query_text": "Who was the first elected female Governor of Massachusetts?",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.max_turns": 10
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "620ca88dd9dc55e668e36ee4f3835188",
+      "span_id": "c894473b2495d5af",
+      "parent_id": "cbe7fd91dc363c0e",
+      "start_ns": 1777074383887801000,
+      "end_ns": 1777074384643365000,
+      "wall_time_ms": 755.564,
+      "cpu_time_ms": 15.405,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 819,
+        "llm.output_tokens": 59,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "620ca88dd9dc55e668e36ee4f3835188",
+      "span_id": "944439b15e1a2bd8",
+      "parent_id": "cbe7fd91dc363c0e",
+      "start_ns": 1777074384643694000,
+      "end_ns": 1777074386418749000,
+      "wall_time_ms": 1775.055,
+      "cpu_time_ms": 444.082,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "a071e656650ed0a3",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 1004
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "620ca88dd9dc55e668e36ee4f3835188",
+      "span_id": "a881354ffc7b057a",
+      "parent_id": "cbe7fd91dc363c0e",
+      "start_ns": 1777074391419827000,
+      "end_ns": 1777074392528902000,
+      "wall_time_ms": 1109.075,
+      "cpu_time_ms": 25.059,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1254,
+        "llm.output_tokens": 62,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

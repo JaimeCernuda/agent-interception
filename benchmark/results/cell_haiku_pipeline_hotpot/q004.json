@@ -1,0 +1,179 @@
+{
+  "trace_id": "b82f63a6eef36088e3770289536647ca",
+  "config": "pipeline_haiku_hotpot",
+  "query_id": "q004",
+  "label": "cell_haiku_pipeline_hotpot",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "b82f63a6eef36088e3770289536647ca",
+      "span_id": "25ab2121f3ea3a1d",
+      "parent_id": null,
+      "start_ns": 1777169776009478000,
+      "end_ns": 1777169789079883000,
+      "wall_time_ms": 13070.405,
+      "cpu_time_ms": 958.69,
+      "kind": "root",
+      "attrs": {
+        "config": "pipeline_haiku_hotpot",
+        "query_id": "q004",
+        "query_text": "Which areas of the United States were still able to deny sames sex marriages after the case in which Edith \"Edie\" Windsor was the main plaintiff?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "b82f63a6eef36088e3770289536647ca",
+      "span_id": "29e71b1b9fd088c8",
+      "parent_id": "25ab2121f3ea3a1d",
+      "start_ns": 1777169776009612000,
+      "end_ns": 1777169779571639000,
+      "wall_time_ms": 3562.027,
+      "cpu_time_ms": 32.051,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "7dcf0e10445cb8d2",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 748
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "b82f63a6eef36088e3770289536647ca",
+      "span_id": "66ee5bf3b22e3c66",
+      "parent_id": "25ab2121f3ea3a1d",
+      "start_ns": 1777169779571833000,
+      "end_ns": 1777169782450011000,
+      "wall_time_ms": 2878.178,
+      "cpu_time_ms": 191.595,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "9cc6258636336c33",
+        "tool.url": "https://en.wikipedia.org/wiki/Same-sex_marriage_in_California",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "b82f63a6eef36088e3770289536647ca",
+      "span_id": "64a7c80e998f17fa",
+      "parent_id": "25ab2121f3ea3a1d",
+      "start_ns": 1777169782450193000,
+      "end_ns": 1777169784162341000,
+      "wall_time_ms": 1712.148,
+      "cpu_time_ms": 188.124,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "fdbaf1964a03d196",
+        "tool.url": "https://civilrightsadvocacy.net/category/government-agencies/us-government-agencies/us-supreme-court/united-states-v-windsor/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 16544
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "b82f63a6eef36088e3770289536647ca",
+      "span_id": "301ccd56af523d00",
+      "parent_id": "25ab2121f3ea3a1d",
+      "start_ns": 1777169784162485000,
+      "end_ns": 1777169786044405000,
+      "wall_time_ms": 1881.92,
+      "cpu_time_ms": 89.716,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "0d58dcbe679121a8",
+        "tool.url": "https://firstbusinessnews.net/tag/same-sex-marriage/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 4997
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "b82f63a6eef36088e3770289536647ca",
+      "span_id": "9c3acf7c8a1222f3",
+      "parent_id": "25ab2121f3ea3a1d",
+      "start_ns": 1777169786044623000,
+      "end_ns": 1777169786410100000,
+      "wall_time_ms": 365.477,
+      "cpu_time_ms": 357.131,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "e500dac36af15873",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 110,
+        "tool.output_size_bytes": 16
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "b82f63a6eef36088e3770289536647ca",
+      "span_id": "ef95da9a9a4169fe",
+      "parent_id": "25ab2121f3ea3a1d",
+      "start_ns": 1777169786411416000,
+      "end_ns": 1777169786495967000,
+      "wall_time_ms": 84.551,
+      "cpu_time_ms": 83.446,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "68b09a495e29c671",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 39,
+        "tool.output_size_bytes": 263
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "b82f63a6eef36088e3770289536647ca",
+      "span_id": "20442dbb32e9485c",
+      "parent_id": "25ab2121f3ea3a1d",
+      "start_ns": 1777169786497030000,
+      "end_ns": 1777169789079820000,
+      "wall_time_ms": 2582.79,
+      "cpu_time_ms": 13.698,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 119,
+        "llm.output_tokens": 120,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

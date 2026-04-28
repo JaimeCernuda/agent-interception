@@ -1,0 +1,180 @@
+{
+  "trace_id": "f82b318f7f2208b7737fd00190e63fb5",
+  "config": "cell_concurrent_py_b4",
+  "query_id": "q009",
+  "label": "cell_concurrent_py_b4",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "f82b318f7f2208b7737fd00190e63fb5",
+      "span_id": "3ed0e117ce400ee4",
+      "parent_id": null,
+      "start_ns": 1777167444036136000,
+      "end_ns": 1777167453042606000,
+      "wall_time_ms": 9006.47,
+      "cpu_time_ms": 2859.819,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b4",
+        "query_id": "q009",
+        "query_text": "Who is the most recent female recipient of the Fields Medal?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 4
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "f82b318f7f2208b7737fd00190e63fb5",
+      "span_id": "97b078274346d45d",
+      "parent_id": "3ed0e117ce400ee4",
+      "start_ns": 1777167444036257000,
+      "end_ns": 1777167446389393000,
+      "wall_time_ms": 2353.136,
+      "cpu_time_ms": 750.327,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "2764dd5a718b083a",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 708
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "f82b318f7f2208b7737fd00190e63fb5",
+      "span_id": "405ee945b7b730be",
+      "parent_id": "3ed0e117ce400ee4",
+      "start_ns": 1777167446389544000,
+      "end_ns": 1777167449306883000,
+      "wall_time_ms": 2917.339,
+      "cpu_time_ms": 1160.27,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "301e2a4515fcbd3b",
+        "tool.url": "https://en.wikipedia.org/wiki/Fields_Medal",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "f82b318f7f2208b7737fd00190e63fb5",
+      "span_id": "b75414ef4c9042c0",
+      "parent_id": "3ed0e117ce400ee4",
+      "start_ns": 1777167449307146000,
+      "end_ns": 1777167450666627000,
+      "wall_time_ms": 1359.481,
+      "cpu_time_ms": 361.72,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "cd628f2c0476f1ef",
+        "tool.url": "https://worldculturalheritagevoices.org/maryam-mirzakhani-stanford-mathematician-and-fields-medal-winner-dies/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 7525
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "f82b318f7f2208b7737fd00190e63fb5",
+      "span_id": "98830104f4d023b6",
+      "parent_id": "3ed0e117ce400ee4",
+      "start_ns": 1777167450666762000,
+      "end_ns": 1777167451618054000,
+      "wall_time_ms": 951.292,
+      "cpu_time_ms": 295.1,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "9b16be433d8ae837",
+        "tool.url": "https://www.panarmenian.net/eng/news/181545/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 1310
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "f82b318f7f2208b7737fd00190e63fb5",
+      "span_id": "6b737a2af278d246",
+      "parent_id": "3ed0e117ce400ee4",
+      "start_ns": 1777167451618233000,
+      "end_ns": 1777167451725159000,
+      "wall_time_ms": 106.926,
+      "cpu_time_ms": 106.573,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "5ad35d0ec09b719d",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 50,
+        "tool.output_size_bytes": 101
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "f82b318f7f2208b7737fd00190e63fb5",
+      "span_id": "d0b16989233ce241",
+      "parent_id": "3ed0e117ce400ee4",
+      "start_ns": 1777167451725891000,
+      "end_ns": 1777167451769233000,
+      "wall_time_ms": 43.342,
+      "cpu_time_ms": 42.949,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "49e962fad392d47d",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 9,
+        "tool.output_size_bytes": 223
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "f82b318f7f2208b7737fd00190e63fb5",
+      "span_id": "a11f0b0b1e8543ac",
+      "parent_id": "3ed0e117ce400ee4",
+      "start_ns": 1777167451769870000,
+      "end_ns": 1777167453042437000,
+      "wall_time_ms": 1272.567,
+      "cpu_time_ms": 140.784,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 125,
+        "llm.output_tokens": 40,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

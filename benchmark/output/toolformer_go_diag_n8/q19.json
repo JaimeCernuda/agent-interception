@@ -1,0 +1,97 @@
+{
+  "config": "toolformer_go",
+  "label": "fractional",
+  "query_id": "q19",
+  "spans": [
+    {
+      "attrs": {
+        "agent.cpu_time_ms": 321.01099999999997,
+        "agent.duration_api_ms": 10320,
+        "agent.duration_ms": 9824,
+        "agent.is_error": false,
+        "agent.num_turns": 2,
+        "agent.total_cost_usd": 0.008597200000000001,
+        "agent.truncated": false,
+        "config": "toolformer_go",
+        "query_id": "q19",
+        "query_text": "Mike joined his school's band. He bought a trumpet for $145.16, and a song book which was $5.84. How much did Mike spend at the music store?",
+        "toolformer.category": "fractional"
+      },
+      "cpu_time_ms": 69230.382,
+      "end_ns": 1777405962121390000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "771abf9f2c6458b2",
+      "start_ns": 1777405892891019000,
+      "status": "ok",
+      "trace_id": "d997948ecb59748ce8742a79c9b32775",
+      "wall_time_ms": 69230.371
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 0
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777405955949822000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "771abf9f2c6458b2",
+      "span_id": "4e8f200fb75f42b4",
+      "start_ns": 1777405892934410000,
+      "status": "ok",
+      "trace_id": "d997948ecb59748ce8742a79c9b32775",
+      "wall_time_ms": 63015.412
+    },
+    {
+      "attrs": {
+        "expression": "145.16 + 5.84",
+        "result": 151,
+        "tool.input_hash": "8b97f1b392796f0d",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.084,
+      "end_ns": 1777405955995234000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "771abf9f2c6458b2",
+      "span_id": "ecc9d6dad2019c73",
+      "start_ns": 1777405955995150000,
+      "status": "ok",
+      "trace_id": "d997948ecb59748ce8742a79c9b32775",
+      "wall_time_ms": 0.084
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 1
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777405961471594000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "771abf9f2c6458b2",
+      "span_id": "f4e1afbd0e79e097",
+      "start_ns": 1777405956092390000,
+      "status": "ok",
+      "trace_id": "d997948ecb59748ce8742a79c9b32775",
+      "wall_time_ms": 5379.204
+    }
+  ],
+  "trace_id": "d997948ecb59748ce8742a79c9b32775"
+}

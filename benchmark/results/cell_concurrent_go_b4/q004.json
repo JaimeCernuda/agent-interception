@@ -1,0 +1,160 @@
+{
+  "config": "cell_concurrent_go_b4",
+  "label": "cell_concurrent_go_b4",
+  "query_id": "q004",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 4,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 2,
+        "agent.num_urls_fetched": 2,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b4",
+        "query_id": "q004",
+        "query_text": "Who was the first African American woman to appear on a quarter in the United States?"
+      },
+      "cpu_time_ms": 4972.816,
+      "end_ns": 1777167509093716000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "92de0f1ac9031788",
+      "start_ns": 1777167504120900000,
+      "status": "ok",
+      "trace_id": "2c2327a89ee6e80fc61908e6e3194915",
+      "wall_time_ms": 4972.816
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "522a594217841fe6",
+        "tool.name": "ddg",
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 763,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 1311.665,
+      "end_ns": 1777167505432584000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "92de0f1ac9031788",
+      "span_id": "bda3b1138ff5920d",
+      "start_ns": 1777167504120920000,
+      "status": "ok",
+      "trace_id": "2c2327a89ee6e80fc61908e6e3194915",
+      "wall_time_ms": 1311.664
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "cc0b55e766c2f33b",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 7827,
+        "tool.retry_count": 0,
+        "tool.url": "https://mymodernmet.com/maya-angelou-quarter/"
+      },
+      "cpu_time_ms": 1251.364,
+      "end_ns": 1777167506683965000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "92de0f1ac9031788",
+      "span_id": "43486922da3e8307",
+      "start_ns": 1777167505432600000,
+      "status": "ok",
+      "trace_id": "2c2327a89ee6e80fc61908e6e3194915",
+      "wall_time_ms": 1251.365
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "991e6e212d268694",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 8905,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.nyhistory.org/blogs/womens-history-the-new-maya-angelou-quarter"
+      },
+      "cpu_time_ms": 1604.307,
+      "end_ns": 1777167508288281000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "92de0f1ac9031788",
+      "span_id": "2b5a05a82e427ef0",
+      "start_ns": 1777167506683975000,
+      "status": "ok",
+      "trace_id": "2c2327a89ee6e80fc61908e6e3194915",
+      "wall_time_ms": 1604.306
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "e97a2d2ab5db642c",
+        "tool.n_sentences_in": 52,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 84,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 3.907,
+      "end_ns": 1777167508292226000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "92de0f1ac9031788",
+      "span_id": "f708d5f1d295747f",
+      "start_ns": 1777167508288320000,
+      "status": "ok",
+      "trace_id": "2c2327a89ee6e80fc61908e6e3194915",
+      "wall_time_ms": 3.906
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "2d7617d1c318163f",
+        "tool.n_sentences_in": 47,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 312,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 3.847,
+      "end_ns": 1777167508296111000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "92de0f1ac9031788",
+      "span_id": "a8b376cc1ce124dd",
+      "start_ns": 1777167508292265000,
+      "status": "ok",
+      "trace_id": "2c2327a89ee6e80fc61908e6e3194915",
+      "wall_time_ms": 3.846
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 132,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 31,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 797.534,
+      "end_ns": 1777167509093696000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "92de0f1ac9031788",
+      "span_id": "da98084b90f2960e",
+      "start_ns": 1777167508296163000,
+      "status": "ok",
+      "trace_id": "2c2327a89ee6e80fc61908e6e3194915",
+      "wall_time_ms": 797.533
+    }
+  ],
+  "trace_id": "2c2327a89ee6e80fc61908e6e3194915"
+}

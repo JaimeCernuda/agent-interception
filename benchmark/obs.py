@@ -185,6 +185,34 @@ class Observer:
         with self._span(name, attrs) as handle:
             yield handle
 
+    def emit_synthetic_span(
+        self,
+        name: str,
+        start_ns: int,
+        end_ns: int,
+        cpu_start_ns: int | None = None,
+        cpu_end_ns: int | None = None,
+        **attrs: Any,
+    ) -> None:
+        """Record a span with explicit wall (and optionally CPU) timestamps.
+
+        Used by configs that observe an external process whose call/return
+        timing they want to attribute to a span without literally bracketing
+        their own code with a context manager (e.g. claude-agent-sdk's
+        message stream, where the LLM round-trip happens between yields).
+        """
+        assert _tracer is not None
+        kind = _kind_for(name).value
+        attrs = {"span.kind": kind, **attrs}
+        otel_span = _tracer.start_span(name, start_time=int(start_ns))
+        for k, v in attrs.items():
+            SpanHandle(otel_span).set(k, v)
+        if cpu_start_ns is not None and cpu_end_ns is not None:
+            otel_span.set_attribute(_CPU_ATTR, max(0.0, (cpu_end_ns - cpu_start_ns) / 1e6))
+        else:
+            otel_span.set_attribute(_CPU_ATTR, 0.0)
+        otel_span.end(end_time=int(end_ns))
+
     @contextmanager
     def _span(self, name: str, attrs: dict[str, Any]) -> Iterator[SpanHandle]:
         assert _tracer is not None

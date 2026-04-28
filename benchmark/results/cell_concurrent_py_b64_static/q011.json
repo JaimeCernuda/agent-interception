@@ -1,0 +1,159 @@
+{
+  "trace_id": "130d16597f517df86cb8ec90badc5e00",
+  "config": "cell_concurrent_py_b64",
+  "query_id": "q011",
+  "label": "cell_concurrent_py_b64",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "130d16597f517df86cb8ec90badc5e00",
+      "span_id": "cbc7d6697e662aed",
+      "parent_id": null,
+      "start_ns": 1777167757422611000,
+      "end_ns": 1777167765300272000,
+      "wall_time_ms": 7877.661,
+      "cpu_time_ms": 18072.54,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b64",
+        "query_id": "q011",
+        "query_text": "What is the youngest age eligible for COVID-19 vaccination in the United States?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 64
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "130d16597f517df86cb8ec90badc5e00",
+      "span_id": "1ccdf5a02bc3121f",
+      "parent_id": "cbc7d6697e662aed",
+      "start_ns": 1777167757422746000,
+      "end_ns": 1777167757422829000,
+      "wall_time_ms": 0.083,
+      "cpu_time_ms": 0.214,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "static",
+        "tool.input_hash": "bb429540c09dc22d",
+        "tool.retry_count": 0,
+        "tool.num_results": 4,
+        "tool.output_size_bytes": 252
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "130d16597f517df86cb8ec90badc5e00",
+      "span_id": "5b1256d39dfd28aa",
+      "parent_id": "cbc7d6697e662aed",
+      "start_ns": 1777167757422936000,
+      "end_ns": 1777167760777526000,
+      "wall_time_ms": 3354.59,
+      "cpu_time_ms": 10884.05,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "25ba697a7f9400b2",
+        "tool.url": "https://www.bbc.com/news/world-us-canada-55305720",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 4890
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "130d16597f517df86cb8ec90badc5e00",
+      "span_id": "e5e500affe54dd61",
+      "parent_id": "cbc7d6697e662aed",
+      "start_ns": 1777167760777648000,
+      "end_ns": 1777167763157034000,
+      "wall_time_ms": 2379.386,
+      "cpu_time_ms": 4460.263,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "65b1a3cf5869fb80",
+        "tool.url": "https://ourworldindata.org/coronavirus",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 5457
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "130d16597f517df86cb8ec90badc5e00",
+      "span_id": "fd7c053b297a25b0",
+      "parent_id": "cbc7d6697e662aed",
+      "start_ns": 1777167763157219000,
+      "end_ns": 1777167763262869000,
+      "wall_time_ms": 105.65,
+      "cpu_time_ms": 126.361,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "8ef5a6d04df3e6fe",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 43,
+        "tool.output_size_bytes": 131
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "130d16597f517df86cb8ec90badc5e00",
+      "span_id": "1b84e952b296a4dc",
+      "parent_id": "cbc7d6697e662aed",
+      "start_ns": 1777167763265990000,
+      "end_ns": 1777167763351416000,
+      "wall_time_ms": 85.426,
+      "cpu_time_ms": 104.304,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "3ae306ab811bffc8",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 24,
+        "tool.output_size_bytes": 903
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "130d16597f517df86cb8ec90badc5e00",
+      "span_id": "87f815c1125e77f4",
+      "parent_id": "cbc7d6697e662aed",
+      "start_ns": 1777167763352333000,
+      "end_ns": 1777167765300206000,
+      "wall_time_ms": 1947.873,
+      "cpu_time_ms": 2491.708,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 288,
+        "llm.output_tokens": 89,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

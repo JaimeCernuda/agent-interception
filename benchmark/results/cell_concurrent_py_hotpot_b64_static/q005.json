@@ -1,0 +1,44 @@
+{
+  "trace_id": "23ffc0532fed805dfd803d2614a14103",
+  "config": "cell_concurrent_py_hotpot_b64_static",
+  "query_id": "q005",
+  "label": "cell_concurrent_py_hotpot_b64_static",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "23ffc0532fed805dfd803d2614a14103",
+      "span_id": "ef7eda8d7ef74462",
+      "parent_id": null,
+      "start_ns": 1777183121931494000,
+      "end_ns": 1777183122020227000,
+      "wall_time_ms": 88.733,
+      "cpu_time_ms": 119.22,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b64_static",
+        "query_id": "q005",
+        "query_text": "Where was one of the runners born who almost broke Craig Virgin's Illinois Boys Cross Country record?"
+      },
+      "status": "error",
+      "error": "RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q005. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls()."
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "23ffc0532fed805dfd803d2614a14103",
+      "span_id": "8d2f7b78aea8caf9",
+      "parent_id": "ef7eda8d7ef74462",
+      "start_ns": 1777183121931689000,
+      "end_ns": 1777183121984457000,
+      "wall_time_ms": 52.768,
+      "cpu_time_ms": 72.893,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "static",
+        "tool.input_hash": "f2f83d728a6b25be",
+        "tool.retry_count": 0
+      },
+      "status": "error",
+      "error": "RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q005. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls()."
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "trace_id": "5cd4901af35063fe1bb0842b0eea4e48",
+  "config": "opus_custom",
+  "query_id": "q010",
+  "label": "cell_opus_custom",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "5cd4901af35063fe1bb0842b0eea4e48",
+      "span_id": "e48f83828465ab61",
+      "parent_id": null,
+      "start_ns": 1777074653386613000,
+      "end_ns": 1777074669263593000,
+      "wall_time_ms": 15876.98,
+      "cpu_time_ms": 186.958,
+      "kind": "root",
+      "attrs": {
+        "config": "opus_custom",
+        "query_id": "q010",
+        "query_text": "How much does the Netflix standard plan without ads cost in the US?",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.max_turns": 10
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "5cd4901af35063fe1bb0842b0eea4e48",
+      "span_id": "6888e4b9d532e0cb",
+      "parent_id": "e48f83828465ab61",
+      "start_ns": 1777074653386720000,
+      "end_ns": 1777074654258324000,
+      "wall_time_ms": 871.604,
+      "cpu_time_ms": 12.201,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 823,
+        "llm.output_tokens": 83,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "5cd4901af35063fe1bb0842b0eea4e48",
+      "span_id": "50087dd2495203f6",
+      "parent_id": "e48f83828465ab61",
+      "start_ns": 1777074654258587000,
+      "end_ns": 1777074656299679000,
+      "wall_time_ms": 2041.092,
+      "cpu_time_ms": 31.766,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "0fdea26930ca60fd",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 885
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "5cd4901af35063fe1bb0842b0eea4e48",
+      "span_id": "2b3247170ac960b0",
+      "parent_id": "e48f83828465ab61",
+      "start_ns": 1777074661303202000,
+      "end_ns": 1777074662208847000,
+      "wall_time_ms": 905.645,
+      "cpu_time_ms": 16.014,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1274,
+        "llm.output_tokens": 110,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "5cd4901af35063fe1bb0842b0eea4e48",
+      "span_id": "e6d85f8c7083e8c8",
+      "parent_id": "e48f83828465ab61",
+      "start_ns": 1777074662209039000,
+      "end_ns": 1777074662910311000,
+      "wall_time_ms": 701.272,
+      "cpu_time_ms": 103.931,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "61cf001508696188",
+        "tool.url": "https://arstechnica.com/gadgets/2024/07/netflix-is-kicking-us-subscribers-off-its-cheapest-ad-free-plan-soon/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 1814
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "5cd4901af35063fe1bb0842b0eea4e48",
+      "span_id": "c6f689de35a19de0",
+      "parent_id": "e48f83828465ab61",
+      "start_ns": 1777074667911140000,
+      "end_ns": 1777074669263490000,
+      "wall_time_ms": 1352.35,
+      "cpu_time_ms": 21.923,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1771,
+        "llm.output_tokens": 86,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

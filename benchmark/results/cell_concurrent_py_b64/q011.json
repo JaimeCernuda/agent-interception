@@ -1,0 +1,201 @@
+{
+  "trace_id": "887891b8959cc8bd9b0ca9034d7899eb",
+  "config": "cell_concurrent_py_b64",
+  "query_id": "q011",
+  "label": "cell_concurrent_py_b64",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "887891b8959cc8bd9b0ca9034d7899eb",
+      "span_id": "a2348494917f3b93",
+      "parent_id": null,
+      "start_ns": 1777167629182580000,
+      "end_ns": 1777167645263312000,
+      "wall_time_ms": 16080.732,
+      "cpu_time_ms": 19391.053,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b64",
+        "query_id": "q011",
+        "query_text": "What is the youngest age eligible for COVID-19 vaccination in the United States?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 64
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "887891b8959cc8bd9b0ca9034d7899eb",
+      "span_id": "80bf134a690a4914",
+      "parent_id": "a2348494917f3b93",
+      "start_ns": 1777167629182698000,
+      "end_ns": 1777167634754403000,
+      "wall_time_ms": 5571.705,
+      "cpu_time_ms": 3394.875,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "bb429540c09dc22d",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 667
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "887891b8959cc8bd9b0ca9034d7899eb",
+      "span_id": "0a77a48232f436ef",
+      "parent_id": "a2348494917f3b93",
+      "start_ns": 1777167634754608000,
+      "end_ns": 1777167637841597000,
+      "wall_time_ms": 3086.989,
+      "cpu_time_ms": 6295.21,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "b425fe14557ef22f",
+        "tool.url": "https://en.wikipedia.org/wiki/COVID-19_vaccination_in_the_United_States",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "887891b8959cc8bd9b0ca9034d7899eb",
+      "span_id": "c78f84557aeff697",
+      "parent_id": "a2348494917f3b93",
+      "start_ns": 1777167637841747000,
+      "end_ns": 1777167640889733000,
+      "wall_time_ms": 3047.986,
+      "cpu_time_ms": 4416.172,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "3b45bf75f972ab13",
+        "tool.url": "https://www.mass.gov/info-details/covid-19-vaccine-information",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "887891b8959cc8bd9b0ca9034d7899eb",
+      "span_id": "1fe30a1cc3dabef3",
+      "parent_id": "a2348494917f3b93",
+      "start_ns": 1777167640889867000,
+      "end_ns": 1777167641851245000,
+      "wall_time_ms": 961.378,
+      "cpu_time_ms": 1618.546,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "ab80d1788c5ec900",
+        "tool.url": "https://hal.science/hal-03526809v1/document",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 1068
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "887891b8959cc8bd9b0ca9034d7899eb",
+      "span_id": "66f4dbcc8be3c690",
+      "parent_id": "a2348494917f3b93",
+      "start_ns": 1777167641851431000,
+      "end_ns": 1777167643388336000,
+      "wall_time_ms": 1536.905,
+      "cpu_time_ms": 2110.619,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "15916aaffbca8283",
+        "tool.url": "https://www.webmd.com/vaccines/covid-19-vaccine/covid-19-vaccine",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 11926
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "887891b8959cc8bd9b0ca9034d7899eb",
+      "span_id": "f896bdbb3abe275d",
+      "parent_id": "a2348494917f3b93",
+      "start_ns": 1777167643388486000,
+      "end_ns": 1777167643448099000,
+      "wall_time_ms": 59.613,
+      "cpu_time_ms": 94.678,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "3dfc7aa6959236de",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 9,
+        "tool.output_size_bytes": 29
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "887891b8959cc8bd9b0ca9034d7899eb",
+      "span_id": "265e36a8b388c80b",
+      "parent_id": "a2348494917f3b93",
+      "start_ns": 1777167643449024000,
+      "end_ns": 1777167643771492000,
+      "wall_time_ms": 322.468,
+      "cpu_time_ms": 421.966,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "5486611786a354cf",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 123,
+        "tool.output_size_bytes": 714
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "887891b8959cc8bd9b0ca9034d7899eb",
+      "span_id": "63f8bf29d4fe30ee",
+      "parent_id": "a2348494917f3b93",
+      "start_ns": 1777167643772544000,
+      "end_ns": 1777167645263186000,
+      "wall_time_ms": 1490.642,
+      "cpu_time_ms": 1033.446,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 257,
+        "llm.output_tokens": 68,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

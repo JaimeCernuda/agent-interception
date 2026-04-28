@@ -1,0 +1,160 @@
+{
+  "config": "cell_concurrent_go_b1",
+  "label": "cell_concurrent_go_b1",
+  "query_id": "q012",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 1,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 2,
+        "agent.num_urls_fetched": 2,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b1",
+        "query_id": "q012",
+        "query_text": "Which drama series won the most recent Primetime Emmy Award for Outstanding Drama Series?"
+      },
+      "cpu_time_ms": 6267.62,
+      "end_ns": 1777167357764387000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "5cb185e40e92c32c",
+      "start_ns": 1777167351496767000,
+      "status": "ok",
+      "trace_id": "949b9191723b8bfb25d6da4759c8224d",
+      "wall_time_ms": 6267.62
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "e4dfccfe8445ac51",
+        "tool.name": "ddg",
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 2793,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 1005.419,
+      "end_ns": 1777167352502196000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "5cb185e40e92c32c",
+      "span_id": "cce8fe54510e1bc5",
+      "start_ns": 1777167351496778000,
+      "status": "ok",
+      "trace_id": "949b9191723b8bfb25d6da4759c8224d",
+      "wall_time_ms": 1005.418
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "8fb3c991b9bd16d0",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 4363,
+        "tool.retry_count": 0,
+        "tool.url": "https://duckduckgo.com/y.js?ad_domain=movistarplus.es\u0026amp;ad_provider=bingv7aa\u0026amp;ad_type=txad\u0026amp;click_metadata=XEO9D5OtSybzkSbCf10uEkrCRXI7uSjyaZxFxjI%2D2uNTQ4SuicFde2hVctJrutRi4vxlAJmSQIWWdL_mR%2DEvu0gIYu3xvl2Dwfh0vi6OFwtkglRQYTHWBKcacfPqaZ1_cYBXm_cCsbDXjzxUIkeF6FJ%2D5_kyG2gVWxkEKc4ppC4.MAJZM0v7yfwhq%2DiGRtfDuQ\u0026amp;rut=84299ebfd34dc3994b52bec6b5e9159e6742eefb2fa2a56c71cc76b068bd77e1\u0026amp;u3=https%3A%2F%2Fwww.bing.com%2Faclick%3Fld%3De85sSD_RAWhnmn2SISQ87RKjVUCUz931kQAVpp3LLfeiokbqEYL1NX9z3rUiWTZ7FzU3QKYwg3KwiPk9GyM_xp%2DTZDQduv1OwmLk2nJQ%2D%2DpRIjAuRE2YdpJlnnvojgdPOMfpr6PC9smm%2DzgwM3KlcYM_j0BgjMxzXU52ibEfJNivG9oK_QjoQoRMlOdS%2Dn1Z8MPr08cO5YA9XASgpau1N%2DCZ1JD3E%26u%3DaHR0cHMlM2ElMmYlMmZhZC5kb3VibGVjbGljay5uZXQlMmZzZWFyY2hhZHMlMmZsaW5rJTJmY2xpY2slM2ZsaWQlM2Q0MzcwMDA4MjUwNjMwMzIzMyUyNmRzX3Nfa3dnaWQlM2Q1ODcwMDAwODk0MjQyODg5MCUyNmRzX2FfY2lkJTNkNzUwNjM4NDkyMSUyNmRzX2FfY2FpZCUzZDIyODc2MzUxMzQ0JTI2ZHNfYV9hZ2lkJTNkMTg0NzEyNTY5NDE4JTI2ZHNfYV9saWQlM2Rrd2QtMzI5MTU1MjExMjE1JTI2JTI2ZHNfZV9hZGlkJTNkNzI2MzY5NTg1MzQyOTMlMjZkc19lX3RhcmdldF9pZCUzZGt3ZC03MjYzNzMzNjUwNDI0NSUzYWxvYy0xNzAlMjYlMjZkc19lX25ldHdvcmslM2RzJTI2ZHNfdXJsX3YlM2QyJTI2ZHNfZGVzdF91cmwlM2RodHRwcyUzYSUyZiUyZnd3dy5tb3Zpc3RhcnBsdXMuZXMlMmZzZXJpZXMlMmZkb25kZS12ZXIlM2ZnY2xpZCUzZGQ4YjQ0MTcwODYyMTFmNjk0MTg4Mjg5ZGVkZDk3NTBkJTI2Z2Nsc3JjJTNkM3AuZHMlMjYlMjZtc2Nsa2lkJTNkZDhiNDQxNzA4NjIxMWY2OTQxODgyODlkZWRkOTc1MGQlMjZ1dG1fc291cmNlJTNkYmluZyUyNnV0bV9tZWRpdW0lM2RjcGMlMjZ1dG1fY2FtcGFpZ24lM2RNT1ZJU1RBUlBMVVNfT1RUX0FPX0VTUF9YX011bHRpY29udGVuaWRvX011bHRpY29udGVuaWRvX1RFTEFVRElPLVRFTEFVRElPX1hfU1VCX1NFQV9TRUFfTi1NQVJfU0VBUkNIQklOR19URUxfWF9YJTI2dXRtX3Rlcm0lM2RzZXJpZXMlMjUyMGRyYW1hJTI2dXRtX2NvbnRlbnQlM2RHT09HTEUlMjU3Q0dPT0dMRSUyNTdDR0FfQlNRX1NFQV9TRUFfVFhUX1hfQ1BDX0JVU1FfR0VORVJJQ0FfU1VCX04tTUFSX1hfWF9YX1RFTEFVRElPLVRFTEFVRElPX0VTUF9YX1hfTUxfTUxUX0dFTkVSSUNPX0NpbmVTZXJpZXNfTU9WSVNUQVJQTFVTX1hfU1VCU19YX1g%26rlid%3Dd8b4417086211f694188289dedd9750d\u0026amp;vqd=4-34745078137948379112331362321884310986\u0026amp;iurl=%7B1%7DIG%3DA4E1B934B63D46C4ADD2364B1987E1AD%26CID%3D1C4CCC18826468CD1E1EDB5F8313695F%26ID%3DDevEx%2C5045.1"
+      },
+      "cpu_time_ms": 3188.478,
+      "end_ns": 1777167355690728000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "5cb185e40e92c32c",
+      "span_id": "12ab2d7bce5f2af0",
+      "start_ns": 1777167352502251000,
+      "status": "ok",
+      "trace_id": "949b9191723b8bfb25d6da4759c8224d",
+      "wall_time_ms": 3188.477
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "efe0b1263278f0fe",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 103072,
+        "tool.retry_count": 0,
+        "tool.url": "https://en.wikipedia.org/wiki/Primetime_Emmy_Award_for_Outstanding_Drama_Series"
+      },
+      "cpu_time_ms": 250.07,
+      "end_ns": 1777167355940809000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "5cb185e40e92c32c",
+      "span_id": "947d3ab17f61fb75",
+      "start_ns": 1777167355690739000,
+      "status": "ok",
+      "trace_id": "949b9191723b8bfb25d6da4759c8224d",
+      "wall_time_ms": 250.07
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "90ffc37db2525955",
+        "tool.n_sentences_in": 25,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 156,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 1.597,
+      "end_ns": 1777167355942433000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "5cb185e40e92c32c",
+      "span_id": "d6f0e13a99aed392",
+      "start_ns": 1777167355940836000,
+      "status": "ok",
+      "trace_id": "949b9191723b8bfb25d6da4759c8224d",
+      "wall_time_ms": 1.597
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "4d791e218ca4ec99",
+        "tool.n_sentences_in": 455,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 4798,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 168.022,
+      "end_ns": 1777167356110864000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "5cb185e40e92c32c",
+      "span_id": "feab6328df4a27c9",
+      "start_ns": 1777167355942842000,
+      "status": "ok",
+      "trace_id": "949b9191723b8bfb25d6da4759c8224d",
+      "wall_time_ms": 168.022
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 1530,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 63,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1653.443,
+      "end_ns": 1777167357764373000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "5cb185e40e92c32c",
+      "span_id": "3f09b9dae6ade542",
+      "start_ns": 1777167356110931000,
+      "status": "ok",
+      "trace_id": "949b9191723b8bfb25d6da4759c8224d",
+      "wall_time_ms": 1653.442
+    }
+  ],
+  "trace_id": "949b9191723b8bfb25d6da4759c8224d"
+}

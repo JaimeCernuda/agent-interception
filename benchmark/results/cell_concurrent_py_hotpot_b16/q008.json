@@ -1,0 +1,201 @@
+{
+  "trace_id": "21e85e3ecf281d853997c574df039486",
+  "config": "cell_concurrent_py_hotpot_b16",
+  "query_id": "q008",
+  "label": "cell_concurrent_py_hotpot_b16",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "21e85e3ecf281d853997c574df039486",
+      "span_id": "1bead3c8ff84546b",
+      "parent_id": null,
+      "start_ns": 1777183002733177000,
+      "end_ns": 1777183017221416000,
+      "wall_time_ms": 14488.239,
+      "cpu_time_ms": 17788.497,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b16",
+        "query_id": "q008",
+        "query_text": "What animal does Mahratta Greyhound and Tibetan Spaniel have in common?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 16
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "21e85e3ecf281d853997c574df039486",
+      "span_id": "589c760b2397bd4b",
+      "parent_id": "1bead3c8ff84546b",
+      "start_ns": 1777183002733327000,
+      "end_ns": 1777183005182467000,
+      "wall_time_ms": 2449.14,
+      "cpu_time_ms": 821.293,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "29afef04581f4869",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 575
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "21e85e3ecf281d853997c574df039486",
+      "span_id": "d40cec55f2028cd4",
+      "parent_id": "1bead3c8ff84546b",
+      "start_ns": 1777183005182640000,
+      "end_ns": 1777183008056984000,
+      "wall_time_ms": 2874.344,
+      "cpu_time_ms": 1859.251,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "c18b294b92e432d3",
+        "tool.url": "https://en.wikipedia.org/wiki/List_of_dog_breeds",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "21e85e3ecf281d853997c574df039486",
+      "span_id": "2d1c859ce3acd4e0",
+      "parent_id": "1bead3c8ff84546b",
+      "start_ns": 1777183008057111000,
+      "end_ns": 1777183010190833000,
+      "wall_time_ms": 2133.722,
+      "cpu_time_ms": 2706.873,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "c2eb4a8b72ef577b",
+        "tool.url": "https://www.snuffalo.com/en/dog-breeds/mahratta-greyhound",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 2230
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "21e85e3ecf281d853997c574df039486",
+      "span_id": "59b8606c5f3d2710",
+      "parent_id": "1bead3c8ff84546b",
+      "start_ns": 1777183010190971000,
+      "end_ns": 1777183013922951000,
+      "wall_time_ms": 3731.98,
+      "cpu_time_ms": 7382.477,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "50550f6ae4798b7d",
+        "tool.url": "https://dogell.com/en/compare-dog-breeds/whippet-vs-italian-greyhound-vs-mahratta-greyhound",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "21e85e3ecf281d853997c574df039486",
+      "span_id": "d24b5e21a044ecb9",
+      "parent_id": "1bead3c8ff84546b",
+      "start_ns": 1777183013923285000,
+      "end_ns": 1777183015380337000,
+      "wall_time_ms": 1457.052,
+      "cpu_time_ms": 2613.819,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "b81fd00331c84323",
+        "tool.url": "https://dogdekho.com/mahratta-greyhound/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 697
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "21e85e3ecf281d853997c574df039486",
+      "span_id": "af719f7df78b65ec",
+      "parent_id": "1bead3c8ff84546b",
+      "start_ns": 1777183015380491000,
+      "end_ns": 1777183015444354000,
+      "wall_time_ms": 63.863,
+      "cpu_time_ms": 249.574,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "f880a8bcc97781ca",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 23,
+        "tool.output_size_bytes": 96
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "21e85e3ecf281d853997c574df039486",
+      "span_id": "4973e9c251784861",
+      "parent_id": "1bead3c8ff84546b",
+      "start_ns": 1777183015445789000,
+      "end_ns": 1777183015502065000,
+      "wall_time_ms": 56.276,
+      "cpu_time_ms": 134.778,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "b973bdc0632a717b",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 7,
+        "tool.output_size_bytes": 118
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "21e85e3ecf281d853997c574df039486",
+      "span_id": "d9bdec980fbfddcd",
+      "parent_id": "1bead3c8ff84546b",
+      "start_ns": 1777183015502753000,
+      "end_ns": 1777183017221349000,
+      "wall_time_ms": 1718.596,
+      "cpu_time_ms": 2012.629,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 95,
+        "llm.output_tokens": 96,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

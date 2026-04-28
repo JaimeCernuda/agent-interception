@@ -1,0 +1,117 @@
+{
+  "trace_id": "2f61c0930fcd875fcd36abf860090f3e",
+  "config": "cell_concurrent_py_hotpot_b16",
+  "query_id": "q003",
+  "label": "cell_concurrent_py_hotpot_b16",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "2f61c0930fcd875fcd36abf860090f3e",
+      "span_id": "0f9e6b16cb8c4977",
+      "parent_id": null,
+      "start_ns": 1777183002735589000,
+      "end_ns": 1777183016725359000,
+      "wall_time_ms": 13989.77,
+      "cpu_time_ms": 17064.828,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b16",
+        "query_id": "q003",
+        "query_text": "What type of profession does Alexandra David-N\u00e9el and Jack Kerouac have in common?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 1,
+        "agent.num_summaries": 1,
+        "agent.concurrent_batch_size": 16
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "2f61c0930fcd875fcd36abf860090f3e",
+      "span_id": "76340a20ab072d08",
+      "parent_id": "0f9e6b16cb8c4977",
+      "start_ns": 1777183002735759000,
+      "end_ns": 1777183010330213000,
+      "wall_time_ms": 7594.454,
+      "cpu_time_ms": 5586.399,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "5dd8e8b8540a4c80",
+        "tool.retry_count": 0,
+        "tool.num_results": 1,
+        "tool.output_size_bytes": 56
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "2f61c0930fcd875fcd36abf860090f3e",
+      "span_id": "bd3c9bac5befef79",
+      "parent_id": "0f9e6b16cb8c4977",
+      "start_ns": 1777183010330587000,
+      "end_ns": 1777183011977911000,
+      "wall_time_ms": 1647.324,
+      "cpu_time_ms": 3505.653,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "6f4192b81df1d024",
+        "tool.url": "https://www.theculturium.com/rene-daumal-mount-analogue/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 30271
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "2f61c0930fcd875fcd36abf860090f3e",
+      "span_id": "cd048a4995b138fa",
+      "parent_id": "0f9e6b16cb8c4977",
+      "start_ns": 1777183011979084000,
+      "end_ns": 1777183013420826000,
+      "wall_time_ms": 1441.742,
+      "cpu_time_ms": 2330.32,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "2c61917069d9a3f5",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 200,
+        "tool.output_size_bytes": 17
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "2f61c0930fcd875fcd36abf860090f3e",
+      "span_id": "b2c46aa390902085",
+      "parent_id": "0f9e6b16cb8c4977",
+      "start_ns": 1777183013421913000,
+      "end_ns": 1777183016725247000,
+      "wall_time_ms": 3303.334,
+      "cpu_time_ms": 5636.009,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 42,
+        "llm.output_tokens": 198,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

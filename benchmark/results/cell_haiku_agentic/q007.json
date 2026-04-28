@@ -1,0 +1,201 @@
+{
+  "trace_id": "4913282184cc2a6320b1e5e190f9c4e4",
+  "config": "haiku_custom",
+  "query_id": "q007",
+  "label": "cell_haiku_custom",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "4913282184cc2a6320b1e5e190f9c4e4",
+      "span_id": "164d385a272114b0",
+      "parent_id": null,
+      "start_ns": 1777073383125306000,
+      "end_ns": 1777073409187286000,
+      "wall_time_ms": 26061.98,
+      "cpu_time_ms": 649.338,
+      "kind": "root",
+      "attrs": {
+        "config": "haiku_custom",
+        "query_id": "q007",
+        "query_text": "What was the shortest war in history?",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.max_turns": -1
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "4913282184cc2a6320b1e5e190f9c4e4",
+      "span_id": "f6521e8324f6345d",
+      "parent_id": "164d385a272114b0",
+      "start_ns": 1777073383125495000,
+      "end_ns": 1777073383779103000,
+      "wall_time_ms": 653.608,
+      "cpu_time_ms": 9.547,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 817,
+        "llm.output_tokens": 57,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "4913282184cc2a6320b1e5e190f9c4e4",
+      "span_id": "8cb117f7dd1685a6",
+      "parent_id": "164d385a272114b0",
+      "start_ns": 1777073383779271000,
+      "end_ns": 1777073386013698000,
+      "wall_time_ms": 2234.427,
+      "cpu_time_ms": 23.387,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "fabd9a170697048e",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 693
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "4913282184cc2a6320b1e5e190f9c4e4",
+      "span_id": "22e02535edc4febc",
+      "parent_id": "164d385a272114b0",
+      "start_ns": 1777073391018961000,
+      "end_ns": 1777073391854404000,
+      "wall_time_ms": 835.443,
+      "cpu_time_ms": 15.963,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1169,
+        "llm.output_tokens": 140,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "4913282184cc2a6320b1e5e190f9c4e4",
+      "span_id": "7c1c5569628741b4",
+      "parent_id": "164d385a272114b0",
+      "start_ns": 1777073391854590000,
+      "end_ns": 1777073394062430000,
+      "wall_time_ms": 2207.84,
+      "cpu_time_ms": 228.382,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "dcc8c6df5c7f313c",
+        "tool.url": "https://en.wikipedia.org/wiki/Shortest_war_in_history",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "4913282184cc2a6320b1e5e190f9c4e4",
+      "span_id": "ecfc391aadb8e857",
+      "parent_id": "164d385a272114b0",
+      "start_ns": 1777073394062613000,
+      "end_ns": 1777073395951681000,
+      "wall_time_ms": 1889.068,
+      "cpu_time_ms": 207.224,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "8851f1b993e833ca",
+        "tool.url": "https://www.historic-uk.com/HistoryUK/HistoryofBritain/The-Shortest-War-in-History/",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "4913282184cc2a6320b1e5e190f9c4e4",
+      "span_id": "c840b35bb65d7ddb",
+      "parent_id": "164d385a272114b0",
+      "start_ns": 1777073400956880000,
+      "end_ns": 1777073401758811000,
+      "wall_time_ms": 801.931,
+      "cpu_time_ms": 18.484,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1384,
+        "llm.output_tokens": 86,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "4913282184cc2a6320b1e5e190f9c4e4",
+      "span_id": "fc4ad03fa0089af3",
+      "parent_id": "164d385a272114b0",
+      "start_ns": 1777073401759078000,
+      "end_ns": 1777073402219952000,
+      "wall_time_ms": 460.874,
+      "cpu_time_ms": 126.925,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "73a49b5b365ab9e8",
+        "tool.url": "https://todayinhistory.blog/2019/08/27/august-27-1896-the-shortest-war-in-history/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 2999
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "4913282184cc2a6320b1e5e190f9c4e4",
+      "span_id": "d347a2559e6736a5",
+      "parent_id": "164d385a272114b0",
+      "start_ns": 1777073407223370000,
+      "end_ns": 1777073409187220000,
+      "wall_time_ms": 1963.85,
+      "cpu_time_ms": 18.125,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 2184,
+        "llm.output_tokens": 195,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

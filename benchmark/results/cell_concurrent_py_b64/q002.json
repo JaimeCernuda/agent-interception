@@ -1,0 +1,222 @@
+{
+  "trace_id": "979a451ee37709d3373e0dfc2c6922a7",
+  "config": "cell_concurrent_py_b64",
+  "query_id": "q002",
+  "label": "cell_concurrent_py_b64",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "979a451ee37709d3373e0dfc2c6922a7",
+      "span_id": "cd1b37169f019f77",
+      "parent_id": null,
+      "start_ns": 1777167629190524000,
+      "end_ns": 1777167648664060000,
+      "wall_time_ms": 19473.536,
+      "cpu_time_ms": 21402.577,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b64",
+        "query_id": "q002",
+        "query_text": "Who wrote the book titled Orientalism?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 64
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "979a451ee37709d3373e0dfc2c6922a7",
+      "span_id": "152d50ce7078ffd1",
+      "parent_id": "cd1b37169f019f77",
+      "start_ns": 1777167629190648000,
+      "end_ns": 1777167633809504000,
+      "wall_time_ms": 4618.856,
+      "cpu_time_ms": 1725.129,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "ec4f0f516d458418",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 648
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "979a451ee37709d3373e0dfc2c6922a7",
+      "span_id": "bfe30b4f298978b4",
+      "parent_id": "cd1b37169f019f77",
+      "start_ns": 1777167633809687000,
+      "end_ns": 1777167636787174000,
+      "wall_time_ms": 2977.487,
+      "cpu_time_ms": 5595.798,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "62a39a420003d10b",
+        "tool.url": "https://en.wikipedia.org/wiki/Orientalism_(book)",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "979a451ee37709d3373e0dfc2c6922a7",
+      "span_id": "7b9c5a3bc0d93e1a",
+      "parent_id": "cd1b37169f019f77",
+      "start_ns": 1777167636787327000,
+      "end_ns": 1777167640214942000,
+      "wall_time_ms": 3427.615,
+      "cpu_time_ms": 5964.198,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "a0db178fa8c8d123",
+        "tool.url": "https://medium.com/@abshanoor795/orientalism-79a04beaccbc",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "979a451ee37709d3373e0dfc2c6922a7",
+      "span_id": "61ce45c81102c69f",
+      "parent_id": "cd1b37169f019f77",
+      "start_ns": 1777167640215073000,
+      "end_ns": 1777167641933812000,
+      "wall_time_ms": 1718.739,
+      "cpu_time_ms": 2619.486,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "79615be18f284070",
+        "tool.url": "https://www.abebooks.com/book-search/title/orientalism/author/edward-said/first-edition/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 6512
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "979a451ee37709d3373e0dfc2c6922a7",
+      "span_id": "20788722503fdc17",
+      "parent_id": "cd1b37169f019f77",
+      "start_ns": 1777167641934001000,
+      "end_ns": 1777167645348069000,
+      "wall_time_ms": 3414.068,
+      "cpu_time_ms": 3449.651,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "8e8d113483744c07",
+        "tool.url": "https://brainly.com/question/40676156",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "979a451ee37709d3373e0dfc2c6922a7",
+      "span_id": "81e70683f9a7af44",
+      "parent_id": "cd1b37169f019f77",
+      "start_ns": 1777167645348229000,
+      "end_ns": 1777167646501682000,
+      "wall_time_ms": 1153.453,
+      "cpu_time_ms": 639.994,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "3c8af56c9b291846",
+        "tool.url": "https://www.newworldencyclopedia.org/entry/Orientalism",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 16449
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "979a451ee37709d3373e0dfc2c6922a7",
+      "span_id": "54fa48baa4fd3437",
+      "parent_id": "cd1b37169f019f77",
+      "start_ns": 1777167646501853000,
+      "end_ns": 1777167646678848000,
+      "wall_time_ms": 176.995,
+      "cpu_time_ms": 179.505,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "f879947590ec1c88",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 107,
+        "tool.output_size_bytes": 245
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "979a451ee37709d3373e0dfc2c6922a7",
+      "span_id": "5720039a0dbdc445",
+      "parent_id": "cd1b37169f019f77",
+      "start_ns": 1777167646680000000,
+      "end_ns": 1777167647077020000,
+      "wall_time_ms": 397.02,
+      "cpu_time_ms": 451.197,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "380ca93b872a8d10",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 136,
+        "tool.output_size_bytes": 128
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "979a451ee37709d3373e0dfc2c6922a7",
+      "span_id": "6f14518e456f59f7",
+      "parent_id": "cd1b37169f019f77",
+      "start_ns": 1777167647078131000,
+      "end_ns": 1777167648663965000,
+      "wall_time_ms": 1585.834,
+      "cpu_time_ms": 774.269,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 107,
+        "llm.output_tokens": 63,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

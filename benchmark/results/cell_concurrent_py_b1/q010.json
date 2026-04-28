@@ -1,0 +1,159 @@
+{
+  "trace_id": "12281b5a2979fad0d69507325b6c0581",
+  "config": "cell_concurrent_py_b1",
+  "query_id": "q010",
+  "label": "cell_concurrent_py_b1",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "12281b5a2979fad0d69507325b6c0581",
+      "span_id": "913ac158dc37b8ba",
+      "parent_id": null,
+      "start_ns": 1777167076604439000,
+      "end_ns": 1777167088148678000,
+      "wall_time_ms": 11544.239,
+      "cpu_time_ms": 651.802,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b1",
+        "query_id": "q010",
+        "query_text": "How much does the Netflix standard plan without ads cost in the US?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 1
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "12281b5a2979fad0d69507325b6c0581",
+      "span_id": "63879c10c234a9cc",
+      "parent_id": "913ac158dc37b8ba",
+      "start_ns": 1777167076604630000,
+      "end_ns": 1777167081972676000,
+      "wall_time_ms": 5368.046,
+      "cpu_time_ms": 56.615,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "b59b59fe2284227e",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 680
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "12281b5a2979fad0d69507325b6c0581",
+      "span_id": "ffbf2f7137cdb652",
+      "parent_id": "913ac158dc37b8ba",
+      "start_ns": 1777167081972869000,
+      "end_ns": 1777167083987888000,
+      "wall_time_ms": 2015.019,
+      "cpu_time_ms": 266.75,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "e41d5788bbf25a7f",
+        "tool.url": "https://www.nerdwallet.com/finance/learn/how-much-does-netflix-cost",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 8314
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "12281b5a2979fad0d69507325b6c0581",
+      "span_id": "ae2501e6d89967de",
+      "parent_id": "913ac158dc37b8ba",
+      "start_ns": 1777167083988037000,
+      "end_ns": 1777167085500037000,
+      "wall_time_ms": 1512.0,
+      "cpu_time_ms": 100.563,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "ed6a06f519f0b1f2",
+        "tool.url": "https://help.netflix.com/en/node/24926",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 1115
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "12281b5a2979fad0d69507325b6c0581",
+      "span_id": "45cf82b94d6aa70d",
+      "parent_id": "913ac158dc37b8ba",
+      "start_ns": 1777167085500213000,
+      "end_ns": 1777167085670749000,
+      "wall_time_ms": 170.536,
+      "cpu_time_ms": 168.461,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "82be556f041c6b6a",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 85,
+        "tool.output_size_bytes": 24
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "12281b5a2979fad0d69507325b6c0581",
+      "span_id": "30ec9c8600f22e08",
+      "parent_id": "913ac158dc37b8ba",
+      "start_ns": 1777167085671526000,
+      "end_ns": 1777167085718090000,
+      "wall_time_ms": 46.564,
+      "cpu_time_ms": 45.058,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "3ca0a94771dd1ed9",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 12,
+        "tool.output_size_bytes": 61
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "12281b5a2979fad0d69507325b6c0581",
+      "span_id": "c2d28d5ccdee59ba",
+      "parent_id": "913ac158dc37b8ba",
+      "start_ns": 1777167085718798000,
+      "end_ns": 1777167088148544000,
+      "wall_time_ms": 2429.746,
+      "cpu_time_ms": 12.232,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 50,
+        "llm.output_tokens": 80,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

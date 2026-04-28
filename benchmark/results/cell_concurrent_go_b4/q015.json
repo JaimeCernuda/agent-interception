@@ -1,0 +1,76 @@
+{
+  "config": "cell_concurrent_go_b4",
+  "label": "cell_concurrent_go_b4",
+  "query_id": "q015",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 4,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 0,
+        "agent.num_urls_fetched": 0,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b4",
+        "query_id": "q015",
+        "query_text": "Who is the vice-chancellor of the largest university by enrollment in the world?"
+      },
+      "cpu_time_ms": 3094.319,
+      "end_ns": 1777167519715112000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "59c5ccbb776a8539",
+      "start_ns": 1777167516620793000,
+      "status": "ok",
+      "trace_id": "b3bed4626ee51b53176d5aef969cd120",
+      "wall_time_ms": 3094.319
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "69499afd09a35f3c",
+        "tool.name": "ddg",
+        "tool.num_results": 0,
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3
+      },
+      "cpu_time_ms": 2113.031,
+      "end_ns": 1777167518733833000,
+      "error": "ddg status 403",
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "59c5ccbb776a8539",
+      "span_id": "dc8b417cd9349efd",
+      "start_ns": 1777167516620802000,
+      "status": "error",
+      "trace_id": "b3bed4626ee51b53176d5aef969cd120",
+      "wall_time_ms": 2113.031
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 31,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 62,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 981.237,
+      "end_ns": 1777167519715101000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "59c5ccbb776a8539",
+      "span_id": "952b61fe0d04dd8a",
+      "start_ns": 1777167518733865000,
+      "status": "ok",
+      "trace_id": "b3bed4626ee51b53176d5aef969cd120",
+      "wall_time_ms": 981.236
+    }
+  ],
+  "trace_id": "b3bed4626ee51b53176d5aef969cd120"
+}

@@ -1,0 +1,117 @@
+{
+  "trace_id": "d6ae33ee31a5ad3dd7f8ed86e150e6fd",
+  "config": "cell_concurrent_py_b64",
+  "query_id": "q020",
+  "label": "cell_concurrent_py_b64",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "d6ae33ee31a5ad3dd7f8ed86e150e6fd",
+      "span_id": "faaec7e302606550",
+      "parent_id": null,
+      "start_ns": 1777167757428530000,
+      "end_ns": 1777167763269820000,
+      "wall_time_ms": 5841.29,
+      "cpu_time_ms": 15442.272,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b64",
+        "query_id": "q020",
+        "query_text": "In what month and year was the price of Bitcoin last above $40,000?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 1,
+        "agent.num_summaries": 1,
+        "agent.concurrent_batch_size": 64
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "d6ae33ee31a5ad3dd7f8ed86e150e6fd",
+      "span_id": "d14c12eefb645fc8",
+      "parent_id": "faaec7e302606550",
+      "start_ns": 1777167757428692000,
+      "end_ns": 1777167757428771000,
+      "wall_time_ms": 0.079,
+      "cpu_time_ms": 0.437,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "static",
+        "tool.input_hash": "ff58a4e8431fd444",
+        "tool.retry_count": 0,
+        "tool.num_results": 1,
+        "tool.output_size_bytes": 57
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "d6ae33ee31a5ad3dd7f8ed86e150e6fd",
+      "span_id": "0232ca0c4ceccc6a",
+      "parent_id": "faaec7e302606550",
+      "start_ns": 1777167757428881000,
+      "end_ns": 1777167761007262000,
+      "wall_time_ms": 3578.381,
+      "cpu_time_ms": 11791.218,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "2ff3b0c09565e77c",
+        "tool.url": "https://www.bankrate.com/investing/bitcoin-price-history/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 4525
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "d6ae33ee31a5ad3dd7f8ed86e150e6fd",
+      "span_id": "df0d3fcda65de7c4",
+      "parent_id": "faaec7e302606550",
+      "start_ns": 1777167761077011000,
+      "end_ns": 1777167761291067000,
+      "wall_time_ms": 214.056,
+      "cpu_time_ms": 378.56,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "262aecdeda69756c",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 39,
+        "tool.output_size_bytes": 156
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "d6ae33ee31a5ad3dd7f8ed86e150e6fd",
+      "span_id": "e9216a637ea6ddbb",
+      "parent_id": "faaec7e302606550",
+      "start_ns": 1777167761291680000,
+      "end_ns": 1777167763269740000,
+      "wall_time_ms": 1978.06,
+      "cpu_time_ms": 3029.16,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 74,
+        "llm.output_tokens": 79,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

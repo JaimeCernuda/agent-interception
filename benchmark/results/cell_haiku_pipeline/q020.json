@@ -1,0 +1,263 @@
+{
+  "trace_id": "7f8329472533844ff8e0cbb9370d3080",
+  "config": "pipeline_haiku",
+  "query_id": "q020",
+  "label": "cell_haiku_pipeline",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "7f8329472533844ff8e0cbb9370d3080",
+      "span_id": "8717219230e77bdb",
+      "parent_id": null,
+      "start_ns": 1777154603975150000,
+      "end_ns": 1777154628015048000,
+      "wall_time_ms": 24039.898,
+      "cpu_time_ms": 1652.154,
+      "kind": "root",
+      "attrs": {
+        "config": "pipeline_haiku",
+        "query_id": "q020",
+        "query_text": "In what month and year was the price of Bitcoin last above $40,000?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "7f8329472533844ff8e0cbb9370d3080",
+      "span_id": "bb535c761fb83134",
+      "parent_id": "8717219230e77bdb",
+      "start_ns": 1777154603975278000,
+      "end_ns": 1777154606068947000,
+      "wall_time_ms": 2093.669,
+      "cpu_time_ms": 27.593,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "ff58a4e8431fd444",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 572
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "7f8329472533844ff8e0cbb9370d3080",
+      "span_id": "a106b829196620ee",
+      "parent_id": "8717219230e77bdb",
+      "start_ns": 1777154606069090000,
+      "end_ns": 1777154608931688000,
+      "wall_time_ms": 2862.598,
+      "cpu_time_ms": 186.657,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "64fa7fb0110386a0",
+        "tool.url": "https://en.wikipedia.org/wiki/History_of_bitcoin",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "7f8329472533844ff8e0cbb9370d3080",
+      "span_id": "c4d8d2ea052118a6",
+      "parent_id": "8717219230e77bdb",
+      "start_ns": 1777154608931938000,
+      "end_ns": 1777154612700895000,
+      "wall_time_ms": 3768.957,
+      "cpu_time_ms": 195.564,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "b4eae5f1e03fa5d3",
+        "tool.url": "https://charts.bitbo.io/price/",
+        "tool.retry_count": 3,
+        "tool.http_status": 428,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "7f8329472533844ff8e0cbb9370d3080",
+      "span_id": "e3a2a1c6758a44f5",
+      "parent_id": "8717219230e77bdb",
+      "start_ns": 1777154612701093000,
+      "end_ns": 1777154614254161000,
+      "wall_time_ms": 1553.068,
+      "cpu_time_ms": 294.147,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "2ff3b0c09565e77c",
+        "tool.url": "https://www.bankrate.com/investing/bitcoin-price-history/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 4525
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "7f8329472533844ff8e0cbb9370d3080",
+      "span_id": "2be6e24c669beb81",
+      "parent_id": "8717219230e77bdb",
+      "start_ns": 1777154614254302000,
+      "end_ns": 1777154617755184000,
+      "wall_time_ms": 3500.882,
+      "cpu_time_ms": 185.269,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "73d048bac2889149",
+        "tool.url": "https://www.investopedia.com/articles/forex/121815/bitcoins-price-history.asp",
+        "tool.retry_count": 3,
+        "tool.http_status": 402,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "7f8329472533844ff8e0cbb9370d3080",
+      "span_id": "64139b069ce936e2",
+      "parent_id": "8717219230e77bdb",
+      "start_ns": 1777154617755329000,
+      "end_ns": 1777154621288889000,
+      "wall_time_ms": 3533.56,
+      "cpu_time_ms": 205.175,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "25b24505563fce5f",
+        "tool.url": "https://www.theblock.co/linked/112543/bitcoin-price-40000-july",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "7f8329472533844ff8e0cbb9370d3080",
+      "span_id": "72381ae8b03f7ea1",
+      "parent_id": "8717219230e77bdb",
+      "start_ns": 1777154621289135000,
+      "end_ns": 1777154624778492000,
+      "wall_time_ms": 3489.357,
+      "cpu_time_ms": 197.321,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "ff912aafcdd5f7d6",
+        "tool.url": "https://bitcoinmagazine.com/guides/bitcoin-price-history",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "7f8329472533844ff8e0cbb9370d3080",
+      "span_id": "d5b27f1c15740e51",
+      "parent_id": "8717219230e77bdb",
+      "start_ns": 1777154624778730000,
+      "end_ns": 1777154626027732000,
+      "wall_time_ms": 1249.002,
+      "cpu_time_ms": 199.47,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "bf1f5abcf47fbbd2",
+        "tool.url": "https://coinmarketcap.com/currencies/bitcoin/historical-data/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 2027
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "7f8329472533844ff8e0cbb9370d3080",
+      "span_id": "11ee161e7c75dfb3",
+      "parent_id": "8717219230e77bdb",
+      "start_ns": 1777154626027896000,
+      "end_ns": 1777154626126300000,
+      "wall_time_ms": 98.404,
+      "cpu_time_ms": 96.229,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "262aecdeda69756c",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 39,
+        "tool.output_size_bytes": 156
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "7f8329472533844ff8e0cbb9370d3080",
+      "span_id": "084aefbba58d4ff9",
+      "parent_id": "8717219230e77bdb",
+      "start_ns": 1777154626127178000,
+      "end_ns": 1777154626177018000,
+      "wall_time_ms": 49.84,
+      "cpu_time_ms": 49.711,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "9a1f0dd1f7309767",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 18,
+        "tool.output_size_bytes": 106
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "7f8329472533844ff8e0cbb9370d3080",
+      "span_id": "04328ba1fbe1fe73",
+      "parent_id": "8717219230e77bdb",
+      "start_ns": 1777154626177729000,
+      "end_ns": 1777154628014932000,
+      "wall_time_ms": 1837.203,
+      "cpu_time_ms": 12.238,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 96,
+        "llm.output_tokens": 113,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

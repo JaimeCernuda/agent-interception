@@ -1,0 +1,160 @@
+{
+  "config": "cell_concurrent_go_b64",
+  "label": "cell_concurrent_go_b64",
+  "query_id": "q002",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 64,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 2,
+        "agent.num_urls_fetched": 2,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b64",
+        "query_id": "q002",
+        "query_text": "Who wrote the book titled Orientalism?"
+      },
+      "cpu_time_ms": 2763.103,
+      "end_ns": 1777167784885553000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "f56926fa87defd4a",
+      "start_ns": 1777167782122451000,
+      "status": "ok",
+      "trace_id": "53b4042d5f5acbfe02f3f15e1e76ddcf",
+      "wall_time_ms": 2763.102
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "ec4f0f516d458418",
+        "tool.name": "static",
+        "tool.num_results": 2,
+        "tool.output_size_bytes": 100,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 0.002,
+      "end_ns": 1777167782122480000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "f56926fa87defd4a",
+      "span_id": "7184b61aadb30ae1",
+      "start_ns": 1777167782122477000,
+      "status": "ok",
+      "trace_id": "53b4042d5f5acbfe02f3f15e1e76ddcf",
+      "wall_time_ms": 0.003
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "fdb19bce2e77a9a6",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 7674,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.britannica.com/biography/Edward-Said"
+      },
+      "cpu_time_ms": 1165.873,
+      "end_ns": 1777167783288355000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "f56926fa87defd4a",
+      "span_id": "96c2eea7d22deb85",
+      "start_ns": 1777167782122483000,
+      "status": "ok",
+      "trace_id": "53b4042d5f5acbfe02f3f15e1e76ddcf",
+      "wall_time_ms": 1165.872
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "b3c55d014b564735",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 2890,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.britannica.com/topic/Orientalism-by-Said"
+      },
+      "cpu_time_ms": 430.661,
+      "end_ns": 1777167783719025000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "f56926fa87defd4a",
+      "span_id": "65227973060889c1",
+      "start_ns": 1777167783288365000,
+      "status": "ok",
+      "trace_id": "53b4042d5f5acbfe02f3f15e1e76ddcf",
+      "wall_time_ms": 430.66
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "44d9672c38152cec",
+        "tool.n_sentences_in": 33,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 415,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 3.722,
+      "end_ns": 1777167783722796000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "f56926fa87defd4a",
+      "span_id": "56b515a0fe1d9021",
+      "start_ns": 1777167783719074000,
+      "status": "ok",
+      "trace_id": "53b4042d5f5acbfe02f3f15e1e76ddcf",
+      "wall_time_ms": 3.722
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "c1e87837a9e06e78",
+        "tool.n_sentences_in": 4,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 1454,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 0.774,
+      "end_ns": 1777167783723589000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "f56926fa87defd4a",
+      "span_id": "15ba63501fc88157",
+      "start_ns": 1777167783722815000,
+      "status": "ok",
+      "trace_id": "53b4042d5f5acbfe02f3f15e1e76ddcf",
+      "wall_time_ms": 0.774
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 448,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 66,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1161.911,
+      "end_ns": 1777167784885544000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "f56926fa87defd4a",
+      "span_id": "83a2d361d0709cf1",
+      "start_ns": 1777167783723634000,
+      "status": "ok",
+      "trace_id": "53b4042d5f5acbfe02f3f15e1e76ddcf",
+      "wall_time_ms": 1161.91
+    }
+  ],
+  "trace_id": "53b4042d5f5acbfe02f3f15e1e76ddcf"
+}

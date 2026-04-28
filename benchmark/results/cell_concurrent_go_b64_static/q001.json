@@ -1,0 +1,160 @@
+{
+  "config": "cell_concurrent_go_b64",
+  "label": "cell_concurrent_go_b64",
+  "query_id": "q001",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 64,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 2,
+        "agent.num_urls_fetched": 2,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b64",
+        "query_id": "q001",
+        "query_text": "Who was the first elected female Governor of Massachusetts?"
+      },
+      "cpu_time_ms": 2901.083,
+      "end_ns": 1777167785020670000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "a97458aa61a37024",
+      "start_ns": 1777167782119587000,
+      "status": "ok",
+      "trace_id": "ae34eca36a881db0c55ce68ed86610d3",
+      "wall_time_ms": 2901.083
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "3f3a27b6adccb45c",
+        "tool.name": "static",
+        "tool.num_results": 4,
+        "tool.output_size_bytes": 412,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 0.002,
+      "end_ns": 1777167782119606000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "a97458aa61a37024",
+      "span_id": "89a591e617edcc44",
+      "start_ns": 1777167782119604000,
+      "status": "ok",
+      "trace_id": "ae34eca36a881db0c55ce68ed86610d3",
+      "wall_time_ms": 0.002
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "32e1ed7ece86d230",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 4420,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.npr.org/2022/11/08/1134199246/massachusetts-governor-results-maura-healey"
+      },
+      "cpu_time_ms": 670.505,
+      "end_ns": 1777167782790120000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "a97458aa61a37024",
+      "span_id": "eb3fcd64cbc47c6e",
+      "start_ns": 1777167782119615000,
+      "status": "ok",
+      "trace_id": "ae34eca36a881db0c55ce68ed86610d3",
+      "wall_time_ms": 670.505
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "3f16958e5886ac8e",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 6835,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.nbcnews.com/nbc-out/out-politics-and-policy/first-woman-lgbtq-person-elected-massachusetts-governor-sworn-rcna64622"
+      },
+      "cpu_time_ms": 1173.912,
+      "end_ns": 1777167783964048000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "a97458aa61a37024",
+      "span_id": "9895cf9e49da87c1",
+      "start_ns": 1777167782790136000,
+      "status": "ok",
+      "trace_id": "ae34eca36a881db0c55ce68ed86610d3",
+      "wall_time_ms": 1173.912
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "f5b4bbf161c957e7",
+        "tool.n_sentences_in": 21,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 506,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 1.382,
+      "end_ns": 1777167783965458000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "a97458aa61a37024",
+      "span_id": "e0767807e3430966",
+      "start_ns": 1777167783964076000,
+      "status": "ok",
+      "trace_id": "ae34eca36a881db0c55ce68ed86610d3",
+      "wall_time_ms": 1.382
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "b3e85f4a0d2d2db3",
+        "tool.n_sentences_in": 44,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 275,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 2.969,
+      "end_ns": 1777167783968454000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "a97458aa61a37024",
+      "span_id": "72d9c4b4d7b14584",
+      "start_ns": 1777167783965485000,
+      "status": "ok",
+      "trace_id": "ae34eca36a881db0c55ce68ed86610d3",
+      "wall_time_ms": 2.969
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 196,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 45,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1052.162,
+      "end_ns": 1777167785020665000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "a97458aa61a37024",
+      "span_id": "080e12a3d322209c",
+      "start_ns": 1777167783968503000,
+      "status": "ok",
+      "trace_id": "ae34eca36a881db0c55ce68ed86610d3",
+      "wall_time_ms": 1052.162
+    }
+  ],
+  "trace_id": "ae34eca36a881db0c55ce68ed86610d3"
+}

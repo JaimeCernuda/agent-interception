@@ -1,0 +1,29 @@
+{
+  "config": "toolformer_go",
+  "label": "two_op",
+  "query_id": "q08",
+  "spans": [
+    {
+      "attrs": {
+        "agent.cpu_time_ms": 242.00700000000006,
+        "agent.error": "CLI stream ended without a result message",
+        "config": "toolformer_go",
+        "query_id": "q08",
+        "query_text": "Sally had 8 pennies and 7 nickels in her bank . Her dad gave her 9 nickels and her mother gave her 2 nickels . How many nickels does Sally have now ?",
+        "toolformer.category": "two_op"
+      },
+      "cpu_time_ms": 606516.212,
+      "end_ns": 1777406701216746000,
+      "error": "CLI stream ended without a result message",
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "14d7f307dd680241",
+      "start_ns": 1777406094700534000,
+      "status": "error",
+      "trace_id": "23b2362e71a6756253b35557d909bd7e",
+      "wall_time_ms": 606516.212
+    }
+  ],
+  "trace_id": "23b2362e71a6756253b35557d909bd7e"
+}

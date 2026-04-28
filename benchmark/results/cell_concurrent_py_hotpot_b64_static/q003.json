@@ -1,0 +1,44 @@
+{
+  "trace_id": "d1eea4fc1e8b85383cac3736c5ae0cb0",
+  "config": "cell_concurrent_py_hotpot_b64_static",
+  "query_id": "q003",
+  "label": "cell_concurrent_py_hotpot_b64_static",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "d1eea4fc1e8b85383cac3736c5ae0cb0",
+      "span_id": "389d10a159b3f7c0",
+      "parent_id": null,
+      "start_ns": 1777183121925901000,
+      "end_ns": 1777183122075720000,
+      "wall_time_ms": 149.819,
+      "cpu_time_ms": 195.151,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b64_static",
+        "query_id": "q003",
+        "query_text": "What type of profession does Alexandra David-N\u00e9el and Jack Kerouac have in common?"
+      },
+      "status": "error",
+      "error": "RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q003. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls()."
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "d1eea4fc1e8b85383cac3736c5ae0cb0",
+      "span_id": "070cd3071390953e",
+      "parent_id": "389d10a159b3f7c0",
+      "start_ns": 1777183121926162000,
+      "end_ns": 1777183121986695000,
+      "wall_time_ms": 60.533,
+      "cpu_time_ms": 82.62,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "static",
+        "tool.input_hash": "5dd8e8b8540a4c80",
+        "tool.retry_count": 0
+      },
+      "status": "error",
+      "error": "RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q003. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls()."
+    }
+  ]
+}

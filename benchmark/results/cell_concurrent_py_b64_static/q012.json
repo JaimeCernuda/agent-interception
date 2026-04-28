@@ -1,0 +1,159 @@
+{
+  "trace_id": "7c278fdc1512f7d2c90bb60da94c3112",
+  "config": "cell_concurrent_py_b64",
+  "query_id": "q012",
+  "label": "cell_concurrent_py_b64",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "7c278fdc1512f7d2c90bb60da94c3112",
+      "span_id": "a874b5791d40b937",
+      "parent_id": null,
+      "start_ns": 1777167757408711000,
+      "end_ns": 1777167767877300000,
+      "wall_time_ms": 10468.589,
+      "cpu_time_ms": 20072.024,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b64",
+        "query_id": "q012",
+        "query_text": "Which drama series won the most recent Primetime Emmy Award for Outstanding Drama Series?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 64
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "7c278fdc1512f7d2c90bb60da94c3112",
+      "span_id": "565f3543ec9e971a",
+      "parent_id": "a874b5791d40b937",
+      "start_ns": 1777167757408966000,
+      "end_ns": 1777167757409057000,
+      "wall_time_ms": 0.091,
+      "cpu_time_ms": 2.437,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "static",
+        "tool.input_hash": "e4dfccfe8445ac51",
+        "tool.retry_count": 0,
+        "tool.num_results": 4,
+        "tool.output_size_bytes": 236
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "7c278fdc1512f7d2c90bb60da94c3112",
+      "span_id": "a2eb01a2a8ae19d1",
+      "parent_id": "a874b5791d40b937",
+      "start_ns": 1777167757409193000,
+      "end_ns": 1777167760291305000,
+      "wall_time_ms": 2882.112,
+      "cpu_time_ms": 8778.089,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "a256fa25a200fe9d",
+        "tool.url": "https://www.imdb.com/list/ls567931975/",
+        "tool.retry_count": 0,
+        "tool.http_status": 202,
+        "tool.output_size_bytes": 157
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "7c278fdc1512f7d2c90bb60da94c3112",
+      "span_id": "4b475b95b12e24ee",
+      "parent_id": "a874b5791d40b937",
+      "start_ns": 1777167760291440000,
+      "end_ns": 1777167765516892000,
+      "wall_time_ms": 5225.452,
+      "cpu_time_ms": 9641.109,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "aebaf0e64c73373e",
+        "tool.url": "https://www.indiewire.com/awards/results/the-pitt-wins-emmy-best-drama-series-1235150436/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 3033
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "7c278fdc1512f7d2c90bb60da94c3112",
+      "span_id": "153bac8e733eeaba",
+      "parent_id": "a874b5791d40b937",
+      "start_ns": 1777167765517034000,
+      "end_ns": 1777167765572418000,
+      "wall_time_ms": 55.384,
+      "cpu_time_ms": 71.19,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "ebccbd5922b41e48",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 3,
+        "tool.output_size_bytes": 87
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "7c278fdc1512f7d2c90bb60da94c3112",
+      "span_id": "60781adb51918a89",
+      "parent_id": "a874b5791d40b937",
+      "start_ns": 1777167765573114000,
+      "end_ns": 1777167765644111000,
+      "wall_time_ms": 70.997,
+      "cpu_time_ms": 87.122,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "fb8f9867343d4a11",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 23,
+        "tool.output_size_bytes": 154
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "7c278fdc1512f7d2c90bb60da94c3112",
+      "span_id": "cd0c821a777ba591",
+      "parent_id": "a874b5791d40b937",
+      "start_ns": 1777167765644994000,
+      "end_ns": 1777167767877225000,
+      "wall_time_ms": 2232.231,
+      "cpu_time_ms": 1487.325,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 86,
+        "llm.output_tokens": 102,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

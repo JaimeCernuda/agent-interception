@@ -1,0 +1,37 @@
+/Users/anna/Desktop/agent-interception/.venv/lib/python3.13/site-packages/sumy/summarizers/lex_rank.py:167: RuntimeWarning: invalid value encountered in divide
+  next_p /= numpy.linalg.norm(next_p)
+[run] config=pipeline_opus  label='cell_opus_pipeline'  queries=20  out=benchmark/results/cell_opus_pipeline
+[probe] sanity-checking models before sweep
+[probe]   claude-haiku-4-5-20251001              OK
+[probe]   claude-opus-4-7                        OK
+  [  1/20] q001 ok (11.64s)  answer='# Answer  Based on the summary provided, **Maura Healey** was the first elected female Governor of M'
+  [  2/20] q002 ok (160.42s)  answer='# Answer  Based on the summary provided, **Edward Said** wrote the book titled *Orientalism*.   The '
+  [  3/20] q003 ok (11.91s)  answer='# Answer  Based on the summaries provided, **Wuhan** was connected with the earliest cases of COVID-'
+  [  4/20] q004 ok ( 8.58s)  answer='I cannot answer this question based on the summaries provided. While the summaries mention the Ameri'
+  [  5/20] q005 ok (21.55s)  answer="# Elon Musk's Children  Based on the summaries provided, I cannot give you a definitive answer to th"
+  [  6/20] q006 ok (11.38s)  answer='Based on the summary provided, **Bulgaria** became the latest country to adopt the Euro. According t'
+  [  7/20] q007 ok (15.65s)  answer='# The Shortest War in History  Based on the summary provided, **the Anglo-Zanzibar War of 1896** was'
+  [  8/20] q008 ok ( 7.32s)  answer='Based on the summaries provided, **Kind of Blue by Miles Davis** is the best-selling jazz album of a'
+  [  9/20] q009 ok (13.12s)  answer='Based on the summaries provided, **Maryam Mirzakhani** is the most recent female recipient of the Fi'
+  [ 10/20] q010 ok ( 8.58s)  answer="I don't see information about Netflix plan pricing in the summaries you've provided. The text you sh"
+  [ 11/20] q011 ok (29.13s)  answer='Based on the summaries provided, I cannot determine the youngest age eligible for COVID-19 vaccinati'
+  [ 12/20] q012 ok (14.23s)  answer='# Answer  Based on the information provided, **The Pitt** on HBO Max won the most recent Primetime E'
+  [ 13/20] q013 ok (12.11s)  answer="I don't have enough information to answer your question. The text you've provided appears to be a he"
+  [ 14/20] q014 ok (11.44s)  answer='# Answer  Based on the summaries provided, I cannot determine who has the most liked post on Instagr'
+  [ 15/20] q015 ok (10.65s)  answer='I cannot answer this question based on the provided summaries.   The first summary discusses Al Bloo'
+  [ 16/20] q016 ok (10.21s)  answer='# Answer: (C) Portugal  **Explanation:**  According to the information provided, **Antonio Guterres*'
+  [ 17/20] q017 ok (10.27s)  answer='# Answer  Based on the summaries provided, I cannot determine the total height of the tallest buildi'
+  [ 18/20] q018 ok ( 9.13s)  answer='I cannot provide a definitive answer about whether the Toronto Raptors have a winning record in the '
+  [ 19/20] q019 ok (14.95s)  answer='I cannot answer this question based on the provided summaries. The text contains information about: '
+  [ 20/20] q020 ok (11.04s)  answer="I don't see any summaries provided in your message that contain information about Bitcoin's price hi"
+[run] done. 20/20 succeeded, 0 failed.
+
+[summary] cell_opus_pipeline
+  ----------------------------------------------------------------------
+  queries completed         20 / 20
+  median active_latency_ms    11,346.6
+  mean LLM share of active       16.3%
+  mean tool share of active      83.7%
+  total llm.retry_wait               0
+  truncated (max_turns hit)          0  []
+  ----------------------------------------------------------------------

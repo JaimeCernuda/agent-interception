@@ -1,0 +1,180 @@
+{
+  "trace_id": "46361c285cd305a3ca9e8ba85fea4d98",
+  "config": "cell_concurrent_py_b64",
+  "query_id": "q018",
+  "label": "cell_concurrent_py_b64",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "46361c285cd305a3ca9e8ba85fea4d98",
+      "span_id": "2d87da118c48035b",
+      "parent_id": null,
+      "start_ns": 1777167757413033000,
+      "end_ns": 1777167767368310000,
+      "wall_time_ms": 9955.277,
+      "cpu_time_ms": 19605.169,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b64",
+        "query_id": "q018",
+        "query_text": "Do the Toronto Raptors have a winning record in the latest NBA season?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 64
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "46361c285cd305a3ca9e8ba85fea4d98",
+      "span_id": "9ba32c1418ac8370",
+      "parent_id": "2d87da118c48035b",
+      "start_ns": 1777167757413170000,
+      "end_ns": 1777167757413244000,
+      "wall_time_ms": 0.074,
+      "cpu_time_ms": 0.677,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "static",
+        "tool.input_hash": "94739be404a29425",
+        "tool.retry_count": 0,
+        "tool.num_results": 4,
+        "tool.output_size_bytes": 426
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "46361c285cd305a3ca9e8ba85fea4d98",
+      "span_id": "88adf64ac556f0c8",
+      "parent_id": "2d87da118c48035b",
+      "start_ns": 1777167757413350000,
+      "end_ns": 1777167761576483000,
+      "wall_time_ms": 4163.133,
+      "cpu_time_ms": 12998.244,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "36c5cdc73b0b154e",
+        "tool.url": "https://www.blogto.com/sports_play/2020/02/toronto-raptors-smash-another-sports-record-15th-consecutive-win/",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "46361c285cd305a3ca9e8ba85fea4d98",
+      "span_id": "8c2930a2342768be",
+      "parent_id": "2d87da118c48035b",
+      "start_ns": 1777167761576631000,
+      "end_ns": 1777167763628795000,
+      "wall_time_ms": 2052.164,
+      "cpu_time_ms": 2958.931,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "46785e91fc58ce6b",
+        "tool.url": "https://www.theglobeandmail.com/sports/basketball/article-toronto-raptors-have-different-feel-than-last-year-as-nba-season-winds/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 4118
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "46361c285cd305a3ca9e8ba85fea4d98",
+      "span_id": "7bc9a6b9093a8149",
+      "parent_id": "2d87da118c48035b",
+      "start_ns": 1777167763628916000,
+      "end_ns": 1777167765119165000,
+      "wall_time_ms": 1490.249,
+      "cpu_time_ms": 1813.679,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "2f6fe72b2fafa65b",
+        "tool.url": "https://www.raptorsrepublic.com/2018/04/06/raptors-set-franchise-mark-for-wins-and-home-wins-win-atlantic-clinch-1-seed/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 4496
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "46361c285cd305a3ca9e8ba85fea4d98",
+      "span_id": "5be1ac0b40cdd3ca",
+      "parent_id": "2d87da118c48035b",
+      "start_ns": 1777167765119353000,
+      "end_ns": 1777167765205930000,
+      "wall_time_ms": 86.577,
+      "cpu_time_ms": 187.026,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "ec640c6a36286d5d",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 36,
+        "tool.output_size_bytes": 251
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "46361c285cd305a3ca9e8ba85fea4d98",
+      "span_id": "96d2ec79f962726f",
+      "parent_id": "2d87da118c48035b",
+      "start_ns": 1777167765206823000,
+      "end_ns": 1777167765295266000,
+      "wall_time_ms": 88.443,
+      "cpu_time_ms": 159.806,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "fd39c76957bed3ce",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 29,
+        "tool.output_size_bytes": 135
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "46361c285cd305a3ca9e8ba85fea4d98",
+      "span_id": "00928ac14f5f4038",
+      "parent_id": "2d87da118c48035b",
+      "start_ns": 1777167765296175000,
+      "end_ns": 1777167767368215000,
+      "wall_time_ms": 2072.04,
+      "cpu_time_ms": 1483.636,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 130,
+        "llm.output_tokens": 103,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

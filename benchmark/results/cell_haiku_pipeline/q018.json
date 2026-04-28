@@ -1,0 +1,200 @@
+{
+  "trace_id": "26a3d42d86c80c0095424983dbfa7896",
+  "config": "pipeline_haiku",
+  "query_id": "q018",
+  "label": "cell_haiku_pipeline",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "26a3d42d86c80c0095424983dbfa7896",
+      "span_id": "d188186621909895",
+      "parent_id": null,
+      "start_ns": 1777154566272922000,
+      "end_ns": 1777154579786130000,
+      "wall_time_ms": 13513.208,
+      "cpu_time_ms": 1051.695,
+      "kind": "root",
+      "attrs": {
+        "config": "pipeline_haiku",
+        "query_id": "q018",
+        "query_text": "Do the Toronto Raptors have a winning record in the latest NBA season?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "26a3d42d86c80c0095424983dbfa7896",
+      "span_id": "13bed8faf0c92326",
+      "parent_id": "d188186621909895",
+      "start_ns": 1777154566273041000,
+      "end_ns": 1777154568608546000,
+      "wall_time_ms": 2335.505,
+      "cpu_time_ms": 43.212,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "94739be404a29425",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 569
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "26a3d42d86c80c0095424983dbfa7896",
+      "span_id": "676f5c8350659320",
+      "parent_id": "d188186621909895",
+      "start_ns": 1777154568608683000,
+      "end_ns": 1777154571472449000,
+      "wall_time_ms": 2863.766,
+      "cpu_time_ms": 186.351,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "f563f206fd17b0fc",
+        "tool.url": "https://en.wikipedia.org/wiki/List_of_Toronto_Raptors_seasons",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "26a3d42d86c80c0095424983dbfa7896",
+      "span_id": "da501cb04457ca2e",
+      "parent_id": "d188186621909895",
+      "start_ns": 1777154571472685000,
+      "end_ns": 1777154574344668000,
+      "wall_time_ms": 2871.983,
+      "cpu_time_ms": 183.7,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "5cacdbd13cf54318",
+        "tool.url": "https://en.wikipedia.org/wiki/Toronto_Raptors",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "26a3d42d86c80c0095424983dbfa7896",
+      "span_id": "000787d9011f2253",
+      "parent_id": "d188186621909895",
+      "start_ns": 1777154574344802000,
+      "end_ns": 1777154575840259000,
+      "wall_time_ms": 1495.457,
+      "cpu_time_ms": 166.175,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "abdcee2f470bc0a5",
+        "tool.url": "https://www.nba.com/stats/team/1610612761/seasons",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 2589
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "26a3d42d86c80c0095424983dbfa7896",
+      "span_id": "c957b56dc597279e",
+      "parent_id": "d188186621909895",
+      "start_ns": 1777154575840423000,
+      "end_ns": 1777154577505487000,
+      "wall_time_ms": 1665.064,
+      "cpu_time_ms": 366.415,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "25da3325e67d9a0f",
+        "tool.url": "https://www.statmuse.com/nba/ask/raptors-wins-and-losses-this-season",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 504
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "26a3d42d86c80c0095424983dbfa7896",
+      "span_id": "d96eaaea9281c8d5",
+      "parent_id": "d188186621909895",
+      "start_ns": 1777154577505636000,
+      "end_ns": 1777154577559868000,
+      "wall_time_ms": 54.232,
+      "cpu_time_ms": 50.683,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "07c7e23a60045e70",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 9,
+        "tool.output_size_bytes": 1034
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "26a3d42d86c80c0095424983dbfa7896",
+      "span_id": "c8d964619f167a48",
+      "parent_id": "d188186621909895",
+      "start_ns": 1777154577560681000,
+      "end_ns": 1777154577601299000,
+      "wall_time_ms": 40.618,
+      "cpu_time_ms": 40.595,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "697abd8c773499a3",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 6,
+        "tool.output_size_bytes": 6
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "26a3d42d86c80c0095424983dbfa7896",
+      "span_id": "043fdc15bc3f6b8a",
+      "parent_id": "d188186621909895",
+      "start_ns": 1777154577601892000,
+      "end_ns": 1777154579786015000,
+      "wall_time_ms": 2184.123,
+      "cpu_time_ms": 12.441,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 253,
+        "llm.output_tokens": 103,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

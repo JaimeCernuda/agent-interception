@@ -1,0 +1,160 @@
+{
+  "config": "cell_concurrent_go_b1",
+  "label": "cell_concurrent_go_b1",
+  "query_id": "q003",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 1,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 2,
+        "agent.num_urls_fetched": 2,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b1",
+        "query_id": "q003",
+        "query_text": "What city was connected with the earliest cases of COVID-19?"
+      },
+      "cpu_time_ms": 3560.406,
+      "end_ns": 1777167288284791000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "cec36a30c914bc35",
+      "start_ns": 1777167284724385000,
+      "status": "ok",
+      "trace_id": "6a0d798b7031ddb523b098c34d8efdb1",
+      "wall_time_ms": 3560.406
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "ec6f1b1a92ac9ecd",
+        "tool.name": "ddg",
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 804,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 927.729,
+      "end_ns": 1777167285652131000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "cec36a30c914bc35",
+      "span_id": "47652f28fe40d883",
+      "start_ns": 1777167284724403000,
+      "status": "ok",
+      "trace_id": "6a0d798b7031ddb523b098c34d8efdb1",
+      "wall_time_ms": 927.728
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "8947c88417cad7eb",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 5659,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.sciencealert.com/scientists-have-finally-pinpointed-the-location-of-the-earliest-cases-of-covid-19"
+      },
+      "cpu_time_ms": 1058.841,
+      "end_ns": 1777167286710992000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "cec36a30c914bc35",
+      "span_id": "4bfd31d46d3713d7",
+      "start_ns": 1777167285652151000,
+      "status": "ok",
+      "trace_id": "6a0d798b7031ddb523b098c34d8efdb1",
+      "wall_time_ms": 1058.841
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "0118f26ac630e521",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 26054,
+        "tool.retry_count": 0,
+        "tool.url": "https://en.wikipedia.org/wiki/List_of_early_cases_of_COVID-19_in_the_United_States"
+      },
+      "cpu_time_ms": 211.318,
+      "end_ns": 1777167286922319000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "cec36a30c914bc35",
+      "span_id": "997cd8882b7073bb",
+      "start_ns": 1777167286711002000,
+      "status": "ok",
+      "trace_id": "6a0d798b7031ddb523b098c34d8efdb1",
+      "wall_time_ms": 211.317
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "3326ee892f0da551",
+        "tool.n_sentences_in": 35,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 331,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 2.839,
+      "end_ns": 1777167286925190000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "cec36a30c914bc35",
+      "span_id": "145e63928cbbccac",
+      "start_ns": 1777167286922351000,
+      "status": "ok",
+      "trace_id": "6a0d798b7031ddb523b098c34d8efdb1",
+      "wall_time_ms": 2.839
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "c142d0fc838549ce",
+        "tool.n_sentences_in": 205,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 49,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 27.517,
+      "end_ns": 1777167286952807000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "cec36a30c914bc35",
+      "span_id": "551bbeef21ed71c2",
+      "start_ns": 1777167286925289000,
+      "status": "ok",
+      "trace_id": "6a0d798b7031ddb523b098c34d8efdb1",
+      "wall_time_ms": 27.518
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 125,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 72,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1331.897,
+      "end_ns": 1777167288284781000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "cec36a30c914bc35",
+      "span_id": "859207c4c3c14590",
+      "start_ns": 1777167286952885000,
+      "status": "ok",
+      "trace_id": "6a0d798b7031ddb523b098c34d8efdb1",
+      "wall_time_ms": 1331.896
+    }
+  ],
+  "trace_id": "6a0d798b7031ddb523b098c34d8efdb1"
+}

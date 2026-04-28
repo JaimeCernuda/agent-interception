@@ -1,0 +1,76 @@
+{
+  "config": "cell_concurrent_go_b4",
+  "label": "cell_concurrent_go_b4",
+  "query_id": "q010",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 4,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 0,
+        "agent.num_urls_fetched": 0,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b4",
+        "query_id": "q010",
+        "query_text": "How much does the Netflix standard plan without ads cost in the US?"
+      },
+      "cpu_time_ms": 3295.415,
+      "end_ns": 1777167516617062000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "c2250f999325374b",
+      "start_ns": 1777167513321646000,
+      "status": "ok",
+      "trace_id": "1f0cf715879dcee2b6f267192dc5fcf4",
+      "wall_time_ms": 3295.416
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "b59b59fe2284227e",
+        "tool.name": "ddg",
+        "tool.num_results": 0,
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3
+      },
+      "cpu_time_ms": 2063.733,
+      "end_ns": 1777167515385394000,
+      "error": "ddg status 403",
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "c2250f999325374b",
+      "span_id": "8db0496545a0e8e4",
+      "start_ns": 1777167513321660000,
+      "status": "error",
+      "trace_id": "1f0cf715879dcee2b6f267192dc5fcf4",
+      "wall_time_ms": 2063.734
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 29,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 52,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1231.619,
+      "end_ns": 1777167516617048000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "c2250f999325374b",
+      "span_id": "deee756744d546f6",
+      "start_ns": 1777167515385430000,
+      "status": "ok",
+      "trace_id": "1f0cf715879dcee2b6f267192dc5fcf4",
+      "wall_time_ms": 1231.618
+    }
+  ],
+  "trace_id": "1f0cf715879dcee2b6f267192dc5fcf4"
+}

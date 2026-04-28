@@ -1,0 +1,44 @@
+{
+  "trace_id": "f19219d44f0f2aff43f95e2fabe902b8",
+  "config": "cell_concurrent_py_hotpot_b64_static",
+  "query_id": "q010",
+  "label": "cell_concurrent_py_hotpot_b64_static",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "f19219d44f0f2aff43f95e2fabe902b8",
+      "span_id": "2e702b2af9675ff9",
+      "parent_id": null,
+      "start_ns": 1777183121957177000,
+      "end_ns": 1777183122027603000,
+      "wall_time_ms": 70.426,
+      "cpu_time_ms": 60.072,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b64_static",
+        "query_id": "q010",
+        "query_text": "Between Harvey Pekar and Denise Levertov who was born earlier?"
+      },
+      "status": "error",
+      "error": "RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q010. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls()."
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "f19219d44f0f2aff43f95e2fabe902b8",
+      "span_id": "167aa4ad6abfe559",
+      "parent_id": "2e702b2af9675ff9",
+      "start_ns": 1777183121957280000,
+      "end_ns": 1777183121993194000,
+      "wall_time_ms": 35.914,
+      "cpu_time_ms": 0.964,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "static",
+        "tool.input_hash": "e635f42662c089c5",
+        "tool.retry_count": 0
+      },
+      "status": "error",
+      "error": "RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q010. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls()."
+    }
+  ]
+}

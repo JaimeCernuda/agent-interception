@@ -1,0 +1,180 @@
+{
+  "trace_id": "054804c4057a22222429c3260dbe696c",
+  "config": "cell_concurrent_py_hotpot_b16",
+  "query_id": "q007",
+  "label": "cell_concurrent_py_hotpot_b16",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "054804c4057a22222429c3260dbe696c",
+      "span_id": "bd193d48c888e93d",
+      "parent_id": null,
+      "start_ns": 1777183002732696000,
+      "end_ns": 1777183017704174000,
+      "wall_time_ms": 14971.478,
+      "cpu_time_ms": 18446.631,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b16",
+        "query_id": "q007",
+        "query_text": "Sian Gibson co-wrote which British sitcom, set around a supermarket and car share scheme?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 16
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "054804c4057a22222429c3260dbe696c",
+      "span_id": "64f85cc623a5dc67",
+      "parent_id": "bd193d48c888e93d",
+      "start_ns": 1777183002732850000,
+      "end_ns": 1777183005657867000,
+      "wall_time_ms": 2925.017,
+      "cpu_time_ms": 1179.617,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "d3a4d110c7a6906c",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 1087
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "054804c4057a22222429c3260dbe696c",
+      "span_id": "fd564ddf78cbd86c",
+      "parent_id": "bd193d48c888e93d",
+      "start_ns": 1777183005658064000,
+      "end_ns": 1777183008561156000,
+      "wall_time_ms": 2903.092,
+      "cpu_time_ms": 1912.297,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "1d28868315de727c",
+        "tool.url": "https://en.wikipedia.org/wiki/Peter_Kay's_Car_Share",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "054804c4057a22222429c3260dbe696c",
+      "span_id": "652b0aa39f2c8260",
+      "parent_id": "bd193d48c888e93d",
+      "start_ns": 1777183008561338000,
+      "end_ns": 1777183011109288000,
+      "wall_time_ms": 2547.95,
+      "cpu_time_ms": 4036.139,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "ae503d1d77681c19",
+        "tool.url": "https://www.dailymail.co.uk/tvshowbiz/article-8612835/Peter-Kay-pens-new-Car-Share-sketch-sees-John-break-tears-brain-cancer-scare.html",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 8645
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "054804c4057a22222429c3260dbe696c",
+      "span_id": "e6f3150a8926aceb",
+      "parent_id": "bd193d48c888e93d",
+      "start_ns": 1777183011109438000,
+      "end_ns": 1777183013880963000,
+      "wall_time_ms": 2771.525,
+      "cpu_time_ms": 5430.186,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "068e71eefdedc8fc",
+        "tool.url": "https://www.britishtv.com/the-best-new-british-tv-shows-on-britbox-in-2021/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 22647
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "054804c4057a22222429c3260dbe696c",
+      "span_id": "87d1659d879dded2",
+      "parent_id": "bd193d48c888e93d",
+      "start_ns": 1777183013881230000,
+      "end_ns": 1777183014049095000,
+      "wall_time_ms": 167.865,
+      "cpu_time_ms": 451.561,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "12bbf01c3661bc60",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 47,
+        "tool.output_size_bytes": 798
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "054804c4057a22222429c3260dbe696c",
+      "span_id": "fa9613b7f2ba2492",
+      "parent_id": "bd193d48c888e93d",
+      "start_ns": 1777183014050558000,
+      "end_ns": 1777183014940844000,
+      "wall_time_ms": 890.286,
+      "cpu_time_ms": 1334.215,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "de247f65da6a28d7",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 171,
+        "tool.output_size_bytes": 48
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "054804c4057a22222429c3260dbe696c",
+      "span_id": "b67e27415403beda",
+      "parent_id": "bd193d48c888e93d",
+      "start_ns": 1777183014942232000,
+      "end_ns": 1777183017704076000,
+      "wall_time_ms": 2761.844,
+      "cpu_time_ms": 4098.366,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 232,
+        "llm.output_tokens": 115,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "trace_id": "f7fef0920e24d92737d53830e36f4ff6",
+  "config": "cell_concurrent_py_hotpot_b64",
+  "query_id": "q014",
+  "label": "cell_concurrent_py_hotpot_b64",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "f7fef0920e24d92737d53830e36f4ff6",
+      "span_id": "5fe6b1dc8b7f0187",
+      "parent_id": null,
+      "start_ns": 1777183067261186000,
+      "end_ns": 1777183079070535000,
+      "wall_time_ms": 11809.349,
+      "cpu_time_ms": 14197.444,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b64",
+        "query_id": "q014",
+        "query_text": "Who died first, Bryce Courtenay or Juan Carlos Onetti?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 64
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "f7fef0920e24d92737d53830e36f4ff6",
+      "span_id": "e07620a954111d4f",
+      "parent_id": "5fe6b1dc8b7f0187",
+      "start_ns": 1777183067261345000,
+      "end_ns": 1777183070375031000,
+      "wall_time_ms": 3113.686,
+      "cpu_time_ms": 943.95,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "8d48a0f8069be8b2",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 764
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "f7fef0920e24d92737d53830e36f4ff6",
+      "span_id": "42c5cc56134b0de7",
+      "parent_id": "5fe6b1dc8b7f0187",
+      "start_ns": 1777183070375474000,
+      "end_ns": 1777183073299693000,
+      "wall_time_ms": 2924.219,
+      "cpu_time_ms": 2045.183,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "c92793532f57a822",
+        "tool.url": "https://en.wikipedia.org/wiki/Juan_Carlos_Onetti",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "f7fef0920e24d92737d53830e36f4ff6",
+      "span_id": "9c9f88bf6d746985",
+      "parent_id": "5fe6b1dc8b7f0187",
+      "start_ns": 1777183073299865000,
+      "end_ns": 1777183075121646000,
+      "wall_time_ms": 1821.781,
+      "cpu_time_ms": 3450.866,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "ddd3676e67b97000",
+        "tool.url": "https://www.goodreads.com/author/list/39279.Juan_Carlos_Onetti",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 9734
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "f7fef0920e24d92737d53830e36f4ff6",
+      "span_id": "8f975d6c5aac1c3b",
+      "parent_id": "5fe6b1dc8b7f0187",
+      "start_ns": 1777183075121785000,
+      "end_ns": 1777183076990332000,
+      "wall_time_ms": 1868.547,
+      "cpu_time_ms": 3454.348,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "afec3c2a67f356b4",
+        "tool.url": "https://www.britannica.com/biography/Juan-Carlos-Onetti",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 2601
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "f7fef0920e24d92737d53830e36f4ff6",
+      "span_id": "0cd719e2c98e35b1",
+      "parent_id": "5fe6b1dc8b7f0187",
+      "start_ns": 1777183076990645000,
+      "end_ns": 1777183077203781000,
+      "wall_time_ms": 213.136,
+      "cpu_time_ms": 517.959,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "2e6c1ee95cefd282",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 65,
+        "tool.output_size_bytes": 237
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "f7fef0920e24d92737d53830e36f4ff6",
+      "span_id": "e88ff41c9a0fee9e",
+      "parent_id": "5fe6b1dc8b7f0187",
+      "start_ns": 1777183077205220000,
+      "end_ns": 1777183077316393000,
+      "wall_time_ms": 111.173,
+      "cpu_time_ms": 539.217,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "53fe1dc1bbf00147",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 17,
+        "tool.output_size_bytes": 225
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "f7fef0920e24d92737d53830e36f4ff6",
+      "span_id": "2d311103c5fe6451",
+      "parent_id": "5fe6b1dc8b7f0187",
+      "start_ns": 1777183077317188000,
+      "end_ns": 1777183079069700000,
+      "wall_time_ms": 1752.512,
+      "cpu_time_ms": 3236.91,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 189,
+        "llm.output_tokens": 92,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

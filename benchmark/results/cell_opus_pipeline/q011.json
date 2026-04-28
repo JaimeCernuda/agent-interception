@@ -1,0 +1,263 @@
+{
+  "trace_id": "fb92d5cfe0ee6e1a0be1b213339c1a51",
+  "config": "pipeline_opus",
+  "query_id": "q011",
+  "label": "cell_opus_pipeline",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "fb92d5cfe0ee6e1a0be1b213339c1a51",
+      "span_id": "d816198da1241fa6",
+      "parent_id": null,
+      "start_ns": 1777155127812426000,
+      "end_ns": 1777155156885410000,
+      "wall_time_ms": 29072.984,
+      "cpu_time_ms": 1576.982,
+      "kind": "root",
+      "attrs": {
+        "config": "pipeline_opus",
+        "query_id": "q011",
+        "query_text": "What is the youngest age eligible for COVID-19 vaccination in the United States?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "fb92d5cfe0ee6e1a0be1b213339c1a51",
+      "span_id": "2a50c3d1cb7979c5",
+      "parent_id": "d816198da1241fa6",
+      "start_ns": 1777155127812550000,
+      "end_ns": 1777155131192681000,
+      "wall_time_ms": 3380.131,
+      "cpu_time_ms": 43.081,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "bb429540c09dc22d",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 806
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "fb92d5cfe0ee6e1a0be1b213339c1a51",
+      "span_id": "1f8644e6a7adf967",
+      "parent_id": "d816198da1241fa6",
+      "start_ns": 1777155131192849000,
+      "end_ns": 1777155135313115000,
+      "wall_time_ms": 4120.266,
+      "cpu_time_ms": 194.293,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "b425fe14557ef22f",
+        "tool.url": "https://en.wikipedia.org/wiki/COVID-19_vaccination_in_the_United_States",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "fb92d5cfe0ee6e1a0be1b213339c1a51",
+      "span_id": "d39ce87acef72fb6",
+      "parent_id": "d816198da1241fa6",
+      "start_ns": 1777155135313355000,
+      "end_ns": 1777155138500898000,
+      "wall_time_ms": 3187.543,
+      "cpu_time_ms": 199.223,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "8a619a85a13deb36",
+        "tool.url": "https://www.mayoclinic.org/diseases-conditions/coronavirus/in-depth/covid-19-vaccines-for-kids/art-20513332",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "fb92d5cfe0ee6e1a0be1b213339c1a51",
+      "span_id": "ed483b649bacc767",
+      "parent_id": "d816198da1241fa6",
+      "start_ns": 1777155138501115000,
+      "end_ns": 1777155140020378000,
+      "wall_time_ms": 1519.263,
+      "cpu_time_ms": 106.714,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "2e4ae0f834d06b74",
+        "tool.url": "https://www.cdc.gov/covid/communication/vaccines-children-teens.html",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 1393
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "fb92d5cfe0ee6e1a0be1b213339c1a51",
+      "span_id": "955f575a0ac3edfd",
+      "parent_id": "d816198da1241fa6",
+      "start_ns": 1777155140020521000,
+      "end_ns": 1777155143391661000,
+      "wall_time_ms": 3371.14,
+      "cpu_time_ms": 188.857,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "55aec5e6b3e8077b",
+        "tool.url": "https://publications.aap.org/pediatrics/article/156/5/e2025073924/203222/Recommendations-for-COVID-19-Vaccines-in-Infants",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "fb92d5cfe0ee6e1a0be1b213339c1a51",
+      "span_id": "d4e3fd872bd01ebc",
+      "parent_id": "d816198da1241fa6",
+      "start_ns": 1777155143391827000,
+      "end_ns": 1777155146844214000,
+      "wall_time_ms": 3452.387,
+      "cpu_time_ms": 222.776,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "8a47962692f3110c",
+        "tool.url": "https://www.verywellhealth.com/fall-covid-vaccine-guide-11777880",
+        "tool.retry_count": 3,
+        "tool.http_status": 402,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "fb92d5cfe0ee6e1a0be1b213339c1a51",
+      "span_id": "690ebb3010e12db1",
+      "parent_id": "d816198da1241fa6",
+      "start_ns": 1777155146844346000,
+      "end_ns": 1777155153531449000,
+      "wall_time_ms": 6687.103,
+      "cpu_time_ms": 319.399,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "22b06c8adfc65b15",
+        "tool.url": "https://www.sciencedirect.com/science/article/pii/S0264410X2400166X",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "fb92d5cfe0ee6e1a0be1b213339c1a51",
+      "span_id": "e95727113b457319",
+      "parent_id": "d816198da1241fa6",
+      "start_ns": 1777155153531697000,
+      "end_ns": 1777155154942154000,
+      "wall_time_ms": 1410.457,
+      "cpu_time_ms": 107.95,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "8cb2f1a89429e2a2",
+        "tool.url": "https://healthier.stanfordchildrens.org/en/covid-19-vaccines-for-kids-under-5-years-of-age-what-parents-should-know/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 5960
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "fb92d5cfe0ee6e1a0be1b213339c1a51",
+      "span_id": "0aedd522e9cb4dbc",
+      "parent_id": "d816198da1241fa6",
+      "start_ns": 1777155154942299000,
+      "end_ns": 1777155155030851000,
+      "wall_time_ms": 88.552,
+      "cpu_time_ms": 86.244,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "8cdaa0b195691e2e",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 19,
+        "tool.output_size_bytes": 98
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "fb92d5cfe0ee6e1a0be1b213339c1a51",
+      "span_id": "62aa6bf04f422cdf",
+      "parent_id": "d816198da1241fa6",
+      "start_ns": 1777155155031501000,
+      "end_ns": 1777155155124215000,
+      "wall_time_ms": 92.714,
+      "cpu_time_ms": 92.72,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "8549bf170cc87289",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 53,
+        "tool.output_size_bytes": 119
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "fb92d5cfe0ee6e1a0be1b213339c1a51",
+      "span_id": "a9570ebea74abf30",
+      "parent_id": "d816198da1241fa6",
+      "start_ns": 1777155155125001000,
+      "end_ns": 1777155156885295000,
+      "wall_time_ms": 1760.294,
+      "cpu_time_ms": 13.201,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 81,
+        "llm.output_tokens": 87,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "config": "cell_concurrent_go_b64",
+  "label": "cell_concurrent_go_b64",
+  "query_id": "q018",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 64,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 0,
+        "agent.num_urls_fetched": 0,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b64",
+        "query_id": "q018",
+        "query_text": "Do the Toronto Raptors have a winning record in the latest NBA season?"
+      },
+      "cpu_time_ms": 49893.059,
+      "end_ns": 1777167724185269000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "7a1dac9a390950c0",
+      "start_ns": 1777167674292210000,
+      "status": "ok",
+      "trace_id": "888e97d864f58a16b4b080a6d0adf14e",
+      "wall_time_ms": 49893.059
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "94739be404a29425",
+        "tool.name": "ddg",
+        "tool.num_results": 0,
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3
+      },
+      "cpu_time_ms": 36005.695,
+      "end_ns": 1777167710297929000,
+      "error": "Post \"https://html.duckduckgo.com/html/\": context deadline exceeded",
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "7a1dac9a390950c0",
+      "span_id": "7a0ec250b53b680b",
+      "start_ns": 1777167674292234000,
+      "status": "error",
+      "trace_id": "888e97d864f58a16b4b080a6d0adf14e",
+      "wall_time_ms": 36005.695
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.rate_limited": true,
+        "llm.status_code": 429
+      },
+      "cpu_time_ms": 768.692,
+      "end_ns": 1777167711070389000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "7a1dac9a390950c0",
+      "span_id": "b552660b18027919",
+      "start_ns": 1777167710301696000,
+      "status": "ok",
+      "trace_id": "888e97d864f58a16b4b080a6d0adf14e",
+      "wall_time_ms": 768.693
+    },
+    {
+      "attrs": {
+        "llm.retry_after_s": 12,
+        "llm.retry_attempt": 1,
+        "llm.retry_trigger": "http_429"
+      },
+      "cpu_time_ms": 12000.23,
+      "end_ns": 1777167723070623000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.retry_wait",
+      "parent_id": "7a1dac9a390950c0",
+      "span_id": "6c4722129e37958d",
+      "start_ns": 1777167711070393000,
+      "status": "ok",
+      "trace_id": "888e97d864f58a16b4b080a6d0adf14e",
+      "wall_time_ms": 12000.23
+    },
+    {
+      "attrs": {
+        "llm.attempt": 1,
+        "llm.input_tokens": 32,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 73,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1114.605,
+      "end_ns": 1777167724185256000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "7a1dac9a390950c0",
+      "span_id": "75863320de346566",
+      "start_ns": 1777167723070652000,
+      "status": "ok",
+      "trace_id": "888e97d864f58a16b4b080a6d0adf14e",
+      "wall_time_ms": 1114.604
+    }
+  ],
+  "trace_id": "888e97d864f58a16b4b080a6d0adf14e"
+}

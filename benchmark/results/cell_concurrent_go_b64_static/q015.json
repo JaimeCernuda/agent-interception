@@ -1,0 +1,160 @@
+{
+  "config": "cell_concurrent_go_b64",
+  "label": "cell_concurrent_go_b64",
+  "query_id": "q015",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 64,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 2,
+        "agent.num_urls_fetched": 2,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b64",
+        "query_id": "q015",
+        "query_text": "Who is the vice-chancellor of the largest university by enrollment in the world?"
+      },
+      "cpu_time_ms": 3820.985,
+      "end_ns": 1777167785943415000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "73da5a941bda13a8",
+      "start_ns": 1777167782122429000,
+      "status": "ok",
+      "trace_id": "ecf16e7e5aecf8f0705f61ea14502465",
+      "wall_time_ms": 3820.986
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "69499afd09a35f3c",
+        "tool.name": "static",
+        "tool.num_results": 3,
+        "tool.output_size_bytes": 247,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 0.002,
+      "end_ns": 1777167782122442000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "73da5a941bda13a8",
+      "span_id": "1bd2921f2540714e",
+      "start_ns": 1777167782122440000,
+      "status": "ok",
+      "trace_id": "ecf16e7e5aecf8f0705f61ea14502465",
+      "wall_time_ms": 0.002
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "5649ca08f01f0abc",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 250,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.youtube.com/watch?v=pz1Y_FKa9CU"
+      },
+      "cpu_time_ms": 1232.758,
+      "end_ns": 1777167783355208000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "73da5a941bda13a8",
+      "span_id": "8fe236e181efb3bd",
+      "start_ns": 1777167782122450000,
+      "status": "ok",
+      "trace_id": "ecf16e7e5aecf8f0705f61ea14502465",
+      "wall_time_ms": 1232.758
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "2af1c609a18267f6",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 5691,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.worldatlas.com/articles/universities-with-the-largest-enrollments-in-the-world.html"
+      },
+      "cpu_time_ms": 779.027,
+      "end_ns": 1777167784134245000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "73da5a941bda13a8",
+      "span_id": "2cfa2d2a5779bf65",
+      "start_ns": 1777167783355218000,
+      "status": "ok",
+      "trace_id": "ecf16e7e5aecf8f0705f61ea14502465",
+      "wall_time_ms": 779.027
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "8236caf53eee665d",
+        "tool.n_sentences_in": 1,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 250,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 0.032,
+      "end_ns": 1777167784134287000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "73da5a941bda13a8",
+      "span_id": "758e7786ac9a2de3",
+      "start_ns": 1777167784134255000,
+      "status": "ok",
+      "trace_id": "ecf16e7e5aecf8f0705f61ea14502465",
+      "wall_time_ms": 0.032
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "250feb58d208e0fa",
+        "tool.n_sentences_in": 37,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 201,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 3.266,
+      "end_ns": 1777167784137575000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "73da5a941bda13a8",
+      "span_id": "6124d7686955c569",
+      "start_ns": 1777167784134308000,
+      "status": "ok",
+      "trace_id": "ecf16e7e5aecf8f0705f61ea14502465",
+      "wall_time_ms": 3.267
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 122,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 112,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1805.738,
+      "end_ns": 1777167785943354000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "73da5a941bda13a8",
+      "span_id": "588cff1518bd2a02",
+      "start_ns": 1777167784137617000,
+      "status": "ok",
+      "trace_id": "ecf16e7e5aecf8f0705f61ea14502465",
+      "wall_time_ms": 1805.737
+    }
+  ],
+  "trace_id": "ecf16e7e5aecf8f0705f61ea14502465"
+}

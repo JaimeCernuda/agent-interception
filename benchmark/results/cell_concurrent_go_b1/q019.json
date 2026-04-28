@@ -1,0 +1,160 @@
+{
+  "config": "cell_concurrent_go_b1",
+  "label": "cell_concurrent_go_b1",
+  "query_id": "q019",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 1,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 2,
+        "agent.num_urls_fetched": 2,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b1",
+        "query_id": "q019",
+        "query_text": "Who posted the most-liked Instagram post last year?"
+      },
+      "cpu_time_ms": 5913.878,
+      "end_ns": 1777167399556709000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "01bdace44f69748c",
+      "start_ns": 1777167393642831000,
+      "status": "ok",
+      "trace_id": "536b7c43596797897e904ba436496c64",
+      "wall_time_ms": 5913.878
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "36273eee9807a55b",
+        "tool.name": "ddg",
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 1839,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 935.858,
+      "end_ns": 1777167394578699000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "01bdace44f69748c",
+      "span_id": "886730c3f906ad92",
+      "start_ns": 1777167393642841000,
+      "status": "ok",
+      "trace_id": "536b7c43596797897e904ba436496c64",
+      "wall_time_ms": 935.858
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "6850640597db87f5",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 10412,
+        "tool.retry_count": 0,
+        "tool.url": "https://duckduckgo.com/y.js?ad_domain=envato.com\u0026amp;ad_provider=bingv7aa\u0026amp;ad_type=txad\u0026amp;click_metadata=NE62g18IuWkuQxY5Vbd0gLnZRTsiEcoM7yrKbIONLEsfLe08ZIeU8SwTEErXa%2DXK0Vj8fphKG7RPV73bV_XWN28fL%2DINCLbs3rphQcX9xX%2DyHkD_JbL9UVWQehR1UV1N3OCh_6U4HuCvkARILkeQRv7BNL5SfGUKyKefluLyN_M.4Q64WIOatPI1WyAkhfNACA\u0026amp;rut=ddf549f6cf2dc710864fe5db2c0b4b3b7f65c2b28f030585fadd1d5ffd4d0b1d\u0026amp;u3=https%3A%2F%2Fwww.bing.com%2Faclick%3Fld%3De8_sE9R7UdzaENqtXXJgMKfzVUCUzZeW20yRdg%2DijpjAm9DW9Vqg40QmdXTOD64RZPZ90elg4y5AuO13Hg3pBZgvUhkIR%2DjTGXMIYYwoYsSsS0Km6PoY5p8vt_j3cA8FJ0s1Bt7lpxZPJi4YsfXDSzSWltUdeBTVp%2DNT8zobTYAg92hRSqSN5JEraTOIFjO0%2DFLX2C_bs3kYdzUSJmQnaUJNSPDYg%26u%3DaHR0cHMlM2ElMmYlMmZlbGVtZW50cy5lbnZhdG8uY29tJTJmaW5zdGFncmFtLXBvc3QtSEJOWkdXUiUzZmFkcG9zaXRpb24lM2QlMjZtc2Nsa2lkJTNkNmQ3MjZlYjdhNGQxMTRjZmZmNzEwNzVhYzhmMzAwMjYlMjZ1dG1fc291cmNlJTNkYmluZyUyNnV0bV9tZWRpdW0lM2RjcGMlMjZ1dG1fY2FtcGFpZ24lM2RlbGVtZW50c19iaW5nX2VuXzJfZHNhX3BhZ2VfZmVlZHMlMjZ1dG1fdGVybSUzZHV4JTI1MjB1aSUyNTIwa2l0cyUyNnV0bV9jb250ZW50JTNkZWVfdWlfZHNh%26rlid%3D6d726eb7a4d114cfff71075ac8f30026\u0026amp;vqd=4-245950871670512566880114321391697483228\u0026amp;iurl=%7B1%7DIG%3D2DF4F65D647A48B0A024A787F46FA9E4%26CID%3D32ECD32A8BC168E90802C46D8ABA6952%26ID%3DDevEx%2C5046.1"
+      },
+      "cpu_time_ms": 3186.941,
+      "end_ns": 1777167397765656000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "01bdace44f69748c",
+      "span_id": "c7921b78095a76ab",
+      "start_ns": 1777167394578715000,
+      "status": "ok",
+      "trace_id": "536b7c43596797897e904ba436496c64",
+      "wall_time_ms": 3186.941
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "0045df7aa174e238",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 21869,
+        "tool.retry_count": 0,
+        "tool.url": "https://en.wikipedia.org/wiki/List_of_most-liked_Instagram_posts"
+      },
+      "cpu_time_ms": 170.128,
+      "end_ns": 1777167397935795000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "01bdace44f69748c",
+      "span_id": "2a0c014cf500d23b",
+      "start_ns": 1777167397765666000,
+      "status": "ok",
+      "trace_id": "536b7c43596797897e904ba436496c64",
+      "wall_time_ms": 170.129
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "d77ef9a637b2cdc8",
+        "tool.n_sentences_in": 28,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 961,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 3.505,
+      "end_ns": 1777167397939349000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "01bdace44f69748c",
+      "span_id": "678e9e0bb59bf4d2",
+      "start_ns": 1777167397935845000,
+      "status": "ok",
+      "trace_id": "536b7c43596797897e904ba436496c64",
+      "wall_time_ms": 3.504
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "96897785f0300cfa",
+        "tool.n_sentences_in": 132,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 60,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 13.672,
+      "end_ns": 1777167397953104000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "01bdace44f69748c",
+      "span_id": "7e1c3ef8af371445",
+      "start_ns": 1777167397939433000,
+      "status": "ok",
+      "trace_id": "536b7c43596797897e904ba436496c64",
+      "wall_time_ms": 13.671
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 264,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 109,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1603.554,
+      "end_ns": 1777167399556699000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "01bdace44f69748c",
+      "span_id": "48b4bd3cfba7beab",
+      "start_ns": 1777167397953145000,
+      "status": "ok",
+      "trace_id": "536b7c43596797897e904ba436496c64",
+      "wall_time_ms": 1603.554
+    }
+  ],
+  "trace_id": "536b7c43596797897e904ba436496c64"
+}

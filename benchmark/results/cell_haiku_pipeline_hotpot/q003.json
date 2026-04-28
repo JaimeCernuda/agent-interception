@@ -1,0 +1,221 @@
+{
+  "trace_id": "4a26900f40621e0d895f6f23ceeb818e",
+  "config": "pipeline_haiku_hotpot",
+  "query_id": "q003",
+  "label": "cell_haiku_pipeline_hotpot",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "4a26900f40621e0d895f6f23ceeb818e",
+      "span_id": "f909b4928ada65f4",
+      "parent_id": null,
+      "start_ns": 1777169751220436000,
+      "end_ns": 1777169770945808000,
+      "wall_time_ms": 19725.372,
+      "cpu_time_ms": 1931.793,
+      "kind": "root",
+      "attrs": {
+        "config": "pipeline_haiku_hotpot",
+        "query_id": "q003",
+        "query_text": "What type of profession does Alexandra David-N\u00e9el and Jack Kerouac have in common?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "4a26900f40621e0d895f6f23ceeb818e",
+      "span_id": "b4a79733bd91c63c",
+      "parent_id": "f909b4928ada65f4",
+      "start_ns": 1777169751220935000,
+      "end_ns": 1777169754923388000,
+      "wall_time_ms": 3702.453,
+      "cpu_time_ms": 38.77,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "5dd8e8b8540a4c80",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 642
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "4a26900f40621e0d895f6f23ceeb818e",
+      "span_id": "af8a55104480eb1a",
+      "parent_id": "f909b4928ada65f4",
+      "start_ns": 1777169754923581000,
+      "end_ns": 1777169757814515000,
+      "wall_time_ms": 2890.934,
+      "cpu_time_ms": 198.656,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "8652a7de8d8c0736",
+        "tool.url": "https://en.wikipedia.org/wiki/Jack_Kerouac",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "4a26900f40621e0d895f6f23ceeb818e",
+      "span_id": "de64827b6785d35a",
+      "parent_id": "f909b4928ada65f4",
+      "start_ns": 1777169757814721000,
+      "end_ns": 1777169758965608000,
+      "wall_time_ms": 1150.887,
+      "cpu_time_ms": 167.932,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "91a981567d9d52cf",
+        "tool.url": "https://www.biography.com/authors-writers/jack-kerouac",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 10599
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "4a26900f40621e0d895f6f23ceeb818e",
+      "span_id": "6a4df8928325a6d6",
+      "parent_id": "f909b4928ada65f4",
+      "start_ns": 1777169758965754000,
+      "end_ns": 1777169762578319000,
+      "wall_time_ms": 3612.565,
+      "cpu_time_ms": 202.746,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "7223130d415e3299",
+        "tool.url": "https://www.patheos.com/blogs/monkeymind/2025/10/recalling-the-astonishing-alexandra-david-neel.html",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "4a26900f40621e0d895f6f23ceeb818e",
+      "span_id": "5aa4542798bd4da9",
+      "parent_id": "f909b4928ada65f4",
+      "start_ns": 1777169762578510000,
+      "end_ns": 1777169766170208000,
+      "wall_time_ms": 3591.698,
+      "cpu_time_ms": 202.933,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "dc868d5a439f86b8",
+        "tool.url": "https://theamericanscholar.org/when-kerouac-met-kesey/",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "4a26900f40621e0d895f6f23ceeb818e",
+      "span_id": "618ec8221cc56782",
+      "parent_id": "f909b4928ada65f4",
+      "start_ns": 1777169766170389000,
+      "end_ns": 1777169768456928000,
+      "wall_time_ms": 2286.539,
+      "cpu_time_ms": 794.235,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "09d0fa2155192e89",
+        "tool.url": "https://mx.pinterest.com/gregoirejacques777/\u00e9sot\u00e9risme-et-religions-alexandra-david-n\u00e9el/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 853
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "4a26900f40621e0d895f6f23ceeb818e",
+      "span_id": "39a2c6557d21a673",
+      "parent_id": "f909b4928ada65f4",
+      "start_ns": 1777169768457291000,
+      "end_ns": 1777169768742531000,
+      "wall_time_ms": 285.24,
+      "cpu_time_ms": 237.22,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "8b5a99e599159954",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 68,
+        "tool.output_size_bytes": 423
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "4a26900f40621e0d895f6f23ceeb818e",
+      "span_id": "98f821b0d0be7737",
+      "parent_id": "f909b4928ada65f4",
+      "start_ns": 1777169768744100000,
+      "end_ns": 1777169768854191000,
+      "wall_time_ms": 110.091,
+      "cpu_time_ms": 69.442,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "1d6b899482054862",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 8,
+        "tool.output_size_bytes": 93
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "4a26900f40621e0d895f6f23ceeb818e",
+      "span_id": "8bbf07d29261047a",
+      "parent_id": "f909b4928ada65f4",
+      "start_ns": 1777169768856115000,
+      "end_ns": 1777169770945724000,
+      "wall_time_ms": 2089.609,
+      "cpu_time_ms": 15.335,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 164,
+        "llm.output_tokens": 92,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

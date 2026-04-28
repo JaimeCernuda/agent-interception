@@ -1,0 +1,160 @@
+{
+  "config": "cell_concurrent_go_b1",
+  "label": "cell_concurrent_go_b1",
+  "query_id": "q018",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 1,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 2,
+        "agent.num_urls_fetched": 2,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b1",
+        "query_id": "q018",
+        "query_text": "Do the Toronto Raptors have a winning record in the latest NBA season?"
+      },
+      "cpu_time_ms": 5120.966,
+      "end_ns": 1777167393641353000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "3de4f0b06eb20aed",
+      "start_ns": 1777167388520387000,
+      "status": "ok",
+      "trace_id": "e295957c507dac166ccb9ccddaf016ef",
+      "wall_time_ms": 5120.966
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "94739be404a29425",
+        "tool.name": "ddg",
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 565,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 918.815,
+      "end_ns": 1777167389439215000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "3de4f0b06eb20aed",
+      "span_id": "ee249eaa75fbadbb",
+      "start_ns": 1777167388520400000,
+      "status": "ok",
+      "trace_id": "e295957c507dac166ccb9ccddaf016ef",
+      "wall_time_ms": 918.815
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "f563f206fd17b0fc",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 8861,
+        "tool.retry_count": 0,
+        "tool.url": "https://en.wikipedia.org/wiki/List_of_Toronto_Raptors_seasons"
+      },
+      "cpu_time_ms": 708.291,
+      "end_ns": 1777167390147528000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "3de4f0b06eb20aed",
+      "span_id": "9710cd3aa587cbd2",
+      "start_ns": 1777167389439236000,
+      "status": "ok",
+      "trace_id": "e295957c507dac166ccb9ccddaf016ef",
+      "wall_time_ms": 708.292
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "b4f8ae503d6920a0",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 12430,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.basketball-reference.com/teams/TOR/"
+      },
+      "cpu_time_ms": 1190.457,
+      "end_ns": 1777167391337995000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "3de4f0b06eb20aed",
+      "span_id": "18258a9a9fcf775f",
+      "start_ns": 1777167390147538000,
+      "status": "ok",
+      "trace_id": "e295957c507dac166ccb9ccddaf016ef",
+      "wall_time_ms": 1190.457
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "bda8ddf628ef20c5",
+        "tool.n_sentences_in": 15,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 2107,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 3.057,
+      "end_ns": 1777167391341105000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "3de4f0b06eb20aed",
+      "span_id": "73641311230be895",
+      "start_ns": 1777167391338048000,
+      "status": "ok",
+      "trace_id": "e295957c507dac166ccb9ccddaf016ef",
+      "wall_time_ms": 3.057
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "101060871dd717fd",
+        "tool.n_sentences_in": 158,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 1248,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 13.456,
+      "end_ns": 1777167391354611000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "3de4f0b06eb20aed",
+      "span_id": "50f298bc45572698",
+      "start_ns": 1777167391341155000,
+      "status": "ok",
+      "trace_id": "e295957c507dac166ccb9ccddaf016ef",
+      "wall_time_ms": 13.456
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 917,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 124,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 2286.67,
+      "end_ns": 1777167393641341000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "3de4f0b06eb20aed",
+      "span_id": "96d6e1a7e80b712c",
+      "start_ns": 1777167391354672000,
+      "status": "ok",
+      "trace_id": "e295957c507dac166ccb9ccddaf016ef",
+      "wall_time_ms": 2286.669
+    }
+  ],
+  "trace_id": "e295957c507dac166ccb9ccddaf016ef"
+}

@@ -1,0 +1,201 @@
+{
+  "trace_id": "7d99dfcb3eb600ed54804277683246b9",
+  "config": "cell_concurrent_py_b4",
+  "query_id": "q017",
+  "label": "cell_concurrent_py_b4",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "7d99dfcb3eb600ed54804277683246b9",
+      "span_id": "47dddba9d1cd933c",
+      "parent_id": null,
+      "start_ns": 1777167466171877000,
+      "end_ns": 1777167480958031000,
+      "wall_time_ms": 14786.154,
+      "cpu_time_ms": 4005.888,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b4",
+        "query_id": "q017",
+        "query_text": "What is the total height of the tallest building in the world?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 4
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "7d99dfcb3eb600ed54804277683246b9",
+      "span_id": "c11bc4376c08072d",
+      "parent_id": "47dddba9d1cd933c",
+      "start_ns": 1777167466171992000,
+      "end_ns": 1777167470637534000,
+      "wall_time_ms": 4465.542,
+      "cpu_time_ms": 1268.968,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "6932b60a8a015e94",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 631
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "7d99dfcb3eb600ed54804277683246b9",
+      "span_id": "86e5c849f5d08590",
+      "parent_id": "47dddba9d1cd933c",
+      "start_ns": 1777167470637762000,
+      "end_ns": 1777167473551921000,
+      "wall_time_ms": 2914.159,
+      "cpu_time_ms": 976.837,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "98e2b1d784e66459",
+        "tool.url": "https://en.wikipedia.org/wiki/Burj_Khalifa",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "7d99dfcb3eb600ed54804277683246b9",
+      "span_id": "098e5a1d628f4885",
+      "parent_id": "47dddba9d1cd933c",
+      "start_ns": 1777167473552195000,
+      "end_ns": 1777167476427287000,
+      "wall_time_ms": 2875.092,
+      "cpu_time_ms": 460.429,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "3844a2d68d949b09",
+        "tool.url": "https://en.wikipedia.org/wiki/List_of_tallest_buildings",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "7d99dfcb3eb600ed54804277683246b9",
+      "span_id": "ff40a9122b676c9a",
+      "parent_id": "47dddba9d1cd933c",
+      "start_ns": 1777167476427411000,
+      "end_ns": 1777167477711250000,
+      "wall_time_ms": 1283.839,
+      "cpu_time_ms": 385.09,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "6e66a098623c11cd",
+        "tool.url": "https://heightandsize.com/burj-khalifa-height/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 9915
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "7d99dfcb3eb600ed54804277683246b9",
+      "span_id": "58d077821a3d1b41",
+      "parent_id": "47dddba9d1cd933c",
+      "start_ns": 1777167477711387000,
+      "end_ns": 1777167478875818000,
+      "wall_time_ms": 1164.431,
+      "cpu_time_ms": 272.258,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "764badf503fd9e6d",
+        "tool.url": "https://www.guinnessworldrecords.com/records/hall-of-fame/burj-khalifa-tallest-building-in-the-world",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 4616
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "7d99dfcb3eb600ed54804277683246b9",
+      "span_id": "0b77ade9a8bdd729",
+      "parent_id": "47dddba9d1cd933c",
+      "start_ns": 1777167478876027000,
+      "end_ns": 1777167479091256000,
+      "wall_time_ms": 215.229,
+      "cpu_time_ms": 267.332,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "8ae39e8e40b1f46a",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 100,
+        "tool.output_size_bytes": 369
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "7d99dfcb3eb600ed54804277683246b9",
+      "span_id": "22e1fa5984cf4347",
+      "parent_id": "47dddba9d1cd933c",
+      "start_ns": 1777167479092268000,
+      "end_ns": 1777167479161802000,
+      "wall_time_ms": 69.534,
+      "cpu_time_ms": 118.546,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "e9bbf3677c8a2467",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 32,
+        "tool.output_size_bytes": 193
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "7d99dfcb3eb600ed54804277683246b9",
+      "span_id": "4dcfa64f94d9ae2e",
+      "parent_id": "47dddba9d1cd933c",
+      "start_ns": 1777167479162604000,
+      "end_ns": 1777167480957964000,
+      "wall_time_ms": 1795.36,
+      "cpu_time_ms": 252.809,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 227,
+        "llm.output_tokens": 114,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

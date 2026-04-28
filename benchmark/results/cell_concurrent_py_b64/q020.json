@@ -1,0 +1,180 @@
+{
+  "trace_id": "23a329116c36503031715a0d32bc8b6c",
+  "config": "cell_concurrent_py_b64",
+  "query_id": "q020",
+  "label": "cell_concurrent_py_b64",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "23a329116c36503031715a0d32bc8b6c",
+      "span_id": "247bb7a364386a0f",
+      "parent_id": null,
+      "start_ns": 1777167629185786000,
+      "end_ns": 1777167640450541000,
+      "wall_time_ms": 11264.755,
+      "cpu_time_ms": 13679.301,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b64",
+        "query_id": "q020",
+        "query_text": "In what month and year was the price of Bitcoin last above $40,000?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 64
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "23a329116c36503031715a0d32bc8b6c",
+      "span_id": "ab19625375d132eb",
+      "parent_id": "247bb7a364386a0f",
+      "start_ns": 1777167629185928000,
+      "end_ns": 1777167632181998000,
+      "wall_time_ms": 2996.07,
+      "cpu_time_ms": 884.15,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "ff58a4e8431fd444",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 538
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "23a329116c36503031715a0d32bc8b6c",
+      "span_id": "101c6b18db482b8a",
+      "parent_id": "247bb7a364386a0f",
+      "start_ns": 1777167632182150000,
+      "end_ns": 1777167635977575000,
+      "wall_time_ms": 3795.425,
+      "cpu_time_ms": 4667.949,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "b4eae5f1e03fa5d3",
+        "tool.url": "https://charts.bitbo.io/price/",
+        "tool.retry_count": 3,
+        "tool.http_status": 428,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "23a329116c36503031715a0d32bc8b6c",
+      "span_id": "60ab9099f9508f24",
+      "parent_id": "247bb7a364386a0f",
+      "start_ns": 1777167635977777000,
+      "end_ns": 1777167637224453000,
+      "wall_time_ms": 1246.676,
+      "cpu_time_ms": 2431.645,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "af4ae2613fc0e92e",
+        "tool.url": "https://www.coinglass.com/today",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 964
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "23a329116c36503031715a0d32bc8b6c",
+      "span_id": "86b992d00a464cdf",
+      "parent_id": "247bb7a364386a0f",
+      "start_ns": 1777167637224659000,
+      "end_ns": 1777167638402487000,
+      "wall_time_ms": 1177.828,
+      "cpu_time_ms": 2510.015,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "bf1f5abcf47fbbd2",
+        "tool.url": "https://coinmarketcap.com/currencies/bitcoin/historical-data/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 2027
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "23a329116c36503031715a0d32bc8b6c",
+      "span_id": "f75a3517ae2fe010",
+      "parent_id": "247bb7a364386a0f",
+      "start_ns": 1777167638402657000,
+      "end_ns": 1777167638486346000,
+      "wall_time_ms": 83.689,
+      "cpu_time_ms": 309.054,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "b742a68759ce4303",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 5,
+        "tool.output_size_bytes": 6
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "23a329116c36503031715a0d32bc8b6c",
+      "span_id": "294ac8823c5efda2",
+      "parent_id": "247bb7a364386a0f",
+      "start_ns": 1777167638487061000,
+      "end_ns": 1777167638578378000,
+      "wall_time_ms": 91.317,
+      "cpu_time_ms": 119.991,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "9a1f0dd1f7309767",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 18,
+        "tool.output_size_bytes": 106
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "23a329116c36503031715a0d32bc8b6c",
+      "span_id": "aa6dc62fcdeb0622",
+      "parent_id": "247bb7a364386a0f",
+      "start_ns": 1777167638579215000,
+      "end_ns": 1777167640450475000,
+      "wall_time_ms": 1871.26,
+      "cpu_time_ms": 2752.299,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 56,
+        "llm.output_tokens": 121,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

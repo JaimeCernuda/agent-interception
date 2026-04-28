@@ -1,0 +1,76 @@
+{
+  "config": "cell_concurrent_go_b4",
+  "label": "cell_concurrent_go_b4",
+  "query_id": "q018",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 4,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 0,
+        "agent.num_urls_fetched": 0,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b4",
+        "query_id": "q018",
+        "query_text": "Do the Toronto Raptors have a winning record in the latest NBA season?"
+      },
+      "cpu_time_ms": 3112.667,
+      "end_ns": 1777167522941040000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "fd938d21c5b30054",
+      "start_ns": 1777167519828374000,
+      "status": "ok",
+      "trace_id": "409ab0b5653a10cb295f2e52deecb0b6",
+      "wall_time_ms": 3112.666
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "94739be404a29425",
+        "tool.name": "ddg",
+        "tool.num_results": 0,
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3
+      },
+      "cpu_time_ms": 2068.874,
+      "end_ns": 1777167521897257000,
+      "error": "ddg status 403",
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "fd938d21c5b30054",
+      "span_id": "83375121ccee755d",
+      "start_ns": 1777167519828384000,
+      "status": "error",
+      "trace_id": "409ab0b5653a10cb295f2e52deecb0b6",
+      "wall_time_ms": 2068.873
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 32,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 57,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1043.748,
+      "end_ns": 1777167522941029000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "fd938d21c5b30054",
+      "span_id": "6dafb6554b5eedad",
+      "start_ns": 1777167521897282000,
+      "status": "ok",
+      "trace_id": "409ab0b5653a10cb295f2e52deecb0b6",
+      "wall_time_ms": 1043.747
+    }
+  ],
+  "trace_id": "409ab0b5653a10cb295f2e52deecb0b6"
+}

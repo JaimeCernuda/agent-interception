@@ -1,0 +1,115 @@
+{
+  "config": "cell_concurrent_go_b64",
+  "label": "cell_concurrent_go_b64",
+  "query_id": "q007",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 64,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 0,
+        "agent.num_urls_fetched": 0,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b64",
+        "query_id": "q007",
+        "query_text": "What was the shortest war in history?"
+      },
+      "cpu_time_ms": 49685.16,
+      "end_ns": 1777167723978151000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "af1cc7ac4d331198",
+      "start_ns": 1777167674292991000,
+      "status": "ok",
+      "trace_id": "52f39ec003b1ce4e16bdbf83832161b6",
+      "wall_time_ms": 49685.16
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "28ee672e27b21aa7",
+        "tool.name": "ddg",
+        "tool.num_results": 0,
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3
+      },
+      "cpu_time_ms": 36003.366,
+      "end_ns": 1777167710296364000,
+      "error": "Post \"https://html.duckduckgo.com/html/\": context deadline exceeded",
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "af1cc7ac4d331198",
+      "span_id": "42b287ccd4f4ae75",
+      "start_ns": 1777167674292997000,
+      "status": "error",
+      "trace_id": "52f39ec003b1ce4e16bdbf83832161b6",
+      "wall_time_ms": 36003.367
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.rate_limited": true,
+        "llm.status_code": 429
+      },
+      "cpu_time_ms": 743.308,
+      "end_ns": 1777167711045027000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "af1cc7ac4d331198",
+      "span_id": "08ba7e4a1dcedaa5",
+      "start_ns": 1777167710301720000,
+      "status": "ok",
+      "trace_id": "52f39ec003b1ce4e16bdbf83832161b6",
+      "wall_time_ms": 743.307
+    },
+    {
+      "attrs": {
+        "llm.retry_after_s": 12,
+        "llm.retry_attempt": 1,
+        "llm.retry_trigger": "http_429"
+      },
+      "cpu_time_ms": 12001.391,
+      "end_ns": 1777167723046428000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.retry_wait",
+      "parent_id": "af1cc7ac4d331198",
+      "span_id": "393e9405bbf8f920",
+      "start_ns": 1777167711045038000,
+      "status": "ok",
+      "trace_id": "52f39ec003b1ce4e16bdbf83832161b6",
+      "wall_time_ms": 12001.39
+    },
+    {
+      "attrs": {
+        "llm.attempt": 1,
+        "llm.input_tokens": 23,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 52,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 931.666,
+      "end_ns": 1777167723978139000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "af1cc7ac4d331198",
+      "span_id": "7a57789e56b70d37",
+      "start_ns": 1777167723046474000,
+      "status": "ok",
+      "trace_id": "52f39ec003b1ce4e16bdbf83832161b6",
+      "wall_time_ms": 931.665
+    }
+  ],
+  "trace_id": "52f39ec003b1ce4e16bdbf83832161b6"
+}

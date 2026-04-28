@@ -1,0 +1,158 @@
+{
+  "trace_id": "d27eed7291e00af9b08e6b7efdfe904b",
+  "config": "pipeline_haiku_hotpot",
+  "query_id": "q020",
+  "label": "cell_haiku_pipeline_hotpot",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "d27eed7291e00af9b08e6b7efdfe904b",
+      "span_id": "8585b630120dc840",
+      "parent_id": null,
+      "start_ns": 1777170191307294000,
+      "end_ns": 1777170200248660000,
+      "wall_time_ms": 8941.366,
+      "cpu_time_ms": 1079.223,
+      "kind": "root",
+      "attrs": {
+        "config": "pipeline_haiku_hotpot",
+        "query_id": "q020",
+        "query_text": "Has Entrepreneur had a longer lifespan than Optimize?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "d27eed7291e00af9b08e6b7efdfe904b",
+      "span_id": "6c33c44e1a5d2810",
+      "parent_id": "8585b630120dc840",
+      "start_ns": 1777170191307410000,
+      "end_ns": 1777170194449647000,
+      "wall_time_ms": 3142.237,
+      "cpu_time_ms": 39.177,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "97a68de2ce6f1e07",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 655
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "d27eed7291e00af9b08e6b7efdfe904b",
+      "span_id": "aead7050507007ff",
+      "parent_id": "8585b630120dc840",
+      "start_ns": 1777170194449783000,
+      "end_ns": 1777170196356631000,
+      "wall_time_ms": 1906.848,
+      "cpu_time_ms": 151.109,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "d249a64eeef16234",
+        "tool.url": "https://wol.iza.org/articles/entrepreneurs-and-their-impact-on-jobs-and-economic-growth/long",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 23362
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "d27eed7291e00af9b08e6b7efdfe904b",
+      "span_id": "ae412418c51bb0f4",
+      "parent_id": "8585b630120dc840",
+      "start_ns": 1777170196356770000,
+      "end_ns": 1777170197637883000,
+      "wall_time_ms": 1281.113,
+      "cpu_time_ms": 233.788,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "fcfaaa0ba407516b",
+        "tool.url": "https://www.merriam-webster.com/dictionary/entrepreneur",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 468
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "d27eed7291e00af9b08e6b7efdfe904b",
+      "span_id": "793ebfdf9adf540f",
+      "parent_id": "8585b630120dc840",
+      "start_ns": 1777170197638180000,
+      "end_ns": 1777170198237333000,
+      "wall_time_ms": 599.153,
+      "cpu_time_ms": 593.946,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "814ee2bf753ab114",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 161,
+        "tool.output_size_bytes": 167
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "d27eed7291e00af9b08e6b7efdfe904b",
+      "span_id": "df8e2ef9dbaaec3e",
+      "parent_id": "8585b630120dc840",
+      "start_ns": 1777170198238418000,
+      "end_ns": 1777170198284418000,
+      "wall_time_ms": 46.0,
+      "cpu_time_ms": 45.627,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "380f467742411c40",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 4,
+        "tool.output_size_bytes": 385
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "d27eed7291e00af9b08e6b7efdfe904b",
+      "span_id": "ee429a1e89b64b4d",
+      "parent_id": "8585b630120dc840",
+      "start_ns": 1777170198285452000,
+      "end_ns": 1777170200248547000,
+      "wall_time_ms": 1963.095,
+      "cpu_time_ms": 12.971,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 172,
+        "llm.output_tokens": 107,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

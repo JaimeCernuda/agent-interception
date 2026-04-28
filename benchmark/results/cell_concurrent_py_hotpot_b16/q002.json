@@ -1,0 +1,180 @@
+{
+  "trace_id": "f9d8717de4c53d21c07867e52ea22c43",
+  "config": "cell_concurrent_py_hotpot_b16",
+  "query_id": "q002",
+  "label": "cell_concurrent_py_hotpot_b16",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "f9d8717de4c53d21c07867e52ea22c43",
+      "span_id": "72e18ecf021688f2",
+      "parent_id": null,
+      "start_ns": 1777183002737518000,
+      "end_ns": 1777183014092643000,
+      "wall_time_ms": 11355.125,
+      "cpu_time_ms": 13025.354,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b16",
+        "query_id": "q002",
+        "query_text": "In what year did construction begin on the stadium where the 2013 America East Men's Lacrosse Tournament was held?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 16
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "f9d8717de4c53d21c07867e52ea22c43",
+      "span_id": "d0c70732b5606fee",
+      "parent_id": "72e18ecf021688f2",
+      "start_ns": 1777183002737649000,
+      "end_ns": 1777183005241273000,
+      "wall_time_ms": 2503.624,
+      "cpu_time_ms": 888.59,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "6e8ac6dc538b615b",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 727
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "f9d8717de4c53d21c07867e52ea22c43",
+      "span_id": "fab10887d22dc8d6",
+      "parent_id": "72e18ecf021688f2",
+      "start_ns": 1777183005241471000,
+      "end_ns": 1777183008168589000,
+      "wall_time_ms": 2927.118,
+      "cpu_time_ms": 1903.315,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "ba9115e82718c257",
+        "tool.url": "https://en.wikipedia.org/wiki/Talk:2013_America_East_Men's_Lacrosse_Tournament",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "f9d8717de4c53d21c07867e52ea22c43",
+      "span_id": "fe04fae0bc7c0a14",
+      "parent_id": "72e18ecf021688f2",
+      "start_ns": 1777183008168719000,
+      "end_ns": 1777183009547912000,
+      "wall_time_ms": 1379.193,
+      "cpu_time_ms": 1587.155,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "126938581d3dfbd1",
+        "tool.url": "https://www.newsday.com/sports/college/stony-brook-to-host-america-east-men-s-lacrosse-tourney-r97295",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 877
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "f9d8717de4c53d21c07867e52ea22c43",
+      "span_id": "44bf318341c839ee",
+      "parent_id": "72e18ecf021688f2",
+      "start_ns": 1777183009548166000,
+      "end_ns": 1777183011316482000,
+      "wall_time_ms": 1768.316,
+      "cpu_time_ms": 3180.608,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "87e432c7680520c2",
+        "tool.url": "https://mgoblue.com/news/2026/4/22/mens-lacrosse-michigan-to-travel-to-ohio-state-for-big-ten-tournament-quarterfinal",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 3141
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "f9d8717de4c53d21c07867e52ea22c43",
+      "span_id": "9b5cbb43c12462ab",
+      "parent_id": "72e18ecf021688f2",
+      "start_ns": 1777183011370440000,
+      "end_ns": 1777183011556668000,
+      "wall_time_ms": 186.228,
+      "cpu_time_ms": 435.954,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "f45be16a1a949ab0",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 7,
+        "tool.output_size_bytes": 253
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "f9d8717de4c53d21c07867e52ea22c43",
+      "span_id": "47a3cfe99792e4ac",
+      "parent_id": "72e18ecf021688f2",
+      "start_ns": 1777183011558259000,
+      "end_ns": 1777183011708995000,
+      "wall_time_ms": 150.736,
+      "cpu_time_ms": 487.775,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "ed47f0e1afa42228",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 28,
+        "tool.output_size_bytes": 195
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "f9d8717de4c53d21c07867e52ea22c43",
+      "span_id": "8db9b6799c62a11a",
+      "parent_id": "72e18ecf021688f2",
+      "start_ns": 1777183011710235000,
+      "end_ns": 1777183014092540000,
+      "wall_time_ms": 2382.305,
+      "cpu_time_ms": 4408.769,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 147,
+        "llm.output_tokens": 96,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

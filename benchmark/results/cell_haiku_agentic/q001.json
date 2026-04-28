@@ -1,0 +1,137 @@
+{
+  "trace_id": "9ac54d6670bfa83361173d02eb5b69e6",
+  "config": "haiku_custom",
+  "query_id": "q001",
+  "label": "cell_haiku_custom",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "9ac54d6670bfa83361173d02eb5b69e6",
+      "span_id": "bea311d08d93543e",
+      "parent_id": null,
+      "start_ns": 1777073232790081000,
+      "end_ns": 1777073253763450000,
+      "wall_time_ms": 20973.369,
+      "cpu_time_ms": 1265.786,
+      "kind": "root",
+      "attrs": {
+        "config": "haiku_custom",
+        "query_id": "q001",
+        "query_text": "Who was the first elected female Governor of Massachusetts?",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.max_turns": -1
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "9ac54d6670bfa83361173d02eb5b69e6",
+      "span_id": "eb432ec901fc7390",
+      "parent_id": "bea311d08d93543e",
+      "start_ns": 1777073232790349000,
+      "end_ns": 1777073233544692000,
+      "wall_time_ms": 754.343,
+      "cpu_time_ms": 15.347,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 819,
+        "llm.output_tokens": 73,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "9ac54d6670bfa83361173d02eb5b69e6",
+      "span_id": "821a994652faea7f",
+      "parent_id": "bea311d08d93543e",
+      "start_ns": 1777073233545110000,
+      "end_ns": 1777073240032445000,
+      "wall_time_ms": 6487.335,
+      "cpu_time_ms": 466.773,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "877c697faa09a37a",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 975
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "9ac54d6670bfa83361173d02eb5b69e6",
+      "span_id": "081b3c7f95123b35",
+      "parent_id": "bea311d08d93543e",
+      "start_ns": 1777073245036487000,
+      "end_ns": 1777073246035156000,
+      "wall_time_ms": 998.669,
+      "cpu_time_ms": 25.516,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1268,
+        "llm.output_tokens": 99,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "9ac54d6670bfa83361173d02eb5b69e6",
+      "span_id": "6c4bad4e7e169753",
+      "parent_id": "bea311d08d93543e",
+      "start_ns": 1777073246035463000,
+      "end_ns": 1777073247509040000,
+      "wall_time_ms": 1473.577,
+      "cpu_time_ms": 736.177,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "32e1ed7ece86d230",
+        "tool.url": "https://www.npr.org/2022/11/08/1134199246/massachusetts-governor-results-maura-healey",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 1796
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "9ac54d6670bfa83361173d02eb5b69e6",
+      "span_id": "fefcae6da47d6a06",
+      "parent_id": "bea311d08d93543e",
+      "start_ns": 1777073252514638000,
+      "end_ns": 1777073253763379000,
+      "wall_time_ms": 1248.741,
+      "cpu_time_ms": 20.019,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1765,
+        "llm.output_tokens": 88,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

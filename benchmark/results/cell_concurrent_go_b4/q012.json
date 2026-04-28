@@ -1,0 +1,76 @@
+{
+  "config": "cell_concurrent_go_b4",
+  "label": "cell_concurrent_go_b4",
+  "query_id": "q012",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 4,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 0,
+        "agent.num_urls_fetched": 0,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b4",
+        "query_id": "q012",
+        "query_text": "Which drama series won the most recent Primetime Emmy Award for Outstanding Drama Series?"
+      },
+      "cpu_time_ms": 2930.744,
+      "end_ns": 1777167518924334000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "dca742ac2ae6589b",
+      "start_ns": 1777167515993590000,
+      "status": "ok",
+      "trace_id": "5d23d68d1ad77c10d59f0648fe118961",
+      "wall_time_ms": 2930.744
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "e4dfccfe8445ac51",
+        "tool.name": "ddg",
+        "tool.num_results": 0,
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3
+      },
+      "cpu_time_ms": 2057.097,
+      "end_ns": 1777167518050695000,
+      "error": "ddg status 403",
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "dca742ac2ae6589b",
+      "span_id": "8eb8b8d4540842ae",
+      "start_ns": 1777167515993599000,
+      "status": "error",
+      "trace_id": "5d23d68d1ad77c10d59f0648fe118961",
+      "wall_time_ms": 2057.096
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 32,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 56,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 873.559,
+      "end_ns": 1777167518924327000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "dca742ac2ae6589b",
+      "span_id": "179f1199eeef2694",
+      "start_ns": 1777167518050769000,
+      "status": "ok",
+      "trace_id": "5d23d68d1ad77c10d59f0648fe118961",
+      "wall_time_ms": 873.558
+    }
+  ],
+  "trace_id": "5d23d68d1ad77c10d59f0648fe118961"
+}

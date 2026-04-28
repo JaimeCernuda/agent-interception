@@ -1,0 +1,201 @@
+{
+  "trace_id": "b5f93e6320215990fbee10ad900c5948",
+  "config": "cell_concurrent_py_hotpot_b64",
+  "query_id": "q003",
+  "label": "cell_concurrent_py_hotpot_b64",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "b5f93e6320215990fbee10ad900c5948",
+      "span_id": "82c8a1286024ca13",
+      "parent_id": null,
+      "start_ns": 1777183067255804000,
+      "end_ns": 1777183087258445000,
+      "wall_time_ms": 20002.641,
+      "cpu_time_ms": 24905.305,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b64",
+        "query_id": "q003",
+        "query_text": "What type of profession does Alexandra David-N\u00e9el and Jack Kerouac have in common?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 64
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "b5f93e6320215990fbee10ad900c5948",
+      "span_id": "1a0fe909089203f1",
+      "parent_id": "82c8a1286024ca13",
+      "start_ns": 1777183067255974000,
+      "end_ns": 1777183072013482000,
+      "wall_time_ms": 4757.508,
+      "cpu_time_ms": 1854.989,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "5dd8e8b8540a4c80",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 701
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "b5f93e6320215990fbee10ad900c5948",
+      "span_id": "53d4f8a84f41d539",
+      "parent_id": "82c8a1286024ca13",
+      "start_ns": 1777183072013723000,
+      "end_ns": 1777183075989295000,
+      "wall_time_ms": 3975.572,
+      "cpu_time_ms": 6440.042,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "8652a7de8d8c0736",
+        "tool.url": "https://en.wikipedia.org/wiki/Jack_Kerouac",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "b5f93e6320215990fbee10ad900c5948",
+      "span_id": "22844a4f5b5a2c06",
+      "parent_id": "82c8a1286024ca13",
+      "start_ns": 1777183075989502000,
+      "end_ns": 1777183078137933000,
+      "wall_time_ms": 2148.431,
+      "cpu_time_ms": 4475.448,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "91a981567d9d52cf",
+        "tool.url": "https://www.biography.com/authors-writers/jack-kerouac",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 10599
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "b5f93e6320215990fbee10ad900c5948",
+      "span_id": "e0391fdc6b95cfc5",
+      "parent_id": "82c8a1286024ca13",
+      "start_ns": 1777183078138136000,
+      "end_ns": 1777183082890647000,
+      "wall_time_ms": 4752.511,
+      "cpu_time_ms": 7277.103,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "7223130d415e3299",
+        "tool.url": "https://www.patheos.com/blogs/monkeymind/2025/10/recalling-the-astonishing-alexandra-david-neel.html",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "b5f93e6320215990fbee10ad900c5948",
+      "span_id": "3f4ae1ebc19e0dd7",
+      "parent_id": "82c8a1286024ca13",
+      "start_ns": 1777183082890851000,
+      "end_ns": 1777183085090255000,
+      "wall_time_ms": 2199.404,
+      "cpu_time_ms": 3455.115,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "09d0fa2155192e89",
+        "tool.url": "https://mx.pinterest.com/gregoirejacques777/\u00e9sot\u00e9risme-et-religions-alexandra-david-n\u00e9el/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 1015
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "b5f93e6320215990fbee10ad900c5948",
+      "span_id": "1ff85279a75a37d6",
+      "parent_id": "82c8a1286024ca13",
+      "start_ns": 1777183085090583000,
+      "end_ns": 1777183085309215000,
+      "wall_time_ms": 218.632,
+      "cpu_time_ms": 335.02,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "8b5a99e599159954",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 68,
+        "tool.output_size_bytes": 423
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "b5f93e6320215990fbee10ad900c5948",
+      "span_id": "f76a0de3189b0809",
+      "parent_id": "82c8a1286024ca13",
+      "start_ns": 1777183085310343000,
+      "end_ns": 1777183085385131000,
+      "wall_time_ms": 74.788,
+      "cpu_time_ms": 112.864,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "35ae8f4f8c2b7348",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 9,
+        "tool.output_size_bytes": 93
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "b5f93e6320215990fbee10ad900c5948",
+      "span_id": "3071f18f451b1186",
+      "parent_id": "82c8a1286024ca13",
+      "start_ns": 1777183085386172000,
+      "end_ns": 1777183087258303000,
+      "wall_time_ms": 1872.131,
+      "cpu_time_ms": 950.571,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 164,
+        "llm.output_tokens": 67,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

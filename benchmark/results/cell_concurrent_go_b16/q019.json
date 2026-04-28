@@ -1,0 +1,76 @@
+{
+  "config": "cell_concurrent_go_b16",
+  "label": "cell_concurrent_go_b16",
+  "query_id": "q019",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 16,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 0,
+        "agent.num_urls_fetched": 0,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b16",
+        "query_id": "q019",
+        "query_text": "Who posted the most-liked Instagram post last year?"
+      },
+      "cpu_time_ms": 3116.12,
+      "end_ns": 1777167604584946000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "db123841a86a1fdd",
+      "start_ns": 1777167601468826000,
+      "status": "ok",
+      "trace_id": "8e68110a85d8a384409aeaf7282ec2af",
+      "wall_time_ms": 3116.12
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "36273eee9807a55b",
+        "tool.name": "ddg",
+        "tool.num_results": 0,
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3
+      },
+      "cpu_time_ms": 2065.809,
+      "end_ns": 1777167603534642000,
+      "error": "ddg status 403",
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "db123841a86a1fdd",
+      "span_id": "c5355a6452704442",
+      "start_ns": 1777167601468833000,
+      "status": "error",
+      "trace_id": "8e68110a85d8a384409aeaf7282ec2af",
+      "wall_time_ms": 2065.809
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 26,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 53,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1050.223,
+      "end_ns": 1777167604584934000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "db123841a86a1fdd",
+      "span_id": "6df81453d6aadd98",
+      "start_ns": 1777167603534712000,
+      "status": "ok",
+      "trace_id": "8e68110a85d8a384409aeaf7282ec2af",
+      "wall_time_ms": 1050.222
+    }
+  ],
+  "trace_id": "8e68110a85d8a384409aeaf7282ec2af"
+}

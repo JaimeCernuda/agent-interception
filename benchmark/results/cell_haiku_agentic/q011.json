@@ -1,0 +1,222 @@
+{
+  "trace_id": "e149b2ccd0e96b899abda24dab7e5521",
+  "config": "haiku_custom",
+  "query_id": "q011",
+  "label": "cell_haiku_custom",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "e149b2ccd0e96b899abda24dab7e5521",
+      "span_id": "10a41bff7dc34ae1",
+      "parent_id": null,
+      "start_ns": 1777073542635173000,
+      "end_ns": 1777073578227027000,
+      "wall_time_ms": 35591.854,
+      "cpu_time_ms": 480.985,
+      "kind": "root",
+      "attrs": {
+        "config": "haiku_custom",
+        "query_id": "q011",
+        "query_text": "What is the youngest age eligible for COVID-19 vaccination in the United States?",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.max_turns": -1
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "e149b2ccd0e96b899abda24dab7e5521",
+      "span_id": "bbedb496625c0e41",
+      "parent_id": "10a41bff7dc34ae1",
+      "start_ns": 1777073542635275000,
+      "end_ns": 1777073543402694000,
+      "wall_time_ms": 767.419,
+      "cpu_time_ms": 9.499,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 826,
+        "llm.output_tokens": 86,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "e149b2ccd0e96b899abda24dab7e5521",
+      "span_id": "e122fb9f7778c66c",
+      "parent_id": "10a41bff7dc34ae1",
+      "start_ns": 1777073543402889000,
+      "end_ns": 1777073546916894000,
+      "wall_time_ms": 3514.005,
+      "cpu_time_ms": 45.406,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "7eac0c034fb91936",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 1044
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "e149b2ccd0e96b899abda24dab7e5521",
+      "span_id": "b86f9ac1e6e6fbcb",
+      "parent_id": "10a41bff7dc34ae1",
+      "start_ns": 1777073551919779000,
+      "end_ns": 1777073553343390000,
+      "wall_time_ms": 1423.611,
+      "cpu_time_ms": 15.497,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1342,
+        "llm.output_tokens": 92,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "e149b2ccd0e96b899abda24dab7e5521",
+      "span_id": "0f2f369a529d5884",
+      "parent_id": "10a41bff7dc34ae1",
+      "start_ns": 1777073553343551000,
+      "end_ns": 1777073556707109000,
+      "wall_time_ms": 3363.558,
+      "cpu_time_ms": 140.72,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "c14dc045f6fa32ee",
+        "tool.url": "https://www.cdc.gov/vaccines/hcp/imz-schedules/child-adolescent-age.html",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 2298
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "e149b2ccd0e96b899abda24dab7e5521",
+      "span_id": "a3342dd08d566903",
+      "parent_id": "10a41bff7dc34ae1",
+      "start_ns": 1777073561711738000,
+      "end_ns": 1777073562662208000,
+      "wall_time_ms": 950.47,
+      "cpu_time_ms": 25.552,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1989,
+        "llm.output_tokens": 87,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "e149b2ccd0e96b899abda24dab7e5521",
+      "span_id": "66aed52a9e3b081e",
+      "parent_id": "10a41bff7dc34ae1",
+      "start_ns": 1777073562662406000,
+      "end_ns": 1777073564534095000,
+      "wall_time_ms": 1871.689,
+      "cpu_time_ms": 22.545,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "754f019297f443f6",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 910
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "e149b2ccd0e96b899abda24dab7e5521",
+      "span_id": "97072dd6162b1f9e",
+      "parent_id": "10a41bff7dc34ae1",
+      "start_ns": 1777073569539588000,
+      "end_ns": 1777073570550651000,
+      "wall_time_ms": 1011.063,
+      "cpu_time_ms": 24.925,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 2461,
+        "llm.output_tokens": 108,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "e149b2ccd0e96b899abda24dab7e5521",
+      "span_id": "3ce67bc3988d1c3e",
+      "parent_id": "10a41bff7dc34ae1",
+      "start_ns": 1777073570551147000,
+      "end_ns": 1777073571265869000,
+      "wall_time_ms": 714.722,
+      "cpu_time_ms": 168.346,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "23ee8b520e4730f6",
+        "tool.url": "https://www.cdc.gov/acip/evidence-to-recommendations/covid-19-2024-2025-6-months-and-older-etr.html",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 20162
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "e149b2ccd0e96b899abda24dab7e5521",
+      "span_id": "3272a4e8d4736725",
+      "parent_id": "10a41bff7dc34ae1",
+      "start_ns": 1777073576266612000,
+      "end_ns": 1777073578226972000,
+      "wall_time_ms": 1960.36,
+      "cpu_time_ms": 26.828,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 8289,
+        "llm.output_tokens": 131,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

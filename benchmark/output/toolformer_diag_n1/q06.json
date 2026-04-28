@@ -1,0 +1,181 @@
+{
+  "trace_id": "ac06c0056709157e8d83239ad15b0c72",
+  "config": "toolformer_py",
+  "query_id": "q06",
+  "label": "two_op",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "ac06c0056709157e8d83239ad15b0c72",
+      "span_id": "9eb449c998c76707",
+      "parent_id": null,
+      "start_ns": 1777405668774542000,
+      "end_ns": 1777405686251460000,
+      "wall_time_ms": 17476.918,
+      "cpu_time_ms": 57.384,
+      "kind": "root",
+      "attrs": {
+        "config": "toolformer_py",
+        "query_id": "q06",
+        "query_text": "Sam invited 9 friends to a birthday party, but 6 couldn't come. If he wanted to buy enough cupcakes so each person could have exactly 2, how many should he buy?",
+        "agent.num_turns": 4,
+        "agent.total_input_tokens": 26,
+        "agent.total_output_tokens": 575,
+        "agent.total_cost_usd": 0.021430700000000004,
+        "agent.duration_ms": 10526.0,
+        "agent.duration_api_ms": 11810.0,
+        "agent.is_error": false,
+        "agent.truncated": false,
+        "agent.num_tool_calls": 3,
+        "agent.cpu_time_ms": 57.38799999999969
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "ac06c0056709157e8d83239ad15b0c72",
+      "span_id": "791085bf79f94d9d",
+      "parent_id": "9eb449c998c76707",
+      "start_ns": 1777405668774583000,
+      "end_ns": 1777405679852346000,
+      "wall_time_ms": 11077.763,
+      "cpu_time_ms": 19.479,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 0,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "ac06c0056709157e8d83239ad15b0c72",
+      "span_id": "5cd72ba55b8c12ba",
+      "parent_id": "9eb449c998c76707",
+      "start_ns": 1777405679859421000,
+      "end_ns": 1777405679860121000,
+      "wall_time_ms": 0.7,
+      "cpu_time_ms": 1.18,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "725c4c6896b49eae",
+        "expression": "9 - 6",
+        "result": 3.0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "ac06c0056709157e8d83239ad15b0c72",
+      "span_id": "4a9fd95174236b39",
+      "parent_id": "9eb449c998c76707",
+      "start_ns": 1777405679933872000,
+      "end_ns": 1777405679934506000,
+      "wall_time_ms": 0.634,
+      "cpu_time_ms": 0.45,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 1,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "ac06c0056709157e8d83239ad15b0c72",
+      "span_id": "862186ccb49329f4",
+      "parent_id": "9eb449c998c76707",
+      "start_ns": 1777405679937598000,
+      "end_ns": 1777405679937828000,
+      "wall_time_ms": 0.23,
+      "cpu_time_ms": 0.316,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "e11a095b9a393e0c",
+        "expression": "(9 - 6) + 1",
+        "result": 4.0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "ac06c0056709157e8d83239ad15b0c72",
+      "span_id": "667401c31192569e",
+      "parent_id": "9eb449c998c76707",
+      "start_ns": 1777405679965602000,
+      "end_ns": 1777405682869169000,
+      "wall_time_ms": 2903.567,
+      "cpu_time_ms": 1.337,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 2,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "ac06c0056709157e8d83239ad15b0c72",
+      "span_id": "c43fe901590820f9",
+      "parent_id": "9eb449c998c76707",
+      "start_ns": 1777405682892150000,
+      "end_ns": 1777405682892323000,
+      "wall_time_ms": 0.173,
+      "cpu_time_ms": 0.235,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "20c845cd6900fcd7",
+        "expression": "4 * 2",
+        "result": 8.0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "ac06c0056709157e8d83239ad15b0c72",
+      "span_id": "be7cfe57c77c2999",
+      "parent_id": "9eb449c998c76707",
+      "start_ns": 1777405682897019000,
+      "end_ns": 1777405685685855000,
+      "wall_time_ms": 2788.836,
+      "cpu_time_ms": 1.028,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 3,
+        "llm.has_tool_use": false,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

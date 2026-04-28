@@ -1,0 +1,243 @@
+{
+  "trace_id": "e0d16236367767ba22a17f3257dc7e36",
+  "config": "cell_concurrent_py_hotpot_b16",
+  "query_id": "q009",
+  "label": "cell_concurrent_py_hotpot_b16",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "e0d16236367767ba22a17f3257dc7e36",
+      "span_id": "b76fa48b13066670",
+      "parent_id": null,
+      "start_ns": 1777183002736883000,
+      "end_ns": 1777183029060135000,
+      "wall_time_ms": 26323.252,
+      "cpu_time_ms": 27405.046,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b16",
+        "query_id": "q009",
+        "query_text": "Which genus has more species in it, Othonna or Stangeria?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 16
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "e0d16236367767ba22a17f3257dc7e36",
+      "span_id": "4199104f2c333a82",
+      "parent_id": "b76fa48b13066670",
+      "start_ns": 1777183002737059000,
+      "end_ns": 1777183007543596000,
+      "wall_time_ms": 4806.537,
+      "cpu_time_ms": 2089.018,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "06fe343f70a48871",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 613
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "e0d16236367767ba22a17f3257dc7e36",
+      "span_id": "e2735c9704ea309c",
+      "parent_id": "b76fa48b13066670",
+      "start_ns": 1777183007543848000,
+      "end_ns": 1777183010453112000,
+      "wall_time_ms": 2909.264,
+      "cpu_time_ms": 3744.09,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "6c8034511b7609fd",
+        "tool.url": "https://en.wikipedia.org/wiki/Othonna",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "e0d16236367767ba22a17f3257dc7e36",
+      "span_id": "042ba73ffcb2d5d9",
+      "parent_id": "b76fa48b13066670",
+      "start_ns": 1777183010453294000,
+      "end_ns": 1777183013575894000,
+      "wall_time_ms": 3122.6,
+      "cpu_time_ms": 5817.532,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "8dd54da68b0d93e8",
+        "tool.url": "https://en.wikipedia.org/wiki/Stangeria",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "e0d16236367767ba22a17f3257dc7e36",
+      "span_id": "5a5b89ce47ed043c",
+      "parent_id": "b76fa48b13066670",
+      "start_ns": 1777183013576048000,
+      "end_ns": 1777183017405564000,
+      "wall_time_ms": 3829.516,
+      "cpu_time_ms": 6339.094,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "d2b161522f7a8608",
+        "tool.url": "https://www.gbif.org/species/165750265",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "e0d16236367767ba22a17f3257dc7e36",
+      "span_id": "80395c8a31602553",
+      "parent_id": "b76fa48b13066670",
+      "start_ns": 1777183017405699000,
+      "end_ns": 1777183019013111000,
+      "wall_time_ms": 1607.412,
+      "cpu_time_ms": 932.055,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "f4a2b9b72424109b",
+        "tool.url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:10329-1",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 356
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "e0d16236367767ba22a17f3257dc7e36",
+      "span_id": "55f690313c453b87",
+      "parent_id": "b76fa48b13066670",
+      "start_ns": 1777183019013258000,
+      "end_ns": 1777183025090211000,
+      "wall_time_ms": 6076.953,
+      "cpu_time_ms": 4678.814,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "07b6b1d78efb977a",
+        "tool.url": "https://www.sciencedirect.com/science/article/pii/S0254629925000043",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "e0d16236367767ba22a17f3257dc7e36",
+      "span_id": "987bff726a1d7b5c",
+      "parent_id": "b76fa48b13066670",
+      "start_ns": 1777183025090411000,
+      "end_ns": 1777183027083181000,
+      "wall_time_ms": 1992.77,
+      "cpu_time_ms": 1649.815,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "c4e47d5c409981c3",
+        "tool.url": "https://www.biodiversityexplorer.info/plants/asteraceae/othonna.htm",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 4221
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "e0d16236367767ba22a17f3257dc7e36",
+      "span_id": "32a75fde4521facf",
+      "parent_id": "b76fa48b13066670",
+      "start_ns": 1777183027083320000,
+      "end_ns": 1777183027135992000,
+      "wall_time_ms": 52.672,
+      "cpu_time_ms": 54.612,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "ae8b07254697ad11",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 3,
+        "tool.output_size_bytes": 143
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "e0d16236367767ba22a17f3257dc7e36",
+      "span_id": "b78a988f820bba6c",
+      "parent_id": "b76fa48b13066670",
+      "start_ns": 1777183027136722000,
+      "end_ns": 1777183027200448000,
+      "wall_time_ms": 63.726,
+      "cpu_time_ms": 66.611,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "261f4de6f41491ca",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 22,
+        "tool.output_size_bytes": 564
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "e0d16236367767ba22a17f3257dc7e36",
+      "span_id": "71c86914f8c63481",
+      "parent_id": "b76fa48b13066670",
+      "start_ns": 1777183027201306000,
+      "end_ns": 1777183029059941000,
+      "wall_time_ms": 1858.635,
+      "cpu_time_ms": 2029.236,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 269,
+        "llm.output_tokens": 83,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

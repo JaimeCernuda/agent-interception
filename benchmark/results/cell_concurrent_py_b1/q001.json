@@ -1,0 +1,180 @@
+{
+  "trace_id": "0cba81f39cb11772a4a25f6e5226c8b0",
+  "config": "cell_concurrent_py_b1",
+  "query_id": "q001",
+  "label": "cell_concurrent_py_b1",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "0cba81f39cb11772a4a25f6e5226c8b0",
+      "span_id": "0cc146f80f85891c",
+      "parent_id": null,
+      "start_ns": 1777166933835025000,
+      "end_ns": 1777166947949788000,
+      "wall_time_ms": 14114.763,
+      "cpu_time_ms": 1931.828,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b1",
+        "query_id": "q001",
+        "query_text": "Who was the first elected female Governor of Massachusetts?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 1
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "0cba81f39cb11772a4a25f6e5226c8b0",
+      "span_id": "a414e8094082807c",
+      "parent_id": "0cc146f80f85891c",
+      "start_ns": 1777166933835221000,
+      "end_ns": 1777166936666613000,
+      "wall_time_ms": 2831.392,
+      "cpu_time_ms": 444.238,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "3f3a27b6adccb45c",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 915
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "0cba81f39cb11772a4a25f6e5226c8b0",
+      "span_id": "6abd95c9d0ec4b46",
+      "parent_id": "0cc146f80f85891c",
+      "start_ns": 1777166936666801000,
+      "end_ns": 1777166939540885000,
+      "wall_time_ms": 2874.084,
+      "cpu_time_ms": 198.345,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "07bc91c3a5d64796",
+        "tool.url": "https://en.wikipedia.org/wiki/List_of_female_governors_in_the_United_States",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "0cba81f39cb11772a4a25f6e5226c8b0",
+      "span_id": "05c6b23793e41f77",
+      "parent_id": "0cc146f80f85891c",
+      "start_ns": 1777166939541103000,
+      "end_ns": 1777166943017539000,
+      "wall_time_ms": 3476.436,
+      "cpu_time_ms": 751.849,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "31c86a7820d186e1",
+        "tool.url": "https://www.bostonglobe.com/2023/01/05/metro/first-woman-lgbtq-governor-mass-maura-healeys-inauguration-is-more-than-just-history-lesson/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 7574
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "0cba81f39cb11772a4a25f6e5226c8b0",
+      "span_id": "3db977527fc97f14",
+      "parent_id": "0cc146f80f85891c",
+      "start_ns": 1777166943017686000,
+      "end_ns": 1777166944943840000,
+      "wall_time_ms": 1926.154,
+      "cpu_time_ms": 108.578,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "1abe8056243ca578",
+        "tool.url": "https://www.willistonian.org/crossing-the-divide-women-gain-ground-in-massachusetts-politics/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 2945
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "0cba81f39cb11772a4a25f6e5226c8b0",
+      "span_id": "e514a3f91d90c13b",
+      "parent_id": "0cc146f80f85891c",
+      "start_ns": 1777166944990590000,
+      "end_ns": 1777166945266357000,
+      "wall_time_ms": 275.767,
+      "cpu_time_ms": 259.483,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "4e5e1a785870ca94",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 59,
+        "tool.output_size_bytes": 207
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "0cba81f39cb11772a4a25f6e5226c8b0",
+      "span_id": "bca7b4b4d38a7c7d",
+      "parent_id": "0cc146f80f85891c",
+      "start_ns": 1777166945267206000,
+      "end_ns": 1777166945325079000,
+      "wall_time_ms": 57.873,
+      "cpu_time_ms": 56.527,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "f5cf5a64d0a4a528",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 16,
+        "tool.output_size_bytes": 355
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "0cba81f39cb11772a4a25f6e5226c8b0",
+      "span_id": "c7993ef33d121f06",
+      "parent_id": "0cc146f80f85891c",
+      "start_ns": 1777166945326386000,
+      "end_ns": 1777166947949593000,
+      "wall_time_ms": 2623.207,
+      "cpu_time_ms": 78.471,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 160,
+        "llm.output_tokens": 97,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

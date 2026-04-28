@@ -1,0 +1,44 @@
+{
+  "trace_id": "9b1f4ae5c358c4e4316ede56b59e96ad",
+  "config": "cell_concurrent_py_hotpot_b64_static",
+  "query_id": "q019",
+  "label": "cell_concurrent_py_hotpot_b64_static",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "9b1f4ae5c358c4e4316ede56b59e96ad",
+      "span_id": "c3747dff2fc7aceb",
+      "parent_id": null,
+      "start_ns": 1777183121952856000,
+      "end_ns": 1777183122024376000,
+      "wall_time_ms": 71.52,
+      "cpu_time_ms": 62.669,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b64_static",
+        "query_id": "q019",
+        "query_text": "Do D-A-D and G\u00e2ndul M\u00e2\u021bei play the same style of rock music?"
+      },
+      "status": "error",
+      "error": "RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q019. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls()."
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "9b1f4ae5c358c4e4316ede56b59e96ad",
+      "span_id": "daaad5566b80c5f5",
+      "parent_id": "c3747dff2fc7aceb",
+      "start_ns": 1777183121952968000,
+      "end_ns": 1777183121984957000,
+      "wall_time_ms": 31.989,
+      "cpu_time_ms": 0.9,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "static",
+        "tool.input_hash": "9e7ba2e500402fd0",
+        "tool.retry_count": 0
+      },
+      "status": "error",
+      "error": "RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q019. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls()."
+    }
+  ]
+}

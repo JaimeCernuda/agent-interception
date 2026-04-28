@@ -1,0 +1,9 @@
+v1 schema folds Go's ~1600 ms of retry-wait inside the llm.generate span, making Go appear ~1.30x slower than Py on LLM time. v2 schema separates retry-wait into a sibling span and reveals the LLM calls are essentially tied (~1.02x). The framework improved its own measurement by changing only the span schema; agent code was unchanged.
+
+Means computed over n=20 queries per config (full FreshQA-20 subset). Of these, n=18 queries had zero retries on either configuration; including the retry-heavy queries makes the v1-vs-v2 gap larger but the qualitative story is unchanged.
+
+tool.summarize is absent from this workload because the model did not invoke summarization in any of the 40 sweep runs that produced this figure (20 Py + 20 Go); the instrumentation supports the stage but the data does not exercise it. The stage is retained in the legend for completeness.
+
+Per-config v2 means (ms):
+  go: llm=4911, tool.search=0, tool.fetch=956, tool.summarize=0, retry_wait=1600
+  py: llm=5004, tool.search=0, tool.fetch=842, tool.summarize=0, retry_wait=0

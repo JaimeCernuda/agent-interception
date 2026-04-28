@@ -1,0 +1,222 @@
+{
+  "trace_id": "6edd09a52f05e648e29fab96149a3417",
+  "config": "cell_concurrent_py_hotpot_b4",
+  "query_id": "q006",
+  "label": "cell_concurrent_py_hotpot_b4",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "6edd09a52f05e648e29fab96149a3417",
+      "span_id": "c3bd39a2c72eb4d4",
+      "parent_id": null,
+      "start_ns": 1777182900569207000,
+      "end_ns": 1777182929359877000,
+      "wall_time_ms": 28790.67,
+      "cpu_time_ms": 9125.707,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b4",
+        "query_id": "q006",
+        "query_text": "What is the name of the American author, songwriter, educator, lawyer, diplomat, civil rights activist and husband to Grace Nail Johnson who was the first African American executive secretary of the National Association for the Advancement of Colored People (NAACP)?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 4
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "6edd09a52f05e648e29fab96149a3417",
+      "span_id": "19a03d25754a8dcb",
+      "parent_id": "c3bd39a2c72eb4d4",
+      "start_ns": 1777182900569338000,
+      "end_ns": 1777182907872741000,
+      "wall_time_ms": 7303.403,
+      "cpu_time_ms": 1425.05,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "c84379d8ba05575d",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 528
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "6edd09a52f05e648e29fab96149a3417",
+      "span_id": "a2d2c2e69478ee8d",
+      "parent_id": "c3bd39a2c72eb4d4",
+      "start_ns": 1777182907873012000,
+      "end_ns": 1777182911208323000,
+      "wall_time_ms": 3335.311,
+      "cpu_time_ms": 538.303,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "d91ab9d086ce2e73",
+        "tool.url": "https://en.wikipedia.org/wiki/James_Weldon_Johnson",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "6edd09a52f05e648e29fab96149a3417",
+      "span_id": "4309e3dceb7e1d4a",
+      "parent_id": "c3bd39a2c72eb4d4",
+      "start_ns": 1777182911208467000,
+      "end_ns": 1777182914349525000,
+      "wall_time_ms": 3141.058,
+      "cpu_time_ms": 1124.843,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "b63ccde5043e87be",
+        "tool.url": "https://en.wikipedia.org/wiki/Warren_(name)",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "6edd09a52f05e648e29fab96149a3417",
+      "span_id": "597c02287d4038cf",
+      "parent_id": "c3bd39a2c72eb4d4",
+      "start_ns": 1777182914349654000,
+      "end_ns": 1777182918536902000,
+      "wall_time_ms": 4187.248,
+      "cpu_time_ms": 1066.01,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "17fbeb77e0f9450d",
+        "tool.url": "https://pennyspoetry.fandom.com/wiki/James_Weldon_Johnson",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "6edd09a52f05e648e29fab96149a3417",
+      "span_id": "1c1b3673884cfcc4",
+      "parent_id": "c3bd39a2c72eb4d4",
+      "start_ns": 1777182918537081000,
+      "end_ns": 1777182922637988000,
+      "wall_time_ms": 4100.907,
+      "cpu_time_ms": 811.247,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "e44b90fa5120cd17",
+        "tool.url": "https://thestickyfacts.com/james-weldon-johnson-facts/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 1210
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "6edd09a52f05e648e29fab96149a3417",
+      "span_id": "008caddfc39eebc5",
+      "parent_id": "c3bd39a2c72eb4d4",
+      "start_ns": 1777182922638188000,
+      "end_ns": 1777182923963132000,
+      "wall_time_ms": 1324.944,
+      "cpu_time_ms": 443.441,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "ad82098953a4df2b",
+        "tool.url": "https://omnaacp.org/civil-rights-leaders",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 50959
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "6edd09a52f05e648e29fab96149a3417",
+      "span_id": "ec08487295fe9892",
+      "parent_id": "c3bd39a2c72eb4d4",
+      "start_ns": 1777182923963281000,
+      "end_ns": 1777182924016050000,
+      "wall_time_ms": 52.769,
+      "cpu_time_ms": 52.734,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "9141027489aff10a",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 12,
+        "tool.output_size_bytes": 55
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "6edd09a52f05e648e29fab96149a3417",
+      "span_id": "59c00d0eddb7c876",
+      "parent_id": "c3bd39a2c72eb4d4",
+      "start_ns": 1777182924017009000,
+      "end_ns": 1777182926942789000,
+      "wall_time_ms": 2925.78,
+      "cpu_time_ms": 3286.999,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "36d9e91cc7fe348d",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 354,
+        "tool.output_size_bytes": 391
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "6edd09a52f05e648e29fab96149a3417",
+      "span_id": "1e7ef10f5f63b4ca",
+      "parent_id": "c3bd39a2c72eb4d4",
+      "start_ns": 1777182926943762000,
+      "end_ns": 1777182929359783000,
+      "wall_time_ms": 2416.021,
+      "cpu_time_ms": 373.998,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 171,
+        "llm.output_tokens": 82,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "dataset": "ChemCrow molecule weight class (Phase 1)",
+  "source": "Curated for thesis reproduction of Raj et al. arXiv:2511.00739 Figure 2e",
+  "selection_seed": 42,
+  "stratification": {
+    "medium": 10,
+    "heavy": 10
+  },
+  "molecule_size_definitions": {
+    "medium": "12-25 heavy atoms (RDKit-counted)",
+    "heavy": "50+ heavy atoms (RDKit-counted)"
+  },
+  "query_template": "What is the 3D structure and key molecular descriptors of {NAME}? Look up the molecule, generate a 3D conformer, and report molecular weight, logP, TPSA, heavy-atom count, and number of rotatable bonds.",
+  "queries": [
+    {
+      "query_id": "q001",
+      "label": "medium",
+      "molecule_name": "aspirin",
+      "query_text": "What is the 3D structure and key molecular descriptors of aspirin? Look up the molecule, generate a 3D conformer, and report molecular weight, logP, TPSA, heavy-atom count, and number of rotatable bonds."
+    },
+    {
+      "query_id": "q002",
+      "label": "medium",
+      "molecule_name": "ibuprofen",
+      "query_text": "What is the 3D structure and key molecular descriptors of ibuprofen? Look up the molecule, generate a 3D conformer, and report molecular weight, logP, TPSA, heavy-atom count, and number of rotatable bonds."
+    },
+    {
+      "query_id": "q003",
+      "label": "medium",
+      "molecule_name": "caffeine",
+      "query_text": "What is the 3D structure and key molecular descriptors of caffeine? Look up the molecule, generate a 3D conformer, and report molecular weight, logP, TPSA, heavy-atom count, and number of rotatable bonds."
+    },
+    {
+      "query_id": "q004",
+      "label": "medium",
+      "molecule_name": "paracetamol",
+      "query_text": "What is the 3D structure and key molecular descriptors of paracetamol? Look up the molecule, generate a 3D conformer, and report molecular weight, logP, TPSA, heavy-atom count, and number of rotatable bonds."
+    },
+    {
+      "query_id": "q005",
+      "label": "medium",
+      "molecule_name": "naproxen",
+      "query_text": "What is the 3D structure and key molecular descriptors of naproxen? Look up the molecule, generate a 3D conformer, and report molecular weight, logP, TPSA, heavy-atom count, and number of rotatable bonds."
+    },
+    {
+      "query_id": "q006",
+      "label": "medium",
+      "molecule_name": "diphenhydramine",
+      "query_text": "What is the 3D structure and key molecular descriptors of diphenhydramine? Look up the molecule, generate a 3D conformer, and report molecular weight, logP, TPSA, heavy-atom count, and number of rotatable bonds."
+    },
+    {
+      "query_id": "q007",
+      "label": "medium",
+      "molecule_name": "lidocaine",
+      "query_text": "What is the 3D structure and key molecular descriptors of lidocaine? Look up the molecule, generate a 3D conformer, and report molecular weight, logP, TPSA, heavy-atom count, and number of rotatable bonds."
+    },
+    {
+      "query_id": "q008",
+      "label": "medium",
+      "molecule_name": "metformin",
+      "query_text": "What is the 3D structure and key molecular descriptors of metformin? Look up the molecule, generate a 3D conformer, and report molecular weight, logP, TPSA, heavy-atom count, and number of rotatable bonds."
+    },
+    {
+      "query_id": "q009",
+      "label": "medium",
+      "molecule_name": "atenolol",
+      "query_text": "What is the 3D structure and key molecular descriptors of atenolol? Look up the molecule, generate a 3D conformer, and report molecular weight, logP, TPSA, heavy-atom count, and number of rotatable bonds."
+    },
+    {
+      "query_id": "q010",
+      "label": "medium",
+      "molecule_name": "propranolol",
+      "query_text": "What is the 3D structure and key molecular descriptors of propranolol? Look up the molecule, generate a 3D conformer, and report molecular weight, logP, TPSA, heavy-atom count, and number of rotatable bonds."
+    },
+    {
+      "query_id": "q011",
+      "label": "heavy",
+      "molecule_name": "paclitaxel",
+      "query_text": "What is the 3D structure and key molecular descriptors of paclitaxel? Look up the molecule, generate a 3D conformer, and report molecular weight, logP, TPSA, heavy-atom count, and number of rotatable bonds."
+    },
+    {
+      "query_id": "q012",
+      "label": "heavy",
+      "molecule_name": "vincristine",
+      "query_text": "What is the 3D structure and key molecular descriptors of vincristine? Look up the molecule, generate a 3D conformer, and report molecular weight, logP, TPSA, heavy-atom count, and number of rotatable bonds."
+    },
+    {
+      "query_id": "q013",
+      "label": "heavy",
+      "molecule_name": "erythromycin",
+      "query_text": "What is the 3D structure and key molecular descriptors of erythromycin? Look up the molecule, generate a 3D conformer, and report molecular weight, logP, TPSA, heavy-atom count, and number of rotatable bonds."
+    },
+    {
+      "query_id": "q014",
+      "label": "heavy",
+      "molecule_name": "cyclosporine",
+      "query_text": "What is the 3D structure and key molecular descriptors of cyclosporine? Look up the molecule, generate a 3D conformer, and report molecular weight, logP, TPSA, heavy-atom count, and number of rotatable bonds."
+    },
+    {
+      "query_id": "q015",
+      "label": "heavy",
+      "molecule_name": "rifampicin",
+      "query_text": "What is the 3D structure and key molecular descriptors of rifampicin? Look up the molecule, generate a 3D conformer, and report molecular weight, logP, TPSA, heavy-atom count, and number of rotatable bonds."
+    },
+    {
+      "query_id": "q016",
+      "label": "heavy",
+      "molecule_name": "amphotericin B",
+      "query_text": "What is the 3D structure and key molecular descriptors of amphotericin B? Look up the molecule, generate a 3D conformer, and report molecular weight, logP, TPSA, heavy-atom count, and number of rotatable bonds."
+    },
+    {
+      "query_id": "q017",
+      "label": "heavy",
+      "molecule_name": "doxorubicin",
+      "query_text": "What is the 3D structure and key molecular descriptors of doxorubicin? Look up the molecule, generate a 3D conformer, and report molecular weight, logP, TPSA, heavy-atom count, and number of rotatable bonds."
+    },
+    {
+      "query_id": "q018",
+      "label": "heavy",
+      "molecule_name": "vancomycin",
+      "query_text": "What is the 3D structure and key molecular descriptors of vancomycin? Look up the molecule, generate a 3D conformer, and report molecular weight, logP, TPSA, heavy-atom count, and number of rotatable bonds."
+    },
+    {
+      "query_id": "q019",
+      "label": "heavy",
+      "molecule_name": "sirolimus",
+      "query_text": "What is the 3D structure and key molecular descriptors of sirolimus? Look up the molecule, generate a 3D conformer, and report molecular weight, logP, TPSA, heavy-atom count, and number of rotatable bonds."
+    },
+    {
+      "query_id": "q020",
+      "label": "heavy",
+      "molecule_name": "tacrolimus",
+      "query_text": "What is the 3D structure and key molecular descriptors of tacrolimus? Look up the molecule, generate a 3D conformer, and report molecular weight, logP, TPSA, heavy-atom count, and number of rotatable bonds."
+    }
+  ]
+}

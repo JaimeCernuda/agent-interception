@@ -1,0 +1,76 @@
+{
+  "config": "cell_concurrent_go_b64",
+  "label": "cell_concurrent_go_b64",
+  "query_id": "q017",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 64,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 0,
+        "agent.num_urls_fetched": 0,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b64",
+        "query_id": "q017",
+        "query_text": "What is the total height of the tallest building in the world?"
+      },
+      "cpu_time_ms": 37248.915,
+      "end_ns": 1777167711541097000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "af1b762532ad1d8b",
+      "start_ns": 1777167674292183000,
+      "status": "ok",
+      "trace_id": "094bd15e3857a306f6c0eefd45247dcb",
+      "wall_time_ms": 37248.914
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "6932b60a8a015e94",
+        "tool.name": "ddg",
+        "tool.num_results": 0,
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3
+      },
+      "cpu_time_ms": 36006.28,
+      "end_ns": 1777167710298469000,
+      "error": "Post \"https://html.duckduckgo.com/html/\": context deadline exceeded",
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "af1b762532ad1d8b",
+      "span_id": "f7d5e6e08af110ee",
+      "start_ns": 1777167674292189000,
+      "status": "error",
+      "trace_id": "094bd15e3857a306f6c0eefd45247dcb",
+      "wall_time_ms": 36006.28
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 29,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 54,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1239.098,
+      "end_ns": 1777167711541087000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "af1b762532ad1d8b",
+      "span_id": "1c4968d06fcfc7f1",
+      "start_ns": 1777167710301989000,
+      "status": "ok",
+      "trace_id": "094bd15e3857a306f6c0eefd45247dcb",
+      "wall_time_ms": 1239.098
+    }
+  ],
+  "trace_id": "094bd15e3857a306f6c0eefd45247dcb"
+}

@@ -1,0 +1,10 @@
+Cost breakdown across three model/orchestrator configurations on the FreshQA-20 workload. All three bars implement the same hardcoded pipeline architecture: web_search -> fetch_url x2 -> summarize x2 -> single LLM call, mirroring Raj et al.'s LangChain orchestrator step set. Cells 1 and 2 swap only the model identifier (Haiku 4.5 and Opus 4.7 respectively, accessed via the Anthropic API); the Raj et al. bar reports a vLLM-served gpt-oss-20b instead.
+
+Bars are normalized to 100% of active wall time per query (active = wall time minus llm.retry_wait spans). Error caps on individual stages show the 95% confidence interval of that stage's share across queries. Median active wall time per query is annotated above each cell bar; the Raj et al. bar is annotated with the total wall time reported in the source figure.
+
+Raj et al. percentages reproduced from Figure 2c, freshQA bar, Web-Augmented Agent configuration. Their top segment (22%, ~1.3 s) represents orchestration overhead with no direct analog in our span instrumentation; shown as a separate segment for completeness. The published per-segment percentages sum to 105% because each segment is rounded independently in the source figure; this rounding artifact is preserved rather than rescaled.
+
+Caveats:
+  - Search engine differs: ours uses DDG live search; Raj et al. uses Google Custom Search. Engine-level latency differences are absorbed into the tool.search segment.
+  - Raj et al. has no error bars: the source figure reports per-stage means without intervals. Their instrumentation does not split retry backoffs into a separate span, so any rate-limit sleep time is folded into their LLM share. This means their LLM percentage may slightly overstate true model-call time relative to ours.
+  - An earlier evaluation pass with an agentic tool-use loop (model decides each turn which tool to call) is preserved under benchmark/results/cell_{haiku,opus}_agentic/. Those numbers are not directly comparable to Raj et al. because the agentic loop issues multiple LLM calls per query; the pipeline cells used here issue exactly one. See EVAL_PLAN.md for the architecture switch rationale.

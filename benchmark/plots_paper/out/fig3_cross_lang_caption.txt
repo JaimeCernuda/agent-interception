@@ -1,0 +1,5 @@
+Per-stage cross-language scatter, one point per (query, stage). The y=x diagonal is the cross-language equivalence reference. LLM points cluster along the diagonal across the full Py wall-time range (~2–12 s); tool.fetch shows moderate scatter consistent with network variance on identical URLs; tool.search points are clustered near the origin because the legacy traces used the static search backend (~0.08 ms per span). The cross-language equivalence claim — Py and Go runtimes produce comparable per-stage wall times — is supported across individual measurements, not just per-config means.
+
+tool.summarize is absent from this workload because the model did not invoke summarization in any of the sweep runs that produced this figure; the instrumentation supports the stage but the data does not exercise it. The stage is retained in the legend (annotated 'n=0') for completeness.
+
+Failed-run filter: traces with documented transport failures (e.g. HTTP 400 from an exhausted credit balance) are excluded by metrics.is_failed_trace. See benchmark/EVAL_PLAN.md 'Historical traces' for the count and provenance.

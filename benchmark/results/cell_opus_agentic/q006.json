@@ -1,0 +1,137 @@
+{
+  "trace_id": "16d64392c5d1201b84730b2fbe7d14dc",
+  "config": "opus_custom",
+  "query_id": "q006",
+  "label": "cell_opus_custom",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "16d64392c5d1201b84730b2fbe7d14dc",
+      "span_id": "1def48dc6315baf7",
+      "parent_id": null,
+      "start_ns": 1777074506654788000,
+      "end_ns": 1777074526570725000,
+      "wall_time_ms": 19915.937,
+      "cpu_time_ms": 206.949,
+      "kind": "root",
+      "attrs": {
+        "config": "opus_custom",
+        "query_id": "q006",
+        "query_text": "What country became the latest country to adopt the Euro?",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.max_turns": 10
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "16d64392c5d1201b84730b2fbe7d14dc",
+      "span_id": "43c5f93bbe8bb897",
+      "parent_id": "1def48dc6315baf7",
+      "start_ns": 1777074506654888000,
+      "end_ns": 1777074507363180000,
+      "wall_time_ms": 708.292,
+      "cpu_time_ms": 8.292,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 820,
+        "llm.output_tokens": 73,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "16d64392c5d1201b84730b2fbe7d14dc",
+      "span_id": "fae4701b553f7125",
+      "parent_id": "1def48dc6315baf7",
+      "start_ns": 1777074507363321000,
+      "end_ns": 1777074513963297000,
+      "wall_time_ms": 6599.976,
+      "cpu_time_ms": 26.853,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "285548e8760d2a66",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 990
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "16d64392c5d1201b84730b2fbe7d14dc",
+      "span_id": "f0a44fc3cfc545bd",
+      "parent_id": "1def48dc6315baf7",
+      "start_ns": 1777074518963997000,
+      "end_ns": 1777074519915898000,
+      "wall_time_ms": 951.901,
+      "cpu_time_ms": 14.81,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1299,
+        "llm.output_tokens": 98,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "16d64392c5d1201b84730b2fbe7d14dc",
+      "span_id": "883722653a27cef1",
+      "parent_id": "1def48dc6315baf7",
+      "start_ns": 1777074519916168000,
+      "end_ns": 1777074520214487000,
+      "wall_time_ms": 298.319,
+      "cpu_time_ms": 136.177,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "0ae65c194f7e057b",
+        "tool.url": "https://www.independent.co.uk/news/world/europe/bulgaria-euro-money-eu-january-b2891411.html",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 3024
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "16d64392c5d1201b84730b2fbe7d14dc",
+      "span_id": "b1dd7874ca2d5b9b",
+      "parent_id": "1def48dc6315baf7",
+      "start_ns": 1777074525215005000,
+      "end_ns": 1777074526570637000,
+      "wall_time_ms": 1355.632,
+      "cpu_time_ms": 19.666,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 2062,
+        "llm.output_tokens": 95,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

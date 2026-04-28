@@ -1,0 +1,222 @@
+{
+  "trace_id": "7b184ac83f731b3afd8c24963838d58c",
+  "config": "cell_concurrent_py_hotpot_b1",
+  "query_id": "q018",
+  "label": "cell_concurrent_py_hotpot_b1",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "7b184ac83f731b3afd8c24963838d58c",
+      "span_id": "0b6c8243f7438869",
+      "parent_id": null,
+      "start_ns": 1777182829210034000,
+      "end_ns": 1777182848837786000,
+      "wall_time_ms": 19627.752,
+      "cpu_time_ms": 2103.533,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b1",
+        "query_id": "q018",
+        "query_text": "Are Florida Atlantic University and Cleveland State University both colleges in the US?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 1
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "7b184ac83f731b3afd8c24963838d58c",
+      "span_id": "8ac8a055f53b6840",
+      "parent_id": "0b6c8243f7438869",
+      "start_ns": 1777182829210160000,
+      "end_ns": 1777182831939207000,
+      "wall_time_ms": 2729.047,
+      "cpu_time_ms": 33.742,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "4f8a522704f10e35",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 422
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "7b184ac83f731b3afd8c24963838d58c",
+      "span_id": "c1364449513c146d",
+      "parent_id": "0b6c8243f7438869",
+      "start_ns": 1777182831939391000,
+      "end_ns": 1777182834825569000,
+      "wall_time_ms": 2886.178,
+      "cpu_time_ms": 200.354,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "d2e87fb8d7143958",
+        "tool.url": "https://en.wikipedia.org/wiki/Florida_Atlantic_University",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "7b184ac83f731b3afd8c24963838d58c",
+      "span_id": "0e939b3290594a9d",
+      "parent_id": "0b6c8243f7438869",
+      "start_ns": 1777182834825821000,
+      "end_ns": 1777182836596029000,
+      "wall_time_ms": 1770.208,
+      "cpu_time_ms": 359.835,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "4e644b7a8ca7b201",
+        "tool.url": "https://www.unirank.org/us/town/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 805
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "7b184ac83f731b3afd8c24963838d58c",
+      "span_id": "fa1fcfa7f639bf38",
+      "parent_id": "0b6c8243f7438869",
+      "start_ns": 1777182836596249000,
+      "end_ns": 1777182840816246000,
+      "wall_time_ms": 4219.997,
+      "cpu_time_ms": 198.224,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "249701562c6c0a4e",
+        "tool.url": "https://www.collegetuitioncompare.com/compare/tables/",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "7b184ac83f731b3afd8c24963838d58c",
+      "span_id": "c85ab7c3df9ff384",
+      "parent_id": "0b6c8243f7438869",
+      "start_ns": 1777182840816447000,
+      "end_ns": 1777182843997026000,
+      "wall_time_ms": 3180.579,
+      "cpu_time_ms": 187.663,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "0b475da68efd776d",
+        "tool.url": "https://www.csuohio.edu/",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "7b184ac83f731b3afd8c24963838d58c",
+      "span_id": "7ddbf660f3896d31",
+      "parent_id": "0b6c8243f7438869",
+      "start_ns": 1777182843997279000,
+      "end_ns": 1777182846118015000,
+      "wall_time_ms": 2120.736,
+      "cpu_time_ms": 991.788,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "10b6b18f32d34529",
+        "tool.url": "https://www.nytimes.com/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 3253
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "7b184ac83f731b3afd8c24963838d58c",
+      "span_id": "c18ac3b0646f66e0",
+      "parent_id": "0b6c8243f7438869",
+      "start_ns": 1777182846118195000,
+      "end_ns": 1777182846177279000,
+      "wall_time_ms": 59.084,
+      "cpu_time_ms": 56.416,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "fb53a33ef03df83a",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 6,
+        "tool.output_size_bytes": 60
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "7b184ac83f731b3afd8c24963838d58c",
+      "span_id": "83758f4352fd161b",
+      "parent_id": "0b6c8243f7438869",
+      "start_ns": 1777182846178287000,
+      "end_ns": 1777182846238521000,
+      "wall_time_ms": 60.234,
+      "cpu_time_ms": 60.092,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "9f0090cb5b5042c0",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 26,
+        "tool.output_size_bytes": 124
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "7b184ac83f731b3afd8c24963838d58c",
+      "span_id": "c1be76f7e3ff0023",
+      "parent_id": "0b6c8243f7438869",
+      "start_ns": 1777182846239269000,
+      "end_ns": 1777182848837658000,
+      "wall_time_ms": 2598.389,
+      "cpu_time_ms": 12.692,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 70,
+        "llm.output_tokens": 174,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

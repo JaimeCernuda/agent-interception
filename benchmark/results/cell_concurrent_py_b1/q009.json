@@ -1,0 +1,222 @@
+{
+  "trace_id": "3ade2f64be6d374dafa5bd2d7d73ed8f",
+  "config": "cell_concurrent_py_b1",
+  "query_id": "q009",
+  "label": "cell_concurrent_py_b1",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "3ade2f64be6d374dafa5bd2d7d73ed8f",
+      "span_id": "d1f582148d36e248",
+      "parent_id": null,
+      "start_ns": 1777167059195178000,
+      "end_ns": 1777167076536084000,
+      "wall_time_ms": 17340.906,
+      "cpu_time_ms": 1923.541,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b1",
+        "query_id": "q009",
+        "query_text": "Who is the most recent female recipient of the Fields Medal?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 1
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "3ade2f64be6d374dafa5bd2d7d73ed8f",
+      "span_id": "eb8549c30c3cec95",
+      "parent_id": "d1f582148d36e248",
+      "start_ns": 1777167059195348000,
+      "end_ns": 1777167061476146000,
+      "wall_time_ms": 2280.798,
+      "cpu_time_ms": 37.8,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "2764dd5a718b083a",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 587
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "3ade2f64be6d374dafa5bd2d7d73ed8f",
+      "span_id": "358290da6c88bc2d",
+      "parent_id": "d1f582148d36e248",
+      "start_ns": 1777167061476288000,
+      "end_ns": 1777167064346170000,
+      "wall_time_ms": 2869.882,
+      "cpu_time_ms": 190.976,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "598a1b80c1d7ebed",
+        "tool.url": "https://en.wikipedia.org/wiki/Maryam_Mirzakhani",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "3ade2f64be6d374dafa5bd2d7d73ed8f",
+      "span_id": "52ccb1c20be45eff",
+      "parent_id": "d1f582148d36e248",
+      "start_ns": 1777167064346412000,
+      "end_ns": 1777167067343425000,
+      "wall_time_ms": 2997.013,
+      "cpu_time_ms": 227.423,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "301e2a4515fcbd3b",
+        "tool.url": "https://en.wikipedia.org/wiki/Fields_Medal",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "3ade2f64be6d374dafa5bd2d7d73ed8f",
+      "span_id": "5fe7f1f9ab3595eb",
+      "parent_id": "d1f582148d36e248",
+      "start_ns": 1777167067343678000,
+      "end_ns": 1777167069636216000,
+      "wall_time_ms": 2292.538,
+      "cpu_time_ms": 256.741,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "db0fe683d35fef84",
+        "tool.url": "https://www.quantamagazine.org/ukrainian-mathematician-maryna-viazovska-wins-fields-medal-20220705/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 25891
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "3ade2f64be6d374dafa5bd2d7d73ed8f",
+      "span_id": "e07e25cf08a4b56b",
+      "parent_id": "d1f582148d36e248",
+      "start_ns": 1777167069636402000,
+      "end_ns": 1777167073105415000,
+      "wall_time_ms": 3469.013,
+      "cpu_time_ms": 191.741,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "1216eaadcb1445d2",
+        "tool.url": "https://council.science/news/maryam-mirzakhani-first-female-winner-of-fields-medal/",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "3ade2f64be6d374dafa5bd2d7d73ed8f",
+      "span_id": "e8993d201ad9735d",
+      "parent_id": "d1f582148d36e248",
+      "start_ns": 1777167073107754000,
+      "end_ns": 1777167073864904000,
+      "wall_time_ms": 757.15,
+      "cpu_time_ms": 104.939,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "a958ce8156b6006b",
+        "tool.url": "https://www.nature.com/articles/d41586-022-00470-3",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 288
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "3ade2f64be6d374dafa5bd2d7d73ed8f",
+      "span_id": "a2c734a56f3e936c",
+      "parent_id": "d1f582148d36e248",
+      "start_ns": 1777167073865344000,
+      "end_ns": 1777167074765361000,
+      "wall_time_ms": 900.017,
+      "cpu_time_ms": 848.532,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "0dce8e45573e521a",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 172,
+        "tool.output_size_bytes": 697
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "3ade2f64be6d374dafa5bd2d7d73ed8f",
+      "span_id": "f3a50a0d17230dc4",
+      "parent_id": "d1f582148d36e248",
+      "start_ns": 1777167074766340000,
+      "end_ns": 1777167074812984000,
+      "wall_time_ms": 46.644,
+      "cpu_time_ms": 44.295,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "2ced062c088abe00",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 5,
+        "tool.output_size_bytes": 39
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "3ade2f64be6d374dafa5bd2d7d73ed8f",
+      "span_id": "eb3eb1b391197a7d",
+      "parent_id": "d1f582148d36e248",
+      "start_ns": 1777167074813693000,
+      "end_ns": 1777167076535850000,
+      "wall_time_ms": 1722.157,
+      "cpu_time_ms": 16.852,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 202,
+        "llm.output_tokens": 48,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

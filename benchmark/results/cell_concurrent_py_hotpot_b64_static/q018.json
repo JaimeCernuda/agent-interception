@@ -1,0 +1,44 @@
+{
+  "trace_id": "44b6dc6865ff782c4c35a6d1cbd22fa7",
+  "config": "cell_concurrent_py_hotpot_b64_static",
+  "query_id": "q018",
+  "label": "cell_concurrent_py_hotpot_b64_static",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "44b6dc6865ff782c4c35a6d1cbd22fa7",
+      "span_id": "038fdfe387378655",
+      "parent_id": null,
+      "start_ns": 1777183121951384000,
+      "end_ns": 1777183122041370000,
+      "wall_time_ms": 89.986,
+      "cpu_time_ms": 68.995,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b64_static",
+        "query_id": "q018",
+        "query_text": "Are Florida Atlantic University and Cleveland State University both colleges in the US?"
+      },
+      "status": "error",
+      "error": "RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q018. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls()."
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "44b6dc6865ff782c4c35a6d1cbd22fa7",
+      "span_id": "f91e6eb57e03433a",
+      "parent_id": "038fdfe387378655",
+      "start_ns": 1777183121951562000,
+      "end_ns": 1777183121997429000,
+      "wall_time_ms": 45.867,
+      "cpu_time_ms": 0.953,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "static",
+        "tool.input_hash": "4f8a522704f10e35",
+        "tool.retry_count": 0
+      },
+      "status": "error",
+      "error": "RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q018. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls()."
+    }
+  ]
+}

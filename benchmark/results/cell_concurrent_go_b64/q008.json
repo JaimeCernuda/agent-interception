@@ -1,0 +1,76 @@
+{
+  "config": "cell_concurrent_go_b64",
+  "label": "cell_concurrent_go_b64",
+  "query_id": "q008",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 64,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 0,
+        "agent.num_urls_fetched": 0,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b64",
+        "query_id": "q008",
+        "query_text": "What is the best-selling jazz album of all time?"
+      },
+      "cpu_time_ms": 37334.757,
+      "end_ns": 1777167711628849000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "27dc341895d57c02",
+      "start_ns": 1777167674294092000,
+      "status": "ok",
+      "trace_id": "f850d1b9daab4ebcb59a036df04b0d90",
+      "wall_time_ms": 37334.757
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "32c28547ed2dceb0",
+        "tool.name": "ddg",
+        "tool.num_results": 0,
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3
+      },
+      "cpu_time_ms": 36002.272,
+      "end_ns": 1777167710296392000,
+      "error": "Post \"https://html.duckduckgo.com/html/\": context deadline exceeded",
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "27dc341895d57c02",
+      "span_id": "0f205e9f925b32d5",
+      "start_ns": 1777167674294121000,
+      "status": "error",
+      "trace_id": "f850d1b9daab4ebcb59a036df04b0d90",
+      "wall_time_ms": 36002.271
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 27,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 54,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1327.143,
+      "end_ns": 1777167711628842000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "27dc341895d57c02",
+      "span_id": "ea065ba64d300e07",
+      "start_ns": 1777167710301699000,
+      "status": "ok",
+      "trace_id": "f850d1b9daab4ebcb59a036df04b0d90",
+      "wall_time_ms": 1327.143
+    }
+  ],
+  "trace_id": "f850d1b9daab4ebcb59a036df04b0d90"
+}

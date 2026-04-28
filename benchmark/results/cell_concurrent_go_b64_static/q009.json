@@ -1,0 +1,160 @@
+{
+  "config": "cell_concurrent_go_b64",
+  "label": "cell_concurrent_go_b64",
+  "query_id": "q009",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 64,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 2,
+        "agent.num_urls_fetched": 2,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b64",
+        "query_id": "q009",
+        "query_text": "Who is the most recent female recipient of the Fields Medal?"
+      },
+      "cpu_time_ms": 3502.712,
+      "end_ns": 1777167785622820000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "abda8d5b357f7fb1",
+      "start_ns": 1777167782120108000,
+      "status": "ok",
+      "trace_id": "2e615091a21f626160719f81dc645f01",
+      "wall_time_ms": 3502.712
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "2764dd5a718b083a",
+        "tool.name": "static",
+        "tool.num_results": 3,
+        "tool.output_size_bytes": 273,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 0.002,
+      "end_ns": 1777167782120204000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "abda8d5b357f7fb1",
+      "span_id": "2442f63e17dbbb2f",
+      "start_ns": 1777167782120202000,
+      "status": "ok",
+      "trace_id": "2e615091a21f626160719f81dc645f01",
+      "wall_time_ms": 0.002
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "db0fe683d35fef84",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 32016,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.quantamagazine.org/ukrainian-mathematician-maryna-viazovska-wins-fields-medal-20220705/"
+      },
+      "cpu_time_ms": 1018.653,
+      "end_ns": 1777167783138881000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "abda8d5b357f7fb1",
+      "span_id": "833e9e8551b29944",
+      "start_ns": 1777167782120228000,
+      "status": "ok",
+      "trace_id": "2e615091a21f626160719f81dc645f01",
+      "wall_time_ms": 1018.653
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "ec7b2346f1b9e930",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 6541,
+        "tool.retry_count": 0,
+        "tool.url": "https://stats.areppim.com/listes/list_fieldsxmedal.htm"
+      },
+      "cpu_time_ms": 881.379,
+      "end_ns": 1777167784020270000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "abda8d5b357f7fb1",
+      "span_id": "707e62064824adc1",
+      "start_ns": 1777167783138891000,
+      "status": "ok",
+      "trace_id": "2e615091a21f626160719f81dc645f01",
+      "wall_time_ms": 881.379
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "e635ac745ae06527",
+        "tool.n_sentences_in": 173,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 30,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 30.501,
+      "end_ns": 1777167784050896000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "abda8d5b357f7fb1",
+      "span_id": "9a78940c47b81673",
+      "start_ns": 1777167784020395000,
+      "status": "ok",
+      "trace_id": "2e615091a21f626160719f81dc645f01",
+      "wall_time_ms": 30.501
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "709a52c6c9dfed05",
+        "tool.n_sentences_in": 11,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 634,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 2.665,
+      "end_ns": 1777167784053591000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "abda8d5b357f7fb1",
+      "span_id": "e7aef2df634f6d7c",
+      "start_ns": 1777167784050927000,
+      "status": "ok",
+      "trace_id": "2e615091a21f626160719f81dc645f01",
+      "wall_time_ms": 2.664
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 252,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 95,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1569.177,
+      "end_ns": 1777167785622809000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "abda8d5b357f7fb1",
+      "span_id": "2be3edeac744ed5f",
+      "start_ns": 1777167784053633000,
+      "status": "ok",
+      "trace_id": "2e615091a21f626160719f81dc645f01",
+      "wall_time_ms": 1569.176
+    }
+  ],
+  "trace_id": "2e615091a21f626160719f81dc645f01"
+}

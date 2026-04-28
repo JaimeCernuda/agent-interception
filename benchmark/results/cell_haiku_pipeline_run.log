@@ -1,0 +1,37 @@
+/Users/anna/Desktop/agent-interception/.venv/lib/python3.13/site-packages/sumy/summarizers/lex_rank.py:167: RuntimeWarning: invalid value encountered in divide
+  next_p /= numpy.linalg.norm(next_p)
+[run] config=pipeline_haiku  label='cell_haiku_pipeline'  queries=20  out=benchmark/results/cell_haiku_pipeline
+[probe] sanity-checking models before sweep
+[probe]   claude-haiku-4-5-20251001              OK
+[probe]   claude-opus-4-7                        OK
+  [  1/20] q001 ok (17.46s)  answer="I don't have enough information in these summaries to answer who was the first elected female Govern"
+  [  2/20] q002 ok (16.96s)  answer='# Answer  Based on the summary provided, **Edward Said** wrote the book titled *Orientalism*.  The s'
+  [  3/20] q003 ok (10.53s)  answer='# Answer  Based on the summaries provided, **Wuhan** (specifically the **Huanan market** in Wuhan) w'
+  [  4/20] q004 ok ( 9.77s)  answer='# Answer  Based on the summaries provided, I cannot determine who was the first African American wom'
+  [  5/20] q005 ok (18.45s)  answer='# Based on the provided summaries, I cannot give you a definitive answer.  The summaries mention: - '
+  [  6/20] q006 ok (17.27s)  answer='# Answer  Based on the summary provided, **Croatia** was the latest country to adopt the Euro, joini'
+  [  7/20] q007 ok (11.32s)  answer='# The Shortest War in History  Based on the summaries provided, the **Anglo-Zanzibar War** is identi'
+  [  8/20] q008 ok (11.17s)  answer='# Answer  Based on the summary provided, **"Kind of Blue"** by Miles Davis is indicated to be the be'
+  [  9/20] q009 ok (11.90s)  answer='Based on the summaries provided, **Maryam Mirzakhani** is the most recent female recipient of the Fi'
+  [ 10/20] q010 ok (10.15s)  answer="I don't see pricing information for the Netflix Standard plan without ads in the US in the summaries"
+  [ 11/20] q011 ok (45.09s)  answer='Based on the summaries provided, the youngest age eligible for COVID-19 vaccination in the United St'
+  [ 12/20] q012 ok (11.71s)  answer='Based on the summaries provided, I cannot definitively answer which drama series won the most recent'
+  [ 13/20] q013 ok (13.32s)  answer="I cannot determine the current best-selling children's book on Amazon from this data.   While the da"
+  [ 14/20] q014 ok (13.30s)  answer="I don't have enough information to answer your question based on these summaries.   The provided tex"
+  [ 15/20] q015 ok (10.90s)  answer="I don't have enough information to answer your question. The summaries you've provided don't contain"
+  [ 16/20] q016 ok (10.72s)  answer='# Answer: (C) Portugal  **Explanation:**  According to the information provided, **António Guterres*'
+  [ 17/20] q017 ok (11.14s)  answer='# Total Height of the Tallest Building in the World  Based on the summaries provided, **the specific'
+  [ 18/20] q018 ok (13.57s)  answer="I don't have enough information to answer your question about whether the Toronto Raptors have a win"
+  [ 19/20] q019 ok (14.01s)  answer='# Most-Liked Instagram Post  Based on the summaries provided, **Kylie Jenner** posted the most-liked'
+  [ 20/20] q020 ok (24.21s)  answer="I don't have enough information in the provided summaries to answer your question about when Bitcoin"
+[run] done. 20/20 succeeded, 0 failed.
+
+[summary] cell_haiku_pipeline
+  ----------------------------------------------------------------------
+  queries completed         20 / 20
+  median active_latency_ms    12,539.2
+  mean LLM share of active       16.2%
+  mean tool share of active      83.8%
+  total llm.retry_wait               0
+  truncated (max_turns hit)          0  []
+  ----------------------------------------------------------------------

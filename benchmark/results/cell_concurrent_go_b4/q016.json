@@ -1,0 +1,76 @@
+{
+  "config": "cell_concurrent_go_b4",
+  "label": "cell_concurrent_go_b4",
+  "query_id": "q016",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 4,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 0,
+        "agent.num_urls_fetched": 0,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b4",
+        "query_id": "q016",
+        "query_text": "The UN Secretary general is from which country?"
+      },
+      "cpu_time_ms": 3425.791,
+      "end_ns": 1777167522350913000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "a28995e91bad97b9",
+      "start_ns": 1777167518925123000,
+      "status": "ok",
+      "trace_id": "5dc71804209782fa098543007ec8b8ee",
+      "wall_time_ms": 3425.79
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "795d7b5cf38d124d",
+        "tool.name": "ddg",
+        "tool.num_results": 0,
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3
+      },
+      "cpu_time_ms": 2165.765,
+      "end_ns": 1777167521090898000,
+      "error": "ddg status 403",
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "a28995e91bad97b9",
+      "span_id": "83b43aee0ca06418",
+      "start_ns": 1777167518925133000,
+      "status": "error",
+      "trace_id": "5dc71804209782fa098543007ec8b8ee",
+      "wall_time_ms": 2165.765
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 24,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 51,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1259.963,
+      "end_ns": 1777167522350893000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "a28995e91bad97b9",
+      "span_id": "21918e71d7e697d6",
+      "start_ns": 1777167521090931000,
+      "status": "ok",
+      "trace_id": "5dc71804209782fa098543007ec8b8ee",
+      "wall_time_ms": 1259.962
+    }
+  ],
+  "trace_id": "5dc71804209782fa098543007ec8b8ee"
+}

@@ -1,0 +1,223 @@
+{
+  "config": "cell_concurrent_go_b1",
+  "label": "cell_concurrent_go_b1",
+  "query_id": "q005",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 1,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 2,
+        "agent.num_urls_fetched": 2,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b1",
+        "query_id": "q005",
+        "query_text": "How many children does Elon Musk have, including his deceased child?"
+      },
+      "cpu_time_ms": 16467.478,
+      "end_ns": 1777167309359890000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "60f287550acd7497",
+      "start_ns": 1777167292892412000,
+      "status": "ok",
+      "trace_id": "83165d010d4797c1e3a616dfeb7bcdb7",
+      "wall_time_ms": 16467.478
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "46cadae90e04fcae",
+        "tool.name": "ddg",
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 688,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 1147.096,
+      "end_ns": 1777167294039520000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "60f287550acd7497",
+      "span_id": "af1b3801f93e6334",
+      "start_ns": 1777167292892424000,
+      "status": "ok",
+      "trace_id": "83165d010d4797c1e3a616dfeb7bcdb7",
+      "wall_time_ms": 1147.096
+    },
+    {
+      "attrs": {
+        "tool.http_status": 403,
+        "tool.input_hash": "c4a7a13bdc3d9ddd",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3,
+        "tool.url": "https://people.com/all-about-elon-musk-children-11678749"
+      },
+      "cpu_time_ms": 3342.007,
+      "end_ns": 1777167297381537000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "60f287550acd7497",
+      "span_id": "866bf6533c759e69",
+      "start_ns": 1777167294039531000,
+      "status": "ok",
+      "trace_id": "83165d010d4797c1e3a616dfeb7bcdb7",
+      "wall_time_ms": 3342.006
+    },
+    {
+      "attrs": {
+        "tool.http_status": 403,
+        "tool.input_hash": "a71a4f95f85a966c",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3,
+        "tool.url": "https://parade.com/celebrities/elon-musk-children"
+      },
+      "cpu_time_ms": 2236.497,
+      "end_ns": 1777167299618071000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "60f287550acd7497",
+      "span_id": "abb859dd315333e2",
+      "start_ns": 1777167297381575000,
+      "status": "ok",
+      "trace_id": "83165d010d4797c1e3a616dfeb7bcdb7",
+      "wall_time_ms": 2236.496
+    },
+    {
+      "attrs": {
+        "tool.http_status": 403,
+        "tool.input_hash": "dc5833fb85b28c37",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3,
+        "tool.url": "https://www.instyle.com/all-about-elon-musk-14-kids-and-their-four-mothers-11940372"
+      },
+      "cpu_time_ms": 3348.094,
+      "end_ns": 1777167302966186000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "60f287550acd7497",
+      "span_id": "dbd41e40df8fb674",
+      "start_ns": 1777167299618092000,
+      "status": "ok",
+      "trace_id": "83165d010d4797c1e3a616dfeb7bcdb7",
+      "wall_time_ms": 3348.094
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "906c3bb7f8483a8d",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 18702,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.today.com/parents/parents/elon-musk-kids-rcna19692"
+      },
+      "cpu_time_ms": 2689.191,
+      "end_ns": 1777167305655401000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "60f287550acd7497",
+      "span_id": "4e08fc30760df61f",
+      "start_ns": 1777167302966210000,
+      "status": "ok",
+      "trace_id": "83165d010d4797c1e3a616dfeb7bcdb7",
+      "wall_time_ms": 2689.191
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "57c0737a49412ab9",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 14511,
+        "tool.retry_count": 0,
+        "tool.url": "https://pagesix.com/article/elon-musk-children/"
+      },
+      "cpu_time_ms": 1770.353,
+      "end_ns": 1777167307425764000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "60f287550acd7497",
+      "span_id": "9182c4481c78530d",
+      "start_ns": 1777167305655412000,
+      "status": "ok",
+      "trace_id": "83165d010d4797c1e3a616dfeb7bcdb7",
+      "wall_time_ms": 1770.352
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "cf4e9a602122c001",
+        "tool.n_sentences_in": 131,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 185,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 16.155,
+      "end_ns": 1777167307442000000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "60f287550acd7497",
+      "span_id": "6281c0b696b5fb04",
+      "start_ns": 1777167307425845000,
+      "status": "ok",
+      "trace_id": "83165d010d4797c1e3a616dfeb7bcdb7",
+      "wall_time_ms": 16.155
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "9aacf2f783d6fdab",
+        "tool.n_sentences_in": 94,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 43,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 10.198,
+      "end_ns": 1777167307452261000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "60f287550acd7497",
+      "span_id": "fdcc4bba6be5c225",
+      "start_ns": 1777167307442064000,
+      "status": "ok",
+      "trace_id": "83165d010d4797c1e3a616dfeb7bcdb7",
+      "wall_time_ms": 10.197
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 103,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 146,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1907.57,
+      "end_ns": 1777167309359882000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "60f287550acd7497",
+      "span_id": "6653603611e7015b",
+      "start_ns": 1777167307452312000,
+      "status": "ok",
+      "trace_id": "83165d010d4797c1e3a616dfeb7bcdb7",
+      "wall_time_ms": 1907.57
+    }
+  ],
+  "trace_id": "83165d010d4797c1e3a616dfeb7bcdb7"
+}

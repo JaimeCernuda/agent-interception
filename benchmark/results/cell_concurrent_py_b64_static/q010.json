@@ -1,0 +1,159 @@
+{
+  "trace_id": "a4fb742ff9e2c229e1bf1b99a2b9961c",
+  "config": "cell_concurrent_py_b64",
+  "query_id": "q010",
+  "label": "cell_concurrent_py_b64",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "a4fb742ff9e2c229e1bf1b99a2b9961c",
+      "span_id": "258040045d10e9f0",
+      "parent_id": null,
+      "start_ns": 1777167757417738000,
+      "end_ns": 1777167769547217000,
+      "wall_time_ms": 12129.479,
+      "cpu_time_ms": 20659.43,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b64",
+        "query_id": "q010",
+        "query_text": "How much does the Netflix standard plan without ads cost in the US?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 64
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "a4fb742ff9e2c229e1bf1b99a2b9961c",
+      "span_id": "5a88a7457de0a739",
+      "parent_id": "258040045d10e9f0",
+      "start_ns": 1777167757417841000,
+      "end_ns": 1777167757417891000,
+      "wall_time_ms": 0.05,
+      "cpu_time_ms": 0.256,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "static",
+        "tool.input_hash": "b59b59fe2284227e",
+        "tool.retry_count": 0,
+        "tool.num_results": 4,
+        "tool.output_size_bytes": 349
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "a4fb742ff9e2c229e1bf1b99a2b9961c",
+      "span_id": "182079400a1ce624",
+      "parent_id": "258040045d10e9f0",
+      "start_ns": 1777167757417970000,
+      "end_ns": 1777167766391151000,
+      "wall_time_ms": 8973.181,
+      "cpu_time_ms": 19479.181,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "266f75280d5f8a66",
+        "tool.url": "https://arstechnica.com/civis/threads/netflix-kills-basic-plan-making-its-cheapest-ad-free-tier-15-49.1493661/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 7632
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "a4fb742ff9e2c229e1bf1b99a2b9961c",
+      "span_id": "aaf27f087fa348ba",
+      "parent_id": "258040045d10e9f0",
+      "start_ns": 1777167766391312000,
+      "end_ns": 1777167767826309000,
+      "wall_time_ms": 1434.997,
+      "cpu_time_ms": 469.401,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "cfc77c41180d7a79",
+        "tool.url": "https://tvline.com/news/netflix-basic-ad-free-plan-ending-1235138395/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 1508
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "a4fb742ff9e2c229e1bf1b99a2b9961c",
+      "span_id": "e68555f187d8bdb2",
+      "parent_id": "258040045d10e9f0",
+      "start_ns": 1777167767826498000,
+      "end_ns": 1777167768029125000,
+      "wall_time_ms": 202.627,
+      "cpu_time_ms": 218.436,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "92eb4c8ebac53606",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 64,
+        "tool.output_size_bytes": 398
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "a4fb742ff9e2c229e1bf1b99a2b9961c",
+      "span_id": "9cdeca87ed5df9e9",
+      "parent_id": "258040045d10e9f0",
+      "start_ns": 1777167768030261000,
+      "end_ns": 1777167768138148000,
+      "wall_time_ms": 107.887,
+      "cpu_time_ms": 128.518,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "f473243d455ed5ed",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 13,
+        "tool.output_size_bytes": 131
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "a4fb742ff9e2c229e1bf1b99a2b9961c",
+      "span_id": "45b6f0fbceddfae9",
+      "parent_id": "258040045d10e9f0",
+      "start_ns": 1777167768139546000,
+      "end_ns": 1777167769547149000,
+      "wall_time_ms": 1407.603,
+      "cpu_time_ms": 360.873,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 140,
+        "llm.output_tokens": 63,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

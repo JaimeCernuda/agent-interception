@@ -1,0 +1,157 @@
+{
+  "config": "toolformer_go",
+  "label": "two_op",
+  "query_id": "q06",
+  "spans": [
+    {
+      "attrs": {
+        "agent.cpu_time_ms": 46.87099999999998,
+        "agent.duration_api_ms": 12800,
+        "agent.duration_ms": 12330,
+        "agent.is_error": false,
+        "agent.num_turns": 4,
+        "agent.total_cost_usd": 0.021165200000000002,
+        "agent.truncated": false,
+        "config": "toolformer_go",
+        "query_id": "q06",
+        "query_text": "Sam invited 9 friends to a birthday party, but 6 couldn't come. If he wanted to buy enough cupcakes so each person could have exactly 2, how many should he buy?",
+        "toolformer.category": "two_op"
+      },
+      "cpu_time_ms": 23513.515,
+      "end_ns": 1777405999786947000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "089d1eddd227ac02",
+      "start_ns": 1777405976273433000,
+      "status": "ok",
+      "trace_id": "ac7464a6221afcf828b2a14aa2560400",
+      "wall_time_ms": 23513.514
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 0
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777405990553835000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "089d1eddd227ac02",
+      "span_id": "a34452a96888aa8d",
+      "start_ns": 1777405976296408000,
+      "status": "ok",
+      "trace_id": "ac7464a6221afcf828b2a14aa2560400",
+      "wall_time_ms": 14257.427
+    },
+    {
+      "attrs": {
+        "expression": "9 - 6",
+        "result": 3,
+        "tool.input_hash": "725c4c6896b49eae",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.141,
+      "end_ns": 1777405990549830000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "089d1eddd227ac02",
+      "span_id": "7892fa0f47ceedd9",
+      "start_ns": 1777405990549690000,
+      "status": "ok",
+      "trace_id": "ac7464a6221afcf828b2a14aa2560400",
+      "wall_time_ms": 0.14
+    },
+    {
+      "attrs": {
+        "expression": "(9 - 6) + 1",
+        "result": 4,
+        "tool.input_hash": "e11a095b9a393e0c",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 2.134,
+      "end_ns": 1777405990585093000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "089d1eddd227ac02",
+      "span_id": "f7ba226faa928506",
+      "start_ns": 1777405990582959000,
+      "status": "ok",
+      "trace_id": "ac7464a6221afcf828b2a14aa2560400",
+      "wall_time_ms": 2.134
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 1
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777405994340902000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "089d1eddd227ac02",
+      "span_id": "3893b609757cacea",
+      "start_ns": 1777405990610872000,
+      "status": "ok",
+      "trace_id": "ac7464a6221afcf828b2a14aa2560400",
+      "wall_time_ms": 3730.03
+    },
+    {
+      "attrs": {
+        "expression": "4 * 2",
+        "result": 8,
+        "tool.input_hash": "20c845cd6900fcd7",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.039,
+      "end_ns": 1777405994355421000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "089d1eddd227ac02",
+      "span_id": "d2df9dfd5f92d291",
+      "start_ns": 1777405994355382000,
+      "status": "ok",
+      "trace_id": "ac7464a6221afcf828b2a14aa2560400",
+      "wall_time_ms": 0.039
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 2
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777405999015613000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "089d1eddd227ac02",
+      "span_id": "2608e09c0ec806c6",
+      "start_ns": 1777405994416650000,
+      "status": "ok",
+      "trace_id": "ac7464a6221afcf828b2a14aa2560400",
+      "wall_time_ms": 4598.963
+    }
+  ],
+  "trace_id": "ac7464a6221afcf828b2a14aa2560400"
+}

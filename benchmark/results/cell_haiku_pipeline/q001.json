@@ -1,0 +1,200 @@
+{
+  "trace_id": "67b0c97d7f0844cd4601016d451640bd",
+  "config": "pipeline_haiku",
+  "query_id": "q001",
+  "label": "cell_haiku_pipeline",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "67b0c97d7f0844cd4601016d451640bd",
+      "span_id": "9d8510639390ac87",
+      "parent_id": null,
+      "start_ns": 1777154230047048000,
+      "end_ns": 1777154247447933000,
+      "wall_time_ms": 17400.885,
+      "cpu_time_ms": 3121.828,
+      "kind": "root",
+      "attrs": {
+        "config": "pipeline_haiku",
+        "query_id": "q001",
+        "query_text": "Who was the first elected female Governor of Massachusetts?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "67b0c97d7f0844cd4601016d451640bd",
+      "span_id": "d1f60d0d70180383",
+      "parent_id": "9d8510639390ac87",
+      "start_ns": 1777154230047356000,
+      "end_ns": 1777154234430006000,
+      "wall_time_ms": 4382.65,
+      "cpu_time_ms": 453.433,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "3f3a27b6adccb45c",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 857
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "67b0c97d7f0844cd4601016d451640bd",
+      "span_id": "6b14e7809c4399b9",
+      "parent_id": "9d8510639390ac87",
+      "start_ns": 1777154234430295000,
+      "end_ns": 1777154237293689000,
+      "wall_time_ms": 2863.394,
+      "cpu_time_ms": 192.571,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "4c482e8b844ff62e",
+        "tool.url": "https://en.wikipedia.org/wiki/Maura_Healey",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "67b0c97d7f0844cd4601016d451640bd",
+      "span_id": "10346be33a34f7d7",
+      "parent_id": "9d8510639390ac87",
+      "start_ns": 1777154237294044000,
+      "end_ns": 1777154240282282000,
+      "wall_time_ms": 2988.238,
+      "cpu_time_ms": 190.843,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "c0ae445b32a28381",
+        "tool.url": "https://en.wikipedia.org/wiki/Jane_Swift",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "67b0c97d7f0844cd4601016d451640bd",
+      "span_id": "e890c7d3e2af2753",
+      "parent_id": "9d8510639390ac87",
+      "start_ns": 1777154240282526000,
+      "end_ns": 1777154241852915000,
+      "wall_time_ms": 1570.389,
+      "cpu_time_ms": 766.678,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "32e1ed7ece86d230",
+        "tool.url": "https://www.npr.org/2022/11/08/1134199246/massachusetts-governor-results-maura-healey",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 1796
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "67b0c97d7f0844cd4601016d451640bd",
+      "span_id": "34fcfa8ac6104f30",
+      "parent_id": "9d8510639390ac87",
+      "start_ns": 1777154241853072000,
+      "end_ns": 1777154243297939000,
+      "wall_time_ms": 1444.867,
+      "cpu_time_ms": 142.234,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "b181603f248f243d",
+        "tool.url": "http://www.mawomenscaucus.com/history-of-women-in-massachusetts-government",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 23774
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "67b0c97d7f0844cd4601016d451640bd",
+      "span_id": "c171c0e3801e07b6",
+      "parent_id": "9d8510639390ac87",
+      "start_ns": 1777154243633823000,
+      "end_ns": 1777154243833149000,
+      "wall_time_ms": 199.326,
+      "cpu_time_ms": 162.919,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "d05a8a7f4f5fe480",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 14,
+        "tool.output_size_bytes": 115
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "67b0c97d7f0844cd4601016d451640bd",
+      "span_id": "e4036c6d8b524d43",
+      "parent_id": "9d8510639390ac87",
+      "start_ns": 1777154243833409000,
+      "end_ns": 1777154244994588000,
+      "wall_time_ms": 1161.179,
+      "cpu_time_ms": 954.386,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "bf4df0590687f3d8",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 204,
+        "tool.output_size_bytes": 85
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "67b0c97d7f0844cd4601016d451640bd",
+      "span_id": "7db926164b4c2a46",
+      "parent_id": "9d8510639390ac87",
+      "start_ns": 1777154244997132000,
+      "end_ns": 1777154247447808000,
+      "wall_time_ms": 2450.676,
+      "cpu_time_ms": 11.667,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 66,
+        "llm.output_tokens": 91,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

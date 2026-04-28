@@ -1,0 +1,160 @@
+{
+  "config": "cell_concurrent_go_b1",
+  "label": "cell_concurrent_go_b1",
+  "query_id": "q009",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 1,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 2,
+        "agent.num_urls_fetched": 2,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b1",
+        "query_id": "q009",
+        "query_text": "Who is the most recent female recipient of the Fields Medal?"
+      },
+      "cpu_time_ms": 4154.677,
+      "end_ns": 1777167331080972000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "429ef786b649139b",
+      "start_ns": 1777167326926295000,
+      "status": "ok",
+      "trace_id": "2ab12405dd554329e276fe830769d238",
+      "wall_time_ms": 4154.677
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "2764dd5a718b083a",
+        "tool.name": "ddg",
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 616,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 1027.706,
+      "end_ns": 1777167327954011000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "429ef786b649139b",
+      "span_id": "80963fc0a20f1f7c",
+      "start_ns": 1777167326926306000,
+      "status": "ok",
+      "trace_id": "2ab12405dd554329e276fe830769d238",
+      "wall_time_ms": 1027.705
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "301e2a4515fcbd3b",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 60493,
+        "tool.retry_count": 0,
+        "tool.url": "https://en.wikipedia.org/wiki/Fields_Medal"
+      },
+      "cpu_time_ms": 661.137,
+      "end_ns": 1777167328615195000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "429ef786b649139b",
+      "span_id": "702fbf0324129221",
+      "start_ns": 1777167327954059000,
+      "status": "ok",
+      "trace_id": "2ab12405dd554329e276fe830769d238",
+      "wall_time_ms": 661.136
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "ec7b2346f1b9e930",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 6541,
+        "tool.retry_count": 0,
+        "tool.url": "https://stats.areppim.com/listes/list_fieldsxmedal.htm"
+      },
+      "cpu_time_ms": 1243.594,
+      "end_ns": 1777167329858801000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "429ef786b649139b",
+      "span_id": "837ae7d1b0ffe066",
+      "start_ns": 1777167328615207000,
+      "status": "ok",
+      "trace_id": "2ab12405dd554329e276fe830769d238",
+      "wall_time_ms": 1243.594
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "a90d76c70f8c808c",
+        "tool.n_sentences_in": 583,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 50,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 150.742,
+      "end_ns": 1777167330009916000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "429ef786b649139b",
+      "span_id": "4e0ea30155f290c3",
+      "start_ns": 1777167329859174000,
+      "status": "ok",
+      "trace_id": "2ab12405dd554329e276fe830769d238",
+      "wall_time_ms": 150.742
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "709a52c6c9dfed05",
+        "tool.n_sentences_in": 11,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 634,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 2.333,
+      "end_ns": 1777167330012284000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "429ef786b649139b",
+      "span_id": "a67bf54362e7e5dd",
+      "start_ns": 1777167330009951000,
+      "status": "ok",
+      "trace_id": "2ab12405dd554329e276fe830769d238",
+      "wall_time_ms": 2.333
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 262,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 58,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1068.64,
+      "end_ns": 1777167331080962000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "429ef786b649139b",
+      "span_id": "000b4ec5fede450a",
+      "start_ns": 1777167330012322000,
+      "status": "ok",
+      "trace_id": "2ab12405dd554329e276fe830769d238",
+      "wall_time_ms": 1068.64
+    }
+  ],
+  "trace_id": "2ab12405dd554329e276fe830769d238"
+}

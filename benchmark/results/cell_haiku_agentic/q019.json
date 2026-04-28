@@ -1,0 +1,158 @@
+{
+  "trace_id": "209569cacbdbdcc7574b5899da96210b",
+  "config": "haiku_custom",
+  "query_id": "q019",
+  "label": "cell_haiku_custom",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "209569cacbdbdcc7574b5899da96210b",
+      "span_id": "5d7d27c1ad83e890",
+      "parent_id": null,
+      "start_ns": 1777073858184210000,
+      "end_ns": 1777073898194279000,
+      "wall_time_ms": 40010.069,
+      "cpu_time_ms": 489.65,
+      "kind": "root",
+      "attrs": {
+        "config": "haiku_custom",
+        "query_id": "q019",
+        "query_text": "Who posted the most-liked Instagram post last year?",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.max_turns": -1
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "209569cacbdbdcc7574b5899da96210b",
+      "span_id": "b104983d99f08adb",
+      "parent_id": "5d7d27c1ad83e890",
+      "start_ns": 1777073858184313000,
+      "end_ns": 1777073858886042000,
+      "wall_time_ms": 701.729,
+      "cpu_time_ms": 8.667,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 820,
+        "llm.output_tokens": 78,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "209569cacbdbdcc7574b5899da96210b",
+      "span_id": "23bbb6f541fe365f",
+      "parent_id": "5d7d27c1ad83e890",
+      "start_ns": 1777073858886190000,
+      "end_ns": 1777073865515620000,
+      "wall_time_ms": 6629.43,
+      "cpu_time_ms": 21.207,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "4f5d684be4c22519",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 679
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "209569cacbdbdcc7574b5899da96210b",
+      "span_id": "0108be82d09a402d",
+      "parent_id": "5d7d27c1ad83e890",
+      "start_ns": 1777073870517030000,
+      "end_ns": 1777073871939732000,
+      "wall_time_ms": 1422.702,
+      "cpu_time_ms": 18.172,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1172,
+        "llm.output_tokens": 167,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "209569cacbdbdcc7574b5899da96210b",
+      "span_id": "94187667e612f058",
+      "parent_id": "5d7d27c1ad83e890",
+      "start_ns": 1777073871939923000,
+      "end_ns": 1777073887022206000,
+      "wall_time_ms": 15082.283,
+      "cpu_time_ms": 286.353,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "ab9c40654af232fb",
+        "tool.url": "https://www.socialmediamagazine.org/most-liked-instagram-posts-2024",
+        "tool.retry_count": 1,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 18040
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "209569cacbdbdcc7574b5899da96210b",
+      "span_id": "aa7b8459b903ebac",
+      "parent_id": "5d7d27c1ad83e890",
+      "start_ns": 1777073887022363000,
+      "end_ns": 1777073889713861000,
+      "wall_time_ms": 2691.498,
+      "cpu_time_ms": 133.02,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "89aa30ccdc3132c8",
+        "tool.url": "https://www.nbclosangeles.com/entertainment/entertainment-news/most-liked-instagram-post/3770355/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 3183
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "209569cacbdbdcc7574b5899da96210b",
+      "span_id": "c95b0e44ba01d836",
+      "parent_id": "5d7d27c1ad83e890",
+      "start_ns": 1777073894714682000,
+      "end_ns": 1777073898194194000,
+      "wall_time_ms": 3479.512,
+      "cpu_time_ms": 21.271,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 6689,
+        "llm.output_tokens": 247,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

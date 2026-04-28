@@ -1,0 +1,44 @@
+{
+  "trace_id": "d2c6f747010e18a7afafc9c2669fcc88",
+  "config": "cell_concurrent_py_hotpot_b64_static",
+  "query_id": "q013",
+  "label": "cell_concurrent_py_hotpot_b64_static",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "d2c6f747010e18a7afafc9c2669fcc88",
+      "span_id": "9f1b701e5a5ca0f8",
+      "parent_id": null,
+      "start_ns": 1777183121955401000,
+      "end_ns": 1777183122018019000,
+      "wall_time_ms": 62.618,
+      "cpu_time_ms": 44.309,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b64_static",
+        "query_id": "q013",
+        "query_text": "Which band released more albums, Forest for the Trees or Jon Spencer Blues Explosion?"
+      },
+      "status": "error",
+      "error": "RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q013. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls()."
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "d2c6f747010e18a7afafc9c2669fcc88",
+      "span_id": "96a5ea373526ea4b",
+      "parent_id": "9f1b701e5a5ca0f8",
+      "start_ns": 1777183121955502000,
+      "end_ns": 1777183121982001000,
+      "wall_time_ms": 26.499,
+      "cpu_time_ms": 0.862,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "static",
+        "tool.input_hash": "997da34d1c2c2a68",
+        "tool.retry_count": 0
+      },
+      "status": "error",
+      "error": "RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q013. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls()."
+    }
+  ]
+}

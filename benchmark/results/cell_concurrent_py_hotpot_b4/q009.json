@@ -1,0 +1,222 @@
+{
+  "trace_id": "d217fe4cc806f4ef4b09d9e9d6103be1",
+  "config": "cell_concurrent_py_hotpot_b4",
+  "query_id": "q009",
+  "label": "cell_concurrent_py_hotpot_b4",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "d217fe4cc806f4ef4b09d9e9d6103be1",
+      "span_id": "4ddbe06e676efc38",
+      "parent_id": null,
+      "start_ns": 1777182915271964000,
+      "end_ns": 1777182941047609000,
+      "wall_time_ms": 25775.645,
+      "cpu_time_ms": 9304.027,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b4",
+        "query_id": "q009",
+        "query_text": "Which genus has more species in it, Othonna or Stangeria?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 4
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "d217fe4cc806f4ef4b09d9e9d6103be1",
+      "span_id": "a03dcf3307f7ada9",
+      "parent_id": "4ddbe06e676efc38",
+      "start_ns": 1777182915272092000,
+      "end_ns": 1777182921500266000,
+      "wall_time_ms": 6228.174,
+      "cpu_time_ms": 1158.75,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "06fe343f70a48871",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 540
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "d217fe4cc806f4ef4b09d9e9d6103be1",
+      "span_id": "88ea2c3f75ff1545",
+      "parent_id": "4ddbe06e676efc38",
+      "start_ns": 1777182921500458000,
+      "end_ns": 1777182924678189000,
+      "wall_time_ms": 3177.731,
+      "cpu_time_ms": 1824.354,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "8dd54da68b0d93e8",
+        "tool.url": "https://en.wikipedia.org/wiki/Stangeria",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "d217fe4cc806f4ef4b09d9e9d6103be1",
+      "span_id": "64cc269979ed0cdf",
+      "parent_id": "4ddbe06e676efc38",
+      "start_ns": 1777182924678332000,
+      "end_ns": 1777182926947958000,
+      "wall_time_ms": 2269.626,
+      "cpu_time_ms": 2474.597,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "881fbe8bcb8d9572",
+        "tool.url": "https://ucmp.berkeley.edu/seedplants/cycadophyta/stangeriaceae.html",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 4361
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "d217fe4cc806f4ef4b09d9e9d6103be1",
+      "span_id": "d928703b7cd0e3a6",
+      "parent_id": "4ddbe06e676efc38",
+      "start_ns": 1777182926948086000,
+      "end_ns": 1777182933556267000,
+      "wall_time_ms": 6608.181,
+      "cpu_time_ms": 1452.058,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "d3e2a827422c1a0e",
+        "tool.url": "https://www.sciencedirect.com/science/article/abs/pii/S0254629925000043",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "d217fe4cc806f4ef4b09d9e9d6103be1",
+      "span_id": "e3ab2794c4777fbc",
+      "parent_id": "4ddbe06e676efc38",
+      "start_ns": 1777182933556433000,
+      "end_ns": 1777182937416449000,
+      "wall_time_ms": 3860.016,
+      "cpu_time_ms": 910.83,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "463d590850680657",
+        "tool.url": "https://www.wikiwand.com/en/articles/Stangeria",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "d217fe4cc806f4ef4b09d9e9d6103be1",
+      "span_id": "dee72d2cb1032a81",
+      "parent_id": "4ddbe06e676efc38",
+      "start_ns": 1777182937416640000,
+      "end_ns": 1777182938454189000,
+      "wall_time_ms": 1037.549,
+      "cpu_time_ms": 230.722,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "4cc9bb8b278411a2",
+        "tool.url": "https://succulentes.net/en/cycads/stangeria/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 4744
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "d217fe4cc806f4ef4b09d9e9d6103be1",
+      "span_id": "cda2a80aaf985753",
+      "parent_id": "4ddbe06e676efc38",
+      "start_ns": 1777182938454382000,
+      "end_ns": 1777182938535179000,
+      "wall_time_ms": 80.797,
+      "cpu_time_ms": 82.571,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "cd9cdb5600906174",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 36,
+        "tool.output_size_bytes": 221
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "d217fe4cc806f4ef4b09d9e9d6103be1",
+      "span_id": "57999e9ac93fad1a",
+      "parent_id": "4ddbe06e676efc38",
+      "start_ns": 1777182938536007000,
+      "end_ns": 1777182938642217000,
+      "wall_time_ms": 106.21,
+      "cpu_time_ms": 104.971,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "45b300f9fb29e181",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 53,
+        "tool.output_size_bytes": 604
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "d217fe4cc806f4ef4b09d9e9d6103be1",
+      "span_id": "7d6fbf57c8687657",
+      "parent_id": "4ddbe06e676efc38",
+      "start_ns": 1777182938643231000,
+      "end_ns": 1777182941047477000,
+      "wall_time_ms": 2404.246,
+      "cpu_time_ms": 1062.344,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 266,
+        "llm.output_tokens": 129,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

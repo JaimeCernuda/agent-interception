@@ -1,0 +1,44 @@
+{
+  "trace_id": "efb4af64e88a45b6b1e6b8d50c91bd17",
+  "config": "cell_concurrent_py_hotpot_b64_static",
+  "query_id": "q016",
+  "label": "cell_concurrent_py_hotpot_b64_static",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "efb4af64e88a45b6b1e6b8d50c91bd17",
+      "span_id": "91f6a2dc45017f9f",
+      "parent_id": null,
+      "start_ns": 1777183121926928000,
+      "end_ns": 1777183122034717000,
+      "wall_time_ms": 107.789,
+      "cpu_time_ms": 140.356,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b64_static",
+        "query_id": "q016",
+        "query_text": "Are both Barry Unsworth and P. G. Wodehouse from the same country?"
+      },
+      "status": "error",
+      "error": "RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q016. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls()."
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "efb4af64e88a45b6b1e6b8d50c91bd17",
+      "span_id": "0044e5a46ee0d23f",
+      "parent_id": "91f6a2dc45017f9f",
+      "start_ns": 1777183121927106000,
+      "end_ns": 1777183121987844000,
+      "wall_time_ms": 60.738,
+      "cpu_time_ms": 44.335,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "static",
+        "tool.input_hash": "7f6391080f35ea1e",
+        "tool.retry_count": 0
+      },
+      "status": "error",
+      "error": "RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q016. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls()."
+    }
+  ]
+}

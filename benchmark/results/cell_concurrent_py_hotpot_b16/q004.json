@@ -1,0 +1,180 @@
+{
+  "trace_id": "9ad292de3e6153efc8dedbffbc8abf60",
+  "config": "cell_concurrent_py_hotpot_b16",
+  "query_id": "q004",
+  "label": "cell_concurrent_py_hotpot_b16",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "9ad292de3e6153efc8dedbffbc8abf60",
+      "span_id": "dfa2bcf18d5af10a",
+      "parent_id": null,
+      "start_ns": 1777183002730317000,
+      "end_ns": 1777183018966646000,
+      "wall_time_ms": 16236.329,
+      "cpu_time_ms": 18912.068,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b16",
+        "query_id": "q004",
+        "query_text": "Which areas of the United States were still able to deny sames sex marriages after the case in which Edith \"Edie\" Windsor was the main plaintiff?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 16
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "9ad292de3e6153efc8dedbffbc8abf60",
+      "span_id": "dc2c464ef23e4312",
+      "parent_id": "dfa2bcf18d5af10a",
+      "start_ns": 1777183002730619000,
+      "end_ns": 1777183010427611000,
+      "wall_time_ms": 7696.992,
+      "cpu_time_ms": 5800.37,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "7dcf0e10445cb8d2",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 744
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "9ad292de3e6153efc8dedbffbc8abf60",
+      "span_id": "6e3dde1397eb0a74",
+      "parent_id": "dfa2bcf18d5af10a",
+      "start_ns": 1777183010427972000,
+      "end_ns": 1777183013576800000,
+      "wall_time_ms": 3148.828,
+      "cpu_time_ms": 5890.8,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "3aff98af3926af75",
+        "tool.url": "https://en.wikipedia.org/wiki/Edith_Windsor",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "9ad292de3e6153efc8dedbffbc8abf60",
+      "span_id": "1d87bea97bb64913",
+      "parent_id": "dfa2bcf18d5af10a",
+      "start_ns": 1777183013576931000,
+      "end_ns": 1777183015045191000,
+      "wall_time_ms": 1468.26,
+      "cpu_time_ms": 2932.592,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "c8c0c1f4bc6e4eaa",
+        "tool.url": "https://www.thepinknews.com/2017/09/12/same-sex-legend-edith-windsor-dies-at-88/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 4030
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "9ad292de3e6153efc8dedbffbc8abf60",
+      "span_id": "69fd8ab9d094832f",
+      "parent_id": "dfa2bcf18d5af10a",
+      "start_ns": 1777183015045335000,
+      "end_ns": 1777183016166539000,
+      "wall_time_ms": 1121.204,
+      "cpu_time_ms": 1606.738,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "51c2442dddfdd0e0",
+        "tool.url": "https://www.advocate.com/people/2017/9/12/edie-windsor-mother-marriage-equality-dead-88",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 4329
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "9ad292de3e6153efc8dedbffbc8abf60",
+      "span_id": "14b0e38e0bde2ff2",
+      "parent_id": "dfa2bcf18d5af10a",
+      "start_ns": 1777183016166924000,
+      "end_ns": 1777183016257431000,
+      "wall_time_ms": 90.507,
+      "cpu_time_ms": 107.44,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "3e3f6105173da7bb",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 31,
+        "tool.output_size_bytes": 122
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "9ad292de3e6153efc8dedbffbc8abf60",
+      "span_id": "038f4b6bb47952ab",
+      "parent_id": "dfa2bcf18d5af10a",
+      "start_ns": 1777183016259248000,
+      "end_ns": 1777183016364777000,
+      "wall_time_ms": 105.529,
+      "cpu_time_ms": 145.767,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "349700fecfbfef7a",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 35,
+        "tool.output_size_bytes": 11
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "9ad292de3e6153efc8dedbffbc8abf60",
+      "span_id": "412263a31e4f1142",
+      "parent_id": "dfa2bcf18d5af10a",
+      "start_ns": 1777183016365695000,
+      "end_ns": 1777183018966579000,
+      "wall_time_ms": 2600.884,
+      "cpu_time_ms": 2422.172,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 90,
+        "llm.output_tokens": 175,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

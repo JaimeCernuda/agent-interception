@@ -1,0 +1,265 @@
+{
+  "trace_id": "08f95a276ec786718ead47bb5c0df803",
+  "config": "haiku_custom",
+  "query_id": "q015",
+  "label": "cell_haiku_custom",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "08f95a276ec786718ead47bb5c0df803",
+      "span_id": "3080fc757cb5311f",
+      "parent_id": null,
+      "start_ns": 1777073746799364000,
+      "end_ns": 1777073787845060000,
+      "wall_time_ms": 41045.696,
+      "cpu_time_ms": 633.408,
+      "kind": "root",
+      "attrs": {
+        "config": "haiku_custom",
+        "query_id": "q015",
+        "query_text": "Who is the vice-chancellor of the largest university by enrollment in the world?",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.max_turns": -1
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "08f95a276ec786718ead47bb5c0df803",
+      "span_id": "180799841d113a34",
+      "parent_id": "3080fc757cb5311f",
+      "start_ns": 1777073746799465000,
+      "end_ns": 1777073747600300000,
+      "wall_time_ms": 800.835,
+      "cpu_time_ms": 13.874,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 825,
+        "llm.output_tokens": 83,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "08f95a276ec786718ead47bb5c0df803",
+      "span_id": "3e88b6e6232c1709",
+      "parent_id": "3080fc757cb5311f",
+      "start_ns": 1777073747600579000,
+      "end_ns": 1777073748548644000,
+      "wall_time_ms": 948.065,
+      "cpu_time_ms": 46.159,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "cadec2026bad0841",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 885
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "08f95a276ec786718ead47bb5c0df803",
+      "span_id": "db4affc11e330635",
+      "parent_id": "3080fc757cb5311f",
+      "start_ns": 1777073753550151000,
+      "end_ns": 1777073754391714000,
+      "wall_time_ms": 841.563,
+      "cpu_time_ms": 19.653,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1232,
+        "llm.output_tokens": 92,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "08f95a276ec786718ead47bb5c0df803",
+      "span_id": "83c914419b5f18e1",
+      "parent_id": "3080fc757cb5311f",
+      "start_ns": 1777073754391964000,
+      "end_ns": 1777073756538572000,
+      "wall_time_ms": 2146.608,
+      "cpu_time_ms": 195.304,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "3cd12adcbfaf1724",
+        "tool.url": "https://en.wikipedia.org/wiki/List_of_largest_universities_and_university_networks_by_enrollment",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "08f95a276ec786718ead47bb5c0df803",
+      "span_id": "ad2a6dcb68ce40e4",
+      "parent_id": "3080fc757cb5311f",
+      "start_ns": 1777073761543174000,
+      "end_ns": 1777073762346835000,
+      "wall_time_ms": 803.661,
+      "cpu_time_ms": 21.593,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1350,
+        "llm.output_tokens": 89,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "08f95a276ec786718ead47bb5c0df803",
+      "span_id": "09df00d4edbd065b",
+      "parent_id": "3080fc757cb5311f",
+      "start_ns": 1777073762347089000,
+      "end_ns": 1777073765842920000,
+      "wall_time_ms": 3495.831,
+      "cpu_time_ms": 98.075,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "2af1c609a18267f6",
+        "tool.url": "https://www.worldatlas.com/articles/universities-with-the-largest-enrollments-in-the-world.html",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 3275
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "08f95a276ec786718ead47bb5c0df803",
+      "span_id": "046e3ba26035cf1f",
+      "parent_id": "3080fc757cb5311f",
+      "start_ns": 1777073770846900000,
+      "end_ns": 1777073771970741000,
+      "wall_time_ms": 1123.841,
+      "cpu_time_ms": 14.529,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 2139,
+        "llm.output_tokens": 110,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "08f95a276ec786718ead47bb5c0df803",
+      "span_id": "c1e0e550d4ce4c83",
+      "parent_id": "3080fc757cb5311f",
+      "start_ns": 1777073771970883000,
+      "end_ns": 1777073773102494000,
+      "wall_time_ms": 1131.611,
+      "cpu_time_ms": 24.479,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "0ef20224ca7a4a4b",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 1123
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "08f95a276ec786718ead47bb5c0df803",
+      "span_id": "df648f637f86b884",
+      "parent_id": "3080fc757cb5311f",
+      "start_ns": 1777073778105635000,
+      "end_ns": 1777073779071778000,
+      "wall_time_ms": 966.143,
+      "cpu_time_ms": 26.852,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 2701,
+        "llm.output_tokens": 120,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "08f95a276ec786718ead47bb5c0df803",
+      "span_id": "5ba777b798f73e59",
+      "parent_id": "3080fc757cb5311f",
+      "start_ns": 1777073779072032000,
+      "end_ns": 1777073780968962000,
+      "wall_time_ms": 1896.93,
+      "cpu_time_ms": 143.349,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "3016976923a33737",
+        "tool.url": "https://www.indiatoday.in/education-today/news/story/ignou-gets-first-woman-vice-chancellor-in-professor-uma-kanjilal-2761394-2025-07-25",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 2665
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "08f95a276ec786718ead47bb5c0df803",
+      "span_id": "f80446d798788287",
+      "parent_id": "3080fc757cb5311f",
+      "start_ns": 1777073785972242000,
+      "end_ns": 1777073787844963000,
+      "wall_time_ms": 1872.721,
+      "cpu_time_ms": 27.115,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 3403,
+        "llm.output_tokens": 158,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

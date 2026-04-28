@@ -1,0 +1,5 @@
+{
+  "name": "sirolimus",
+  "smiles": "CC1CCC2CC(C(=CC=CC=CC(CC(C(=O)C(C(C(=CC(C(=O)CC(OC(=O)C3CCCCN3C(=O)C(=O)C1(O2)O)C(C)CC4CCC(C(C4)OC)O)C)C)O)OC)C)C)C)OC",
+  "molecular_weight": 914.2
+}

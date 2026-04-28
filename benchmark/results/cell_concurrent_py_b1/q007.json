@@ -1,0 +1,201 @@
+{
+  "trace_id": "95d54d74c4df49ba5a912bfd081eea80",
+  "config": "cell_concurrent_py_b1",
+  "query_id": "q007",
+  "label": "cell_concurrent_py_b1",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "95d54d74c4df49ba5a912bfd081eea80",
+      "span_id": "ecb2fda7f447c593",
+      "parent_id": null,
+      "start_ns": 1777167018770118000,
+      "end_ns": 1777167037629119000,
+      "wall_time_ms": 18859.001,
+      "cpu_time_ms": 1373.17,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b1",
+        "query_id": "q007",
+        "query_text": "What was the shortest war in history?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 1
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "95d54d74c4df49ba5a912bfd081eea80",
+      "span_id": "2d964d4b572c9b4d",
+      "parent_id": "ecb2fda7f447c593",
+      "start_ns": 1777167018772414000,
+      "end_ns": 1777167025239634000,
+      "wall_time_ms": 6467.22,
+      "cpu_time_ms": 122.464,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "28ee672e27b21aa7",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 717
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "95d54d74c4df49ba5a912bfd081eea80",
+      "span_id": "1aefdef3627bbe92",
+      "parent_id": "ecb2fda7f447c593",
+      "start_ns": 1777167025243424000,
+      "end_ns": 1777167026902578000,
+      "wall_time_ms": 1659.154,
+      "cpu_time_ms": 505.005,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "14b91038460fdc14",
+        "tool.url": "https://www.youtube.com/watch?v=l73Fs8Kd8WA",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 173
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "95d54d74c4df49ba5a912bfd081eea80",
+      "span_id": "74f6036aae42716e",
+      "parent_id": "ecb2fda7f447c593",
+      "start_ns": 1777167026902758000,
+      "end_ns": 1777167030298139000,
+      "wall_time_ms": 3395.381,
+      "cpu_time_ms": 202.244,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "8851f1b993e833ca",
+        "tool.url": "https://www.historic-uk.com/HistoryUK/HistoryofBritain/The-Shortest-War-in-History/",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "95d54d74c4df49ba5a912bfd081eea80",
+      "span_id": "a32aa2c8206adce3",
+      "parent_id": "ecb2fda7f447c593",
+      "start_ns": 1777167030298271000,
+      "end_ns": 1777167033646231000,
+      "wall_time_ms": 3347.96,
+      "cpu_time_ms": 193.228,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "b6f8ca418fc567b6",
+        "tool.url": "https://medium.com/mr-plan-publication/the-shortest-war-in-history-lasted-38-minutes-d8ab71e079b3",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "95d54d74c4df49ba5a912bfd081eea80",
+      "span_id": "22e058c9d30bf8ec",
+      "parent_id": "ecb2fda7f447c593",
+      "start_ns": 1777167033646439000,
+      "end_ns": 1777167035360569000,
+      "wall_time_ms": 1714.13,
+      "cpu_time_ms": 159.189,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "c271eaec19d13225",
+        "tool.url": "https://www.wearethemighty.com/articles/this-was-the-worlds-shortest-war/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 3197
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "95d54d74c4df49ba5a912bfd081eea80",
+      "span_id": "4ad050bcd388b5c4",
+      "parent_id": "ecb2fda7f447c593",
+      "start_ns": 1777167035360998000,
+      "end_ns": 1777167035462329000,
+      "wall_time_ms": 101.331,
+      "cpu_time_ms": 87.791,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "6a7a2438a8beff97",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 1,
+        "tool.output_size_bytes": 173
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "95d54d74c4df49ba5a912bfd081eea80",
+      "span_id": "cac70e42214242a0",
+      "parent_id": "ecb2fda7f447c593",
+      "start_ns": 1777167035463383000,
+      "end_ns": 1777167035540522000,
+      "wall_time_ms": 77.139,
+      "cpu_time_ms": 71.997,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "00e72cf84853bace",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 30,
+        "tool.output_size_bytes": 170
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "95d54d74c4df49ba5a912bfd081eea80",
+      "span_id": "abcce4adf773d2a1",
+      "parent_id": "ecb2fda7f447c593",
+      "start_ns": 1777167035541571000,
+      "end_ns": 1777167037628999000,
+      "wall_time_ms": 2087.428,
+      "cpu_time_ms": 22.19,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 106,
+        "llm.output_tokens": 81,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

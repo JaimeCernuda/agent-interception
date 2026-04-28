@@ -1,0 +1,117 @@
+{
+  "trace_id": "f5c691b2f3dc6b73f97b22ea61a60a54",
+  "config": "cell_concurrent_py_hotpot_b16",
+  "query_id": "q010",
+  "label": "cell_concurrent_py_hotpot_b16",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "f5c691b2f3dc6b73f97b22ea61a60a54",
+      "span_id": "0924d4df4f877a62",
+      "parent_id": null,
+      "start_ns": 1777183002739771000,
+      "end_ns": 1777183016358031000,
+      "wall_time_ms": 13618.26,
+      "cpu_time_ms": 16429.381,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b16",
+        "query_id": "q010",
+        "query_text": "Between Harvey Pekar and Denise Levertov who was born earlier?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 0,
+        "agent.num_summaries": 0,
+        "agent.concurrent_batch_size": 16
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "f5c691b2f3dc6b73f97b22ea61a60a54",
+      "span_id": "4aac59d4fdd0bb36",
+      "parent_id": "0924d4df4f877a62",
+      "start_ns": 1777183002739884000,
+      "end_ns": 1777183008626322000,
+      "wall_time_ms": 5886.438,
+      "cpu_time_ms": 3152.657,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "e635f42662c089c5",
+        "tool.retry_count": 0,
+        "tool.num_results": 2,
+        "tool.output_size_bytes": 84
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "f5c691b2f3dc6b73f97b22ea61a60a54",
+      "span_id": "82598f9fa928561e",
+      "parent_id": "0924d4df4f877a62",
+      "start_ns": 1777183008626532000,
+      "end_ns": 1777183011610952000,
+      "wall_time_ms": 2984.42,
+      "cpu_time_ms": 5181.972,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "0a5fa24a1f11d100",
+        "tool.url": "https://en.wikipedia.org/wiki/Gary_Snyder",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "f5c691b2f3dc6b73f97b22ea61a60a54",
+      "span_id": "b34f9a3d024363a2",
+      "parent_id": "0924d4df4f877a62",
+      "start_ns": 1777183011611119000,
+      "end_ns": 1777183014746446000,
+      "wall_time_ms": 3135.327,
+      "cpu_time_ms": 5746.672,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "1a6c11635893fdb8",
+        "tool.url": "https://en.wikipedia.org/wiki/Charles_Olson",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "f5c691b2f3dc6b73f97b22ea61a60a54",
+      "span_id": "f5ec79c3afc53193",
+      "parent_id": "0924d4df4f877a62",
+      "start_ns": 1777183014746597000,
+      "end_ns": 1777183016357955000,
+      "wall_time_ms": 1611.358,
+      "cpu_time_ms": 2347.396,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 33,
+        "llm.output_tokens": 54,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

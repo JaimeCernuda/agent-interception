@@ -1,0 +1,285 @@
+{
+  "trace_id": "ad9c2fb1c72751539a00aa4cceef5b26",
+  "config": "cell_concurrent_py_b64",
+  "query_id": "q012",
+  "label": "cell_concurrent_py_b64",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "ad9c2fb1c72751539a00aa4cceef5b26",
+      "span_id": "da86247fbc7c000b",
+      "parent_id": null,
+      "start_ns": 1777167629191911000,
+      "end_ns": 1777167663232710000,
+      "wall_time_ms": 34040.799,
+      "cpu_time_ms": 24323.072,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b64",
+        "query_id": "q012",
+        "query_text": "Which drama series won the most recent Primetime Emmy Award for Outstanding Drama Series?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 64
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "ad9c2fb1c72751539a00aa4cceef5b26",
+      "span_id": "99549ffcbeb4f496",
+      "parent_id": "da86247fbc7c000b",
+      "start_ns": 1777167629192025000,
+      "end_ns": 1777167638364263000,
+      "wall_time_ms": 9172.238,
+      "cpu_time_ms": 10275.768,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "e4dfccfe8445ac51",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 685
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "ad9c2fb1c72751539a00aa4cceef5b26",
+      "span_id": "1baf7ebf4f517d24",
+      "parent_id": "da86247fbc7c000b",
+      "start_ns": 1777167638364455000,
+      "end_ns": 1777167641478283000,
+      "wall_time_ms": 3113.828,
+      "cpu_time_ms": 4681.174,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "24f3c8b838d47867",
+        "tool.url": "https://en.wikipedia.org/wiki/68th_Primetime_Emmy_Awards",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "ad9c2fb1c72751539a00aa4cceef5b26",
+      "span_id": "d81162c49e7e2fc7",
+      "parent_id": "da86247fbc7c000b",
+      "start_ns": 1777167641478457000,
+      "end_ns": 1777167644446311000,
+      "wall_time_ms": 2967.854,
+      "cpu_time_ms": 4179.248,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "0878b9e48ee624f0",
+        "tool.url": "https://en.wikipedia.org/wiki/67th_Primetime_Emmy_Awards",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "ad9c2fb1c72751539a00aa4cceef5b26",
+      "span_id": "233c392099d7b466",
+      "parent_id": "da86247fbc7c000b",
+      "start_ns": 1777167644446437000,
+      "end_ns": 1777167647342881000,
+      "wall_time_ms": 2896.444,
+      "cpu_time_ms": 1682.883,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "d32205b2e3115bc1",
+        "tool.url": "https://en.wikipedia.org/wiki/52nd_Primetime_Emmy_Awards",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "ad9c2fb1c72751539a00aa4cceef5b26",
+      "span_id": "2be634fdb1370e83",
+      "parent_id": "da86247fbc7c000b",
+      "start_ns": 1777167647343039000,
+      "end_ns": 1777167650231427000,
+      "wall_time_ms": 2888.388,
+      "cpu_time_ms": 827.998,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "83b93e3bae71613e",
+        "tool.url": "https://en.wikipedia.org/wiki/73rd_Primetime_Emmy_Awards",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "ad9c2fb1c72751539a00aa4cceef5b26",
+      "span_id": "95ab924b4fea9c37",
+      "parent_id": "da86247fbc7c000b",
+      "start_ns": 1777167650231566000,
+      "end_ns": 1777167653435223000,
+      "wall_time_ms": 3203.657,
+      "cpu_time_ms": 1732.989,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "2787f28a24a5d352",
+        "tool.url": "https://en.wikipedia.org/wiki/55th_Primetime_Emmy_Awards",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "ad9c2fb1c72751539a00aa4cceef5b26",
+      "span_id": "24aa4f35bb1a15eb",
+      "parent_id": "da86247fbc7c000b",
+      "start_ns": 1777167653435412000,
+      "end_ns": 1777167655879547000,
+      "wall_time_ms": 2444.135,
+      "cpu_time_ms": 238.54,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "2f869c8dc60fff9a",
+        "tool.url": "https://www.goldderby.com/gallery/daytime-emmys-best-drama-series-every-winner-in-emmy-awards-history/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 481
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "ad9c2fb1c72751539a00aa4cceef5b26",
+      "span_id": "24d09d1fc817e083",
+      "parent_id": "da86247fbc7c000b",
+      "start_ns": 1777167655879773000,
+      "end_ns": 1777167659238438000,
+      "wall_time_ms": 3358.665,
+      "cpu_time_ms": 203.38,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "f1ffd4308fb18e39",
+        "tool.url": "https://ultimatepopculture.fandom.com/wiki/45th_Primetime_Emmy_Awards",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "ad9c2fb1c72751539a00aa4cceef5b26",
+      "span_id": "328c22e7366272ae",
+      "parent_id": "da86247fbc7c000b",
+      "start_ns": 1777167659238602000,
+      "end_ns": 1777167660421787000,
+      "wall_time_ms": 1183.185,
+      "cpu_time_ms": 369.412,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "7b16113e97f2a1f5",
+        "tool.url": "https://www.indiewire.com/awards/predictions/2024-emmys-drama-series-predictions-1234972366/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 4683
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "ad9c2fb1c72751539a00aa4cceef5b26",
+      "span_id": "0ce28c58d1d6fb73",
+      "parent_id": "da86247fbc7c000b",
+      "start_ns": 1777167660421941000,
+      "end_ns": 1777167660466045000,
+      "wall_time_ms": 44.104,
+      "cpu_time_ms": 43.977,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "77ceeb34f5e37889",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 2,
+        "tool.output_size_bytes": 374
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "ad9c2fb1c72751539a00aa4cceef5b26",
+      "span_id": "8fb12f8f2397041e",
+      "parent_id": "da86247fbc7c000b",
+      "start_ns": 1777167660466992000,
+      "end_ns": 1777167660537816000,
+      "wall_time_ms": 70.824,
+      "cpu_time_ms": 70.48,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "5db4cef01428d8fd",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 28,
+        "tool.output_size_bytes": 641
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "ad9c2fb1c72751539a00aa4cceef5b26",
+      "span_id": "2456112f4de2b544",
+      "parent_id": "da86247fbc7c000b",
+      "start_ns": 1777167660538726000,
+      "end_ns": 1777167663232613000,
+      "wall_time_ms": 2693.887,
+      "cpu_time_ms": 13.546,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 293,
+        "llm.output_tokens": 179,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

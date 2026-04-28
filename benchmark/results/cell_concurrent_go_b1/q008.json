@@ -1,0 +1,181 @@
+{
+  "config": "cell_concurrent_go_b1",
+  "label": "cell_concurrent_go_b1",
+  "query_id": "q008",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 1,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 2,
+        "agent.num_urls_fetched": 2,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b1",
+        "query_id": "q008",
+        "query_text": "What is the best-selling jazz album of all time?"
+      },
+      "cpu_time_ms": 8724.25,
+      "end_ns": 1777167326925279000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "8461e2722a78ff09",
+      "start_ns": 1777167318201029000,
+      "status": "ok",
+      "trace_id": "fffde4aabb8d38ecbe9e0c37d8c27dd0",
+      "wall_time_ms": 8724.25
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "32c28547ed2dceb0",
+        "tool.name": "ddg",
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 561,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 1031.435,
+      "end_ns": 1777167319232473000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "8461e2722a78ff09",
+      "span_id": "9ca002f2c70f80b1",
+      "start_ns": 1777167318201039000,
+      "status": "ok",
+      "trace_id": "fffde4aabb8d38ecbe9e0c37d8c27dd0",
+      "wall_time_ms": 1031.434
+    },
+    {
+      "attrs": {
+        "tool.http_status": 403,
+        "tool.input_hash": "8f0a4a479c8d3c63",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3,
+        "tool.url": "https://pinkwafer.club/2023/04/12/best-selling-jazz-albums/"
+      },
+      "cpu_time_ms": 2983.155,
+      "end_ns": 1777167322215647000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "8461e2722a78ff09",
+      "span_id": "b694b5429ba2dc0a",
+      "start_ns": 1777167319232493000,
+      "status": "ok",
+      "trace_id": "fffde4aabb8d38ecbe9e0c37d8c27dd0",
+      "wall_time_ms": 2983.154
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "c0f581a4b5e15a2f",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 3963,
+        "tool.retry_count": 0,
+        "tool.url": "https://faroutmagazine.co.uk/what-is-the-best-selling-jazz-album/"
+      },
+      "cpu_time_ms": 1343.977,
+      "end_ns": 1777167323568894000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "8461e2722a78ff09",
+      "span_id": "a5cfabe2b383d06b",
+      "start_ns": 1777167322224918000,
+      "status": "ok",
+      "trace_id": "fffde4aabb8d38ecbe9e0c37d8c27dd0",
+      "wall_time_ms": 1343.976
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "8fc0b8fd26f483c0",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 7107,
+        "tool.retry_count": 0,
+        "tool.url": "https://bestofjazz.org/what-is-the-best-selling-jazz-album-of-all-time/"
+      },
+      "cpu_time_ms": 1215.893,
+      "end_ns": 1777167324784818000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "8461e2722a78ff09",
+      "span_id": "0a54bac125e81573",
+      "start_ns": 1777167323568926000,
+      "status": "ok",
+      "trace_id": "fffde4aabb8d38ecbe9e0c37d8c27dd0",
+      "wall_time_ms": 1215.892
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "b1da35e8bcd940e8",
+        "tool.n_sentences_in": 27,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 46,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 2.097,
+      "end_ns": 1777167324786962000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "8461e2722a78ff09",
+      "span_id": "bc0c70ae27b2ee16",
+      "start_ns": 1777167324784865000,
+      "status": "ok",
+      "trace_id": "fffde4aabb8d38ecbe9e0c37d8c27dd0",
+      "wall_time_ms": 2.097
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "b14fe91f4cdb1bd7",
+        "tool.n_sentences_in": 42,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 48,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 3.959,
+      "end_ns": 1777167324790958000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "8461e2722a78ff09",
+      "span_id": "5620b2aa1349b204",
+      "start_ns": 1777167324786998000,
+      "status": "ok",
+      "trace_id": "fffde4aabb8d38ecbe9e0c37d8c27dd0",
+      "wall_time_ms": 3.96
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 52,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 153,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 2134.235,
+      "end_ns": 1777167326925266000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "8461e2722a78ff09",
+      "span_id": "382819429c06d00e",
+      "start_ns": 1777167324791032000,
+      "status": "ok",
+      "trace_id": "fffde4aabb8d38ecbe9e0c37d8c27dd0",
+      "wall_time_ms": 2134.234
+    }
+  ],
+  "trace_id": "fffde4aabb8d38ecbe9e0c37d8c27dd0"
+}

@@ -1,0 +1,76 @@
+{
+  "config": "cell_concurrent_go_b4",
+  "label": "cell_concurrent_go_b4",
+  "query_id": "q009",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 4,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 0,
+        "agent.num_urls_fetched": 0,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b4",
+        "query_id": "q009",
+        "query_text": "Who is the most recent female recipient of the Fields Medal?"
+      },
+      "cpu_time_ms": 2948.455,
+      "end_ns": 1777167515993044000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "b4c28e7cd6715b30",
+      "start_ns": 1777167513044590000,
+      "status": "ok",
+      "trace_id": "7e2c72fe8978d28548a0050e72994459",
+      "wall_time_ms": 2948.454
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "2764dd5a718b083a",
+        "tool.name": "ddg",
+        "tool.num_results": 0,
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3
+      },
+      "cpu_time_ms": 2058.66,
+      "end_ns": 1777167515103261000,
+      "error": "ddg status 403",
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "b4c28e7cd6715b30",
+      "span_id": "df953b00827cf703",
+      "start_ns": 1777167513044601000,
+      "status": "error",
+      "trace_id": "7e2c72fe8978d28548a0050e72994459",
+      "wall_time_ms": 2058.66
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 27,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 51,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 889.696,
+      "end_ns": 1777167515993036000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "b4c28e7cd6715b30",
+      "span_id": "0fc9dbd73ef4b2c1",
+      "start_ns": 1777167515103340000,
+      "status": "ok",
+      "trace_id": "7e2c72fe8978d28548a0050e72994459",
+      "wall_time_ms": 889.696
+    }
+  ],
+  "trace_id": "7e2c72fe8978d28548a0050e72994459"
+}

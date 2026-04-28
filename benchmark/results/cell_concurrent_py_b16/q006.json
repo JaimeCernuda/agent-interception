@@ -1,0 +1,201 @@
+{
+  "trace_id": "88d87cfcc9596a0467ac1a207adb4a14",
+  "config": "cell_concurrent_py_b16",
+  "query_id": "q006",
+  "label": "cell_concurrent_py_b16",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "88d87cfcc9596a0467ac1a207adb4a14",
+      "span_id": "6ef18095e87c4fa7",
+      "parent_id": null,
+      "start_ns": 1777167541865557000,
+      "end_ns": 1777167558286765000,
+      "wall_time_ms": 16421.208,
+      "cpu_time_ms": 19013.404,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b16",
+        "query_id": "q006",
+        "query_text": "What country became the latest country to adopt the Euro?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 16
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "88d87cfcc9596a0467ac1a207adb4a14",
+      "span_id": "52d7f31edc9ce635",
+      "parent_id": "6ef18095e87c4fa7",
+      "start_ns": 1777167541865646000,
+      "end_ns": 1777167547551662000,
+      "wall_time_ms": 5686.016,
+      "cpu_time_ms": 3469.015,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "974813d7ec0f4ad6",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 897
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "88d87cfcc9596a0467ac1a207adb4a14",
+      "span_id": "2918266e94939c32",
+      "parent_id": "6ef18095e87c4fa7",
+      "start_ns": 1777167547552029000,
+      "end_ns": 1777167550445351000,
+      "wall_time_ms": 2893.322,
+      "cpu_time_ms": 5783.687,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "8c10d78f9584157f",
+        "tool.url": "https://en.wikipedia.org/wiki/Bulgaria_and_the_euro",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "88d87cfcc9596a0467ac1a207adb4a14",
+      "span_id": "73edf0f1e8f2e204",
+      "parent_id": "6ef18095e87c4fa7",
+      "start_ns": 1777167550445497000,
+      "end_ns": 1777167553394085000,
+      "wall_time_ms": 2948.588,
+      "cpu_time_ms": 5897.094,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "205aa781d101552f",
+        "tool.url": "https://en.wikipedia.org/wiki/Euro",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "88d87cfcc9596a0467ac1a207adb4a14",
+      "span_id": "be05ae92c3954428",
+      "parent_id": "6ef18095e87c4fa7",
+      "start_ns": 1777167553394233000,
+      "end_ns": 1777167554179912000,
+      "wall_time_ms": 785.679,
+      "cpu_time_ms": 1072.961,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "a44e75d0bd9f9a3c",
+        "tool.url": "https://www.europarl.europa.eu/topics/en/article/20250709STO29570/the-euro-over-the-years-its-history-and-benefits",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 3677
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "88d87cfcc9596a0467ac1a207adb4a14",
+      "span_id": "4c4d100b8e23b945",
+      "parent_id": "6ef18095e87c4fa7",
+      "start_ns": 1777167554180044000,
+      "end_ns": 1777167556332630000,
+      "wall_time_ms": 2152.586,
+      "cpu_time_ms": 1769.42,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "68fad5232bba5a7f",
+        "tool.url": "https://www.ebc.com/forex/what-countries-use-the-euro-full-list-for",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 2182
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "88d87cfcc9596a0467ac1a207adb4a14",
+      "span_id": "8d88fc31731a9cbb",
+      "parent_id": "6ef18095e87c4fa7",
+      "start_ns": 1777167556332802000,
+      "end_ns": 1777167556406338000,
+      "wall_time_ms": 73.536,
+      "cpu_time_ms": 73.164,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "5f4bca570c14ea8c",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 34,
+        "tool.output_size_bytes": 141
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "88d87cfcc9596a0467ac1a207adb4a14",
+      "span_id": "98178939cfa63705",
+      "parent_id": "6ef18095e87c4fa7",
+      "start_ns": 1777167556407213000,
+      "end_ns": 1777167556484565000,
+      "wall_time_ms": 77.352,
+      "cpu_time_ms": 171.376,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "efe3daec7ef3ec0f",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 18,
+        "tool.output_size_bytes": 216
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "88d87cfcc9596a0467ac1a207adb4a14",
+      "span_id": "0ea31be852bfe1e6",
+      "parent_id": "6ef18095e87c4fa7",
+      "start_ns": 1777167556485323000,
+      "end_ns": 1777167558286665000,
+      "wall_time_ms": 1801.342,
+      "cpu_time_ms": 773.59,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 103,
+        "llm.output_tokens": 51,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

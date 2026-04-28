@@ -1,0 +1,179 @@
+{
+  "trace_id": "14d78479638f9d7513530f0df4a787b8",
+  "config": "pipeline_haiku_hotpot",
+  "query_id": "q015",
+  "label": "cell_haiku_pipeline_hotpot",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "14d78479638f9d7513530f0df4a787b8",
+      "span_id": "fe2309ee0c97eab0",
+      "parent_id": null,
+      "start_ns": 1777170038584789000,
+      "end_ns": 1777170054544823000,
+      "wall_time_ms": 15960.034,
+      "cpu_time_ms": 692.893,
+      "kind": "root",
+      "attrs": {
+        "config": "pipeline_haiku_hotpot",
+        "query_id": "q015",
+        "query_text": "Are Denzel Washington and David Hewlett both actors?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "14d78479638f9d7513530f0df4a787b8",
+      "span_id": "2e518aa5e41ce6d2",
+      "parent_id": "fe2309ee0c97eab0",
+      "start_ns": 1777170038584906000,
+      "end_ns": 1777170047279103000,
+      "wall_time_ms": 8694.197,
+      "cpu_time_ms": 32.728,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "63e25859110ec002",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 528
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "14d78479638f9d7513530f0df4a787b8",
+      "span_id": "11850dd3971ff20d",
+      "parent_id": "fe2309ee0c97eab0",
+      "start_ns": 1777170047279245000,
+      "end_ns": 1777170050204299000,
+      "wall_time_ms": 2925.054,
+      "cpu_time_ms": 215.91,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "a67661a0c7855723",
+        "tool.url": "https://en.wikipedia.org/wiki/Paul_Scofield",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "14d78479638f9d7513530f0df4a787b8",
+      "span_id": "00e77434e9ef81a8",
+      "parent_id": "fe2309ee0c97eab0",
+      "start_ns": 1777170050204509000,
+      "end_ns": 1777170051706392000,
+      "wall_time_ms": 1501.883,
+      "cpu_time_ms": 232.388,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "a1659861cc4cddbd",
+        "tool.url": "https://www.actingbiz.com/celebrities/david-hewlett/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 3366
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "14d78479638f9d7513530f0df4a787b8",
+      "span_id": "d2c82b454a3c9c2d",
+      "parent_id": "fe2309ee0c97eab0",
+      "start_ns": 1777170051706551000,
+      "end_ns": 1777170052515008000,
+      "wall_time_ms": 808.457,
+      "cpu_time_ms": 67.567,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "5ea5ae47e5f2c077",
+        "tool.url": "https://www.imdb.com/list/ls002725196/",
+        "tool.retry_count": 0,
+        "tool.http_status": 202,
+        "tool.output_size_bytes": 157
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "14d78479638f9d7513530f0df4a787b8",
+      "span_id": "509beae6f2a70585",
+      "parent_id": "fe2309ee0c97eab0",
+      "start_ns": 1777170052515199000,
+      "end_ns": 1777170052608066000,
+      "wall_time_ms": 92.867,
+      "cpu_time_ms": 86.783,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "0662f76d0a07813d",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 34,
+        "tool.output_size_bytes": 199
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "14d78479638f9d7513530f0df4a787b8",
+      "span_id": "1de2a35dfa1c1b0d",
+      "parent_id": "fe2309ee0c97eab0",
+      "start_ns": 1777170052609068000,
+      "end_ns": 1777170052651875000,
+      "wall_time_ms": 42.807,
+      "cpu_time_ms": 42.697,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "ebccbd5922b41e48",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 3,
+        "tool.output_size_bytes": 87
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "14d78479638f9d7513530f0df4a787b8",
+      "span_id": "33401ffdd4b71ea8",
+      "parent_id": "fe2309ee0c97eab0",
+      "start_ns": 1777170052652527000,
+      "end_ns": 1777170054544737000,
+      "wall_time_ms": 1892.21,
+      "cpu_time_ms": 12.684,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 94,
+        "llm.output_tokens": 85,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

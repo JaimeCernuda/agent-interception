@@ -1,0 +1,201 @@
+{
+  "trace_id": "80f6d1fb6669dcad8f0a3a362d6bd694",
+  "config": "cell_concurrent_py_hotpot_b16",
+  "query_id": "q016",
+  "label": "cell_concurrent_py_hotpot_b16",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "80f6d1fb6669dcad8f0a3a362d6bd694",
+      "span_id": "c2fb5c596f321c0c",
+      "parent_id": null,
+      "start_ns": 1777183002731064000,
+      "end_ns": 1777183027526655000,
+      "wall_time_ms": 24795.591,
+      "cpu_time_ms": 25761.735,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b16",
+        "query_id": "q016",
+        "query_text": "Are both Barry Unsworth and P. G. Wodehouse from the same country?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 16
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "80f6d1fb6669dcad8f0a3a362d6bd694",
+      "span_id": "cc60d5faac363f1f",
+      "parent_id": "c2fb5c596f321c0c",
+      "start_ns": 1777183002731317000,
+      "end_ns": 1777183011293210000,
+      "wall_time_ms": 8561.893,
+      "cpu_time_ms": 7561.633,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "7f6391080f35ea1e",
+        "tool.retry_count": 0,
+        "tool.num_results": 7,
+        "tool.output_size_bytes": 327
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "80f6d1fb6669dcad8f0a3a362d6bd694",
+      "span_id": "68ada69cdc6b9a5a",
+      "parent_id": "c2fb5c596f321c0c",
+      "start_ns": 1777183011293351000,
+      "end_ns": 1777183014362733000,
+      "wall_time_ms": 3069.382,
+      "cpu_time_ms": 6014.607,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "917b4481c9702f0d",
+        "tool.url": "https://en.wikipedia.org/wiki/Booker_Prize",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "80f6d1fb6669dcad8f0a3a362d6bd694",
+      "span_id": "0ad317539e336cab",
+      "parent_id": "c2fb5c596f321c0c",
+      "start_ns": 1777183014362878000,
+      "end_ns": 1777183015351820000,
+      "wall_time_ms": 988.942,
+      "cpu_time_ms": 1748.06,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "6f02bab8559c4770",
+        "tool.url": "https://ashrarebooks.com/2019/02/08/boutells-first-editions-of-to-day/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 11506
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "80f6d1fb6669dcad8f0a3a362d6bd694",
+      "span_id": "cc56b04de1807dde",
+      "parent_id": "c2fb5c596f321c0c",
+      "start_ns": 1777183015351947000,
+      "end_ns": 1777183019791135000,
+      "wall_time_ms": 4439.188,
+      "cpu_time_ms": 4256.923,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "ddc0adb3b5cf5c37",
+        "tool.url": "https://wikimili.com/en/Booker_Prize",
+        "tool.retry_count": 3,
+        "tool.http_status": 0,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "80f6d1fb6669dcad8f0a3a362d6bd694",
+      "span_id": "687c2ebd4e4dac43",
+      "parent_id": "c2fb5c596f321c0c",
+      "start_ns": 1777183019791303000,
+      "end_ns": 1777183022937890000,
+      "wall_time_ms": 3146.587,
+      "cpu_time_ms": 1330.441,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "f459b21873977b76",
+        "tool.url": "https://dooneyscafe.com/1980/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 35402
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "80f6d1fb6669dcad8f0a3a362d6bd694",
+      "span_id": "1eb19db1e4837051",
+      "parent_id": "c2fb5c596f321c0c",
+      "start_ns": 1777183022939494000,
+      "end_ns": 1777183023247129000,
+      "wall_time_ms": 307.635,
+      "cpu_time_ms": 482.993,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "8a9c2e3a1e558d0d",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 64,
+        "tool.output_size_bytes": 470
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "80f6d1fb6669dcad8f0a3a362d6bd694",
+      "span_id": "d569b4e31b2b8c33",
+      "parent_id": "c2fb5c596f321c0c",
+      "start_ns": 1777183023248241000,
+      "end_ns": 1777183025545840000,
+      "wall_time_ms": 2297.599,
+      "cpu_time_ms": 2797.629,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "e605ca4a4836ab52",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 291,
+        "tool.output_size_bytes": 83
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "80f6d1fb6669dcad8f0a3a362d6bd694",
+      "span_id": "6a9547ea57c99d38",
+      "parent_id": "c2fb5c596f321c0c",
+      "start_ns": 1777183025547105000,
+      "end_ns": 1777183027526562000,
+      "wall_time_ms": 1979.457,
+      "cpu_time_ms": 1563.424,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 163,
+        "llm.output_tokens": 77,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "trace_id": "1b94160d16b6a254dba343b0e1429293",
+  "config": "cell_concurrent_py_b64",
+  "query_id": "q015",
+  "label": "cell_concurrent_py_b64",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "1b94160d16b6a254dba343b0e1429293",
+      "span_id": "a9f78a9cbc94758e",
+      "parent_id": null,
+      "start_ns": 1777167629186241000,
+      "end_ns": 1777167638545620000,
+      "wall_time_ms": 9359.379,
+      "cpu_time_ms": 10885.014,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b64",
+        "query_id": "q015",
+        "query_text": "Who is the vice-chancellor of the largest university by enrollment in the world?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 64
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "1b94160d16b6a254dba343b0e1429293",
+      "span_id": "58d91b53a8efa5c3",
+      "parent_id": "a9f78a9cbc94758e",
+      "start_ns": 1777167629186388000,
+      "end_ns": 1777167632507266000,
+      "wall_time_ms": 3320.878,
+      "cpu_time_ms": 1065.593,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "69499afd09a35f3c",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 874
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "1b94160d16b6a254dba343b0e1429293",
+      "span_id": "52e0b6cea08ee4da",
+      "parent_id": "a9f78a9cbc94758e",
+      "start_ns": 1777167632507497000,
+      "end_ns": 1777167634500175000,
+      "wall_time_ms": 1992.678,
+      "cpu_time_ms": 1463.732,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "466cfb2dad00181e",
+        "tool.url": "https://today.duke.edu/2020/05/global-education-leader-al-bloom-named-executive-vice-chancellor-duke-kunshan-university",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 4667
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "1b94160d16b6a254dba343b0e1429293",
+      "span_id": "fbc37a7343b2f39c",
+      "parent_id": "a9f78a9cbc94758e",
+      "start_ns": 1777167634500320000,
+      "end_ns": 1777167635703469000,
+      "wall_time_ms": 1203.149,
+      "cpu_time_ms": 2603.614,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "222b3878fe32deb7",
+        "tool.url": "https://ssbcrackexams.com/naima-khatoon-amus-1st-woman-vice-chancellor/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 15878
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "1b94160d16b6a254dba343b0e1429293",
+      "span_id": "32ab1559dfd2c740",
+      "parent_id": "a9f78a9cbc94758e",
+      "start_ns": 1777167635704022000,
+      "end_ns": 1777167635820858000,
+      "wall_time_ms": 116.836,
+      "cpu_time_ms": 210.306,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "0e33890c2fcbe164",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 22,
+        "tool.output_size_bytes": 471
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "1b94160d16b6a254dba343b0e1429293",
+      "span_id": "560be62b0f696b66",
+      "parent_id": "a9f78a9cbc94758e",
+      "start_ns": 1777167635823181000,
+      "end_ns": 1777167636263694000,
+      "wall_time_ms": 440.513,
+      "cpu_time_ms": 675.477,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "b9385ec591561b85",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 75,
+        "tool.output_size_bytes": 471
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "1b94160d16b6a254dba343b0e1429293",
+      "span_id": "72843c2b303b2b3c",
+      "parent_id": "a9f78a9cbc94758e",
+      "start_ns": 1777167636265107000,
+      "end_ns": 1777167638545533000,
+      "wall_time_ms": 2280.426,
+      "cpu_time_ms": 4856.435,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 267,
+        "llm.output_tokens": 133,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

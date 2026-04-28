@@ -1,0 +1,222 @@
+{
+  "trace_id": "046edea513e4252e98daaa5f28037d11",
+  "config": "cell_concurrent_py_hotpot_b1",
+  "query_id": "q016",
+  "label": "cell_concurrent_py_hotpot_b1",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "046edea513e4252e98daaa5f28037d11",
+      "span_id": "309ada020df6e6fe",
+      "parent_id": null,
+      "start_ns": 1777182767400869000,
+      "end_ns": 1777182791613580000,
+      "wall_time_ms": 24212.711,
+      "cpu_time_ms": 2414.659,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b1",
+        "query_id": "q016",
+        "query_text": "Are both Barry Unsworth and P. G. Wodehouse from the same country?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 1
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "046edea513e4252e98daaa5f28037d11",
+      "span_id": "31559478d10b0cdd",
+      "parent_id": "309ada020df6e6fe",
+      "start_ns": 1777182767401000000,
+      "end_ns": 1777182773608839000,
+      "wall_time_ms": 6207.839,
+      "cpu_time_ms": 55.861,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "7f6391080f35ea1e",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 526
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "046edea513e4252e98daaa5f28037d11",
+      "span_id": "db0d4749470132d9",
+      "parent_id": "309ada020df6e6fe",
+      "start_ns": 1777182773609025000,
+      "end_ns": 1777182776478612000,
+      "wall_time_ms": 2869.587,
+      "cpu_time_ms": 194.494,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "917b4481c9702f0d",
+        "tool.url": "https://en.wikipedia.org/wiki/Booker_Prize",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "046edea513e4252e98daaa5f28037d11",
+      "span_id": "16d3038ae8539ce0",
+      "parent_id": "309ada020df6e6fe",
+      "start_ns": 1777182776478784000,
+      "end_ns": 1777182779346647000,
+      "wall_time_ms": 2867.863,
+      "cpu_time_ms": 194.316,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "1c1d45af4f72994b",
+        "tool.url": "https://en.wikipedia.org/wiki/Jeeves_and_Wooster",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "046edea513e4252e98daaa5f28037d11",
+      "span_id": "35fb43c54838f848",
+      "parent_id": "309ada020df6e6fe",
+      "start_ns": 1777182779346865000,
+      "end_ns": 1777182780805832000,
+      "wall_time_ms": 1458.967,
+      "cpu_time_ms": 140.072,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "6f02bab8559c4770",
+        "tool.url": "https://ashrarebooks.com/2019/02/08/boutells-first-editions-of-to-day/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 11506
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "046edea513e4252e98daaa5f28037d11",
+      "span_id": "bf7b298b6c30ab74",
+      "parent_id": "309ada020df6e6fe",
+      "start_ns": 1777182780805974000,
+      "end_ns": 1777182785352198000,
+      "wall_time_ms": 4546.224,
+      "cpu_time_ms": 245.178,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "ddc0adb3b5cf5c37",
+        "tool.url": "https://wikimili.com/en/Booker_Prize",
+        "tool.retry_count": 3,
+        "tool.http_status": 0,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "046edea513e4252e98daaa5f28037d11",
+      "span_id": "ef29768ad063b25f",
+      "parent_id": "309ada020df6e6fe",
+      "start_ns": 1777182785352466000,
+      "end_ns": 1777182787061740000,
+      "wall_time_ms": 1709.274,
+      "cpu_time_ms": 247.502,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "85fa502bf33c103f",
+        "tool.url": "https://www.newworldencyclopedia.org/entry/P._G._Wodehouse",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 23447
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "046edea513e4252e98daaa5f28037d11",
+      "span_id": "293ad483b5a2e1a4",
+      "parent_id": "309ada020df6e6fe",
+      "start_ns": 1777182787062359000,
+      "end_ns": 1777182787797555000,
+      "wall_time_ms": 735.196,
+      "cpu_time_ms": 376.272,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "8a9c2e3a1e558d0d",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 64,
+        "tool.output_size_bytes": 470
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "046edea513e4252e98daaa5f28037d11",
+      "span_id": "769188f85b4cd63c",
+      "parent_id": "309ada020df6e6fe",
+      "start_ns": 1777182787799793000,
+      "end_ns": 1777182788847327000,
+      "wall_time_ms": 1047.534,
+      "cpu_time_ms": 931.339,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "3f8aa61167883f7b",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 177,
+        "tool.output_size_bytes": 409
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "046edea513e4252e98daaa5f28037d11",
+      "span_id": "a7387f650c72a39e",
+      "parent_id": "309ada020df6e6fe",
+      "start_ns": 1777182788848620000,
+      "end_ns": 1777182791613408000,
+      "wall_time_ms": 2764.788,
+      "cpu_time_ms": 25.33,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 260,
+        "llm.output_tokens": 140,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

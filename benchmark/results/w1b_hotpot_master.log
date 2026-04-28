@@ -1,0 +1,205 @@
+
+==================================================================
+[CELL] py-hotpot  batch=1  backend=ddg  out=benchmark/results/cell_concurrent_py_hotpot_b1
+[CELL] start: 2026-04-26T05:48:08Z
+==================================================================
+[concurrent_py] label=cell_concurrent_py_hotpot_b1  queries=20  workers=1  out=benchmark/results/cell_concurrent_py_hotpot_b1  model=claude-haiku-4-5-20251001  backend=ddg
+[concurrent_py] pre-warming NLTK punkt tokenizer...
+  [q001] ok (12.93s)  answer="I don't have enough information in the provided summaries to answer your questio"
+  [q002] ok ( 9.94s)  answer="# Answer  I don't have enough information to answer this question based on the p"
+  [q003] ok (16.49s)  answer='# Answer  Based on the information provided, both **Alexandra David-Néel** and *'
+  [q004] ok (18.40s)  answer='# Areas That Could Still Deny Same-Sex Marriage After Windsor v. United States  '
+  [q005] ok (13.04s)  answer='I cannot answer this question based on the provided text. The summary only menti'
+  [q006] ok (18.64s)  answer='# Answer  **James Weldon Johnson** is the American author, songwriter, educator,'
+  [q007] ok (11.46s)  answer='Based on the summary provided, Sian Gibson co-wrote the British sitcom **"Car Sh'
+  [q008] ok (31.48s)  answer='# Answer  Based on the summaries provided, I cannot determine what animal the Ma'
+  [q009] ok (15.87s)  answer='# Comparing Othonna and Stangeria Species Count  Based on the summaries provided'
+  [q010] ok (24.87s)  answer="I don't have enough information in the summaries provided to answer this questio"
+  [q011] ok (13.69s)  answer="I don't have enough information to answer this question. The text provided appea"
+  [q012] ok (51.34s)  answer='# Answer  Based on the question structure, **Billy Idol** is known professionall'
+  [q013] ok (13.48s)  answer="I don't have enough information to answer this question. The text provided appea"
+  [q014] ok ( 9.93s)  answer='# Answer  Based on the summaries provided, **Juan Carlos Onetti died first**.  -'
+  [q015] ok (11.15s)  answer='I cannot answer this question based on the provided sources. The summaries given'
+  [q016] ok (24.27s)  answer='# Analysis  The second summary clearly identifies **P. G. Wodehouse** as the aut'
+  [q017] ok (37.53s)  answer='# Answer  Yes, both **Ixia** and **Rhexia** are plant genera.  - **Ixia** is a g'
+  [q018] ok (19.69s)  answer='# Based on the provided text:  ## Question 1: Are Florida Atlantic University an'
+  [q019] ok (15.50s)  answer="I don't have enough information to answer your question accurately. The provided"
+  [q020] ok ( 8.93s)  answer='I cannot answer this question based on the provided summaries. The text defines '
+[concurrent_py] done. 20/20 succeeded, 0 failed.
+
+[summary] cell_concurrent_py_hotpot_b1  (CONCURRENT_BATCH_SIZE=1)
+  ----------------------------------------------------------------------
+  queries completed         20 / 20
+  batch wall-clock (s)          378.65
+  throughput (q/s)              0.0528
+  median active_latency_ms    15,628.9
+  mean LLM share of active       14.0%
+  mean tool share of active      86.0%
+  total llm.retry_wait               0
+  ----------------------------------------------------------------------
+[CELL] end: 2026-04-26T05:54:33Z
+[sweep] cooling down 10s...
+
+==================================================================
+[CELL] py-hotpot  batch=4  backend=ddg  out=benchmark/results/cell_concurrent_py_hotpot_b4
+[CELL] start: 2026-04-26T05:54:43Z
+==================================================================
+[concurrent_py] label=cell_concurrent_py_hotpot_b4  queries=20  workers=4  out=benchmark/results/cell_concurrent_py_hotpot_b4  model=claude-haiku-4-5-20251001  backend=ddg
+[concurrent_py] pre-warming NLTK punkt tokenizer...
+  [q002] ok (11.82s)  answer="# Answer  Based on the summary provided, the 2013 America East Men's Lacrosse To"
+  [q004] ok (12.52s)  answer='# Answer  Based on the summaries provided, I cannot answer this question because'
+  [q003] ok (15.35s)  answer='# Answer  Based on the summaries provided, **writing** is the profession that Al'
+  [q001] ok (17.48s)  answer='I cannot answer this question based on the provided summaries. The summaries giv'
+  [q005] ok (15.40s)  answer="I appreciate your question, but the text provided doesn't contain the informatio"
+  [q007] ok (16.17s)  answer='# Answer  Based on the summary provided, Sian Gibson co-wrote **Car Share**, a B'
+  [q008] ok (18.37s)  answer='# Answer  Both the Mahratta Greyhound and Tibetan Spaniel have in common that th'
+  [q006] ok (28.85s)  answer='# James Weldon Johnson  Based on the summaries provided, **James Weldon Johnson*'
+  [q010] ok (14.62s)  answer="I don't have enough information to answer this question. The summaries provided "
+  [q011] ok (14.18s)  answer="I don't have enough information to answer your question about which was formed f"
+  [q009] ok (25.84s)  answer='# Answer  Based on the summaries provided, **Othonna has more species**.  The su'
+  [q012] ok (12.36s)  answer='# Answer  Based on the summaries provided, **Billy Idol** is known professionall'
+  [q013] ok (10.77s)  answer='I cannot answer this question based on the provided summaries. The summaries do '
+  [q016] ok ( 7.12s)  answer='# Answer  Based on the summaries provided, I can confirm that **P. G. Wodehouse '
+  [q015] ok (11.25s)  answer='I cannot answer this question based on the provided summaries. The summaries onl'
+  [q014] ok (14.54s)  answer='# Answer  **Juan Carlos Onetti** died first.  - **Juan Carlos Onetti**: Died May'
+  [q020] ok (15.69s)  answer='I cannot answer this question based on the summaries provided. The summaries dis'
+  [q019] ok (18.78s)  answer="I don't have enough information to answer your question about whether D-A-D and "
+  [q018] ok (32.24s)  answer='# Answer  Yes, both Florida Atlantic University and Cleveland State University a'
+  [q017] ok (39.02s)  answer='# Answer  Yes, both **Ixia** and **Rhexia** are plant genera.  - **Ixia** is a g'
+[concurrent_py] done. 20/20 succeeded, 0 failed.
+
+[summary] cell_concurrent_py_hotpot_b4  (CONCURRENT_BATCH_SIZE=4)
+  ----------------------------------------------------------------------
+  queries completed         20 / 20
+  batch wall-clock (s)           95.94
+  throughput (q/s)              0.2085
+  median active_latency_ms    15,227.2
+  mean LLM share of active       15.8%
+  mean tool share of active      84.2%
+  total llm.retry_wait               0
+  ----------------------------------------------------------------------
+[CELL] end: 2026-04-26T05:56:28Z
+[sweep] cooling down 10s...
+
+==================================================================
+[CELL] py-hotpot  batch=16  backend=ddg  out=benchmark/results/cell_concurrent_py_hotpot_b16
+[CELL] start: 2026-04-26T05:56:38Z
+==================================================================
+[concurrent_py] label=cell_concurrent_py_hotpot_b16  queries=20  workers=16  out=benchmark/results/cell_concurrent_py_hotpot_b16  model=claude-haiku-4-5-20251001  backend=ddg
+[concurrent_py] pre-warming NLTK punkt tokenizer...
+  [q002] ok (12.08s)  answer="# 2013 America East Men's Lacrosse Tournament Stadium  Based on the summary prov"
+  [q013] ok (12.39s)  answer="I don't have enough information in the provided text to answer this question. Th"
+  [q011] ok (13.96s)  answer="I don't have enough information to answer your question. The text you provided c"
+  [q010] ok (14.35s)  answer="I don't see any summaries provided in your message. Could you please share the s"
+  [q003] ok (14.75s)  answer='# Based on typical biographical information:  Both **Alexandra David-Néel** and '
+  [q008] ok (15.21s)  answer='Based on the summaries provided, both the Mahratta Greyhound and Tibetan Spaniel'
+  [q001] ok (15.39s)  answer="I don't have enough information in the provided summaries to answer your questio"
+  [q007] ok (15.69s)  answer='Based on the summaries provided, **Sian Gibson co-wrote "Car Share"** — a Britis'
+  [q015] ok (15.80s)  answer='I cannot definitively answer this question based on the provided text. While the'
+  [q004] ok (16.95s)  answer='# Answer  Based on the summaries provided, **no areas of the United States were '
+  [q006] ok (17.65s)  answer='# James Weldon Johnson  Based on the summaries provided, the answer is **James W'
+  [q005] ok (19.03s)  answer="I appreciate your question, but I'm unable to answer it based on the provided te"
+  [q012] ok (19.79s)  answer='# Answer  Based on the context provided, **Billy Idol** is the one known profess'
+  [q014] ok (23.20s)  answer='Based on the summaries provided:  **Juan Carlos Onetti died first.**  Juan Carlo'
+  [q016] ok (25.53s)  answer='I cannot determine from these summaries whether Barry Unsworth and P. G. Wodehou'
+  [q009] ok (27.05s)  answer='# Comparing Species Count  Based on the summaries provided:  - **Othonna**: 26 s'
+  [q020] ok (13.53s)  answer='I cannot answer this question based on the summaries provided. The summaries do '
+  [q019] ok (17.15s)  answer="I don't have enough information to answer your question. The text provided only "
+  [q018] ok (29.95s)  answer='# Answer to Your Questions  ## Are Florida Atlantic University and Cleveland Sta'
+  [q017] ok (38.41s)  answer='# Answer: Yes  Based on the context provided, both **Ixia** and **Rhexia** are p'
+[concurrent_py] done. 20/20 succeeded, 0 failed.
+
+[summary] cell_concurrent_py_hotpot_b16  (CONCURRENT_BATCH_SIZE=16)
+  ----------------------------------------------------------------------
+  queries completed         20 / 20
+  batch wall-clock (s)           50.49
+  throughput (q/s)              0.3961
+  median active_latency_ms    15,631.9
+  mean LLM share of active       14.3%
+  mean tool share of active      85.7%
+  total llm.retry_wait               0
+  ----------------------------------------------------------------------
+[CELL] end: 2026-04-26T05:57:33Z
+[sweep] cooling down 10s...
+
+==================================================================
+[CELL] py-hotpot  batch=64  backend=ddg  out=benchmark/results/cell_concurrent_py_hotpot_b64
+[CELL] start: 2026-04-26T05:57:43Z
+==================================================================
+[concurrent_py] label=cell_concurrent_py_hotpot_b64  queries=20  workers=64  out=benchmark/results/cell_concurrent_py_hotpot_b64  model=claude-haiku-4-5-20251001  backend=ddg
+[concurrent_py] pre-warming NLTK punkt tokenizer...
+  [q015] ok (12.14s)  answer='I can see that the text mentions David Hewlett and refers to working with him as'
+  [q007] ok (12.20s)  answer='Based on the summary provided, Sian Gibson co-wrote the British sitcom **"Car Sh'
+  [q017] ok (12.25s)  answer='# Answer  Yes, both **Ixia** and **Rhexia** are plant genera.  - **Ixia** is a g'
+  [q014] ok (12.78s)  answer='Based on the information provided, **Juan Carlos Onetti died first**.  Juan Carl'
+  [q009] ok (15.95s)  answer='# Answer  Based on the provided information:  - **Othonna**: Not mentioned in th'
+  [q002] ok (16.14s)  answer="# Answer  Based on the summary provided, the 2013 America East Men's Lacrosse To"
+  [q020] ok (16.24s)  answer="I don't have enough information in the provided summaries to answer your questio"
+  [q008] ok (18.45s)  answer='# Answer  Based on the summaries provided, both the **Mahratta Greyhound** and *'
+  [q011] ok (19.84s)  answer="I don't have enough information to answer your question. The text provided conta"
+  [q004] ok (20.16s)  answer='# Answer  Based on the summaries provided, **no areas of the United States were '
+  [q013] ok (20.25s)  answer="I don't have enough information in the provided text to answer your question. Th"
+  [q005] ok (20.39s)  answer="I appreciate your question, but I'm unable to answer it based on the information"
+  [q003] ok (20.97s)  answer='# Answer  Based on the summaries provided, **Alexandra David-Néel and Jack Kerou'
+  [q012] ok (21.02s)  answer='# Answer  Based on the information provided, **Billy Idol is known professionall'
+  [q019] ok (21.46s)  answer="I don't have enough information to answer your question about whether D-A-D and "
+  [q010] ok (21.62s)  answer="I don't have enough information in the provided summaries to answer your questio"
+  [q016] ok (24.60s)  answer='# Answer  I cannot answer this question based on the provided summaries.  The su'
+  [q006] ok (29.91s)  answer='# Answer  Based on the summaries provided, the answer is **James Weldon Johnson*'
+  [q018] ok (37.88s)  answer='Yes, based on the summaries provided, both Florida Atlantic University and Cleve'
+  [q001] ok (40.90s)  answer='I cannot provide a reliable answer based on the text provided. The passage appea'
+[concurrent_py] done. 20/20 succeeded, 0 failed.
+
+[summary] cell_concurrent_py_hotpot_b64  (CONCURRENT_BATCH_SIZE=64)
+  ----------------------------------------------------------------------
+  queries completed         20 / 20
+  batch wall-clock (s)           40.90
+  throughput (q/s)              0.4889
+  median active_latency_ms    19,228.3
+  mean LLM share of active       12.8%
+  mean tool share of active      87.2%
+  total llm.retry_wait               0
+  ----------------------------------------------------------------------
+[CELL] end: 2026-04-26T05:58:28Z
+[sweep] cooling down 10s before static validation...
+
+==================================================================
+[CELL] py-hotpot  batch=64  backend=static  out=benchmark/results/cell_concurrent_py_hotpot_b64_static
+[CELL] start: 2026-04-26T05:58:38Z
+==================================================================
+[concurrent_py] label=cell_concurrent_py_hotpot_b64_static  queries=20  workers=64  out=benchmark/results/cell_concurrent_py_hotpot_b64_static  model=claude-haiku-4-5-20251001  backend=static
+[concurrent_py] pre-warming NLTK punkt tokenizer...
+  [q009] FAIL ( 1.00s)  RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q009. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls().
+  [q019] FAIL ( 1.00s)  RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q019. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls().
+  [q013] FAIL ( 1.00s)  RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q013. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls().
+  [q006] FAIL ( 1.01s)  RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q006. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls().
+  [q011] FAIL ( 1.01s)  RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q011. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls().
+  [q001] FAIL ( 1.02s)  RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q001. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls().
+  [q020] FAIL ( 1.02s)  RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q020. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls().
+  [q005] FAIL ( 1.02s)  RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q005. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls().
+  [q004] FAIL ( 1.02s)  RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q004. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls().
+  [q015] FAIL ( 1.03s)  RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q015. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls().
+  [q018] FAIL ( 1.04s)  RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q018. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls().
+  [q016] FAIL ( 1.04s)  RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q016. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls().
+  [q008] FAIL ( 1.05s)  RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q008. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls().
+  [q017] FAIL ( 1.05s)  RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q017. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls().
+  [q012] FAIL ( 1.05s)  RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q012. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls().
+  [q014] FAIL ( 1.05s)  RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q014. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls().
+  [q010] FAIL ( 1.06s)  RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q010. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls().
+  [q007] FAIL ( 1.06s)  RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q007. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls().
+  [q003] FAIL ( 1.07s)  RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q003. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls().
+  [q002] FAIL ( 1.07s)  RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q002. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls().
+[concurrent_py] done. 0/20 succeeded, 20 failed.
+
+[summary] cell_concurrent_py_hotpot_b64_static  (CONCURRENT_BATCH_SIZE=64)
+  ----------------------------------------------------------------------
+  queries completed         20 / 20
+  batch wall-clock (s)            1.08
+  throughput (q/s)             18.5073
+  median active_latency_ms        37.3
+  mean LLM share of active        0.0%
+  mean tool share of active     100.0%
+  total llm.retry_wait               0
+  ----------------------------------------------------------------------
+[CELL] end: 2026-04-26T05:58:42Z
+[sweep] all 5 cells done at 2026-04-26T05:58:42Z

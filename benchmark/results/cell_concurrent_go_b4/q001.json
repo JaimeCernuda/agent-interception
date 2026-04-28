@@ -1,0 +1,160 @@
+{
+  "config": "cell_concurrent_go_b4",
+  "label": "cell_concurrent_go_b4",
+  "query_id": "q001",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 4,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 2,
+        "agent.num_urls_fetched": 2,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b4",
+        "query_id": "q001",
+        "query_text": "Who was the first elected female Governor of Massachusetts?"
+      },
+      "cpu_time_ms": 5011.644,
+      "end_ns": 1777167509132678000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "7329c67d15d69e1b",
+      "start_ns": 1777167504121034000,
+      "status": "ok",
+      "trace_id": "2d217523885d24826f479f8ae9f813a0",
+      "wall_time_ms": 5011.644
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "3f3a27b6adccb45c",
+        "tool.name": "ddg",
+        "tool.num_results": 9,
+        "tool.output_size_bytes": 604,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 1396.127,
+      "end_ns": 1777167505517206000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "7329c67d15d69e1b",
+      "span_id": "5a895159a090c3db",
+      "start_ns": 1777167504121080000,
+      "status": "ok",
+      "trace_id": "2d217523885d24826f479f8ae9f813a0",
+      "wall_time_ms": 1396.126
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "c0ae445b32a28381",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 28498,
+        "tool.retry_count": 0,
+        "tool.url": "https://en.wikipedia.org/wiki/Jane_Swift"
+      },
+      "cpu_time_ms": 888.681,
+      "end_ns": 1777167506405906000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "7329c67d15d69e1b",
+      "span_id": "464d8fcefdd29179",
+      "start_ns": 1777167505517225000,
+      "status": "ok",
+      "trace_id": "2d217523885d24826f479f8ae9f813a0",
+      "wall_time_ms": 888.681
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "403a45ac7b048169",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 5947,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.nga.org/governor/jane-maria-swift/"
+      },
+      "cpu_time_ms": 1189.353,
+      "end_ns": 1777167507595269000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "7329c67d15d69e1b",
+      "span_id": "8d695c13d2e5c1f5",
+      "start_ns": 1777167506405916000,
+      "status": "ok",
+      "trace_id": "2d217523885d24826f479f8ae9f813a0",
+      "wall_time_ms": 1189.353
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "fa9f9481239d886c",
+        "tool.n_sentences_in": 213,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 278,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 28.967,
+      "end_ns": 1777167507624350000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "7329c67d15d69e1b",
+      "span_id": "bce81eb1df644064",
+      "start_ns": 1777167507595384000,
+      "status": "ok",
+      "trace_id": "2d217523885d24826f479f8ae9f813a0",
+      "wall_time_ms": 28.966
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "173cd4f2b5033a31",
+        "tool.n_sentences_in": 36,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 65,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 2.095,
+      "end_ns": 1777167507626477000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "7329c67d15d69e1b",
+      "span_id": "fc1a4d674d3ca3f6",
+      "start_ns": 1777167507624382000,
+      "status": "ok",
+      "trace_id": "2d217523885d24826f479f8ae9f813a0",
+      "wall_time_ms": 2.095
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 130,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 115,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1506.143,
+      "end_ns": 1777167509132670000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "7329c67d15d69e1b",
+      "span_id": "1fa721fae799ce50",
+      "start_ns": 1777167507626526000,
+      "status": "ok",
+      "trace_id": "2d217523885d24826f479f8ae9f813a0",
+      "wall_time_ms": 1506.144
+    }
+  ],
+  "trace_id": "2d217523885d24826f479f8ae9f813a0"
+}

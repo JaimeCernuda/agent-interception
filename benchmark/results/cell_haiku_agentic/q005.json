@@ -1,0 +1,201 @@
+{
+  "trace_id": "9905dc83ffa4a335e2667278974d0803",
+  "config": "haiku_custom",
+  "query_id": "q005",
+  "label": "cell_haiku_custom",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "9905dc83ffa4a335e2667278974d0803",
+      "span_id": "3a09f98e86726d84",
+      "parent_id": null,
+      "start_ns": 1777073321547012000,
+      "end_ns": 1777073352896096000,
+      "wall_time_ms": 31349.084,
+      "cpu_time_ms": 705.068,
+      "kind": "root",
+      "attrs": {
+        "config": "haiku_custom",
+        "query_id": "q005",
+        "query_text": "How many children does Elon Musk have, including his deceased child?",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.max_turns": -1
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "9905dc83ffa4a335e2667278974d0803",
+      "span_id": "c2f4c71edf1b8623",
+      "parent_id": "3a09f98e86726d84",
+      "start_ns": 1777073321547114000,
+      "end_ns": 1777073322531001000,
+      "wall_time_ms": 983.887,
+      "cpu_time_ms": 11.625,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 826,
+        "llm.output_tokens": 84,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "9905dc83ffa4a335e2667278974d0803",
+      "span_id": "e51090e02f1dff93",
+      "parent_id": "3a09f98e86726d84",
+      "start_ns": 1777073322531194000,
+      "end_ns": 1777073328488229000,
+      "wall_time_ms": 5957.035,
+      "cpu_time_ms": 36.938,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "60ac4c6858b8f912",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 657
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "9905dc83ffa4a335e2667278974d0803",
+      "span_id": "4ec8145fde712169",
+      "parent_id": "3a09f98e86726d84",
+      "start_ns": 1777073333491645000,
+      "end_ns": 1777073334511121000,
+      "wall_time_ms": 1019.476,
+      "cpu_time_ms": 16.326,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1220,
+        "llm.output_tokens": 141,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "9905dc83ffa4a335e2667278974d0803",
+      "span_id": "40ee9c9c9831cdd0",
+      "parent_id": "3a09f98e86726d84",
+      "start_ns": 1777073334511368000,
+      "end_ns": 1777073336659972000,
+      "wall_time_ms": 2148.604,
+      "cpu_time_ms": 193.362,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "e26bb2fe535e10c4",
+        "tool.url": "https://en.wikipedia.org/wiki/Elon_Musk",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "9905dc83ffa4a335e2667278974d0803",
+      "span_id": "2b8894ea083c26a9",
+      "parent_id": "3a09f98e86726d84",
+      "start_ns": 1777073336660289000,
+      "end_ns": 1777073338474322000,
+      "wall_time_ms": 1814.033,
+      "cpu_time_ms": 198.628,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "c4a7a13bdc3d9ddd",
+        "tool.url": "https://people.com/all-about-elon-musk-children-11678749",
+        "tool.retry_count": 3,
+        "tool.http_status": 402,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "9905dc83ffa4a335e2667278974d0803",
+      "span_id": "5a6b6b3a9d6e18e4",
+      "parent_id": "3a09f98e86726d84",
+      "start_ns": 1777073343475217000,
+      "end_ns": 1777073344408370000,
+      "wall_time_ms": 933.153,
+      "cpu_time_ms": 22.897,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1436,
+        "llm.output_tokens": 84,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "9905dc83ffa4a335e2667278974d0803",
+      "span_id": "d9319e31eb3cd67b",
+      "parent_id": "3a09f98e86726d84",
+      "start_ns": 1777073344408559000,
+      "end_ns": 1777073345385488000,
+      "wall_time_ms": 976.929,
+      "cpu_time_ms": 200.078,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "906c3bb7f8483a8d",
+        "tool.url": "https://www.today.com/parents/parents/elon-musk-kids-rcna19692",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 13500
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "9905dc83ffa4a335e2667278974d0803",
+      "span_id": "e683fa7915b4eed7",
+      "parent_id": "3a09f98e86726d84",
+      "start_ns": 1777073350390929000,
+      "end_ns": 1777073352896028000,
+      "wall_time_ms": 2505.099,
+      "cpu_time_ms": 23.754,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 5030,
+        "llm.output_tokens": 228,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

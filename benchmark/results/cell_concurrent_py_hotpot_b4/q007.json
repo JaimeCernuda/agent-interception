@@ -1,0 +1,180 @@
+{
+  "trace_id": "17a566759e7da35816647ba671c8cb67",
+  "config": "cell_concurrent_py_hotpot_b4",
+  "query_id": "q007",
+  "label": "cell_concurrent_py_hotpot_b4",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "17a566759e7da35816647ba671c8cb67",
+      "span_id": "bbde308ce55b900e",
+      "parent_id": null,
+      "start_ns": 1777182903403513000,
+      "end_ns": 1777182919512767000,
+      "wall_time_ms": 16109.254,
+      "cpu_time_ms": 3152.594,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b4",
+        "query_id": "q007",
+        "query_text": "Sian Gibson co-wrote which British sitcom, set around a supermarket and car share scheme?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 4
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "17a566759e7da35816647ba671c8cb67",
+      "span_id": "c7931de03e12eacc",
+      "parent_id": "bbde308ce55b900e",
+      "start_ns": 1777182903403797000,
+      "end_ns": 1777182909658364000,
+      "wall_time_ms": 6254.567,
+      "cpu_time_ms": 608.916,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "d3a4d110c7a6906c",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 921
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "17a566759e7da35816647ba671c8cb67",
+      "span_id": "3d233807bbf9ecde",
+      "parent_id": "bbde308ce55b900e",
+      "start_ns": 1777182909658617000,
+      "end_ns": 1777182912779471000,
+      "wall_time_ms": 3120.854,
+      "cpu_time_ms": 1077.648,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "1d28868315de727c",
+        "tool.url": "https://en.wikipedia.org/wiki/Peter_Kay's_Car_Share",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "17a566759e7da35816647ba671c8cb67",
+      "span_id": "7f74e75e2b8010db",
+      "parent_id": "bbde308ce55b900e",
+      "start_ns": 1777182912779634000,
+      "end_ns": 1777182914035508000,
+      "wall_time_ms": 1255.874,
+      "cpu_time_ms": 255.569,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "64e07d2c53be3dba",
+        "tool.url": "https://rts.org.uk/article/peter-kays-car-share-returns-bbc-iplayer",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 794
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "17a566759e7da35816647ba671c8cb67",
+      "span_id": "eb332860e6768d1f",
+      "parent_id": "bbde308ce55b900e",
+      "start_ns": 1777182914035652000,
+      "end_ns": 1777182916734488000,
+      "wall_time_ms": 2698.836,
+      "cpu_time_ms": 760.864,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "82e9b93a8d034736",
+        "tool.url": "https://web.archive.org/web/20250611221305/https://observer.co.uk/culture/tv/article/sian-gibson-i-dont-feel-famous-at-all-i-can-still-pretty-much-go-unnoticed-on-the-street",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 5953
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "17a566759e7da35816647ba671c8cb67",
+      "span_id": "2f3224e1fb269f6b",
+      "parent_id": "bbde308ce55b900e",
+      "start_ns": 1777182916734643000,
+      "end_ns": 1777182916785303000,
+      "wall_time_ms": 50.66,
+      "cpu_time_ms": 49.984,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "cf2785c5a509041f",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 5,
+        "tool.output_size_bytes": 189
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "17a566759e7da35816647ba671c8cb67",
+      "span_id": "82db36360deff66c",
+      "parent_id": "bbde308ce55b900e",
+      "start_ns": 1777182916785957000,
+      "end_ns": 1777182916942246000,
+      "wall_time_ms": 156.289,
+      "cpu_time_ms": 155.018,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "726966567896ed9c",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 71,
+        "tool.output_size_bytes": 213
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "17a566759e7da35816647ba671c8cb67",
+      "span_id": "42e03c0f03136bd1",
+      "parent_id": "bbde308ce55b900e",
+      "start_ns": 1777182916943095000,
+      "end_ns": 1777182919512654000,
+      "wall_time_ms": 2569.559,
+      "cpu_time_ms": 242.313,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 125,
+        "llm.output_tokens": 55,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

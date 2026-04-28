@@ -1,0 +1,7 @@
+Figure 7 — W1b extension. Direct test of the W1b explanation that Python's GIL signal on the FreshQA pipeline was attenuated because LexRank on small news-clip pages is too cheap to expose contention. Re-runs the Python concurrent sweep at batch sizes [1, 4, 16, 64] on HotpotQA-20 (Wikipedia pages, expected heavier per-call summarize work) and overlays the curves on the FreshQA baseline.
+
+Panel A (P50 summarize, the per-typical-query cost): the two curves grow at essentially the same rate from b=1 to b=64 — x1.59 on FreshQA and x1.55 on HotpotQA. Hypothesis NOT supported on this workload.
+
+Panel B (mean summarize, the right-tail-sensitive view): HotpotQA is much more variable because ~1 in 20 queries surfaces a large Wikipedia page that takes 5-22 seconds to LexRank, single-handedly inflating the mean. The HotpotQA mean dropped at b=64 because DDG returned different (smaller) URLs under heavy concurrent load — a workload-side effect, not a runtime-side one. The mean is therefore an unreliable comparison metric here; Panel A is the honest read.
+
+Implication: the W1c claim that HotpotQA pages cost +637% per summarize call (mean) was driven by these long-tail outliers. At the median, HotpotQA per-call summarize cost is only ~1.3x FreshQA's. So this extension did not actually run a meaningfully heavier workload at the typical query, and the GIL hypothesis remains untested at scale rather than refuted. To test it properly would require a workload whose median (not just its tail) is much heavier than FreshQA's.

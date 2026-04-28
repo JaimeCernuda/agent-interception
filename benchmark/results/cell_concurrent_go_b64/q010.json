@@ -1,0 +1,115 @@
+{
+  "config": "cell_concurrent_go_b64",
+  "label": "cell_concurrent_go_b64",
+  "query_id": "q010",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 64,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 0,
+        "agent.num_urls_fetched": 0,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b64",
+        "query_id": "q010",
+        "query_text": "How much does the Netflix standard plan without ads cost in the US?"
+      },
+      "cpu_time_ms": 49902.724,
+      "end_ns": 1777167724195727000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "8746ead998fedfee",
+      "start_ns": 1777167674293003000,
+      "status": "ok",
+      "trace_id": "56b13460073a9e4ecb1e7eb012901ed3",
+      "wall_time_ms": 49902.724
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "b59b59fe2284227e",
+        "tool.name": "ddg",
+        "tool.num_results": 0,
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3
+      },
+      "cpu_time_ms": 36005.371,
+      "end_ns": 1777167710298395000,
+      "error": "Post \"https://html.duckduckgo.com/html/\": context deadline exceeded",
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "8746ead998fedfee",
+      "span_id": "5fa773d7ca878c91",
+      "start_ns": 1777167674293023000,
+      "status": "error",
+      "trace_id": "56b13460073a9e4ecb1e7eb012901ed3",
+      "wall_time_ms": 36005.372
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.rate_limited": true,
+        "llm.status_code": 429
+      },
+      "cpu_time_ms": 824.732,
+      "end_ns": 1777167711126432000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "8746ead998fedfee",
+      "span_id": "a7f5d8ba75ea5817",
+      "start_ns": 1777167710301700000,
+      "status": "ok",
+      "trace_id": "56b13460073a9e4ecb1e7eb012901ed3",
+      "wall_time_ms": 824.732
+    },
+    {
+      "attrs": {
+        "llm.retry_after_s": 12,
+        "llm.retry_attempt": 1,
+        "llm.retry_trigger": "http_429"
+      },
+      "cpu_time_ms": 12001.358,
+      "end_ns": 1777167723127822000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.retry_wait",
+      "parent_id": "8746ead998fedfee",
+      "span_id": "e59d82781272eea2",
+      "start_ns": 1777167711126465000,
+      "status": "ok",
+      "trace_id": "56b13460073a9e4ecb1e7eb012901ed3",
+      "wall_time_ms": 12001.357
+    },
+    {
+      "attrs": {
+        "llm.attempt": 1,
+        "llm.input_tokens": 29,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 52,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1067.85,
+      "end_ns": 1777167724195716000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "8746ead998fedfee",
+      "span_id": "3044f89c082c7ea1",
+      "start_ns": 1777167723127867000,
+      "status": "ok",
+      "trace_id": "56b13460073a9e4ecb1e7eb012901ed3",
+      "wall_time_ms": 1067.849
+    }
+  ],
+  "trace_id": "56b13460073a9e4ecb1e7eb012901ed3"
+}

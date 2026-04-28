@@ -1,0 +1,159 @@
+{
+  "trace_id": "9a81b03ead2f3d419802b57a1ff9c464",
+  "config": "cell_concurrent_py_b64",
+  "query_id": "q007",
+  "label": "cell_concurrent_py_b64",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "9a81b03ead2f3d419802b57a1ff9c464",
+      "span_id": "f9f72b37e950ff14",
+      "parent_id": null,
+      "start_ns": 1777167629183675000,
+      "end_ns": 1777167640321287000,
+      "wall_time_ms": 11137.612,
+      "cpu_time_ms": 13508.295,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b64",
+        "query_id": "q007",
+        "query_text": "What was the shortest war in history?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 64
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "9a81b03ead2f3d419802b57a1ff9c464",
+      "span_id": "4c180476512ca0d8",
+      "parent_id": "f9f72b37e950ff14",
+      "start_ns": 1777167629183876000,
+      "end_ns": 1777167635348634000,
+      "wall_time_ms": 6164.758,
+      "cpu_time_ms": 4377.081,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "28ee672e27b21aa7",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 678
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "9a81b03ead2f3d419802b57a1ff9c464",
+      "span_id": "3bc537f886c7b5ee",
+      "parent_id": "f9f72b37e950ff14",
+      "start_ns": 1777167635348868000,
+      "end_ns": 1777167636476207000,
+      "wall_time_ms": 1127.339,
+      "cpu_time_ms": 2101.86,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "14b91038460fdc14",
+        "tool.url": "https://www.youtube.com/watch?v=l73Fs8Kd8WA",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 173
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "9a81b03ead2f3d419802b57a1ff9c464",
+      "span_id": "498ddc245e038785",
+      "parent_id": "f9f72b37e950ff14",
+      "start_ns": 1777167636476447000,
+      "end_ns": 1777167637575895000,
+      "wall_time_ms": 1099.448,
+      "cpu_time_ms": 2526.222,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "ff495e820b1c6ed6",
+        "tool.url": "https://www.youtube.com/watch?v=zqNCf8umxjM",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 173
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "9a81b03ead2f3d419802b57a1ff9c464",
+      "span_id": "0f758bfeb59e4d52",
+      "parent_id": "f9f72b37e950ff14",
+      "start_ns": 1777167637576127000,
+      "end_ns": 1777167637649876000,
+      "wall_time_ms": 73.749,
+      "cpu_time_ms": 148.893,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "6a7a2438a8beff97",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 1,
+        "tool.output_size_bytes": 173
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "9a81b03ead2f3d419802b57a1ff9c464",
+      "span_id": "108fd26f028707cb",
+      "parent_id": "f9f72b37e950ff14",
+      "start_ns": 1777167637650666000,
+      "end_ns": 1777167637716697000,
+      "wall_time_ms": 66.031,
+      "cpu_time_ms": 100.35,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "6a7a2438a8beff97",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 1,
+        "tool.output_size_bytes": 173
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "9a81b03ead2f3d419802b57a1ff9c464",
+      "span_id": "38733c7e10b54a1c",
+      "parent_id": "f9f72b37e950ff14",
+      "start_ns": 1777167637717697000,
+      "end_ns": 1777167640321208000,
+      "wall_time_ms": 2603.511,
+      "cpu_time_ms": 4249.226,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 95,
+        "llm.output_tokens": 146,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

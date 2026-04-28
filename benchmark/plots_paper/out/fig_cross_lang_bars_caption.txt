@@ -1,0 +1,9 @@
+Per-stage wall time per query, Python vs Go, on the v2 retry-aware schema. Same model, same queries, same tool chain — only the runtime differs. Bars are means across n=15 clean queries (5 Go traces from the legacy pass were credit-balance failures and are excluded; see EVAL_LOG.md / Data quality issue).
+
+Per-stage Go/Py ratios (the chart's headline numbers, kept in the caption rather than as on-figure decoration):
+  tool.search    : 0.07x  (noise floor; both stages near zero on the static-backend legacy traces)
+  tool.fetch     : 1.32x  (Go slower; one slow Britannica response dominates the Go fetch mean)
+  llm.generate   : 1.01x  HEADLINE — an honest tie. The apparent Go LLM advantage in the v1 schema was retry-sleep mis-attribution.
+  llm.retry_wait : —      (Go retried 2x on HTTP 429; Python had zero retries on this pass)
+
+Totals: Python 4,685 ms, Go 5,580 ms. tool.summarize is included in the legend but is zero on this workload because the model did not invoke summarization in any of the legacy sweep runs (the instrumentation supports the stage but the data does not exercise it). Both runtimes made nearly identical decisions across queries: 3.00 vs 2.85 LLM turns/query, 2.38 vs 2.15 tool calls/query — so the comparison is on identical work, not on different choices.

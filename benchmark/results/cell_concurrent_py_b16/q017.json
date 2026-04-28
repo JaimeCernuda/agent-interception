@@ -1,0 +1,180 @@
+{
+  "trace_id": "c77bdb8b6a380013b35bd8abc71c5a40",
+  "config": "cell_concurrent_py_b16",
+  "query_id": "q017",
+  "label": "cell_concurrent_py_b16",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "c77bdb8b6a380013b35bd8abc71c5a40",
+      "span_id": "33ec67611c6390d7",
+      "parent_id": null,
+      "start_ns": 1777167550341288000,
+      "end_ns": 1777167562122768000,
+      "wall_time_ms": 11781.48,
+      "cpu_time_ms": 11271.68,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b16",
+        "query_id": "q017",
+        "query_text": "What is the total height of the tallest building in the world?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 16
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "c77bdb8b6a380013b35bd8abc71c5a40",
+      "span_id": "82b4df581f1cada9",
+      "parent_id": "33ec67611c6390d7",
+      "start_ns": 1777167550341436000,
+      "end_ns": 1777167553917829000,
+      "wall_time_ms": 3576.393,
+      "cpu_time_ms": 6856.542,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "6932b60a8a015e94",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 676
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "c77bdb8b6a380013b35bd8abc71c5a40",
+      "span_id": "ae543b94548f6f8c",
+      "parent_id": "33ec67611c6390d7",
+      "start_ns": 1777167553918022000,
+      "end_ns": 1777167556898395000,
+      "wall_time_ms": 2980.373,
+      "cpu_time_ms": 2699.278,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "3844a2d68d949b09",
+        "tool.url": "https://en.wikipedia.org/wiki/List_of_tallest_buildings",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "c77bdb8b6a380013b35bd8abc71c5a40",
+      "span_id": "129b5616b9c59aa8",
+      "parent_id": "33ec67611c6390d7",
+      "start_ns": 1777167556898538000,
+      "end_ns": 1777167558480018000,
+      "wall_time_ms": 1581.48,
+      "cpu_time_ms": 573.531,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "33e224f20ed5cb6b",
+        "tool.url": "https://www.dimensionsguide.com/what-is-the-tallest-building/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 2427
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "c77bdb8b6a380013b35bd8abc71c5a40",
+      "span_id": "c8ee53477cb78033",
+      "parent_id": "33ec67611c6390d7",
+      "start_ns": 1777167558480153000,
+      "end_ns": 1777167559892999000,
+      "wall_time_ms": 1412.846,
+      "cpu_time_ms": 199.214,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "95c21cd1c4c56a3c",
+        "tool.url": "https://www.dimensionsguide.com/tallest-building-in-the-world/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 2905
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "c77bdb8b6a380013b35bd8abc71c5a40",
+      "span_id": "8b8a39d42601b966",
+      "parent_id": "33ec67611c6390d7",
+      "start_ns": 1777167559893213000,
+      "end_ns": 1777167559979504000,
+      "wall_time_ms": 86.291,
+      "cpu_time_ms": 116.624,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "725f3e2bb7df22cf",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 34,
+        "tool.output_size_bytes": 88
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "c77bdb8b6a380013b35bd8abc71c5a40",
+      "span_id": "fce883e1935ac465",
+      "parent_id": "33ec67611c6390d7",
+      "start_ns": 1777167559980335000,
+      "end_ns": 1777167560042706000,
+      "wall_time_ms": 62.371,
+      "cpu_time_ms": 61.84,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "96e72449bf359cc4",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 36,
+        "tool.output_size_bytes": 135
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "c77bdb8b6a380013b35bd8abc71c5a40",
+      "span_id": "bbe9c234c764f669",
+      "parent_id": "33ec67611c6390d7",
+      "start_ns": 1777167560043572000,
+      "end_ns": 1777167562122634000,
+      "wall_time_ms": 2079.062,
+      "cpu_time_ms": 762.022,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 85,
+        "llm.output_tokens": 93,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

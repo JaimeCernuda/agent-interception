@@ -1,0 +1,76 @@
+{
+  "config": "cell_concurrent_go_b4",
+  "label": "cell_concurrent_go_b4",
+  "query_id": "q013",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 4,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 0,
+        "agent.num_urls_fetched": 0,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b4",
+        "query_id": "q013",
+        "query_text": "What is the current best-selling children's book on Amazon?"
+      },
+      "cpu_time_ms": 4285.461,
+      "end_ns": 1777167520904364000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "0f90af41b82d7209",
+      "start_ns": 1777167516618902000,
+      "status": "ok",
+      "trace_id": "51a871b83b1b6fff8f79a7c5e3952bf5",
+      "wall_time_ms": 4285.462
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "1ba8429a5dfdc500",
+        "tool.name": "ddg",
+        "tool.num_results": 0,
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3
+      },
+      "cpu_time_ms": 2118.598,
+      "end_ns": 1777167518737513000,
+      "error": "ddg status 403",
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "0f90af41b82d7209",
+      "span_id": "c1b6cb4cf7a60644",
+      "start_ns": 1777167516618915000,
+      "status": "error",
+      "trace_id": "51a871b83b1b6fff8f79a7c5e3952bf5",
+      "wall_time_ms": 2118.598
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 28,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 110,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 2166.816,
+      "end_ns": 1777167520904352000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "0f90af41b82d7209",
+      "span_id": "8d84cefe6ff2f017",
+      "start_ns": 1777167518737536000,
+      "status": "ok",
+      "trace_id": "51a871b83b1b6fff8f79a7c5e3952bf5",
+      "wall_time_ms": 2166.816
+    }
+  ],
+  "trace_id": "51a871b83b1b6fff8f79a7c5e3952bf5"
+}

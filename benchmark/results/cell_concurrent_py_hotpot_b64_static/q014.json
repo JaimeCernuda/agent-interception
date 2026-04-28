@@ -1,0 +1,44 @@
+{
+  "trace_id": "53b75447482e8ebcee7b24e14290a5dd",
+  "config": "cell_concurrent_py_hotpot_b64_static",
+  "query_id": "q014",
+  "label": "cell_concurrent_py_hotpot_b64_static",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "53b75447482e8ebcee7b24e14290a5dd",
+      "span_id": "beeb04739f58e086",
+      "parent_id": null,
+      "start_ns": 1777183121949973000,
+      "end_ns": 1777183122040188000,
+      "wall_time_ms": 90.215,
+      "cpu_time_ms": 68.418,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b64_static",
+        "query_id": "q014",
+        "query_text": "Who died first, Bryce Courtenay or Juan Carlos Onetti?"
+      },
+      "status": "error",
+      "error": "RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q014. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls()."
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "53b75447482e8ebcee7b24e14290a5dd",
+      "span_id": "c4f8256ac82d7358",
+      "parent_id": "beeb04739f58e086",
+      "start_ns": 1777183121950146000,
+      "end_ns": 1777183121979475000,
+      "wall_time_ms": 29.329,
+      "cpu_time_ms": 0.914,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "static",
+        "tool.input_hash": "8d48a0f8069be8b2",
+        "tool.retry_count": 0
+      },
+      "status": "error",
+      "error": "RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q014. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls()."
+    }
+  ]
+}

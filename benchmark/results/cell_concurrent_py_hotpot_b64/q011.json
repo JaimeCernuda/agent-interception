@@ -1,0 +1,180 @@
+{
+  "trace_id": "3c1cd2bce1d32cd0d829deea3627c234",
+  "config": "cell_concurrent_py_hotpot_b64",
+  "query_id": "q011",
+  "label": "cell_concurrent_py_hotpot_b64",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "3c1cd2bce1d32cd0d829deea3627c234",
+      "span_id": "ac2e19e4e6b6ffee",
+      "parent_id": null,
+      "start_ns": 1777183067263916000,
+      "end_ns": 1777183086132887000,
+      "wall_time_ms": 18868.971,
+      "cpu_time_ms": 24522.712,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b64",
+        "query_id": "q011",
+        "query_text": "Which was formed first, Noori or Test Icicles?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 64
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "3c1cd2bce1d32cd0d829deea3627c234",
+      "span_id": "dac8d77723fc393e",
+      "parent_id": "ac2e19e4e6b6ffee",
+      "start_ns": 1777183067264051000,
+      "end_ns": 1777183076546723000,
+      "wall_time_ms": 9282.672,
+      "cpu_time_ms": 9004.142,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "1845919c3578ab5a",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 667
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "3c1cd2bce1d32cd0d829deea3627c234",
+      "span_id": "40d4c9e92f548404",
+      "parent_id": "ac2e19e4e6b6ffee",
+      "start_ns": 1777183076546933000,
+      "end_ns": 1777183079955256000,
+      "wall_time_ms": 3408.323,
+      "cpu_time_ms": 7146.91,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "b1a7a98d243295b9",
+        "tool.url": "https://en.wikipedia.org/wiki/Test_Icicles",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "3c1cd2bce1d32cd0d829deea3627c234",
+      "span_id": "b6d00de0bfdfa0dc",
+      "parent_id": "ac2e19e4e6b6ffee",
+      "start_ns": 1777183079955473000,
+      "end_ns": 1777183082388918000,
+      "wall_time_ms": 2433.445,
+      "cpu_time_ms": 3077.034,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "43d4dfbbab377e5b",
+        "tool.url": "https://www.youtube.com/watch?v=RWU1B6Gwb1w",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 173
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "3c1cd2bce1d32cd0d829deea3627c234",
+      "span_id": "a6b8647f28bab409",
+      "parent_id": "ac2e19e4e6b6ffee",
+      "start_ns": 1777183082389048000,
+      "end_ns": 1777183083831940000,
+      "wall_time_ms": 1442.892,
+      "cpu_time_ms": 2073.854,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "65ad55bfea654a6f",
+        "tool.url": "https://www.weather-daily.com/why-do-icicles-form-points-the-physics-behind-winters-sharp-decorations/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 10353
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "3c1cd2bce1d32cd0d829deea3627c234",
+      "span_id": "e36f91f3ae1376c4",
+      "parent_id": "ac2e19e4e6b6ffee",
+      "start_ns": 1777183083832097000,
+      "end_ns": 1777183083980124000,
+      "wall_time_ms": 148.027,
+      "cpu_time_ms": 173.808,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "6a7a2438a8beff97",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 1,
+        "tool.output_size_bytes": 173
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "3c1cd2bce1d32cd0d829deea3627c234",
+      "span_id": "4f18959fcace9868",
+      "parent_id": "ac2e19e4e6b6ffee",
+      "start_ns": 1777183083981610000,
+      "end_ns": 1777183084209514000,
+      "wall_time_ms": 227.904,
+      "cpu_time_ms": 299.909,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "ccf9d013bf6f0f7e",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 79,
+        "tool.output_size_bytes": 148
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "3c1cd2bce1d32cd0d829deea3627c234",
+      "span_id": "7bc68bc4fd077a4a",
+      "parent_id": "ac2e19e4e6b6ffee",
+      "start_ns": 1777183084210515000,
+      "end_ns": 1777183086132818000,
+      "wall_time_ms": 1922.303,
+      "cpu_time_ms": 2741.531,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 101,
+        "llm.output_tokens": 89,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

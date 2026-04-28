@@ -1,0 +1,44 @@
+{
+  "trace_id": "1ce1f1dfbe62e6108e71fb76262d952f",
+  "config": "cell_concurrent_py_hotpot_b64_static",
+  "query_id": "q017",
+  "label": "cell_concurrent_py_hotpot_b64_static",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "1ce1f1dfbe62e6108e71fb76262d952f",
+      "span_id": "c8c9a21d0d196b63",
+      "parent_id": null,
+      "start_ns": 1777183121956633000,
+      "end_ns": 1777183122061587000,
+      "wall_time_ms": 104.954,
+      "cpu_time_ms": 68.182,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b64_static",
+        "query_id": "q017",
+        "query_text": "Are both Ixia and Rhexia a plant genus?"
+      },
+      "status": "error",
+      "error": "RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q017. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls()."
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "1ce1f1dfbe62e6108e71fb76262d952f",
+      "span_id": "87b3d451b0c8796e",
+      "parent_id": "c8c9a21d0d196b63",
+      "start_ns": 1777183121956730000,
+      "end_ns": 1777183121979893000,
+      "wall_time_ms": 23.163,
+      "cpu_time_ms": 12.003,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "static",
+        "tool.input_hash": "7b0b807a681a116c",
+        "tool.retry_count": 0
+      },
+      "status": "error",
+      "error": "RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q017. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls()."
+    }
+  ]
+}

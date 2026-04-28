@@ -1,0 +1,199 @@
+{
+  "config": "cell_concurrent_go_b64",
+  "label": "cell_concurrent_go_b64",
+  "query_id": "q012",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 64,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 2,
+        "agent.num_urls_fetched": 2,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b64",
+        "query_id": "q012",
+        "query_text": "Which drama series won the most recent Primetime Emmy Award for Outstanding Drama Series?"
+      },
+      "cpu_time_ms": 16127.904,
+      "end_ns": 1777167798250699000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "4101daae5538a768",
+      "start_ns": 1777167782122794000,
+      "status": "ok",
+      "trace_id": "4a90b2c4c933a042645528ece2b6f909",
+      "wall_time_ms": 16127.905
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "e4dfccfe8445ac51",
+        "tool.name": "static",
+        "tool.num_results": 4,
+        "tool.output_size_bytes": 236,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 0.002,
+      "end_ns": 1777167782122813000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "4101daae5538a768",
+      "span_id": "c50f6db3e9e1cda5",
+      "start_ns": 1777167782122811000,
+      "status": "ok",
+      "trace_id": "4a90b2c4c933a042645528ece2b6f909",
+      "wall_time_ms": 0.002
+    },
+    {
+      "attrs": {
+        "tool.http_status": 202,
+        "tool.input_hash": "a256fa25a200fe9d",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 157,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.imdb.com/list/ls567931975/"
+      },
+      "cpu_time_ms": 671.768,
+      "end_ns": 1777167782794594000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "4101daae5538a768",
+      "span_id": "63c8daba6b51ed91",
+      "start_ns": 1777167782122827000,
+      "status": "ok",
+      "trace_id": "4a90b2c4c933a042645528ece2b6f909",
+      "wall_time_ms": 671.767
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "aebaf0e64c73373e",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 8690,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.indiewire.com/awards/results/the-pitt-wins-emmy-best-drama-series-1235150436/"
+      },
+      "cpu_time_ms": 1514.327,
+      "end_ns": 1777167784308948000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "4101daae5538a768",
+      "span_id": "b8edaea70391cd4b",
+      "start_ns": 1777167782794620000,
+      "status": "ok",
+      "trace_id": "4a90b2c4c933a042645528ece2b6f909",
+      "wall_time_ms": 1514.328
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "39cdf0f56a80c877",
+        "tool.n_sentences_in": 3,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 87,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 0.06,
+      "end_ns": 1777167784309018000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "4101daae5538a768",
+      "span_id": "d9e3c0862b6cfe0a",
+      "start_ns": 1777167784308958000,
+      "status": "ok",
+      "trace_id": "4a90b2c4c933a042645528ece2b6f909",
+      "wall_time_ms": 0.06
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "78ac783925220154",
+        "tool.n_sentences_in": 46,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 722,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 3.541,
+      "end_ns": 1777167784312592000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "4101daae5538a768",
+      "span_id": "356f7726fbe17343",
+      "start_ns": 1777167784309052000,
+      "status": "ok",
+      "trace_id": "4a90b2c4c933a042645528ece2b6f909",
+      "wall_time_ms": 3.54
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.rate_limited": true,
+        "llm.status_code": 429
+      },
+      "cpu_time_ms": 327.438,
+      "end_ns": 1777167784640070000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "4101daae5538a768",
+      "span_id": "c237da1b096cb38b",
+      "start_ns": 1777167784312633000,
+      "status": "ok",
+      "trace_id": "4a90b2c4c933a042645528ece2b6f909",
+      "wall_time_ms": 327.437
+    },
+    {
+      "attrs": {
+        "llm.retry_after_s": 12,
+        "llm.retry_attempt": 1,
+        "llm.retry_trigger": "http_429"
+      },
+      "cpu_time_ms": 12000.462,
+      "end_ns": 1777167796640537000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.retry_wait",
+      "parent_id": "4101daae5538a768",
+      "span_id": "8733a95b8ff98ff0",
+      "start_ns": 1777167784640076000,
+      "status": "ok",
+      "trace_id": "4a90b2c4c933a042645528ece2b6f909",
+      "wall_time_ms": 12000.461
+    },
+    {
+      "attrs": {
+        "llm.attempt": 1,
+        "llm.input_tokens": 288,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 117,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1610.125,
+      "end_ns": 1777167798250692000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "4101daae5538a768",
+      "span_id": "afa7884156a209d7",
+      "start_ns": 1777167796640566000,
+      "status": "ok",
+      "trace_id": "4a90b2c4c933a042645528ece2b6f909",
+      "wall_time_ms": 1610.126
+    }
+  ],
+  "trace_id": "4a90b2c4c933a042645528ece2b6f909"
+}

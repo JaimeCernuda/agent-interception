@@ -1,0 +1,242 @@
+{
+  "trace_id": "fc66ecbf4762e52e6e7d589b827cb495",
+  "config": "pipeline_haiku_hotpot",
+  "query_id": "q010",
+  "label": "cell_haiku_pipeline_hotpot",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "fc66ecbf4762e52e6e7d589b827cb495",
+      "span_id": "98dc1c35c0d9a666",
+      "parent_id": null,
+      "start_ns": 1777169923292104000,
+      "end_ns": 1777169945129533000,
+      "wall_time_ms": 21837.429,
+      "cpu_time_ms": 1261.395,
+      "kind": "root",
+      "attrs": {
+        "config": "pipeline_haiku_hotpot",
+        "query_id": "q010",
+        "query_text": "Between Harvey Pekar and Denise Levertov who was born earlier?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "fc66ecbf4762e52e6e7d589b827cb495",
+      "span_id": "92908d2461d93e10",
+      "parent_id": "98dc1c35c0d9a666",
+      "start_ns": 1777169923292382000,
+      "end_ns": 1777169927868862000,
+      "wall_time_ms": 4576.48,
+      "cpu_time_ms": 52.022,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "e635f42662c089c5",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 529
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "fc66ecbf4762e52e6e7d589b827cb495",
+      "span_id": "21a280adef6dacd7",
+      "parent_id": "98dc1c35c0d9a666",
+      "start_ns": 1777169927869017000,
+      "end_ns": 1777169930745295000,
+      "wall_time_ms": 2876.278,
+      "cpu_time_ms": 192.508,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "0a5fa24a1f11d100",
+        "tool.url": "https://en.wikipedia.org/wiki/Gary_Snyder",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "fc66ecbf4762e52e6e7d589b827cb495",
+      "span_id": "364f7131ad0ef8b8",
+      "parent_id": "98dc1c35c0d9a666",
+      "start_ns": 1777169930745539000,
+      "end_ns": 1777169933612879000,
+      "wall_time_ms": 2867.34,
+      "cpu_time_ms": 189.013,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "1a6c11635893fdb8",
+        "tool.url": "https://en.wikipedia.org/wiki/Charles_Olson",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "fc66ecbf4762e52e6e7d589b827cb495",
+      "span_id": "99e50730c52c46ff",
+      "parent_id": "98dc1c35c0d9a666",
+      "start_ns": 1777169933613036000,
+      "end_ns": 1777169936606964000,
+      "wall_time_ms": 2993.928,
+      "cpu_time_ms": 195.569,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "ad379e2663492fc8",
+        "tool.url": "https://en.wikipedia.org/wiki/Denise_Levertov",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "fc66ecbf4762e52e6e7d589b827cb495",
+      "span_id": "190b9bd334e1f177",
+      "parent_id": "98dc1c35c0d9a666",
+      "start_ns": 1777169936607201000,
+      "end_ns": 1777169940221152000,
+      "wall_time_ms": 3613.951,
+      "cpu_time_ms": 199.767,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "3394a8c2d964efb9",
+        "tool.url": "https://www.poetryfoundation.org/poets/denise-levertov",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "fc66ecbf4762e52e6e7d589b827cb495",
+      "span_id": "fed1eecd72430e49",
+      "parent_id": "98dc1c35c0d9a666",
+      "start_ns": 1777169940221333000,
+      "end_ns": 1777169941439549000,
+      "wall_time_ms": 1218.216,
+      "cpu_time_ms": 145.412,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "9050fcbd3da2526a",
+        "tool.url": "https://www.britannica.com/biography/Denise-Levertov",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 2279
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "fc66ecbf4762e52e6e7d589b827cb495",
+      "span_id": "d4c804a93c7a5dd7",
+      "parent_id": "98dc1c35c0d9a666",
+      "start_ns": 1777169941439686000,
+      "end_ns": 1777169943151621000,
+      "wall_time_ms": 1711.935,
+      "cpu_time_ms": 97.939,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "2b501c275c26dbef",
+        "tool.url": "https://poets.org/poet/denise-levertov",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 4002
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "fc66ecbf4762e52e6e7d589b827cb495",
+      "span_id": "4cd2da006425754f",
+      "parent_id": "98dc1c35c0d9a666",
+      "start_ns": 1777169943151966000,
+      "end_ns": 1777169943258937000,
+      "wall_time_ms": 106.971,
+      "cpu_time_ms": 100.441,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "9c19a8e6051c257e",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 13,
+        "tool.output_size_bytes": 207
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "fc66ecbf4762e52e6e7d589b827cb495",
+      "span_id": "f2b734ab7f6a38ee",
+      "parent_id": "98dc1c35c0d9a666",
+      "start_ns": 1777169943259854000,
+      "end_ns": 1777169943331449000,
+      "wall_time_ms": 71.595,
+      "cpu_time_ms": 69.837,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "56973a1c448f204e",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 32,
+        "tool.output_size_bytes": 66
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "fc66ecbf4762e52e6e7d589b827cb495",
+      "span_id": "d72aa0805143cd3c",
+      "parent_id": "98dc1c35c0d9a666",
+      "start_ns": 1777169943332353000,
+      "end_ns": 1777169945129427000,
+      "wall_time_ms": 1797.074,
+      "cpu_time_ms": 15.682,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 110,
+        "llm.output_tokens": 74,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "trace_id": "b12f818ac229b54f66fbcf484f196965",
+  "config": "cell_concurrent_py_hotpot_b1",
+  "query_id": "q005",
+  "label": "cell_concurrent_py_hotpot_b1",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "b12f818ac229b54f66fbcf484f196965",
+      "span_id": "e41f6096a91a4493",
+      "parent_id": null,
+      "start_ns": 1777182552444995000,
+      "end_ns": 1777182565426639000,
+      "wall_time_ms": 12981.644,
+      "cpu_time_ms": 898.436,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b1",
+        "query_id": "q005",
+        "query_text": "Where was one of the runners born who almost broke Craig Virgin's Illinois Boys Cross Country record?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 1
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "b12f818ac229b54f66fbcf484f196965",
+      "span_id": "a74926c6aa508f62",
+      "parent_id": "e41f6096a91a4493",
+      "start_ns": 1777182552445114000,
+      "end_ns": 1777182554777921000,
+      "wall_time_ms": 2332.807,
+      "cpu_time_ms": 26.833,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "f2f83d728a6b25be",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 659
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "b12f818ac229b54f66fbcf484f196965",
+      "span_id": "07878284461c148d",
+      "parent_id": "e41f6096a91a4493",
+      "start_ns": 1777182554778110000,
+      "end_ns": 1777182557643747000,
+      "wall_time_ms": 2865.637,
+      "cpu_time_ms": 191.766,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "b1a3b5c5edc7f413",
+        "tool.url": "https://en.wikipedia.org/wiki/Craig_Virgin",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "b12f818ac229b54f66fbcf484f196965",
+      "span_id": "b09be0e86b5646aa",
+      "parent_id": "e41f6096a91a4493",
+      "start_ns": 1777182557643999000,
+      "end_ns": 1777182560510227000,
+      "wall_time_ms": 2866.228,
+      "cpu_time_ms": 100.788,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "e15bb606c48166b6",
+        "tool.url": "https://web.archive.org/web/20100312094949/http://www.illpreptf.com/2010/03/history-repeats-itself-records-are-made-to-be-broken-just-ask-craig-virgin/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 11713
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "b12f818ac229b54f66fbcf484f196965",
+      "span_id": "2eca00104942326a",
+      "parent_id": "e41f6096a91a4493",
+      "start_ns": 1777182560510367000,
+      "end_ns": 1777182562363466000,
+      "wall_time_ms": 1853.099,
+      "cpu_time_ms": 269.357,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "6261bfa1d35f2fd8",
+        "tool.url": "https://www.youtube.com/playlist?list=PL2mqxW-SKzdZ45V8fpvxk-Fho3yg9MlV6",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 3982
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "b12f818ac229b54f66fbcf484f196965",
+      "span_id": "074631a7838a1165",
+      "parent_id": "e41f6096a91a4493",
+      "start_ns": 1777182562363668000,
+      "end_ns": 1777182562614831000,
+      "wall_time_ms": 251.163,
+      "cpu_time_ms": 250.942,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "b60c0c389a83d5c2",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 102,
+        "tool.output_size_bytes": 69
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "b12f818ac229b54f66fbcf484f196965",
+      "span_id": "581998e58048a0ca",
+      "parent_id": "e41f6096a91a4493",
+      "start_ns": 1777182562615577000,
+      "end_ns": 1777182562659550000,
+      "wall_time_ms": 43.973,
+      "cpu_time_ms": 43.943,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "801ac2656184ace8",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 6,
+        "tool.output_size_bytes": 3345
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "b12f818ac229b54f66fbcf484f196965",
+      "span_id": "02447e5b581d23f9",
+      "parent_id": "e41f6096a91a4493",
+      "start_ns": 1777182562660087000,
+      "end_ns": 1777182565426508000,
+      "wall_time_ms": 2766.421,
+      "cpu_time_ms": 12.88,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1142,
+        "llm.output_tokens": 104,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

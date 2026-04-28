@@ -1,0 +1,115 @@
+{
+  "config": "cell_concurrent_go_b64",
+  "label": "cell_concurrent_go_b64",
+  "query_id": "q014",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 64,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 0,
+        "agent.num_urls_fetched": 0,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b64",
+        "query_id": "q014",
+        "query_text": "Who has the most liked post on Instagram?"
+      },
+      "cpu_time_ms": 49685.124,
+      "end_ns": 1777167723978129000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "95e1fb6b03140e58",
+      "start_ns": 1777167674293005000,
+      "status": "ok",
+      "trace_id": "0b96e9ee200996af382ef9852681e6f6",
+      "wall_time_ms": 49685.124
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "7b83fc27dd877193",
+        "tool.name": "ddg",
+        "tool.num_results": 0,
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3
+      },
+      "cpu_time_ms": 36003.315,
+      "end_ns": 1777167710296329000,
+      "error": "Post \"https://html.duckduckgo.com/html/\": context deadline exceeded",
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "95e1fb6b03140e58",
+      "span_id": "5fda706300f999a9",
+      "start_ns": 1777167674293015000,
+      "status": "error",
+      "trace_id": "0b96e9ee200996af382ef9852681e6f6",
+      "wall_time_ms": 36003.314
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.rate_limited": true,
+        "llm.status_code": 429
+      },
+      "cpu_time_ms": 759.883,
+      "end_ns": 1777167711061579000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "95e1fb6b03140e58",
+      "span_id": "06c1b1993abdb54c",
+      "start_ns": 1777167710301696000,
+      "status": "ok",
+      "trace_id": "0b96e9ee200996af382ef9852681e6f6",
+      "wall_time_ms": 759.883
+    },
+    {
+      "attrs": {
+        "llm.retry_after_s": 12,
+        "llm.retry_attempt": 1,
+        "llm.retry_trigger": "http_429"
+      },
+      "cpu_time_ms": 12000.6,
+      "end_ns": 1777167723062192000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.retry_wait",
+      "parent_id": "95e1fb6b03140e58",
+      "span_id": "be2693401905a33d",
+      "start_ns": 1777167711061592000,
+      "status": "ok",
+      "trace_id": "0b96e9ee200996af382ef9852681e6f6",
+      "wall_time_ms": 12000.6
+    },
+    {
+      "attrs": {
+        "llm.attempt": 1,
+        "llm.input_tokens": 24,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 51,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 915.894,
+      "end_ns": 1777167723978117000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "95e1fb6b03140e58",
+      "span_id": "b67a2db4d5dd2e57",
+      "start_ns": 1777167723062224000,
+      "status": "ok",
+      "trace_id": "0b96e9ee200996af382ef9852681e6f6",
+      "wall_time_ms": 915.893
+    }
+  ],
+  "trace_id": "0b96e9ee200996af382ef9852681e6f6"
+}

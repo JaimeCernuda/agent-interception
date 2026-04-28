@@ -1,0 +1,76 @@
+{
+  "config": "cell_concurrent_go_b4",
+  "label": "cell_concurrent_go_b4",
+  "query_id": "q020",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 4,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 0,
+        "agent.num_urls_fetched": 0,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b4",
+        "query_id": "q020",
+        "query_text": "In what month and year was the price of Bitcoin last above $40,000?"
+      },
+      "cpu_time_ms": 2967.391,
+      "end_ns": 1777167525319177000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "9c21f731d45fedc1",
+      "start_ns": 1777167522351786000,
+      "status": "ok",
+      "trace_id": "8143bde6edc9c6d88af0c351117bd9ec",
+      "wall_time_ms": 2967.391
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "ff58a4e8431fd444",
+        "tool.name": "ddg",
+        "tool.num_results": 0,
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3
+      },
+      "cpu_time_ms": 2051.203,
+      "end_ns": 1777167524403006000,
+      "error": "ddg status 403",
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "9c21f731d45fedc1",
+      "span_id": "a301106b6f215cd6",
+      "start_ns": 1777167522351803000,
+      "status": "error",
+      "trace_id": "8143bde6edc9c6d88af0c351117bd9ec",
+      "wall_time_ms": 2051.203
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 32,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 53,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 916.107,
+      "end_ns": 1777167525319165000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "9c21f731d45fedc1",
+      "span_id": "056b26d206eae0e4",
+      "start_ns": 1777167524403058000,
+      "status": "ok",
+      "trace_id": "8143bde6edc9c6d88af0c351117bd9ec",
+      "wall_time_ms": 916.107
+    }
+  ],
+  "trace_id": "8143bde6edc9c6d88af0c351117bd9ec"
+}

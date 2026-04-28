@@ -1,0 +1,22 @@
+[2026-04-27 23:47:48] BEGIN full sweep: 14-point pruned plan, runs=3 avail_ram=1757MB
+[2026-04-27 23:47:48] START py-mt N=1  avail_ram=1757MB  log=benchmark/output/sweep/logs/py-mt_n1.log
+[2026-04-28 00:04:54] OK    py-mt N=1  dt=1026s  peak_rss=453MB  thrash=False  p50=115ms p90=322ms qps=0.063
+[2026-04-28 00:04:54] START py-mp N=1  avail_ram=2177MB  log=benchmark/output/sweep/logs/py-mp_n1.log
+[2026-04-28 00:25:48] OK    py-mp N=1  dt=1254s  peak_rss=519MB  thrash=False  p50=202ms p90=354ms qps=0.052
+[2026-04-28 00:25:48] START go N=1  avail_ram=2378MB  log=benchmark/output/sweep/logs/go_n1.log
+[2026-04-28 00:44:23] OK    go N=1  dt=1115s  peak_rss=451MB  thrash=False  p50=1669ms p90=3732ms qps=0.058
+[2026-04-28 00:44:23] START py-mt N=2  avail_ram=3179MB  log=benchmark/output/sweep/logs/py-mt_n2.log
+[2026-04-28 00:53:16] OK    py-mt N=2  dt=533s  peak_rss=772MB  thrash=False  p50=75ms p90=366ms qps=0.125
+[2026-04-28 00:53:16] START py-mp N=2  avail_ram=2594MB  log=benchmark/output/sweep/logs/py-mp_n2.log
+[2026-04-28 01:04:01] OK    py-mp N=2  dt=646s  peak_rss=951MB  thrash=False  p50=160ms p90=546ms qps=0.103
+[2026-04-28 01:04:01] START go N=2  avail_ram=2819MB  log=benchmark/output/sweep/logs/go_n2.log
+[2026-04-28 01:14:01] OK    go N=2  dt=600s  peak_rss=757MB  thrash=False  p50=886ms p90=2697ms qps=0.111
+[2026-04-28 01:14:01] START py-mt N=4  avail_ram=2697MB  log=benchmark/output/sweep/logs/py-mt_n4.log
+[2026-04-28 01:18:56] OK    py-mt N=4  dt=295s  peak_rss=1389MB  thrash=False  p50=80ms p90=369ms qps=0.234
+[2026-04-28 01:18:56] START py-mp N=4  avail_ram=2676MB  log=benchmark/output/sweep/logs/py-mp_n4.log
+[2026-04-28 01:25:18] OK    py-mp N=4  dt=382s  peak_rss=1702MB  thrash=False  p50=213ms p90=423ms qps=0.184
+[2026-04-28 01:25:18] START go N=4  avail_ram=2595MB  log=benchmark/output/sweep/logs/go_n4.log
+[2026-04-28 01:30:38] OK    go N=4  dt=320s  peak_rss=1454MB  thrash=False  p50=0ms p90=2236ms qps=0.215
+[2026-04-28 01:30:38] START py-mt N=8  avail_ram=3005MB  log=benchmark/output/sweep/logs/py-mt_n8.log
+[2026-04-28 01:34:49] OK    py-mt N=8  dt=250s  peak_rss=2436MB  thrash=False  p50=201ms p90=500ms qps=0.302
+[2026-04-28 01:34:49] START py-mp N=8  avail_ram=2574MB  log=benchmark/output/sweep/logs/py-mp_n8.log

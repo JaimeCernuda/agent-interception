@@ -1,0 +1,158 @@
+{
+  "trace_id": "ae20ead86cc090127e1af7b0010948d9",
+  "config": "opus_custom",
+  "query_id": "q004",
+  "label": "cell_opus_custom",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "ae20ead86cc090127e1af7b0010948d9",
+      "span_id": "c5e1c36c24a1692a",
+      "parent_id": null,
+      "start_ns": 1777074436193165000,
+      "end_ns": 1777074454992909000,
+      "wall_time_ms": 18799.744,
+      "cpu_time_ms": 417.044,
+      "kind": "root",
+      "attrs": {
+        "config": "opus_custom",
+        "query_id": "q004",
+        "query_text": "Who was the first African American woman to appear on a quarter in the United States?",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.max_turns": 10
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "ae20ead86cc090127e1af7b0010948d9",
+      "span_id": "bfd2d67def400781",
+      "parent_id": "c5e1c36c24a1692a",
+      "start_ns": 1777074436193267000,
+      "end_ns": 1777074437482087000,
+      "wall_time_ms": 1288.82,
+      "cpu_time_ms": 13.427,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 826,
+        "llm.output_tokens": 81,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "ae20ead86cc090127e1af7b0010948d9",
+      "span_id": "daca7f4aa4a62942",
+      "parent_id": "c5e1c36c24a1692a",
+      "start_ns": 1777074437482280000,
+      "end_ns": 1777074438941296000,
+      "wall_time_ms": 1459.016,
+      "cpu_time_ms": 28.392,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "370fd5f1c5180b19",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 763
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "ae20ead86cc090127e1af7b0010948d9",
+      "span_id": "892cefe22ff5015b",
+      "parent_id": "c5e1c36c24a1692a",
+      "start_ns": 1777074443943658000,
+      "end_ns": 1777074445228173000,
+      "wall_time_ms": 1284.515,
+      "cpu_time_ms": 18.087,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1208,
+        "llm.output_tokens": 202,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "ae20ead86cc090127e1af7b0010948d9",
+      "span_id": "f0feb5bc25f4fbf8",
+      "parent_id": "c5e1c36c24a1692a",
+      "start_ns": 1777074445228425000,
+      "end_ns": 1777074446776755000,
+      "wall_time_ms": 1548.33,
+      "cpu_time_ms": 141.992,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "4c1aa97b1046bbfa",
+        "tool.url": "https://www.good.is/how-maya-angelou-became-the-first-black-woman-to-appear-on-a-us-quarter/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 3791
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "ae20ead86cc090127e1af7b0010948d9",
+      "span_id": "8972c9966a8b517d",
+      "parent_id": "c5e1c36c24a1692a",
+      "start_ns": 1777074446776892000,
+      "end_ns": 1777074448571238000,
+      "wall_time_ms": 1794.346,
+      "cpu_time_ms": 191.263,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "40f4024fd63ba7ec",
+        "tool.url": "https://www.smithsonianmag.com/smart-news/newly-minted-maya-angelou-quarters-enter-circulation-and-make-history-180979398/",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "ae20ead86cc090127e1af7b0010948d9",
+      "span_id": "93d80495068a42cf",
+      "parent_id": "c5e1c36c24a1692a",
+      "start_ns": 1777074453571996000,
+      "end_ns": 1777074454992792000,
+      "wall_time_ms": 1420.796,
+      "cpu_time_ms": 22.848,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 2356,
+        "llm.output_tokens": 121,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

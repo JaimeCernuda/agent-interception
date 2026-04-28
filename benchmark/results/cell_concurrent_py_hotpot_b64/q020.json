@@ -1,0 +1,159 @@
+{
+  "trace_id": "fce22f039e882312657d05aae8f10f7d",
+  "config": "cell_concurrent_py_hotpot_b64",
+  "query_id": "q020",
+  "label": "cell_concurrent_py_hotpot_b64",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "fce22f039e882312657d05aae8f10f7d",
+      "span_id": "ce7fe4739ecf6c74",
+      "parent_id": null,
+      "start_ns": 1777183067259995000,
+      "end_ns": 1777183082525879000,
+      "wall_time_ms": 15265.884,
+      "cpu_time_ms": 19334.078,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b64",
+        "query_id": "q020",
+        "query_text": "Has Entrepreneur had a longer lifespan than Optimize?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 64
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "fce22f039e882312657d05aae8f10f7d",
+      "span_id": "577c6f7b206fccc4",
+      "parent_id": "ce7fe4739ecf6c74",
+      "start_ns": 1777183067260219000,
+      "end_ns": 1777183074975980000,
+      "wall_time_ms": 7715.761,
+      "cpu_time_ms": 6192.513,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "97a68de2ce6f1e07",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 857
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "fce22f039e882312657d05aae8f10f7d",
+      "span_id": "b55e4220c5bd96fa",
+      "parent_id": "ce7fe4739ecf6c74",
+      "start_ns": 1777183074976452000,
+      "end_ns": 1777183077455964000,
+      "wall_time_ms": 2479.512,
+      "cpu_time_ms": 5223.283,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "e673764661b12537",
+        "tool.url": "https://mooloo.net/articles/news/the-entrepreneurs-guide-to-the-600-billion-longevity-market-5-entry-points/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 13030
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "fce22f039e882312657d05aae8f10f7d",
+      "span_id": "92ee40f26f8d0b67",
+      "parent_id": "ce7fe4739ecf6c74",
+      "start_ns": 1777183077456119000,
+      "end_ns": 1777183079303322000,
+      "wall_time_ms": 1847.203,
+      "cpu_time_ms": 3429.431,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "3bfaa159628e6868",
+        "tool.url": "https://canadasentrepreneur.com/revolutionizing-healthcare-entrepreneur-extends-lifespan-with-tech/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 5301
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "fce22f039e882312657d05aae8f10f7d",
+      "span_id": "87ed5e928ccf5bf0",
+      "parent_id": "ce7fe4739ecf6c74",
+      "start_ns": 1777183079303673000,
+      "end_ns": 1777183079856523000,
+      "wall_time_ms": 552.85,
+      "cpu_time_ms": 1197.517,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "fa4185173bc93fb9",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 87,
+        "tool.output_size_bytes": 230
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "fce22f039e882312657d05aae8f10f7d",
+      "span_id": "5162a8e033307dc7",
+      "parent_id": "ce7fe4739ecf6c74",
+      "start_ns": 1777183079857829000,
+      "end_ns": 1777183079979257000,
+      "wall_time_ms": 121.428,
+      "cpu_time_ms": 154.354,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "88d42bc5d061a1e0",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 30,
+        "tool.output_size_bytes": 208
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "fce22f039e882312657d05aae8f10f7d",
+      "span_id": "f5c6352abe58e9dd",
+      "parent_id": "ce7fe4739ecf6c74",
+      "start_ns": 1777183079980412000,
+      "end_ns": 1777183082525779000,
+      "wall_time_ms": 2545.367,
+      "cpu_time_ms": 3130.117,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 117,
+        "llm.output_tokens": 101,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

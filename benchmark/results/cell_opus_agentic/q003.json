@@ -1,0 +1,158 @@
+{
+  "trace_id": "dcf0db96747485bc1e8e2093ab1b5bef",
+  "config": "opus_custom",
+  "query_id": "q003",
+  "label": "cell_opus_custom",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "dcf0db96747485bc1e8e2093ab1b5bef",
+      "span_id": "a131c17255477f24",
+      "parent_id": null,
+      "start_ns": 1777074410787444000,
+      "end_ns": 1777074431133186000,
+      "wall_time_ms": 20345.742,
+      "cpu_time_ms": 1065.33,
+      "kind": "root",
+      "attrs": {
+        "config": "opus_custom",
+        "query_id": "q003",
+        "query_text": "What city was connected with the earliest cases of COVID-19?",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.max_turns": 10
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "dcf0db96747485bc1e8e2093ab1b5bef",
+      "span_id": "9a381ab9a171c57c",
+      "parent_id": "a131c17255477f24",
+      "start_ns": 1777074410787545000,
+      "end_ns": 1777074412289595000,
+      "wall_time_ms": 1502.05,
+      "cpu_time_ms": 12.17,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 822,
+        "llm.output_tokens": 61,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "dcf0db96747485bc1e8e2093ab1b5bef",
+      "span_id": "c4b6e3524a08b635",
+      "parent_id": "a131c17255477f24",
+      "start_ns": 1777074412289787000,
+      "end_ns": 1777074414430741000,
+      "wall_time_ms": 2140.954,
+      "cpu_time_ms": 43.221,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "ef811c84bb7b73c7",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 740
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "dcf0db96747485bc1e8e2093ab1b5bef",
+      "span_id": "e7c159ad3f8f7a90",
+      "parent_id": "a131c17255477f24",
+      "start_ns": 1777074419433168000,
+      "end_ns": 1777074420892046000,
+      "wall_time_ms": 1458.878,
+      "cpu_time_ms": 16.516,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1200,
+        "llm.output_tokens": 167,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "dcf0db96747485bc1e8e2093ab1b5bef",
+      "span_id": "470bc8098f11c2bd",
+      "parent_id": "a131c17255477f24",
+      "start_ns": 1777074420892267000,
+      "end_ns": 1777074422029934000,
+      "wall_time_ms": 1137.667,
+      "cpu_time_ms": 845.535,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "8947c88417cad7eb",
+        "tool.url": "https://www.sciencealert.com/scientists-have-finally-pinpointed-the-location-of-the-earliest-cases-of-covid-19",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 4609
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "dcf0db96747485bc1e8e2093ab1b5bef",
+      "span_id": "19a27263b1c2ad37",
+      "parent_id": "a131c17255477f24",
+      "start_ns": 1777074422030085000,
+      "end_ns": 1777074422517287000,
+      "wall_time_ms": 487.202,
+      "cpu_time_ms": 119.626,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "d11c6ece83f033df",
+        "tool.url": "https://www.who.int/news/item/27-04-2020-who-timeline---covid-19",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 5857
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "dcf0db96747485bc1e8e2093ab1b5bef",
+      "span_id": "9876f16c290911c3",
+      "parent_id": "a131c17255477f24",
+      "start_ns": 1777074427519491000,
+      "end_ns": 1777074431133067000,
+      "wall_time_ms": 3613.576,
+      "cpu_time_ms": 27.203,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 3785,
+        "llm.output_tokens": 162,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

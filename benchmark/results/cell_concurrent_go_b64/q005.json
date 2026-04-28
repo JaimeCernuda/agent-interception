@@ -1,0 +1,115 @@
+{
+  "config": "cell_concurrent_go_b64",
+  "label": "cell_concurrent_go_b64",
+  "query_id": "q005",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 64,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 0,
+        "agent.num_urls_fetched": 0,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b64",
+        "query_id": "q005",
+        "query_text": "How many children does Elon Musk have, including his deceased child?"
+      },
+      "cpu_time_ms": 49892.385,
+      "end_ns": 1777167724184411000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "6823ba544f79f02e",
+      "start_ns": 1777167674292026000,
+      "status": "ok",
+      "trace_id": "c687eb626334630278f6adb084724a33",
+      "wall_time_ms": 49892.385
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "46cadae90e04fcae",
+        "tool.name": "ddg",
+        "tool.num_results": 0,
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3
+      },
+      "cpu_time_ms": 36004.596,
+      "end_ns": 1777167710296657000,
+      "error": "Post \"https://html.duckduckgo.com/html/\": context deadline exceeded",
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "6823ba544f79f02e",
+      "span_id": "ecd5746c1101a48d",
+      "start_ns": 1777167674292062000,
+      "status": "error",
+      "trace_id": "c687eb626334630278f6adb084724a33",
+      "wall_time_ms": 36004.595
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.rate_limited": true,
+        "llm.status_code": 429
+      },
+      "cpu_time_ms": 885.002,
+      "end_ns": 1777167711187115000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "6823ba544f79f02e",
+      "span_id": "b77d31238533c5ad",
+      "start_ns": 1777167710302112000,
+      "status": "ok",
+      "trace_id": "c687eb626334630278f6adb084724a33",
+      "wall_time_ms": 885.003
+    },
+    {
+      "attrs": {
+        "llm.retry_after_s": 12,
+        "llm.retry_attempt": 1,
+        "llm.retry_trigger": "http_429"
+      },
+      "cpu_time_ms": 12000.664,
+      "end_ns": 1777167723187789000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.retry_wait",
+      "parent_id": "6823ba544f79f02e",
+      "span_id": "5ddef7081a1ff7ac",
+      "start_ns": 1777167711187126000,
+      "status": "ok",
+      "trace_id": "c687eb626334630278f6adb084724a33",
+      "wall_time_ms": 12000.663
+    },
+    {
+      "attrs": {
+        "llm.attempt": 1,
+        "llm.input_tokens": 32,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 54,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 996.541,
+      "end_ns": 1777167724184401000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "6823ba544f79f02e",
+      "span_id": "eb77bfcc566558fe",
+      "start_ns": 1777167723187860000,
+      "status": "ok",
+      "trace_id": "c687eb626334630278f6adb084724a33",
+      "wall_time_ms": 996.541
+    }
+  ],
+  "trace_id": "c687eb626334630278f6adb084724a33"
+}

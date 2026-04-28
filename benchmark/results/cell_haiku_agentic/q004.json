@@ -1,0 +1,94 @@
+{
+  "trace_id": "673113bcc2ddb3a87ff3e24db3bdec12",
+  "config": "haiku_custom",
+  "query_id": "q004",
+  "label": "cell_haiku_custom",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "673113bcc2ddb3a87ff3e24db3bdec12",
+      "span_id": "bff7d305427743cf",
+      "parent_id": null,
+      "start_ns": 1777073305119460000,
+      "end_ns": 1777073316488347000,
+      "wall_time_ms": 11368.887,
+      "cpu_time_ms": 52.814,
+      "kind": "root",
+      "attrs": {
+        "config": "haiku_custom",
+        "query_id": "q004",
+        "query_text": "Who was the first African American woman to appear on a quarter in the United States?",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.max_turns": -1
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "673113bcc2ddb3a87ff3e24db3bdec12",
+      "span_id": "129f3c4dc204823c",
+      "parent_id": "bff7d305427743cf",
+      "start_ns": 1777073305119561000,
+      "end_ns": 1777073306044150000,
+      "wall_time_ms": 924.589,
+      "cpu_time_ms": 10.017,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 826,
+        "llm.output_tokens": 62,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "673113bcc2ddb3a87ff3e24db3bdec12",
+      "span_id": "09da37042740b598",
+      "parent_id": "bff7d305427743cf",
+      "start_ns": 1777073306044412000,
+      "end_ns": 1777073310440760000,
+      "wall_time_ms": 4396.348,
+      "cpu_time_ms": 24.318,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "3ba36ef494f064df",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 885
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "673113bcc2ddb3a87ff3e24db3bdec12",
+      "span_id": "30087224a01bd518",
+      "parent_id": "bff7d305427743cf",
+      "start_ns": 1777073315446264000,
+      "end_ns": 1777073316488261000,
+      "wall_time_ms": 1041.997,
+      "cpu_time_ms": 17.862,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1258,
+        "llm.output_tokens": 50,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

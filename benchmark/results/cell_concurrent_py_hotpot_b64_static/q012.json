@@ -1,0 +1,44 @@
+{
+  "trace_id": "8c5f4a8649ee9e8ab8e49963216ea995",
+  "config": "cell_concurrent_py_hotpot_b64_static",
+  "query_id": "q012",
+  "label": "cell_concurrent_py_hotpot_b64_static",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "8c5f4a8649ee9e8ab8e49963216ea995",
+      "span_id": "7958d7153addf5b3",
+      "parent_id": null,
+      "start_ns": 1777183121936491000,
+      "end_ns": 1777183122034382000,
+      "wall_time_ms": 97.891,
+      "cpu_time_ms": 116.702,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b64_static",
+        "query_id": "q012",
+        "query_text": "In between Burton C. Bell and Billy Idol who is known professionally as Billy Idol?"
+      },
+      "status": "error",
+      "error": "RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q012. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls()."
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "8c5f4a8649ee9e8ab8e49963216ea995",
+      "span_id": "35ada942685cd96d",
+      "parent_id": "7958d7153addf5b3",
+      "start_ns": 1777183121936642000,
+      "end_ns": 1777183121984045000,
+      "wall_time_ms": 47.403,
+      "cpu_time_ms": 10.665,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "static",
+        "tool.input_hash": "a0a281d6d82e91ed",
+        "tool.retry_count": 0
+      },
+      "status": "error",
+      "error": "RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q012. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls()."
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "config": "cell_concurrent_go_b16",
+  "label": "cell_concurrent_go_b16",
+  "query_id": "q011",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 16,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 0,
+        "agent.num_urls_fetched": 0,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b16",
+        "query_id": "q011",
+        "query_text": "What is the youngest age eligible for COVID-19 vaccination in the United States?"
+      },
+      "cpu_time_ms": 3432.078,
+      "end_ns": 1777167601989635000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "dec8303528006836",
+      "start_ns": 1777167598557556000,
+      "status": "ok",
+      "trace_id": "3d899839d7f9ce37d87a3ea146da0f5a",
+      "wall_time_ms": 3432.079
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "bb429540c09dc22d",
+        "tool.name": "ddg",
+        "tool.num_results": 0,
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3
+      },
+      "cpu_time_ms": 2540.867,
+      "end_ns": 1777167601098464000,
+      "error": "ddg status 403",
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "dec8303528006836",
+      "span_id": "1d1f45c012600ede",
+      "start_ns": 1777167598557598000,
+      "status": "error",
+      "trace_id": "3d899839d7f9ce37d87a3ea146da0f5a",
+      "wall_time_ms": 2540.866
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 32,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 58,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 891.14,
+      "end_ns": 1777167601989629000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "dec8303528006836",
+      "span_id": "2cd6badec176a566",
+      "start_ns": 1777167601098489000,
+      "status": "ok",
+      "trace_id": "3d899839d7f9ce37d87a3ea146da0f5a",
+      "wall_time_ms": 891.14
+    }
+  ],
+  "trace_id": "3d899839d7f9ce37d87a3ea146da0f5a"
+}

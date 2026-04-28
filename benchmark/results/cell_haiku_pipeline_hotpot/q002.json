@@ -1,0 +1,284 @@
+{
+  "trace_id": "3a33beffb8f72aea046b2aed07c44303",
+  "config": "pipeline_haiku_hotpot",
+  "query_id": "q002",
+  "label": "cell_haiku_pipeline_hotpot",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "3a33beffb8f72aea046b2aed07c44303",
+      "span_id": "2bc64e040a51aa35",
+      "parent_id": null,
+      "start_ns": 1777169712778915000,
+      "end_ns": 1777169746130008000,
+      "wall_time_ms": 33351.093,
+      "cpu_time_ms": 2207.125,
+      "kind": "root",
+      "attrs": {
+        "config": "pipeline_haiku_hotpot",
+        "query_id": "q002",
+        "query_text": "In what year did construction begin on the stadium where the 2013 America East Men's Lacrosse Tournament was held?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 0,
+        "agent.num_summaries": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "3a33beffb8f72aea046b2aed07c44303",
+      "span_id": "4bfcb6045f2c9c7b",
+      "parent_id": "2bc64e040a51aa35",
+      "start_ns": 1777169712779104000,
+      "end_ns": 1777169715150236000,
+      "wall_time_ms": 2371.132,
+      "cpu_time_ms": 40.46,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "6e8ac6dc538b615b",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 621
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "3a33beffb8f72aea046b2aed07c44303",
+      "span_id": "3e70f635230a6294",
+      "parent_id": "2bc64e040a51aa35",
+      "start_ns": 1777169715150455000,
+      "end_ns": 1777169718039067000,
+      "wall_time_ms": 2888.612,
+      "cpu_time_ms": 203.846,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "82481b251dfca17b",
+        "tool.url": "https://en.wikipedia.org/wiki/2013_America_East_Men's_Lacrosse_Tournament",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "3a33beffb8f72aea046b2aed07c44303",
+      "span_id": "46b4a78d140a9f88",
+      "parent_id": "2bc64e040a51aa35",
+      "start_ns": 1777169718039229000,
+      "end_ns": 1777169720922342000,
+      "wall_time_ms": 2883.113,
+      "cpu_time_ms": 203.6,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "743a858f7b432d6e",
+        "tool.url": "https://en.wikipedia.org/wiki/NRG_Stadium",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "3a33beffb8f72aea046b2aed07c44303",
+      "span_id": "3f3424bece68d9bc",
+      "parent_id": "2bc64e040a51aa35",
+      "start_ns": 1777169720922553000,
+      "end_ns": 1777169723834888000,
+      "wall_time_ms": 2912.335,
+      "cpu_time_ms": 209.995,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "9edbcc0822a04367",
+        "tool.url": "https://en.wikipedia.org/wiki/America_East_Conference_men's_lacrosse_tournament",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "3a33beffb8f72aea046b2aed07c44303",
+      "span_id": "ec18493df613a510",
+      "parent_id": "2bc64e040a51aa35",
+      "start_ns": 1777169723835089000,
+      "end_ns": 1777169726781315000,
+      "wall_time_ms": 2946.226,
+      "cpu_time_ms": 204.587,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "2dc247edd8cf5887",
+        "tool.url": "https://en.wikipedia.org/wiki/SECU_Stadium",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "3a33beffb8f72aea046b2aed07c44303",
+      "span_id": "400ea8b6431b5e02",
+      "parent_id": "2bc64e040a51aa35",
+      "start_ns": 1777169726781493000,
+      "end_ns": 1777169729677621000,
+      "wall_time_ms": 2896.128,
+      "cpu_time_ms": 216.473,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "034e7bc49b72d868",
+        "tool.url": "https://en.wikipedia.org/wiki/2014_America_East_Men's_Lacrosse_Tournament",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "3a33beffb8f72aea046b2aed07c44303",
+      "span_id": "f591c708ef6b6b01",
+      "parent_id": "2bc64e040a51aa35",
+      "start_ns": 1777169729677858000,
+      "end_ns": 1777169732603092000,
+      "wall_time_ms": 2925.234,
+      "cpu_time_ms": 225.233,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "9c6b5eaae0a1c923",
+        "tool.url": "https://en.wikipedia.org/wiki/Michigan_Stadium",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "3a33beffb8f72aea046b2aed07c44303",
+      "span_id": "ae10818a0005bafd",
+      "parent_id": "2bc64e040a51aa35",
+      "start_ns": 1777169732603287000,
+      "end_ns": 1777169735507659000,
+      "wall_time_ms": 2904.372,
+      "cpu_time_ms": 202.093,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "33c84f2e44c51d12",
+        "tool.url": "https://en.wikipedia.org/wiki/2013_America_East_Men's_Basketball_Tournament",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "3a33beffb8f72aea046b2aed07c44303",
+      "span_id": "bdcfa38ef7ce5c19",
+      "parent_id": "2bc64e040a51aa35",
+      "start_ns": 1777169735507852000,
+      "end_ns": 1777169738450843000,
+      "wall_time_ms": 2942.991,
+      "cpu_time_ms": 234.076,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "0867538ff38bf58f",
+        "tool.url": "https://en.wikipedia.org/wiki/America_East_Conference",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "3a33beffb8f72aea046b2aed07c44303",
+      "span_id": "bd24c989d95f9f57",
+      "parent_id": "2bc64e040a51aa35",
+      "start_ns": 1777169738451010000,
+      "end_ns": 1777169741365258000,
+      "wall_time_ms": 2914.248,
+      "cpu_time_ms": 218.141,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "60dc36f29f118e41",
+        "tool.url": "https://en.wikipedia.org/wiki/NCAA_Division_I_men's_lacrosse_tournament",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "3a33beffb8f72aea046b2aed07c44303",
+      "span_id": "7f5624d4e573b0bb",
+      "parent_id": "2bc64e040a51aa35",
+      "start_ns": 1777169741365472000,
+      "end_ns": 1777169744571724000,
+      "wall_time_ms": 3206.252,
+      "cpu_time_ms": 231.903,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "2166af5e17af77c3",
+        "tool.url": "https://en.wikipedia.org/wiki/List_of_Major_League_Lacrosse_stadiums",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "3a33beffb8f72aea046b2aed07c44303",
+      "span_id": "08181458079ee1e0",
+      "parent_id": "2bc64e040a51aa35",
+      "start_ns": 1777169744572310000,
+      "end_ns": 1777169746129817000,
+      "wall_time_ms": 1557.507,
+      "cpu_time_ms": 14.565,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 42,
+        "llm.output_tokens": 51,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

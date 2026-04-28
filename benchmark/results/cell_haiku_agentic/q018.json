@@ -1,0 +1,157 @@
+{
+  "trace_id": "d3265307597b065ef9e8b6b996fa5dd5",
+  "config": "haiku_custom",
+  "query_id": "q018",
+  "label": "cell_haiku_custom",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "d3265307597b065ef9e8b6b996fa5dd5",
+      "span_id": "bf2b33138f1e8601",
+      "parent_id": null,
+      "start_ns": 1777073835689744000,
+      "end_ns": 1777073853119706000,
+      "wall_time_ms": 17429.962,
+      "cpu_time_ms": 483.688,
+      "kind": "root",
+      "attrs": {
+        "config": "haiku_custom",
+        "query_id": "q018",
+        "query_text": "Do the Toronto Raptors have a winning record in the latest NBA season?",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.max_turns": -1
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "d3265307597b065ef9e8b6b996fa5dd5",
+      "span_id": "664cf6574ea34c48",
+      "parent_id": "bf2b33138f1e8601",
+      "start_ns": 1777073835691317000,
+      "end_ns": 1777073836817081000,
+      "wall_time_ms": 1125.764,
+      "cpu_time_ms": 33.609,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 826,
+        "llm.output_tokens": 82,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "d3265307597b065ef9e8b6b996fa5dd5",
+      "span_id": "12c805c6a90fb22e",
+      "parent_id": "bf2b33138f1e8601",
+      "start_ns": 1777073836817425000,
+      "end_ns": 1777073838921450000,
+      "wall_time_ms": 2104.025,
+      "cpu_time_ms": 73.46,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "af0c8eb8ed4aa73d",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 892
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "d3265307597b065ef9e8b6b996fa5dd5",
+      "span_id": "716414ce511c9421",
+      "parent_id": "bf2b33138f1e8601",
+      "start_ns": 1777073843923657000,
+      "end_ns": 1777073845049218000,
+      "wall_time_ms": 1125.561,
+      "cpu_time_ms": 14.316,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1289,
+        "llm.output_tokens": 139,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "d3265307597b065ef9e8b6b996fa5dd5",
+      "span_id": "f199e4a148ca2d4c",
+      "parent_id": "bf2b33138f1e8601",
+      "start_ns": 1777073845049376000,
+      "end_ns": 1777073845596632000,
+      "wall_time_ms": 547.256,
+      "cpu_time_ms": 324.108,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "18fe12f92f696374",
+        "tool.url": "https://champsorchumps.us/team/nba/toronto-raptors/2025",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 4831
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "d3265307597b065ef9e8b6b996fa5dd5",
+      "span_id": "562aec7ddb722087",
+      "parent_id": "bf2b33138f1e8601",
+      "start_ns": 1777073845596819000,
+      "end_ns": 1777073846758656000,
+      "wall_time_ms": 1161.837,
+      "cpu_time_ms": 18.322,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "e5de1bfd9fffaf07",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 520
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "d3265307597b065ef9e8b6b996fa5dd5",
+      "span_id": "675fff606b8ca41d",
+      "parent_id": "bf2b33138f1e8601",
+      "start_ns": 1777073851763011000,
+      "end_ns": 1777073853119478000,
+      "wall_time_ms": 1356.467,
+      "cpu_time_ms": 16.678,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 4243,
+        "llm.output_tokens": 113,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

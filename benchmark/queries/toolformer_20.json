@@ -1,0 +1,159 @@
+{
+  "dataset": "Toolformer benchmark \u2014 Phase 1 (MAWPS subset)",
+  "source": "HuggingFace MU-NLPC/Calc-mawps (test+train+validation splits combined)",
+  "selection_seed": 42,
+  "stratification": {
+    "single_op": 5,
+    "two_op": 5,
+    "multi_op": 5,
+    "fractional": 5
+  },
+  "category_definitions": {
+    "single_op": "1 binary arithmetic op (+,-,*,/) over integer values",
+    "two_op": "2 binary arithmetic ops over integer values",
+    "multi_op": "3 or more binary arithmetic ops",
+    "fractional": "1+ ops involving non-trivial decimal values in the question or result"
+  },
+  "queries": [
+    {
+      "query_id": "q01",
+      "category": "single_op",
+      "question": "Jeff had some Pen. Denise took 88 from him. Now Jeff has 96 Pen. How many Pen Jeff had primitively?",
+      "expected_answer": 184.0,
+      "difficulty": "easy"
+    },
+    {
+      "query_id": "q02",
+      "category": "single_op",
+      "question": "Chris had 39 apricot. Robert confered him some more. Now Chris has 185 apricot. How many did Robert confer him?",
+      "expected_answer": 146.0,
+      "difficulty": "easy"
+    },
+    {
+      "query_id": "q03",
+      "category": "single_op",
+      "question": "Ronald wants to share some Flower among 17 friends.If each friend get 38 Flower, then how many Flower john would have?",
+      "expected_answer": 646.0,
+      "difficulty": "easy"
+    },
+    {
+      "query_id": "q04",
+      "category": "single_op",
+      "question": "Jeffrey acquire 14 bags of fig . how many fig in each bag? If total 83 fig Jeffrey  acquire.",
+      "expected_answer": 5.928571,
+      "difficulty": "easy"
+    },
+    {
+      "query_id": "q05",
+      "category": "single_op",
+      "question": "Jacqueline had some cherry. Bruce took 24 from him. Now Jacqueline has 28 cherry. How many cherry Jacqueline had incipiently?",
+      "expected_answer": 52.0,
+      "difficulty": "easy"
+    },
+    {
+      "query_id": "q06",
+      "category": "two_op",
+      "question": "Sam invited 9 friends to a birthday party, but 6 couldn't come. If he wanted to buy enough cupcakes so each person could have exactly 2, how many should he buy?",
+      "expected_answer": 6.0,
+      "difficulty": "medium"
+    },
+    {
+      "query_id": "q07",
+      "category": "two_op",
+      "question": "Each chocolate bar in a box cost $3. If a box had 9 bars total and Wendy sold all but 3 bars, how much money would she have made?",
+      "expected_answer": 18.0,
+      "difficulty": "medium"
+    },
+    {
+      "query_id": "q08",
+      "category": "two_op",
+      "question": "Sally had 8 pennies and 7 nickels in her bank . Her dad gave her 9 nickels and her mother gave her 2 nickels . How many nickels does Sally have now ?",
+      "expected_answer": 18.0,
+      "difficulty": "medium"
+    },
+    {
+      "query_id": "q09",
+      "category": "two_op",
+      "question": "Tiffany baked 8 brownies, but needed 17 total for her party. If she used 8 cups of flour on each one, how much cups of flour does she still need?",
+      "expected_answer": 72.0,
+      "difficulty": "medium"
+    },
+    {
+      "query_id": "q10",
+      "category": "two_op",
+      "question": "Bianca picked 39 tulips and 49 roses to make flower bouquets. If she only used 81 of the flowers though, how many extra flowers did Bianca pick?",
+      "expected_answer": 7.0,
+      "difficulty": "medium"
+    },
+    {
+      "query_id": "q11",
+      "category": "multi_op",
+      "question": "A car rental agency advertised renting a luxury , full size car for 24.95 dollars per day and 0.49 dollars per mile. If you rent this car for 5 days , how many whole miles can you drive if you only have 200.00 dollars to spend?",
+      "expected_answer": 153.571429,
+      "difficulty": "hard"
+    },
+    {
+      "query_id": "q12",
+      "category": "multi_op",
+      "question": "Find the cost per pound of a trail mix made from 10 pounds of raisins that costs 4.20 dollars per pound and 90 pounds of granola that costs 5.60 dollars per pound.",
+      "expected_answer": 5.46,
+      "difficulty": "hard"
+    },
+    {
+      "query_id": "q13",
+      "category": "multi_op",
+      "question": "You deposit 70 dollars in a savings account that pays an annual interest rate of 3 %. How much simple interest would you earn in 2.5 years , in dollars?",
+      "expected_answer": 5.25,
+      "difficulty": "hard"
+    },
+    {
+      "query_id": "q14",
+      "category": "multi_op",
+      "question": "Luke had 20 stickers. He bought 12 stickers from a store in the mall and got 20 stickers for his birthday. Then Luke gave 5 of the stickers to his sister and used 8 to decorate a greeting card. How many stickers does Luke have left?",
+      "expected_answer": 39.0,
+      "difficulty": "hard"
+    },
+    {
+      "query_id": "q15",
+      "category": "multi_op",
+      "question": "On Friday, Fred paid $5.92 each on 2 tickets to a movie theater. He also borrowed a movie for $6.79. Fred paid with a $20 bill. How much change did Fred receive?",
+      "expected_answer": 1.37,
+      "difficulty": "hard"
+    },
+    {
+      "query_id": "q16",
+      "category": "fractional",
+      "question": "Nancy has saved 1 dozen quarters from washing cars.  How much money does Nancy have ?",
+      "expected_answer": 3.0,
+      "difficulty": "medium"
+    },
+    {
+      "query_id": "q17",
+      "category": "fractional",
+      "question": "0.5 of the students in the band are in the trumpet section. 0.125 of the students in the band are in the trombone section. What fraction of the students in the band are in either the trumpet section or the trombone section?",
+      "expected_answer": 0.625,
+      "difficulty": "medium"
+    },
+    {
+      "query_id": "q18",
+      "category": "fractional",
+      "question": "A water flow restrictor has reduced the flow of water to 2 gallons per minute. This amount is 1 gallon per minute less than 0.6 the original flow rate. Find the original rate in gallons per minute.",
+      "expected_answer": 5.0,
+      "difficulty": "medium"
+    },
+    {
+      "query_id": "q19",
+      "category": "fractional",
+      "question": "Mike joined his school's band. He bought a trumpet for $145.16, and a song book which was $5.84. How much did Mike spend at the music store?",
+      "expected_answer": 151.0,
+      "difficulty": "medium"
+    },
+    {
+      "query_id": "q20",
+      "category": "fractional",
+      "question": "Gordon bought 3.42 pounds of fruit for a class party. The class ate 2.2 pounds of the fruit. How much fruit is left?",
+      "expected_answer": 1.22,
+      "difficulty": "medium"
+    }
+  ]
+}

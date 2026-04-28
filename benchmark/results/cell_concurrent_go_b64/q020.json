@@ -1,0 +1,115 @@
+{
+  "config": "cell_concurrent_go_b64",
+  "label": "cell_concurrent_go_b64",
+  "query_id": "q020",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 64,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 0,
+        "agent.num_urls_fetched": 0,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b64",
+        "query_id": "q020",
+        "query_text": "In what month and year was the price of Bitcoin last above $40,000?"
+      },
+      "cpu_time_ms": 49965.547,
+      "end_ns": 1777167724257198000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "e5e9723c5f7554d3",
+      "start_ns": 1777167674291651000,
+      "status": "ok",
+      "trace_id": "234bd0182abd3aecb46b0725bc6a1c17",
+      "wall_time_ms": 49965.547
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "ff58a4e8431fd444",
+        "tool.name": "ddg",
+        "tool.num_results": 0,
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3
+      },
+      "cpu_time_ms": 36006.709,
+      "end_ns": 1777167710298377000,
+      "error": "Post \"https://html.duckduckgo.com/html/\": context deadline exceeded",
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "e5e9723c5f7554d3",
+      "span_id": "de6a9d701bbdf7fe",
+      "start_ns": 1777167674291667000,
+      "status": "error",
+      "trace_id": "234bd0182abd3aecb46b0725bc6a1c17",
+      "wall_time_ms": 36006.71
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.rate_limited": true,
+        "llm.status_code": 429
+      },
+      "cpu_time_ms": 779.247,
+      "end_ns": 1777167711080958000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "e5e9723c5f7554d3",
+      "span_id": "120dbcdcc0c3c500",
+      "start_ns": 1777167710301715000,
+      "status": "ok",
+      "trace_id": "234bd0182abd3aecb46b0725bc6a1c17",
+      "wall_time_ms": 779.243
+    },
+    {
+      "attrs": {
+        "llm.retry_after_s": 12,
+        "llm.retry_attempt": 1,
+        "llm.retry_trigger": "http_429"
+      },
+      "cpu_time_ms": 12001.196,
+      "end_ns": 1777167723082169000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.retry_wait",
+      "parent_id": "e5e9723c5f7554d3",
+      "span_id": "0ccc4e7f1a1e0621",
+      "start_ns": 1777167711080973000,
+      "status": "ok",
+      "trace_id": "234bd0182abd3aecb46b0725bc6a1c17",
+      "wall_time_ms": 12001.196
+    },
+    {
+      "attrs": {
+        "llm.attempt": 1,
+        "llm.input_tokens": 32,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 53,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1174.991,
+      "end_ns": 1777167724257191000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "e5e9723c5f7554d3",
+      "span_id": "0a1381f4839b069b",
+      "start_ns": 1777167723082201000,
+      "status": "ok",
+      "trace_id": "234bd0182abd3aecb46b0725bc6a1c17",
+      "wall_time_ms": 1174.99
+    }
+  ],
+  "trace_id": "234bd0182abd3aecb46b0725bc6a1c17"
+}

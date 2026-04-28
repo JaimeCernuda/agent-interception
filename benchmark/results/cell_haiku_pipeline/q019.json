@@ -1,0 +1,179 @@
+{
+  "trace_id": "f9e3f1f871cbacdfe97b714414dcb512",
+  "config": "pipeline_haiku",
+  "query_id": "q019",
+  "label": "cell_haiku_pipeline",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "f9e3f1f871cbacdfe97b714414dcb512",
+      "span_id": "7a5a23b51023013c",
+      "parent_id": null,
+      "start_ns": 1777154584846348000,
+      "end_ns": 1777154598795856000,
+      "wall_time_ms": 13949.508,
+      "cpu_time_ms": 936.801,
+      "kind": "root",
+      "attrs": {
+        "config": "pipeline_haiku",
+        "query_id": "q019",
+        "query_text": "Who posted the most-liked Instagram post last year?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "f9e3f1f871cbacdfe97b714414dcb512",
+      "span_id": "f063c754c893991c",
+      "parent_id": "7a5a23b51023013c",
+      "start_ns": 1777154584846468000,
+      "end_ns": 1777154587875395000,
+      "wall_time_ms": 3028.927,
+      "cpu_time_ms": 27.297,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "36273eee9807a55b",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 752
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "f9e3f1f871cbacdfe97b714414dcb512",
+      "span_id": "ea4f1f0e2b4b3f62",
+      "parent_id": "7a5a23b51023013c",
+      "start_ns": 1777154587875584000,
+      "end_ns": 1777154591157520000,
+      "wall_time_ms": 3281.936,
+      "cpu_time_ms": 203.654,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "21b6d03fcc523c66",
+        "tool.url": "https://www.arabianbusiness.com/industries/technology/411349-revealed-the-most-liked-instagram-post-ever",
+        "tool.retry_count": 3,
+        "tool.http_status": 405,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "f9e3f1f871cbacdfe97b714414dcb512",
+      "span_id": "588b160a194bd7ee",
+      "parent_id": "7a5a23b51023013c",
+      "start_ns": 1777154591157731000,
+      "end_ns": 1777154595890027000,
+      "wall_time_ms": 4732.296,
+      "cpu_time_ms": 464.262,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "9e301b48d5ee789e",
+        "tool.url": "https://www.statista.com/statistics/673810/instagram-posts-most-likes/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 2914
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "f9e3f1f871cbacdfe97b714414dcb512",
+      "span_id": "d31f74e9df5fb268",
+      "parent_id": "7a5a23b51023013c",
+      "start_ns": 1777154595890192000,
+      "end_ns": 1777154597087366000,
+      "wall_time_ms": 1197.174,
+      "cpu_time_ms": 121.783,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "842d3604bb7be8fd",
+        "tool.url": "https://brobible.com/culture/article/most-liked-instagram-posts-2020/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 2576
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "f9e3f1f871cbacdfe97b714414dcb512",
+      "span_id": "932be4c532e27601",
+      "parent_id": "7a5a23b51023013c",
+      "start_ns": 1777154597087514000,
+      "end_ns": 1777154597142048000,
+      "wall_time_ms": 54.534,
+      "cpu_time_ms": 54.573,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "08f5e5dd9ec01eaf",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 22,
+        "tool.output_size_bytes": 133
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "f9e3f1f871cbacdfe97b714414dcb512",
+      "span_id": "ec71c8c5d5bf6943",
+      "parent_id": "7a5a23b51023013c",
+      "start_ns": 1777154597142766000,
+      "end_ns": 1777154597196917000,
+      "wall_time_ms": 54.151,
+      "cpu_time_ms": 54.089,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "4df6f529cb81b5e6",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 25,
+        "tool.output_size_bytes": 364
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "f9e3f1f871cbacdfe97b714414dcb512",
+      "span_id": "09a057c7c8d3cd08",
+      "parent_id": "7a5a23b51023013c",
+      "start_ns": 1777154597197567000,
+      "end_ns": 1777154598795741000,
+      "wall_time_ms": 1598.174,
+      "cpu_time_ms": 9.162,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 184,
+        "llm.output_tokens": 59,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

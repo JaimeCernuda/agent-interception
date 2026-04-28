@@ -29,6 +29,24 @@ def load_trace(path: Path) -> TraceFile:
     return TraceFile.from_dict(json.loads(path.read_text()))
 
 
+def is_failed_trace(tf: TraceFile) -> bool:
+    """A trace is 'failed' if any of its spans has status != 'ok' AND the run
+    never produced a successful llm.generate. This filters out records of
+    transport-level failures (e.g. HTTP 400 'credit balance too low' from the
+    Go run that exhausted credits) without dropping legitimate measurements
+    that happened to encounter a recoverable error mid-run.
+    """
+    has_failed_span = any(s.status != "ok" for s in tf.spans)
+    has_successful_llm = any(
+        s.kind == "llm"
+        and s.status == "ok"
+        and s.name == "llm.generate"
+        and not bool(s.attrs.get("llm.rate_limited", False))
+        for s in tf.spans
+    )
+    return has_failed_span and not has_successful_llm
+
+
 def per_query_row(tf: TraceFile) -> dict:
     root = tf.root()
     by_name: dict[str, list[float]] = {}
@@ -48,9 +66,16 @@ def per_query_row(tf: TraceFile) -> dict:
     retry_wait_ms = sum(by_name.get("llm.retry_wait", []))
     total_ms = root.wall_time_ms
 
-    # Gap = time the root span was open but no direct-child span was.
-    # In practice: inter-turn rate-limit pauses between tool/LLM steps.
-    child_sum = sum(s.wall_time_ms for s in tf.spans if s.parent_id == root.span_id)
+    # Gap = time the root span was open but no tool/llm child span was.
+    # Robust to parent_id mis-attribution (see orchestration_ms): we sum every
+    # tool.* / llm.generate span regardless of its declared parent — they all
+    # belong to this trace by construction. llm.retry_wait is excluded because
+    # it's accounted for separately as wait time.
+    child_sum = sum(
+        s.wall_time_ms
+        for s in tf.spans
+        if s is not root and s.kind in ("tool", "llm") and s.name != "llm.retry_wait"
+    )
     gap_ms = max(total_ms - child_sum, 0.0)
     # Overhead = time not accounted for by tools, LLM, retries, or gaps.
     overhead_ms = max(
@@ -80,11 +105,23 @@ def per_query_row(tf: TraceFile) -> dict:
     # "active" budget excludes both explicit inter-turn pauses AND 429 retry waits.
     # This is the "real work" time: tool + llm + framework overhead.
     active_ms = max(total_ms - gap_ms - retry_wait_ms, 0.0)
+    # orchestration_ms isolates the GIL-relevant slice of active time:
+    # tool execution + agent-loop glue, excluding LLM round-trips. Used by the
+    # concurrency sweep (Phase 2) to expose Python-MT GIL contention.
+    successful_llm_ms = sum(
+        s.wall_time_ms
+        for s in tf.spans
+        if s.kind == "llm"
+        and s.name == "llm.generate"
+        and not bool(s.attrs.get("llm.rate_limited", False))
+    )
+    orchestration_ms = max(active_ms - successful_llm_ms, 0.0)
     return {
         "config": tf.config,
         "query_id": tf.query_id,
         "total_latency_ms": total_ms,
         "active_latency_ms": active_ms,
+        "orchestration_ms": orchestration_ms,
         "tool_search_ms": tool_search_ms,
         "tool_fetch_ms": tool_fetch_ms,
         "tool_summarize_ms": tool_summarize_ms,
@@ -105,6 +142,41 @@ def per_query_row(tf: TraceFile) -> dict:
     }
 
 
+def orchestration_ms(spans: list) -> float:
+    """Active latency minus successful llm.generate wall time.
+
+    Mirrors the column produced by per_query_row(). Exposed as a top-level
+    function so the sweep harness can compute it directly from a list of spans
+    (avoiding a pandas dependency in the runner).
+
+    Robust to parent_id mis-attribution: child_sum is computed from spans of
+    kind in {"tool", "llm"} regardless of what their parent_id points at, so
+    a synthetic span that happened to be parented under an in-flight tool
+    span (instead of the root) still contributes correctly. The root and any
+    llm.retry_wait spans are excluded.
+    """
+    if not spans:
+        return 0.0
+    root = next((s for s in spans if s.parent_id is None), None)
+    total_ms = root.wall_time_ms if root else 0.0
+    retry_wait_ms = sum(s.wall_time_ms for s in spans if s.name == "llm.retry_wait")
+    child_sum = sum(
+        s.wall_time_ms
+        for s in spans
+        if s is not root and s.kind in ("tool", "llm") and s.name != "llm.retry_wait"
+    )
+    gap_ms = max(total_ms - child_sum, 0.0)
+    active = max(total_ms - gap_ms - retry_wait_ms, 0.0)
+    llm_ms = sum(
+        s.wall_time_ms
+        for s in spans
+        if s.kind == "llm"
+        and s.name == "llm.generate"
+        and not bool(s.attrs.get("llm.rate_limited", False))
+    )
+    return max(active - llm_ms, 0.0)
+
+
 def build_df(trace_dirs: dict[str, Path]) -> pd.DataFrame:
     """trace_dirs: {'py': Path('benchmark/traces/py'), 'go': Path('benchmark/traces/go'), ...}
 
@@ -120,6 +192,9 @@ def build_df(trace_dirs: dict[str, Path]) -> pd.DataFrame:
             except Exception as e:
                 print(f"WARN: could not load {path}: {e}")
                 continue
+            if is_failed_trace(tf):
+                print(f"WARN: skipping failed trace {path}")
+                continue
             row = per_query_row(tf)
             row["config"] = config  # authoritative
             rows.append(row)
@@ -130,6 +205,8 @@ def per_config_summary(df: pd.DataFrame) -> pd.DataFrame:
     """Per-config mean/P50/P95 of the cost-structure columns."""
     numeric_cols = [
         "total_latency_ms",
+        "active_latency_ms",
+        "orchestration_ms",
         "tool_search_ms",
         "tool_fetch_ms",
         "tool_summarize_ms",

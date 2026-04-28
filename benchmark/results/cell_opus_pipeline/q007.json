@@ -1,0 +1,200 @@
+{
+  "trace_id": "cea8e58a7fa424719d84f9439735f849",
+  "config": "pipeline_opus",
+  "query_id": "q007",
+  "label": "cell_opus_pipeline",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "cea8e58a7fa424719d84f9439735f849",
+      "span_id": "174175232a0876eb",
+      "parent_id": null,
+      "start_ns": 1777155063136567000,
+      "end_ns": 1777155078725703000,
+      "wall_time_ms": 15589.136,
+      "cpu_time_ms": 1151.029,
+      "kind": "root",
+      "attrs": {
+        "config": "pipeline_opus",
+        "query_id": "q007",
+        "query_text": "What was the shortest war in history?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "cea8e58a7fa424719d84f9439735f849",
+      "span_id": "8bfd3dbb9a67325f",
+      "parent_id": "174175232a0876eb",
+      "start_ns": 1777155063136688000,
+      "end_ns": 1777155067430740000,
+      "wall_time_ms": 4294.052,
+      "cpu_time_ms": 38.73,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "28ee672e27b21aa7",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 710
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "cea8e58a7fa424719d84f9439735f849",
+      "span_id": "69e2e03ea7b2559e",
+      "parent_id": "174175232a0876eb",
+      "start_ns": 1777155067430928000,
+      "end_ns": 1777155068910493000,
+      "wall_time_ms": 1479.565,
+      "cpu_time_ms": 442.372,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "14b91038460fdc14",
+        "tool.url": "https://www.youtube.com/watch?v=l73Fs8Kd8WA",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 173
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "cea8e58a7fa424719d84f9439735f849",
+      "span_id": "2c8ba70d648c2553",
+      "parent_id": "174175232a0876eb",
+      "start_ns": 1777155068910628000,
+      "end_ns": 1777155072333639000,
+      "wall_time_ms": 3423.011,
+      "cpu_time_ms": 182.744,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "a91009ede1cd0c35",
+        "tool.url": "https://medium.com/@andbing/the-shortest-war-in-history-the-38-minute-conflict-that-changed-everything-b3dd2b115694",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "cea8e58a7fa424719d84f9439735f849",
+      "span_id": "c226f9ea4c913c20",
+      "parent_id": "174175232a0876eb",
+      "start_ns": 1777155072333879000,
+      "end_ns": 1777155075958440000,
+      "wall_time_ms": 3624.561,
+      "cpu_time_ms": 186.11,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "8851f1b993e833ca",
+        "tool.url": "https://www.historic-uk.com/HistoryUK/HistoryofBritain/The-Shortest-War-in-History/",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "cea8e58a7fa424719d84f9439735f849",
+      "span_id": "b8451990b299db7a",
+      "parent_id": "174175232a0876eb",
+      "start_ns": 1777155075958629000,
+      "end_ns": 1777155076908284000,
+      "wall_time_ms": 949.655,
+      "cpu_time_ms": 136.974,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "7b44c8da88b71257",
+        "tool.url": "https://www.historyextra.com/period/victorian/shortest-war-history/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 5103
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "cea8e58a7fa424719d84f9439735f849",
+      "span_id": "3bda1252ffa02dcd",
+      "parent_id": "174175232a0876eb",
+      "start_ns": 1777155076908434000,
+      "end_ns": 1777155076983719000,
+      "wall_time_ms": 75.285,
+      "cpu_time_ms": 72.504,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "6a7a2438a8beff97",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 1,
+        "tool.output_size_bytes": 173
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "cea8e58a7fa424719d84f9439735f849",
+      "span_id": "06ff133196f59b77",
+      "parent_id": "174175232a0876eb",
+      "start_ns": 1777155076984327000,
+      "end_ns": 1777155077062149000,
+      "wall_time_ms": 77.822,
+      "cpu_time_ms": 77.602,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "772d73d46e84961c",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 40,
+        "tool.output_size_bytes": 428
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "cea8e58a7fa424719d84f9439735f849",
+      "span_id": "9d9d80131d59b5cb",
+      "parent_id": "174175232a0876eb",
+      "start_ns": 1777155077062915000,
+      "end_ns": 1777155078725590000,
+      "wall_time_ms": 1662.675,
+      "cpu_time_ms": 11.88,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 167,
+        "llm.output_tokens": 84,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

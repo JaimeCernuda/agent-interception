@@ -1,0 +1,160 @@
+{
+  "config": "cell_concurrent_go_b64",
+  "label": "cell_concurrent_go_b64",
+  "query_id": "q005",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 64,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 2,
+        "agent.num_urls_fetched": 2,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b64",
+        "query_id": "q005",
+        "query_text": "How many children does Elon Musk have, including his deceased child?"
+      },
+      "cpu_time_ms": 4685.449,
+      "end_ns": 1777167786808193000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "a520c34ee75b29d8",
+      "start_ns": 1777167782122744000,
+      "status": "ok",
+      "trace_id": "90530199774ed2841ecb84e330a1b491",
+      "wall_time_ms": 4685.449
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "46cadae90e04fcae",
+        "tool.name": "static",
+        "tool.num_results": 4,
+        "tool.output_size_bytes": 312,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 0.002,
+      "end_ns": 1777167782122809000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "a520c34ee75b29d8",
+      "span_id": "8dcaeb8e88164df7",
+      "start_ns": 1777167782122806000,
+      "status": "ok",
+      "trace_id": "90530199774ed2841ecb84e330a1b491",
+      "wall_time_ms": 0.003
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "e48305ef19b8cd04",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 16226,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.bbc.com/news/articles/c0r1975ded7o"
+      },
+      "cpu_time_ms": 1189.117,
+      "end_ns": 1777167783311928000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "a520c34ee75b29d8",
+      "span_id": "24a072f4fd700b22",
+      "start_ns": 1777167782122812000,
+      "status": "ok",
+      "trace_id": "90530199774ed2841ecb84e330a1b491",
+      "wall_time_ms": 1189.116
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "9ab4ae9ad18d4abc",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 11228,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.ibtimes.co.uk/how-many-kids-does-elon-musk-have-billionaire-brings-more-oval-office-meeting-indian-pm-1731026"
+      },
+      "cpu_time_ms": 1313.181,
+      "end_ns": 1777167784625118000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "a520c34ee75b29d8",
+      "span_id": "6a8737f456ac5bf0",
+      "start_ns": 1777167783311937000,
+      "status": "ok",
+      "trace_id": "90530199774ed2841ecb84e330a1b491",
+      "wall_time_ms": 1313.181
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "a82a7cc8f34ae5d9",
+        "tool.n_sentences_in": 86,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 42,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 9.871,
+      "end_ns": 1777167784635056000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "a520c34ee75b29d8",
+      "span_id": "fdc59203e888a866",
+      "start_ns": 1777167784625185000,
+      "status": "ok",
+      "trace_id": "90530199774ed2841ecb84e330a1b491",
+      "wall_time_ms": 9.871
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "247b95f8c6a074fd",
+        "tool.n_sentences_in": 50,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 38,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 4.876,
+      "end_ns": 1777167784639982000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "a520c34ee75b29d8",
+      "span_id": "935bbee1a234cc6e",
+      "start_ns": 1777167784635106000,
+      "status": "ok",
+      "trace_id": "90530199774ed2841ecb84e330a1b491",
+      "wall_time_ms": 4.876
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 60,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 108,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 2168.163,
+      "end_ns": 1777167786808180000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "a520c34ee75b29d8",
+      "span_id": "5b27460b5466313f",
+      "start_ns": 1777167784640017000,
+      "status": "ok",
+      "trace_id": "90530199774ed2841ecb84e330a1b491",
+      "wall_time_ms": 2168.163
+    }
+  ],
+  "trace_id": "90530199774ed2841ecb84e330a1b491"
+}

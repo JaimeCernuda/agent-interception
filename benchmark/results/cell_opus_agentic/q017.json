@@ -1,0 +1,180 @@
+{
+  "trace_id": "e380f26bcf2aad116c853fc46000ffb0",
+  "config": "opus_custom",
+  "query_id": "q017",
+  "label": "cell_opus_custom",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "e380f26bcf2aad116c853fc46000ffb0",
+      "span_id": "33b7ec4f384df207",
+      "parent_id": null,
+      "start_ns": 1777074950381753000,
+      "end_ns": 1777074975702137000,
+      "wall_time_ms": 25320.384,
+      "cpu_time_ms": 467.323,
+      "kind": "root",
+      "attrs": {
+        "config": "opus_custom",
+        "query_id": "q017",
+        "query_text": "What is the total height of the tallest building in the world?",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.max_turns": 10
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "e380f26bcf2aad116c853fc46000ffb0",
+      "span_id": "135bf845396ea188",
+      "parent_id": "33b7ec4f384df207",
+      "start_ns": 1777074950381854000,
+      "end_ns": 1777074951121968000,
+      "wall_time_ms": 740.114,
+      "cpu_time_ms": 13.468,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 823,
+        "llm.output_tokens": 78,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "e380f26bcf2aad116c853fc46000ffb0",
+      "span_id": "38702229a6ba0dcc",
+      "parent_id": "33b7ec4f384df207",
+      "start_ns": 1777074951122233000,
+      "end_ns": 1777074952248344000,
+      "wall_time_ms": 1126.111,
+      "cpu_time_ms": 27.48,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "a699e6c989457617",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 598
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "e380f26bcf2aad116c853fc46000ffb0",
+      "span_id": "844ae98dbdcb098c",
+      "parent_id": "33b7ec4f384df207",
+      "start_ns": 1777074957252941000,
+      "end_ns": 1777074958079817000,
+      "wall_time_ms": 826.876,
+      "cpu_time_ms": 19.635,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1159,
+        "llm.output_tokens": 88,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "e380f26bcf2aad116c853fc46000ffb0",
+      "span_id": "4d171d47144fc026",
+      "parent_id": "33b7ec4f384df207",
+      "start_ns": 1777074958080081000,
+      "end_ns": 1777074963256789000,
+      "wall_time_ms": 5176.708,
+      "cpu_time_ms": 189.651,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "3844a2d68d949b09",
+        "tool.url": "https://en.wikipedia.org/wiki/List_of_tallest_buildings",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "e380f26bcf2aad116c853fc46000ffb0",
+      "span_id": "57bbae0416eb57db",
+      "parent_id": "33b7ec4f384df207",
+      "start_ns": 1777074968260162000,
+      "end_ns": 1777074969146142000,
+      "wall_time_ms": 885.98,
+      "cpu_time_ms": 22.949,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1273,
+        "llm.output_tokens": 81,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "e380f26bcf2aad116c853fc46000ffb0",
+      "span_id": "af6cdff5f87e60ea",
+      "parent_id": "33b7ec4f384df207",
+      "start_ns": 1777074969146396000,
+      "end_ns": 1777074969455473000,
+      "wall_time_ms": 309.077,
+      "cpu_time_ms": 170.373,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "d55479798bbd7fe6",
+        "tool.url": "https://www.britannica.com/topic/Burj-Khalifa",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 3051
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "e380f26bcf2aad116c853fc46000ffb0",
+      "span_id": "873cbc50288bba67",
+      "parent_id": "33b7ec4f384df207",
+      "start_ns": 1777074974460969000,
+      "end_ns": 1777074975702079000,
+      "wall_time_ms": 1241.11,
+      "cpu_time_ms": 22.183,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 2125,
+        "llm.output_tokens": 112,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

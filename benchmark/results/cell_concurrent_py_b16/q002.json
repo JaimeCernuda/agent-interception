@@ -1,0 +1,201 @@
+{
+  "trace_id": "4d804b0b4091f7acf47378a7b5c0e8d3",
+  "config": "cell_concurrent_py_b16",
+  "query_id": "q002",
+  "label": "cell_concurrent_py_b16",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "4d804b0b4091f7acf47378a7b5c0e8d3",
+      "span_id": "112fa9cbb1027781",
+      "parent_id": null,
+      "start_ns": 1777167541860596000,
+      "end_ns": 1777167558373055000,
+      "wall_time_ms": 16512.459,
+      "cpu_time_ms": 19098.894,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b16",
+        "query_id": "q002",
+        "query_text": "Who wrote the book titled Orientalism?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 16
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "4d804b0b4091f7acf47378a7b5c0e8d3",
+      "span_id": "99842eb7a88afcd1",
+      "parent_id": "112fa9cbb1027781",
+      "start_ns": 1777167541860766000,
+      "end_ns": 1777167547188973000,
+      "wall_time_ms": 5328.207,
+      "cpu_time_ms": 2996.766,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "ec4f0f516d458418",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 607
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "4d804b0b4091f7acf47378a7b5c0e8d3",
+      "span_id": "2775f4b9f1877f62",
+      "parent_id": "112fa9cbb1027781",
+      "start_ns": 1777167547189173000,
+      "end_ns": 1777167550188478000,
+      "wall_time_ms": 2999.305,
+      "cpu_time_ms": 5641.156,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "62a39a420003d10b",
+        "tool.url": "https://en.wikipedia.org/wiki/Orientalism_(book)",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "4d804b0b4091f7acf47378a7b5c0e8d3",
+      "span_id": "3251e927bb9a1e4d",
+      "parent_id": "112fa9cbb1027781",
+      "start_ns": 1777167550188642000,
+      "end_ns": 1777167551881506000,
+      "wall_time_ms": 1692.864,
+      "cpu_time_ms": 4225.074,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "1956f2c233e92261",
+        "tool.url": "https://digitalcommons.law.seattleu.edu/read/8/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 3559
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "4d804b0b4091f7acf47378a7b5c0e8d3",
+      "span_id": "dd057bf6368b7e55",
+      "parent_id": "112fa9cbb1027781",
+      "start_ns": 1777167551881631000,
+      "end_ns": 1777167555080393000,
+      "wall_time_ms": 3198.762,
+      "cpu_time_ms": 4244.646,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "4fd1c3ca1483b536",
+        "tool.url": "https://www.nytimes.com/2005/02/27/books/review/the-orientalist-the-chic-of-araby.html",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "4d804b0b4091f7acf47378a7b5c0e8d3",
+      "span_id": "3f5a70e23b6b930d",
+      "parent_id": "112fa9cbb1027781",
+      "start_ns": 1777167555080605000,
+      "end_ns": 1777167556615642000,
+      "wall_time_ms": 1535.037,
+      "cpu_time_ms": 1211.429,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "bacddfa24ff971b0",
+        "tool.url": "https://www.danielpipes.org/7957/orientalism",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 14385
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "4d804b0b4091f7acf47378a7b5c0e8d3",
+      "span_id": "b588ca28a20292ca",
+      "parent_id": "112fa9cbb1027781",
+      "start_ns": 1777167556615843000,
+      "end_ns": 1777167556673608000,
+      "wall_time_ms": 57.765,
+      "cpu_time_ms": 109.349,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "af2eff7c4e55a06a",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 21,
+        "tool.output_size_bytes": 352
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "4d804b0b4091f7acf47378a7b5c0e8d3",
+      "span_id": "c2eff80a932ae4f7",
+      "parent_id": "112fa9cbb1027781",
+      "start_ns": 1777167556674854000,
+      "end_ns": 1777167556971772000,
+      "wall_time_ms": 296.918,
+      "cpu_time_ms": 360.007,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "35edcd8e50b9f50e",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 105,
+        "tool.output_size_bytes": 233
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "4d804b0b4091f7acf47378a7b5c0e8d3",
+      "span_id": "05ec16ef857d53c2",
+      "parent_id": "112fa9cbb1027781",
+      "start_ns": 1777167556972776000,
+      "end_ns": 1777167558372962000,
+      "wall_time_ms": 1400.186,
+      "cpu_time_ms": 306.236,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 142,
+        "llm.output_tokens": 64,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

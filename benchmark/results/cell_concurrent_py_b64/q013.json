@@ -1,0 +1,180 @@
+{
+  "trace_id": "a1a26e51dce3e4353a2ce2dba9e667ae",
+  "config": "cell_concurrent_py_b64",
+  "query_id": "q013",
+  "label": "cell_concurrent_py_b64",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "a1a26e51dce3e4353a2ce2dba9e667ae",
+      "span_id": "f62e4bb929ab23ce",
+      "parent_id": null,
+      "start_ns": 1777167629190966000,
+      "end_ns": 1777167645143232000,
+      "wall_time_ms": 15952.266,
+      "cpu_time_ms": 19332.165,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b64",
+        "query_id": "q013",
+        "query_text": "What is the current best-selling children's book on Amazon?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 64
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "a1a26e51dce3e4353a2ce2dba9e667ae",
+      "span_id": "60eb8f8a2c2ce680",
+      "parent_id": "f62e4bb929ab23ce",
+      "start_ns": 1777167629191588000,
+      "end_ns": 1777167634589475000,
+      "wall_time_ms": 5397.887,
+      "cpu_time_ms": 2795.555,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "1ba8429a5dfdc500",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 766
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "a1a26e51dce3e4353a2ce2dba9e667ae",
+      "span_id": "7c764e5bbb4a9114",
+      "parent_id": "f62e4bb929ab23ce",
+      "start_ns": 1777167634589778000,
+      "end_ns": 1777167637720198000,
+      "wall_time_ms": 3130.42,
+      "cpu_time_ms": 6425.175,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "e96bafe6f2edc6c7",
+        "tool.url": "https://en.wikipedia.org/wiki/List_of_best-selling_books",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "a1a26e51dce3e4353a2ce2dba9e667ae",
+      "span_id": "9bbb892582860bab",
+      "parent_id": "f62e4bb929ab23ce",
+      "start_ns": 1777167637720319000,
+      "end_ns": 1777167640418039000,
+      "wall_time_ms": 2697.72,
+      "cpu_time_ms": 4352.31,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "1373586178aeb908",
+        "tool.url": "https://www.amazon.com/Best-Sellers-Children's-Books/zgbs/books/4",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 256
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "a1a26e51dce3e4353a2ce2dba9e667ae",
+      "span_id": "c4e49112c73dc849",
+      "parent_id": "f62e4bb929ab23ce",
+      "start_ns": 1777167640418188000,
+      "end_ns": 1777167642805833000,
+      "wall_time_ms": 2387.645,
+      "cpu_time_ms": 3729.355,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "1419f2e6e3912704",
+        "tool.url": "https://www.amzn.com/Best-Sellers-Children's-Classics/zgbs/books/2970",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 256
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "a1a26e51dce3e4353a2ce2dba9e667ae",
+      "span_id": "54edab023ee15773",
+      "parent_id": "f62e4bb929ab23ce",
+      "start_ns": 1777167642805977000,
+      "end_ns": 1777167642864421000,
+      "wall_time_ms": 58.444,
+      "cpu_time_ms": 72.024,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "f226e0931ec1c87d",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 2,
+        "tool.output_size_bytes": 236
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "a1a26e51dce3e4353a2ce2dba9e667ae",
+      "span_id": "102873b21426ddb5",
+      "parent_id": "f62e4bb929ab23ce",
+      "start_ns": 1777167642865276000,
+      "end_ns": 1777167642925839000,
+      "wall_time_ms": 60.563,
+      "cpu_time_ms": 94.003,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "f226e0931ec1c87d",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 2,
+        "tool.output_size_bytes": 236
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "a1a26e51dce3e4353a2ce2dba9e667ae",
+      "span_id": "76b1b2c02bbdb029",
+      "parent_id": "f62e4bb929ab23ce",
+      "start_ns": 1777167642926504000,
+      "end_ns": 1777167645143137000,
+      "wall_time_ms": 2216.633,
+      "cpu_time_ms": 1860.42,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 116,
+        "llm.output_tokens": 131,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

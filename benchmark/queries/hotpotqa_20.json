@@ -1,0 +1,354 @@
+{
+  "dataset": "HotpotQA dev distractor v1",
+  "source": "http://curtis.ml.cmu.edu/datasets/hotpot/hotpot_dev_distractor_v1.json",
+  "selection_seed": 42,
+  "selection_filter": "split=dev/distractor (level=hard, all entries)",
+  "stratification": {
+    "bridge-entity": 7,
+    "comparison-entity": 7,
+    "comparison-yesno": 6
+  },
+  "stratification_note": "HotpotQA dev distractor only contains level='hard' examples (easy/medium are train-only). Stratification is on type x answer_form. bridge-yesno is empty in the dev set.",
+  "queries": [
+    {
+      "query_id": "q001",
+      "question": "In which county does the  8th Military Police Brigade  of the United States Army's Barracks located?",
+      "hotpotqa_id": "5adbf44355429944faac23ce",
+      "bucket": "bridge-entity",
+      "type": "bridge",
+      "answer_form": "entity",
+      "level": "hard",
+      "reference_answers": [
+        "Honolulu"
+      ],
+      "supporting_titles": [
+        "8th Military Police Brigade (United States)",
+        "Schofield Barracks"
+      ],
+      "urls": []
+    },
+    {
+      "query_id": "q002",
+      "question": "In what year did construction begin on the stadium where the 2013 America East Men's Lacrosse Tournament was held?",
+      "hotpotqa_id": "5a7265a95542992359bc307a",
+      "bucket": "bridge-entity",
+      "type": "bridge",
+      "answer_form": "entity",
+      "level": "hard",
+      "reference_answers": [
+        "in 2000"
+      ],
+      "supporting_titles": [
+        "2013 America East Men's Lacrosse Tournament",
+        "Kenneth P. LaValle Stadium"
+      ],
+      "urls": []
+    },
+    {
+      "query_id": "q003",
+      "question": "What type of profession does Alexandra David-Néel and Jack Kerouac have in common?",
+      "hotpotqa_id": "5a886098554299206df2b248",
+      "bucket": "bridge-entity",
+      "type": "bridge",
+      "answer_form": "entity",
+      "level": "hard",
+      "reference_answers": [
+        "writer"
+      ],
+      "supporting_titles": [
+        "Alexandra David-Néel",
+        "Jack Kerouac"
+      ],
+      "urls": []
+    },
+    {
+      "query_id": "q004",
+      "question": "Which areas of the United States were still able to deny sames sex marriages after the case in which Edith \"Edie\" Windsor was the main plaintiff?",
+      "hotpotqa_id": "5addc7e35542997545bbbdbe",
+      "bucket": "bridge-entity",
+      "type": "bridge",
+      "answer_form": "entity",
+      "level": "hard",
+      "reference_answers": [
+        "American Samoa, but not on all Native American tribal lands"
+      ],
+      "supporting_titles": [
+        "Edith Windsor",
+        "Same-sex marriage in the United States"
+      ],
+      "urls": []
+    },
+    {
+      "query_id": "q005",
+      "question": "Where was one of the runners born who almost broke Craig Virgin's Illinois Boys Cross Country record?",
+      "hotpotqa_id": "5a7a3cea5542994f819ef182",
+      "bucket": "bridge-entity",
+      "type": "bridge",
+      "answer_form": "entity",
+      "level": "hard",
+      "reference_answers": [
+        "Kaunas, Lithuania"
+      ],
+      "supporting_titles": [
+        "Craig Virgin",
+        "Lukas Verzbicas"
+      ],
+      "urls": []
+    },
+    {
+      "query_id": "q006",
+      "question": "What is the name of the American author, songwriter, educator, lawyer, diplomat, civil rights activist and husband to Grace Nail Johnson who was the first African American executive secretary of the National Association for the Advancement of Colored People (NAACP)?",
+      "hotpotqa_id": "5a7525405542993748c897ce",
+      "bucket": "bridge-entity",
+      "type": "bridge",
+      "answer_form": "entity",
+      "level": "hard",
+      "reference_answers": [
+        "James Weldon Johnson"
+      ],
+      "supporting_titles": [
+        "Grace Nail Johnson",
+        "James Weldon Johnson"
+      ],
+      "urls": []
+    },
+    {
+      "query_id": "q007",
+      "question": "Sian Gibson co-wrote which British sitcom, set around a supermarket and car share scheme?",
+      "hotpotqa_id": "5a8f08c2554299458435d530",
+      "bucket": "bridge-entity",
+      "type": "bridge",
+      "answer_form": "entity",
+      "level": "hard",
+      "reference_answers": [
+        "Peter Kay's Car Share"
+      ],
+      "supporting_titles": [
+        "Peter Kay's Car Share",
+        "Sian Gibson"
+      ],
+      "urls": []
+    },
+    {
+      "query_id": "q008",
+      "question": "What animal does Mahratta Greyhound and Tibetan Spaniel have in common?",
+      "hotpotqa_id": "5a8db9b3554299068b959dde",
+      "bucket": "comparison-entity",
+      "type": "comparison",
+      "answer_form": "entity",
+      "level": "hard",
+      "reference_answers": [
+        "dog"
+      ],
+      "supporting_titles": [
+        "Mahratta Greyhound",
+        "Tibetan Spaniel"
+      ],
+      "urls": []
+    },
+    {
+      "query_id": "q009",
+      "question": "Which genus has more species in it, Othonna or Stangeria?",
+      "hotpotqa_id": "5ac2a3c7554299218029dadb",
+      "bucket": "comparison-entity",
+      "type": "comparison",
+      "answer_form": "entity",
+      "level": "hard",
+      "reference_answers": [
+        "Othonna"
+      ],
+      "supporting_titles": [
+        "Othonna",
+        "Stangeria"
+      ],
+      "urls": []
+    },
+    {
+      "query_id": "q010",
+      "question": "Between Harvey Pekar and Denise Levertov who was born earlier?",
+      "hotpotqa_id": "5a7d5c175542991319bc93b1",
+      "bucket": "comparison-entity",
+      "type": "comparison",
+      "answer_form": "entity",
+      "level": "hard",
+      "reference_answers": [
+        "Denise Levertov"
+      ],
+      "supporting_titles": [
+        "Denise Levertov",
+        "Harvey Pekar"
+      ],
+      "urls": []
+    },
+    {
+      "query_id": "q011",
+      "question": "Which was formed first, Noori or Test Icicles?",
+      "hotpotqa_id": "5a901d6c5542995651fb50bd",
+      "bucket": "comparison-entity",
+      "type": "comparison",
+      "answer_form": "entity",
+      "level": "hard",
+      "reference_answers": [
+        "Noori"
+      ],
+      "supporting_titles": [
+        "Noori",
+        "Test Icicles"
+      ],
+      "urls": []
+    },
+    {
+      "query_id": "q012",
+      "question": "In between Burton C. Bell and Billy Idol who is known professionally as Billy Idol?",
+      "hotpotqa_id": "5ae153915542990adbacf752",
+      "bucket": "comparison-entity",
+      "type": "comparison",
+      "answer_form": "entity",
+      "level": "hard",
+      "reference_answers": [
+        "William Michael Albert Broad"
+      ],
+      "supporting_titles": [
+        "Billy Idol",
+        "Burton C. Bell"
+      ],
+      "urls": []
+    },
+    {
+      "query_id": "q013",
+      "question": "Which band released more albums, Forest for the Trees or Jon Spencer Blues Explosion?",
+      "hotpotqa_id": "5a7ec7f355429934daa2fc64",
+      "bucket": "comparison-entity",
+      "type": "comparison",
+      "answer_form": "entity",
+      "level": "hard",
+      "reference_answers": [
+        "Jon Spencer Blues Explosion"
+      ],
+      "supporting_titles": [
+        "Forest for the Trees",
+        "Jon Spencer Blues Explosion"
+      ],
+      "urls": []
+    },
+    {
+      "query_id": "q014",
+      "question": "Who died first, Bryce Courtenay or Juan Carlos Onetti?",
+      "hotpotqa_id": "5a79332555429907847277e7",
+      "bucket": "comparison-entity",
+      "type": "comparison",
+      "answer_form": "entity",
+      "level": "hard",
+      "reference_answers": [
+        "Juan Carlos Onetti"
+      ],
+      "supporting_titles": [
+        "Bryce Courtenay",
+        "Juan Carlos Onetti"
+      ],
+      "urls": []
+    },
+    {
+      "query_id": "q015",
+      "question": "Are Denzel Washington and David Hewlett both actors?",
+      "hotpotqa_id": "5ab2383155429970612095c1",
+      "bucket": "comparison-yesno",
+      "type": "comparison",
+      "answer_form": "yesno",
+      "level": "hard",
+      "reference_answers": [
+        "yes"
+      ],
+      "supporting_titles": [
+        "David Hewlett",
+        "Denzel Washington"
+      ],
+      "urls": []
+    },
+    {
+      "query_id": "q016",
+      "question": "Are both Barry Unsworth and P. G. Wodehouse from the same country?",
+      "hotpotqa_id": "5a8549c65542997b5ce3ffe6",
+      "bucket": "comparison-yesno",
+      "type": "comparison",
+      "answer_form": "yesno",
+      "level": "hard",
+      "reference_answers": [
+        "yes"
+      ],
+      "supporting_titles": [
+        "Barry Unsworth",
+        "P. G. Wodehouse"
+      ],
+      "urls": []
+    },
+    {
+      "query_id": "q017",
+      "question": "Are both Ixia and Rhexia a plant genus?",
+      "hotpotqa_id": "5ac39bd8554299657fa290fe",
+      "bucket": "comparison-yesno",
+      "type": "comparison",
+      "answer_form": "yesno",
+      "level": "hard",
+      "reference_answers": [
+        "yes"
+      ],
+      "supporting_titles": [
+        "Ixia",
+        "Rhexia"
+      ],
+      "urls": []
+    },
+    {
+      "query_id": "q018",
+      "question": "Are Florida Atlantic University and Cleveland State University both colleges in the US?",
+      "hotpotqa_id": "5aba943c554299232ef4a33e",
+      "bucket": "comparison-yesno",
+      "type": "comparison",
+      "answer_form": "yesno",
+      "level": "hard",
+      "reference_answers": [
+        "yes"
+      ],
+      "supporting_titles": [
+        "Cleveland State University",
+        "Florida Atlantic University"
+      ],
+      "urls": []
+    },
+    {
+      "query_id": "q019",
+      "question": "Do D-A-D and Gândul Mâței play the same style of rock music?",
+      "hotpotqa_id": "5ade84d7554299728e26c72b",
+      "bucket": "comparison-yesno",
+      "type": "comparison",
+      "answer_form": "yesno",
+      "level": "hard",
+      "reference_answers": [
+        "no"
+      ],
+      "supporting_titles": [
+        "D-A-D",
+        "Gândul Mâței"
+      ],
+      "urls": []
+    },
+    {
+      "query_id": "q020",
+      "question": "Has Entrepreneur had a longer lifespan than Optimize?",
+      "hotpotqa_id": "5adfa12c554299025d62a301",
+      "bucket": "comparison-yesno",
+      "type": "comparison",
+      "answer_form": "yesno",
+      "level": "hard",
+      "reference_answers": [
+        "yes"
+      ],
+      "supporting_titles": [
+        "Entrepreneur (magazine)",
+        "Optimize (magazine)"
+      ],
+      "urls": []
+    }
+  ]
+}

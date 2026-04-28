@@ -1,0 +1,180 @@
+{
+  "trace_id": "20796da189b69f27f6cb060b10095635",
+  "config": "cell_concurrent_py_b1",
+  "query_id": "q016",
+  "label": "cell_concurrent_py_b1",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "20796da189b69f27f6cb060b10095635",
+      "span_id": "db6dd09b5777747b",
+      "parent_id": null,
+      "start_ns": 1777167198941346000,
+      "end_ns": 1777167210223071000,
+      "wall_time_ms": 11281.725,
+      "cpu_time_ms": 794.671,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b1",
+        "query_id": "q016",
+        "query_text": "The UN Secretary general is from which country?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 1
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "20796da189b69f27f6cb060b10095635",
+      "span_id": "1f09dbc276075ae6",
+      "parent_id": "db6dd09b5777747b",
+      "start_ns": 1777167198941465000,
+      "end_ns": 1777167202847370000,
+      "wall_time_ms": 3905.905,
+      "cpu_time_ms": 34.651,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "795d7b5cf38d124d",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 670
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "20796da189b69f27f6cb060b10095635",
+      "span_id": "5eb5841d873d6fe2",
+      "parent_id": "db6dd09b5777747b",
+      "start_ns": 1777167202847564000,
+      "end_ns": 1777167205722335000,
+      "wall_time_ms": 2874.771,
+      "cpu_time_ms": 194.328,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "bc0f991cb021bae9",
+        "tool.url": "https://en.wikipedia.org/wiki/Secretary-General_of_the_United_Nations",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "20796da189b69f27f6cb060b10095635",
+      "span_id": "d5cdc0c7b492e0a0",
+      "parent_id": "db6dd09b5777747b",
+      "start_ns": 1777167205722526000,
+      "end_ns": 1777167206717046000,
+      "wall_time_ms": 994.52,
+      "cpu_time_ms": 120.916,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "22a8577f230e90f5",
+        "tool.url": "https://www.english-online.at/government/united-nations/un.htm",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 9083
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "20796da189b69f27f6cb060b10095635",
+      "span_id": "2bc3e5b5d42d5c29",
+      "parent_id": "db6dd09b5777747b",
+      "start_ns": 1777167206717188000,
+      "end_ns": 1777167208432857000,
+      "wall_time_ms": 1715.669,
+      "cpu_time_ms": 184.617,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "0befbb6b40c67488",
+        "tool.url": "https://www.bbc.com/news/world-49796807",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 4547
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "20796da189b69f27f6cb060b10095635",
+      "span_id": "ecd4f078154a4ed1",
+      "parent_id": "db6dd09b5777747b",
+      "start_ns": 1777167208433111000,
+      "end_ns": 1777167208601221000,
+      "wall_time_ms": 168.11,
+      "cpu_time_ms": 166.642,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "446d59bd8faaf26a",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 73,
+        "tool.output_size_bytes": 851
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "20796da189b69f27f6cb060b10095635",
+      "span_id": "a2f3e57a915f32ab",
+      "parent_id": "db6dd09b5777747b",
+      "start_ns": 1777167208602621000,
+      "end_ns": 1777167208682001000,
+      "wall_time_ms": 79.38,
+      "cpu_time_ms": 79.292,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "1dfc52b6e14c45fb",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 44,
+        "tool.output_size_bytes": 176
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "20796da189b69f27f6cb060b10095635",
+      "span_id": "edcbe1b9ef7237f4",
+      "parent_id": "db6dd09b5777747b",
+      "start_ns": 1777167208682730000,
+      "end_ns": 1777167210223001000,
+      "wall_time_ms": 1540.271,
+      "cpu_time_ms": 11.442,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 245,
+        "llm.output_tokens": 69,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

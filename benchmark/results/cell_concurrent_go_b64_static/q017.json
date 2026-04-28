@@ -1,0 +1,199 @@
+{
+  "config": "cell_concurrent_go_b64",
+  "label": "cell_concurrent_go_b64",
+  "query_id": "q017",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 64,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 2,
+        "agent.num_urls_fetched": 2,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b64",
+        "query_id": "q017",
+        "query_text": "What is the total height of the tallest building in the world?"
+      },
+      "cpu_time_ms": 15993.869,
+      "end_ns": 1777167798116613000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "e27f641e8c1eb570",
+      "start_ns": 1777167782122744000,
+      "status": "ok",
+      "trace_id": "bd9275f94740630628b5e5644b7c3839",
+      "wall_time_ms": 15993.869
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "6932b60a8a015e94",
+        "tool.name": "static",
+        "tool.num_results": 4,
+        "tool.output_size_bytes": 265,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 0.002,
+      "end_ns": 1777167782122751000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "e27f641e8c1eb570",
+      "span_id": "5166a5f3706b4f87",
+      "start_ns": 1777167782122749000,
+      "status": "ok",
+      "trace_id": "bd9275f94740630628b5e5644b7c3839",
+      "wall_time_ms": 0.002
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "33e224f20ed5cb6b",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 4983,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.dimensionsguide.com/what-is-the-tallest-building/"
+      },
+      "cpu_time_ms": 1511.377,
+      "end_ns": 1777167783634131000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "e27f641e8c1eb570",
+      "span_id": "f3f987cf2d5567e5",
+      "start_ns": 1777167782122754000,
+      "status": "ok",
+      "trace_id": "bd9275f94740630628b5e5644b7c3839",
+      "wall_time_ms": 1511.377
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "95c21cd1c4c56a3c",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 6006,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.dimensionsguide.com/tallest-building-in-the-world/"
+      },
+      "cpu_time_ms": 611.455,
+      "end_ns": 1777167784245597000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "e27f641e8c1eb570",
+      "span_id": "f2bf6ab6f313c39e",
+      "start_ns": 1777167783634142000,
+      "status": "ok",
+      "trace_id": "bd9275f94740630628b5e5644b7c3839",
+      "wall_time_ms": 611.455
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "2f4a5b14544d0b90",
+        "tool.n_sentences_in": 55,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 67,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 3.663,
+      "end_ns": 1777167784249285000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "e27f641e8c1eb570",
+      "span_id": "6c6678f01932fe57",
+      "start_ns": 1777167784245622000,
+      "status": "ok",
+      "trace_id": "bd9275f94740630628b5e5644b7c3839",
+      "wall_time_ms": 3.663
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "31f7ecdb5afcb7b2",
+        "tool.n_sentences_in": 62,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 94,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 4.114,
+      "end_ns": 1777167784253428000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "e27f641e8c1eb570",
+      "span_id": "bc4a1758bd938e1e",
+      "start_ns": 1777167784249315000,
+      "status": "ok",
+      "trace_id": "bd9275f94740630628b5e5644b7c3839",
+      "wall_time_ms": 4.113
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.rate_limited": true,
+        "llm.status_code": 429
+      },
+      "cpu_time_ms": 323.298,
+      "end_ns": 1777167784576760000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "e27f641e8c1eb570",
+      "span_id": "f1990142db70e584",
+      "start_ns": 1777167784253462000,
+      "status": "ok",
+      "trace_id": "bd9275f94740630628b5e5644b7c3839",
+      "wall_time_ms": 323.298
+    },
+    {
+      "attrs": {
+        "llm.retry_after_s": 12,
+        "llm.retry_attempt": 1,
+        "llm.retry_trigger": "http_429"
+      },
+      "cpu_time_ms": 12001.399,
+      "end_ns": 1777167796578165000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.retry_wait",
+      "parent_id": "e27f641e8c1eb570",
+      "span_id": "408b7dd3ddaa46f7",
+      "start_ns": 1777167784576767000,
+      "status": "ok",
+      "trace_id": "bd9275f94740630628b5e5644b7c3839",
+      "wall_time_ms": 12001.398
+    },
+    {
+      "attrs": {
+        "llm.attempt": 1,
+        "llm.input_tokens": 65,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 116,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1538.317,
+      "end_ns": 1777167798116601000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "e27f641e8c1eb570",
+      "span_id": "b9d3b69e51ea496d",
+      "start_ns": 1777167796578283000,
+      "status": "ok",
+      "trace_id": "bd9275f94740630628b5e5644b7c3839",
+      "wall_time_ms": 1538.318
+    }
+  ],
+  "trace_id": "bd9275f94740630628b5e5644b7c3839"
+}

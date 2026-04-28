@@ -1,0 +1,180 @@
+{
+  "trace_id": "88df49beef23a5022810adb27c677f6d",
+  "config": "cell_concurrent_py_hotpot_b4",
+  "query_id": "q013",
+  "label": "cell_concurrent_py_hotpot_b4",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "88df49beef23a5022810adb27c677f6d",
+      "span_id": "0d22b87fa3d5763a",
+      "parent_id": null,
+      "start_ns": 1777182934187217000,
+      "end_ns": 1777182944903108000,
+      "wall_time_ms": 10715.891,
+      "cpu_time_ms": 3474.186,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b4",
+        "query_id": "q013",
+        "query_text": "Which band released more albums, Forest for the Trees or Jon Spencer Blues Explosion?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 4
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "88df49beef23a5022810adb27c677f6d",
+      "span_id": "ba6efeba1c412497",
+      "parent_id": "0d22b87fa3d5763a",
+      "start_ns": 1777182934187338000,
+      "end_ns": 1777182938209103000,
+      "wall_time_ms": 4021.765,
+      "cpu_time_ms": 918.096,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "997da34d1c2c2a68",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 584
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "88df49beef23a5022810adb27c677f6d",
+      "span_id": "69cca547fc6335d3",
+      "parent_id": "0d22b87fa3d5763a",
+      "start_ns": 1777182938209345000,
+      "end_ns": 1777182941142817000,
+      "wall_time_ms": 2933.472,
+      "cpu_time_ms": 1409.466,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "e928a8a85f6f5418",
+        "tool.url": "https://en.wikipedia.org/wiki/Beck_discography",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "88df49beef23a5022810adb27c677f6d",
+      "span_id": "a82c45f1368dcdec",
+      "parent_id": "0d22b87fa3d5763a",
+      "start_ns": 1777182941143076000,
+      "end_ns": 1777182942016952000,
+      "wall_time_ms": 873.876,
+      "cpu_time_ms": 317.897,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "9a95b12c92eb3b1a",
+        "tool.url": "https://glassonyonpr.com/2019/10/30/chantel-mcgregor-releases-live-album/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 2732
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "88df49beef23a5022810adb27c677f6d",
+      "span_id": "137e8c1dc92a9397",
+      "parent_id": "0d22b87fa3d5763a",
+      "start_ns": 1777182942017121000,
+      "end_ns": 1777182942941728000,
+      "wall_time_ms": 924.607,
+      "cpu_time_ms": 355.465,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "26c61485e56be3ae",
+        "tool.url": "https://glassonyonpr.com/2011/06/10/release-jon-anderson-releases-survival-other-stories/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 2227
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "88df49beef23a5022810adb27c677f6d",
+      "span_id": "92b55426ee2660b1",
+      "parent_id": "0d22b87fa3d5763a",
+      "start_ns": 1777182942941890000,
+      "end_ns": 1777182942993684000,
+      "wall_time_ms": 51.794,
+      "cpu_time_ms": 51.589,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "24ef8302969d01e3",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 13,
+        "tool.output_size_bytes": 240
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "88df49beef23a5022810adb27c677f6d",
+      "span_id": "29fff36e22d460a6",
+      "parent_id": "0d22b87fa3d5763a",
+      "start_ns": 1777182942994503000,
+      "end_ns": 1777182943046962000,
+      "wall_time_ms": 52.459,
+      "cpu_time_ms": 51.674,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "d8b396bc24b34ced",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 11,
+        "tool.output_size_bytes": 501
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "88df49beef23a5022810adb27c677f6d",
+      "span_id": "58f810ce27878618",
+      "parent_id": "0d22b87fa3d5763a",
+      "start_ns": 1777182943047733000,
+      "end_ns": 1777182944903012000,
+      "wall_time_ms": 1855.279,
+      "cpu_time_ms": 367.47,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 210,
+        "llm.output_tokens": 98,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "trace_id": "18c10151493bded6bd92ba15d2cbfe77",
+  "config": "cell_concurrent_py_hotpot_b1",
+  "query_id": "q004",
+  "label": "cell_concurrent_py_hotpot_b1",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "18c10151493bded6bd92ba15d2cbfe77",
+      "span_id": "24cc5afdd6e88102",
+      "parent_id": null,
+      "start_ns": 1777182534044875000,
+      "end_ns": 1777182552389935000,
+      "wall_time_ms": 18345.06,
+      "cpu_time_ms": 1600.038,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b1",
+        "query_id": "q004",
+        "query_text": "Which areas of the United States were still able to deny sames sex marriages after the case in which Edith \"Edie\" Windsor was the main plaintiff?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 1
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "18c10151493bded6bd92ba15d2cbfe77",
+      "span_id": "49493c4ff86098e0",
+      "parent_id": "24cc5afdd6e88102",
+      "start_ns": 1777182534044993000,
+      "end_ns": 1777182536607927000,
+      "wall_time_ms": 2562.934,
+      "cpu_time_ms": 45.262,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "7dcf0e10445cb8d2",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 649
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "18c10151493bded6bd92ba15d2cbfe77",
+      "span_id": "13073deda12baee8",
+      "parent_id": "24cc5afdd6e88102",
+      "start_ns": 1777182536608067000,
+      "end_ns": 1777182539654696000,
+      "wall_time_ms": 3046.629,
+      "cpu_time_ms": 194.432,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "90491e694b3e981a",
+        "tool.url": "https://en.wikipedia.org/wiki/United_States_v._Windsor",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "18c10151493bded6bd92ba15d2cbfe77",
+      "span_id": "6806b3880512041b",
+      "parent_id": "24cc5afdd6e88102",
+      "start_ns": 1777182539654934000,
+      "end_ns": 1777182542755506000,
+      "wall_time_ms": 3100.572,
+      "cpu_time_ms": 195.618,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "3aff98af3926af75",
+        "tool.url": "https://en.wikipedia.org/wiki/Edith_Windsor",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "18c10151493bded6bd92ba15d2cbfe77",
+      "span_id": "bd856a7327d65cc5",
+      "parent_id": "24cc5afdd6e88102",
+      "start_ns": 1777182542755746000,
+      "end_ns": 1777182547576018000,
+      "wall_time_ms": 4820.272,
+      "cpu_time_ms": 868.34,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "0695c59230793c3b",
+        "tool.url": "https://www.aclu.org/cases/windsor-v-united-states",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 11609
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "18c10151493bded6bd92ba15d2cbfe77",
+      "span_id": "6f5823fcfc350028",
+      "parent_id": "24cc5afdd6e88102",
+      "start_ns": 1777182547576157000,
+      "end_ns": 1777182549058301000,
+      "wall_time_ms": 1482.144,
+      "cpu_time_ms": 98.3,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "4d05135c3545548c",
+        "tool.url": "https://www.aclu.org/documents/windsor-v-united-states-frequently-asked-questions-faq",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 7065
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "18c10151493bded6bd92ba15d2cbfe77",
+      "span_id": "5830478bce4df23c",
+      "parent_id": "24cc5afdd6e88102",
+      "start_ns": 1777182549058512000,
+      "end_ns": 1777182549133829000,
+      "wall_time_ms": 75.317,
+      "cpu_time_ms": 74.7,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "1aed2af3248beeff",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 19,
+        "tool.output_size_bytes": 301
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "18c10151493bded6bd92ba15d2cbfe77",
+      "span_id": "fc517eed935c9dfc",
+      "parent_id": "24cc5afdd6e88102",
+      "start_ns": 1777182549134510000,
+      "end_ns": 1777182549244385000,
+      "wall_time_ms": 109.875,
+      "cpu_time_ms": 109.616,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "d52e11033bfb87e0",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 58,
+        "tool.output_size_bytes": 534
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "18c10151493bded6bd92ba15d2cbfe77",
+      "span_id": "98db0b4d921c91d7",
+      "parent_id": "24cc5afdd6e88102",
+      "start_ns": 1777182549245106000,
+      "end_ns": 1777182552389800000,
+      "wall_time_ms": 3144.694,
+      "cpu_time_ms": 11.584,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 239,
+        "llm.output_tokens": 222,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

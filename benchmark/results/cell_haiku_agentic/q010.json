@@ -1,0 +1,137 @@
+{
+  "trace_id": "2d36938cc5a175f0b0ed53c680b2a3d3",
+  "config": "haiku_custom",
+  "query_id": "q010",
+  "label": "cell_haiku_custom",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "2d36938cc5a175f0b0ed53c680b2a3d3",
+      "span_id": "622e2183aa454463",
+      "parent_id": null,
+      "start_ns": 1777073521162405000,
+      "end_ns": 1777073537573565000,
+      "wall_time_ms": 16411.16,
+      "cpu_time_ms": 223.347,
+      "kind": "root",
+      "attrs": {
+        "config": "haiku_custom",
+        "query_id": "q010",
+        "query_text": "How much does the Netflix standard plan without ads cost in the US?",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.max_turns": -1
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "2d36938cc5a175f0b0ed53c680b2a3d3",
+      "span_id": "5e239a9b06ecf195",
+      "parent_id": "622e2183aa454463",
+      "start_ns": 1777073521162616000,
+      "end_ns": 1777073521865384000,
+      "wall_time_ms": 702.768,
+      "cpu_time_ms": 13.614,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 823,
+        "llm.output_tokens": 61,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "2d36938cc5a175f0b0ed53c680b2a3d3",
+      "span_id": "2761792fd91b9f9c",
+      "parent_id": "622e2183aa454463",
+      "start_ns": 1777073521865579000,
+      "end_ns": 1777073523946708000,
+      "wall_time_ms": 2081.129,
+      "cpu_time_ms": 26.765,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "3c7045c98282c5e9",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 950
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "2d36938cc5a175f0b0ed53c680b2a3d3",
+      "span_id": "2c2e60414d87abc7",
+      "parent_id": "622e2183aa454463",
+      "start_ns": 1777073528951081000,
+      "end_ns": 1777073530406596000,
+      "wall_time_ms": 1455.515,
+      "cpu_time_ms": 17.372,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1284,
+        "llm.output_tokens": 93,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "2d36938cc5a175f0b0ed53c680b2a3d3",
+      "span_id": "5c744bd19c9d95d8",
+      "parent_id": "622e2183aa454463",
+      "start_ns": 1777073530406733000,
+      "end_ns": 1777073531040629000,
+      "wall_time_ms": 633.896,
+      "cpu_time_ms": 146.675,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "6dd779082ac75da4",
+        "tool.url": "https://www.macrumors.com/2023/07/19/netflix-removes-basic-plan/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 2433
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "2d36938cc5a175f0b0ed53c680b2a3d3",
+      "span_id": "dbe1565fc344f222",
+      "parent_id": "622e2183aa454463",
+      "start_ns": 1777073536045897000,
+      "end_ns": 1777073537573509000,
+      "wall_time_ms": 1527.612,
+      "cpu_time_ms": 17.869,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1951,
+        "llm.output_tokens": 110,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

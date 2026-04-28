@@ -1,0 +1,20 @@
+[2026-04-28 01:37:24] BEGIN full sweep: 14-point pruned plan, runs=3 avail_ram=2275MB
+[2026-04-28 01:37:24] SKIP-DONE py-mt N=1  p50=115ms p90=322ms qps=0.063 (already complete)
+[2026-04-28 01:37:24] SKIP-DONE py-mp N=1  p50=202ms p90=354ms qps=0.052 (already complete)
+[2026-04-28 01:37:24] SKIP-DONE go N=1  p50=2359ms p90=3890ms qps=0.058 (already complete)
+[2026-04-28 01:37:24] SKIP-DONE py-mt N=2  p50=75ms p90=366ms qps=0.125 (already complete)
+[2026-04-28 01:37:24] SKIP-DONE py-mp N=2  p50=160ms p90=546ms qps=0.103 (already complete)
+[2026-04-28 01:37:24] SKIP-DONE go N=2  p50=2380ms p90=3942ms qps=0.111 (already complete)
+[2026-04-28 01:37:24] SKIP-DONE py-mt N=4  p50=80ms p90=369ms qps=0.234 (already complete)
+[2026-04-28 01:37:24] SKIP-DONE py-mp N=4  p50=213ms p90=423ms qps=0.184 (already complete)
+[2026-04-28 01:37:24] SKIP-DONE go N=4  p50=2291ms p90=3668ms qps=0.215 (already complete)
+[2026-04-28 01:37:24] SKIP-DONE py-mt N=8  p50=201ms p90=500ms qps=0.302 (already complete)
+[2026-04-28 01:37:24] START py-mp N=8  avail_ram=2276MB  log=benchmark/output/sweep/logs/py-mp_n8.log
+[2026-04-28 01:41:52] OK    py-mp N=8  dt=268s  peak_rss=2940MB  thrash=False  p50=275ms p90=522ms qps=0.285
+[2026-04-28 01:41:52] START go N=8  avail_ram=2018MB  log=benchmark/output/sweep/logs/go_n8.log
+[2026-04-28 01:45:44] OK    go N=8  dt=232s  peak_rss=2645MB  thrash=False  p50=3583ms p90=5503ms qps=0.317
+[2026-04-28 01:45:44] START py-mt N=16  avail_ram=2234MB  log=benchmark/output/sweep/logs/py-mt_n16.log
+[2026-04-28 01:49:06] OK    py-mt N=16  dt=202s  peak_rss=4379MB  thrash=False  p50=290ms p90=595ms qps=0.371
+[2026-04-28 01:49:06] START go N=16  avail_ram=2437MB  log=benchmark/output/sweep/logs/go_n16.log
+[2026-04-28 01:53:04] OK    go N=16  dt=237s  peak_rss=4647MB  thrash=False  p50=11179ms p90=19514ms qps=0.317
+[2026-04-28 01:53:04] END   full sweep total_wallclock=940s (0.26h)

@@ -1,0 +1,44 @@
+{
+  "trace_id": "0e31169a23c177974e4f50ebf950f534",
+  "config": "cell_concurrent_py_hotpot_b64_static",
+  "query_id": "q007",
+  "label": "cell_concurrent_py_hotpot_b64_static",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "0e31169a23c177974e4f50ebf950f534",
+      "span_id": "0d55c67194b87c66",
+      "parent_id": null,
+      "start_ns": 1777183121954119000,
+      "end_ns": 1777183122068936000,
+      "wall_time_ms": 114.817,
+      "cpu_time_ms": 88.737,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b64_static",
+        "query_id": "q007",
+        "query_text": "Sian Gibson co-wrote which British sitcom, set around a supermarket and car share scheme?"
+      },
+      "status": "error",
+      "error": "RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q007. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls()."
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "0e31169a23c177974e4f50ebf950f534",
+      "span_id": "57c51da9937e8a25",
+      "parent_id": "0d55c67194b87c66",
+      "start_ns": 1777183121954223000,
+      "end_ns": 1777183121982590000,
+      "wall_time_ms": 28.367,
+      "cpu_time_ms": 0.903,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "static",
+        "tool.input_hash": "d3a4d110c7a6906c",
+        "tool.retry_count": 0
+      },
+      "status": "error",
+      "error": "RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q007. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls()."
+    }
+  ]
+}

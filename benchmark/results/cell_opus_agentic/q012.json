@@ -1,0 +1,286 @@
+{
+  "trace_id": "271fd3c8ec2e1ac4da6a0490d50332d5",
+  "config": "opus_custom",
+  "query_id": "q012",
+  "label": "cell_opus_custom",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "271fd3c8ec2e1ac4da6a0490d50332d5",
+      "span_id": "5d88b93ef9e3f07c",
+      "parent_id": null,
+      "start_ns": 1777074707193916000,
+      "end_ns": 1777074750684958000,
+      "wall_time_ms": 43491.042,
+      "cpu_time_ms": 1324.172,
+      "kind": "root",
+      "attrs": {
+        "config": "opus_custom",
+        "query_id": "q012",
+        "query_text": "Which drama series won the most recent Primetime Emmy Award for Outstanding Drama Series?",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.max_turns": 10
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "271fd3c8ec2e1ac4da6a0490d50332d5",
+      "span_id": "70723995da8891ac",
+      "parent_id": "5d88b93ef9e3f07c",
+      "start_ns": 1777074707194017000,
+      "end_ns": 1777074708020342000,
+      "wall_time_ms": 826.325,
+      "cpu_time_ms": 13.375,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 826,
+        "llm.output_tokens": 83,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "271fd3c8ec2e1ac4da6a0490d50332d5",
+      "span_id": "a1754a8185f1d8ff",
+      "parent_id": "5d88b93ef9e3f07c",
+      "start_ns": 1777074708020620000,
+      "end_ns": 1777074709899362000,
+      "wall_time_ms": 1878.742,
+      "cpu_time_ms": 31.897,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "86813a26b461c31d",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 744
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "271fd3c8ec2e1ac4da6a0490d50332d5",
+      "span_id": "7345a5739a58676c",
+      "parent_id": "5d88b93ef9e3f07c",
+      "start_ns": 1777074714900051000,
+      "end_ns": 1777074715755295000,
+      "wall_time_ms": 855.244,
+      "cpu_time_ms": 19.751,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1215,
+        "llm.output_tokens": 100,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "271fd3c8ec2e1ac4da6a0490d50332d5",
+      "span_id": "b382e5935c028d71",
+      "parent_id": "5d88b93ef9e3f07c",
+      "start_ns": 1777074715755555000,
+      "end_ns": 1777074717920120000,
+      "wall_time_ms": 2164.565,
+      "cpu_time_ms": 193.744,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "efe0b1263278f0fe",
+        "tool.url": "https://en.wikipedia.org/wiki/Primetime_Emmy_Award_for_Outstanding_Drama_Series",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "271fd3c8ec2e1ac4da6a0490d50332d5",
+      "span_id": "b4d3adef5b7d5c06",
+      "parent_id": "5d88b93ef9e3f07c",
+      "start_ns": 1777074722926950000,
+      "end_ns": 1777074724812838000,
+      "wall_time_ms": 1885.888,
+      "cpu_time_ms": 20.507,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1341,
+        "llm.output_tokens": 95,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "271fd3c8ec2e1ac4da6a0490d50332d5",
+      "span_id": "78f2fccfd4760ce5",
+      "parent_id": "5d88b93ef9e3f07c",
+      "start_ns": 1777074724813080000,
+      "end_ns": 1777074726960554000,
+      "wall_time_ms": 2147.474,
+      "cpu_time_ms": 193.568,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "0878b9e48ee624f0",
+        "tool.url": "https://en.wikipedia.org/wiki/67th_Primetime_Emmy_Awards",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "271fd3c8ec2e1ac4da6a0490d50332d5",
+      "span_id": "adb759f3e0249b11",
+      "parent_id": "5d88b93ef9e3f07c",
+      "start_ns": 1777074731961304000,
+      "end_ns": 1777074732697737000,
+      "wall_time_ms": 736.433,
+      "cpu_time_ms": 23.426,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1462,
+        "llm.output_tokens": 81,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "271fd3c8ec2e1ac4da6a0490d50332d5",
+      "span_id": "d67a5b5ab0dc7b29",
+      "parent_id": "5d88b93ef9e3f07c",
+      "start_ns": 1777074732697999000,
+      "end_ns": 1777074735371487000,
+      "wall_time_ms": 2673.488,
+      "cpu_time_ms": 44.269,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "eb9ebc5302bdb4d0",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 780
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "271fd3c8ec2e1ac4da6a0490d50332d5",
+      "span_id": "90c51c0bc4b96b89",
+      "parent_id": "5d88b93ef9e3f07c",
+      "start_ns": 1777074740374976000,
+      "end_ns": 1777074741181102000,
+      "wall_time_ms": 806.126,
+      "cpu_time_ms": 24.134,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1873,
+        "llm.output_tokens": 131,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "271fd3c8ec2e1ac4da6a0490d50332d5",
+      "span_id": "765109f0c7cde154",
+      "parent_id": "5d88b93ef9e3f07c",
+      "start_ns": 1777074741181242000,
+      "end_ns": 1777074742096569000,
+      "wall_time_ms": 915.327,
+      "cpu_time_ms": 265.366,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "2331d177efd48fa5",
+        "tool.url": "https://deadline.com/lists/emmys-2025-winners-list/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 14392
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "271fd3c8ec2e1ac4da6a0490d50332d5",
+      "span_id": "0b70520f9a3d78a4",
+      "parent_id": "5d88b93ef9e3f07c",
+      "start_ns": 1777074742096716000,
+      "end_ns": 1777074744066702000,
+      "wall_time_ms": 1969.986,
+      "cpu_time_ms": 463.875,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "b5b91a88c42b6546",
+        "tool.url": "https://www.televisionacademy.com/awards/nominees-winners/2025/outstanding-drama-series",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 2200
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "271fd3c8ec2e1ac4da6a0490d50332d5",
+      "span_id": "020b289ba0d11013",
+      "parent_id": "5d88b93ef9e3f07c",
+      "start_ns": 1777074749070535000,
+      "end_ns": 1777074750684873000,
+      "wall_time_ms": 1614.338,
+      "cpu_time_ms": 27.982,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 6287,
+        "llm.output_tokens": 96,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

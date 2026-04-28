@@ -1,0 +1,180 @@
+{
+  "trace_id": "378b0d285dfe3dd642466e5c0990f4ed",
+  "config": "cell_concurrent_py_hotpot_b1",
+  "query_id": "q017",
+  "label": "cell_concurrent_py_hotpot_b1",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "378b0d285dfe3dd642466e5c0990f4ed",
+      "span_id": "91fc8cdf1452469e",
+      "parent_id": null,
+      "start_ns": 1777182791739682000,
+      "end_ns": 1777182829149286000,
+      "wall_time_ms": 37409.604,
+      "cpu_time_ms": 22541.878,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b1",
+        "query_id": "q017",
+        "query_text": "Are both Ixia and Rhexia a plant genus?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 1
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "378b0d285dfe3dd642466e5c0990f4ed",
+      "span_id": "f2535eadafd96033",
+      "parent_id": "91fc8cdf1452469e",
+      "start_ns": 1777182791741139000,
+      "end_ns": 1777182798499731000,
+      "wall_time_ms": 6758.592,
+      "cpu_time_ms": 67.332,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "7b0b807a681a116c",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 620
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "378b0d285dfe3dd642466e5c0990f4ed",
+      "span_id": "9b9c7095aa242e5a",
+      "parent_id": "91fc8cdf1452469e",
+      "start_ns": 1777182798499934000,
+      "end_ns": 1777182801382800000,
+      "wall_time_ms": 2882.866,
+      "cpu_time_ms": 197.48,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "ae40582944b8c48f",
+        "tool.url": "https://en.wikipedia.org/wiki/Rhexia_mariana",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "378b0d285dfe3dd642466e5c0990f4ed",
+      "span_id": "500f515628ac64db",
+      "parent_id": "91fc8cdf1452469e",
+      "start_ns": 1777182801383038000,
+      "end_ns": 1777182802693703000,
+      "wall_time_ms": 1310.665,
+      "cpu_time_ms": 373.981,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "e3f034b6fea23ab7",
+        "tool.url": "https://www.fnps.org/plant/rhexia-spp",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 1723
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "378b0d285dfe3dd642466e5c0990f4ed",
+      "span_id": "97bc605801c0a8da",
+      "parent_id": "91fc8cdf1452469e",
+      "start_ns": 1777182802693855000,
+      "end_ns": 1777182804994735000,
+      "wall_time_ms": 2300.88,
+      "cpu_time_ms": 160.935,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "380d88fc92aa2784",
+        "tool.url": "https://archive.org/stream/biostor-158473/biostor-158473_djvu.txt",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 100982
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "378b0d285dfe3dd642466e5c0990f4ed",
+      "span_id": "320fa8e1716bd0ad",
+      "parent_id": "91fc8cdf1452469e",
+      "start_ns": 1777182804994900000,
+      "end_ns": 1777182805057491000,
+      "wall_time_ms": 62.591,
+      "cpu_time_ms": 57.994,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "03fe412c7a658fe6",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 19,
+        "tool.output_size_bytes": 72
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "378b0d285dfe3dd642466e5c0990f4ed",
+      "span_id": "f28a76c914b7cd35",
+      "parent_id": "91fc8cdf1452469e",
+      "start_ns": 1777182805058770000,
+      "end_ns": 1777182827030524000,
+      "wall_time_ms": 21971.754,
+      "cpu_time_ms": 21667.179,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "a7be0b47dca37832",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 1352,
+        "tool.output_size_bytes": 7
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "378b0d285dfe3dd642466e5c0990f4ed",
+      "span_id": "9e514d5ead3c0617",
+      "parent_id": "91fc8cdf1452469e",
+      "start_ns": 1777182827032101000,
+      "end_ns": 1777182829149182000,
+      "wall_time_ms": 2117.081,
+      "cpu_time_ms": 13.155,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 53,
+        "llm.output_tokens": 105,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

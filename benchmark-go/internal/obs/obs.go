@@ -112,6 +112,56 @@ func (o *Observer) Start(name string, attrs map[string]any) *Span {
 	return o.start(name, kindFor(name, false), attrs)
 }
 
+// EmitSyntheticSpan records a span with explicit start/end nanosecond
+// timestamps under an explicit parent. Used by configs that observe an
+// external process whose call/return timing they want to attribute to a span
+// without literally bracketing their own code (e.g. the CLI-driven Pro-plan
+// agent, where the LLM round-trip happens between stream-json events).
+//
+// Parent must be passed explicitly because the Observer's stack is shared
+// across goroutines: a tool's HTTP handler (running on a different goroutine)
+// can have pushed a tool span on the stack while the agent goroutine emits
+// its synthetic llm.generate. Top-of-stack is unsafe — pass the root span
+// you actually want as the parent.
+func (o *Observer) EmitSyntheticSpan(parent *Span, name string, startNS, endNS int64, attrs map[string]any) {
+	o.EmitSyntheticSpanCPU(parent, name, startNS, endNS, 0, 0, attrs)
+}
+
+// EmitSyntheticSpanCPU is EmitSyntheticSpan with explicit CPU start/end
+// nanoseconds. Mirrors benchmark/obs.py emit_synthetic_span(cpu_start_ns,
+// cpu_end_ns, ...). Pass cpuStartNS=cpuEndNS=0 if you don't want a CPU
+// duration; the resulting cpu_time_ms will be 0.
+func (o *Observer) EmitSyntheticSpanCPU(parent *Span, name string, startNS, endNS, cpuStartNS, cpuEndNS int64, attrs map[string]any) {
+	o.mu.Lock()
+	defer o.mu.Unlock()
+	var parentID string
+	if parent != nil && parent.sp != nil {
+		parentID = parent.sp.SpanID
+	}
+	traceID := o.traceID
+	if traceID == "" {
+		traceID = randHex(16)
+		o.traceID = traceID
+	}
+	sp := &spanInternal{
+		Name:     name,
+		TraceID:  traceID,
+		SpanID:   randHex(8),
+		ParentID: parentID,
+		StartNs:  startNS,
+		EndNs:    endNS,
+		CPUStart: cpuStartNS,
+		CPUEnd:   cpuEndNS,
+		Attrs:    map[string]any{},
+		Kind:     kindFor(name, false),
+		Status:   "ok",
+	}
+	for k, v := range attrs {
+		sp.Attrs[k] = v
+	}
+	o.done = append(o.done, sp)
+}
+
 func (o *Observer) start(name, kind string, attrs map[string]any) *Span {
 	o.mu.Lock()
 	defer o.mu.Unlock()

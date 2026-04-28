@@ -1,0 +1,180 @@
+{
+  "trace_id": "e754d15245631f56b2b892c5db03387a",
+  "config": "cell_concurrent_py_b16",
+  "query_id": "q004",
+  "label": "cell_concurrent_py_b16",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "e754d15245631f56b2b892c5db03387a",
+      "span_id": "488f3da1a2e927c3",
+      "parent_id": null,
+      "start_ns": 1777167541859885000,
+      "end_ns": 1777167555858715000,
+      "wall_time_ms": 13998.83,
+      "cpu_time_ms": 17871.355,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b16",
+        "query_id": "q004",
+        "query_text": "Who was the first African American woman to appear on a quarter in the United States?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 16
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "e754d15245631f56b2b892c5db03387a",
+      "span_id": "3d3e9cdf7e3db3fa",
+      "parent_id": "488f3da1a2e927c3",
+      "start_ns": 1777167541860069000,
+      "end_ns": 1777167547313813000,
+      "wall_time_ms": 5453.744,
+      "cpu_time_ms": 3305.55,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "522a594217841fe6",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 815
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "e754d15245631f56b2b892c5db03387a",
+      "span_id": "764af67ba5fcad6d",
+      "parent_id": "488f3da1a2e927c3",
+      "start_ns": 1777167547314010000,
+      "end_ns": 1777167550264032000,
+      "wall_time_ms": 2950.022,
+      "cpu_time_ms": 5542.703,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "154656696c11d337",
+        "tool.url": "https://en.wikipedia.org/wiki/Quarter_(United_States_coin)",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "e754d15245631f56b2b892c5db03387a",
+      "span_id": "a522ec2f2d5ced5b",
+      "parent_id": "488f3da1a2e927c3",
+      "start_ns": 1777167550264204000,
+      "end_ns": 1777167551877268000,
+      "wall_time_ms": 1613.064,
+      "cpu_time_ms": 4016.981,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "c84a48329ee4b243",
+        "tool.url": "https://www.npr.org/2022/01/10/1071965134/maya-angelou-quarter-mint-shipped-first-black-woman",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 3170
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "e754d15245631f56b2b892c5db03387a",
+      "span_id": "0e842879aa13bc94",
+      "parent_id": "488f3da1a2e927c3",
+      "start_ns": 1777167551877451000,
+      "end_ns": 1777167554330131000,
+      "wall_time_ms": 2452.68,
+      "cpu_time_ms": 3574.64,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "f38c4a9eabebdea8",
+        "tool.url": "https://news.artnet.com/art-world/new-maya-angelou-quarter-designer-2060027",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 5115
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "e754d15245631f56b2b892c5db03387a",
+      "span_id": "5cb27951bd03cdc7",
+      "parent_id": "488f3da1a2e927c3",
+      "start_ns": 1777167554330338000,
+      "end_ns": 1777167554423932000,
+      "wall_time_ms": 93.594,
+      "cpu_time_ms": 128.406,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "dc4b3f4030d95c15",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 25,
+        "tool.output_size_bytes": 92
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "e754d15245631f56b2b892c5db03387a",
+      "span_id": "25562bc7d676601f",
+      "parent_id": "488f3da1a2e927c3",
+      "start_ns": 1777167554424680000,
+      "end_ns": 1777167554588315000,
+      "wall_time_ms": 163.635,
+      "cpu_time_ms": 248.342,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "b18ad8c405fdeb44",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 40,
+        "tool.output_size_bytes": 218
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "e754d15245631f56b2b892c5db03387a",
+      "span_id": "21f5d39c1151a08c",
+      "parent_id": "488f3da1a2e927c3",
+      "start_ns": 1777167554589054000,
+      "end_ns": 1777167555858580000,
+      "wall_time_ms": 1269.526,
+      "cpu_time_ms": 1051.298,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 110,
+        "llm.output_tokens": 43,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

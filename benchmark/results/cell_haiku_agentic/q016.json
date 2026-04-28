@@ -1,0 +1,137 @@
+{
+  "trace_id": "8916a35f86da8f3502d869828fcb61fe",
+  "config": "haiku_custom",
+  "query_id": "q016",
+  "label": "cell_haiku_custom",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "8916a35f86da8f3502d869828fcb61fe",
+      "span_id": "cb7eaa46d894a37f",
+      "parent_id": null,
+      "start_ns": 1777073792909496000,
+      "end_ns": 1777073808324993000,
+      "wall_time_ms": 15415.497,
+      "cpu_time_ms": 258.704,
+      "kind": "root",
+      "attrs": {
+        "config": "haiku_custom",
+        "query_id": "q016",
+        "query_text": "The UN Secretary general is from which country?",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.max_turns": -1
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "8916a35f86da8f3502d869828fcb61fe",
+      "span_id": "53273ce4d78b60bb",
+      "parent_id": "cb7eaa46d894a37f",
+      "start_ns": 1777073792909597000,
+      "end_ns": 1777073793886633000,
+      "wall_time_ms": 977.036,
+      "cpu_time_ms": 10.04,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 818,
+        "llm.output_tokens": 57,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "8916a35f86da8f3502d869828fcb61fe",
+      "span_id": "dba221d08eaf7466",
+      "parent_id": "cb7eaa46d894a37f",
+      "start_ns": 1777073793886936000,
+      "end_ns": 1777073796031093000,
+      "wall_time_ms": 2144.157,
+      "cpu_time_ms": 29.538,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "2c959b291e0bb86c",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 659
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "8916a35f86da8f3502d869828fcb61fe",
+      "span_id": "9b0d7756f1b253ca",
+      "parent_id": "cb7eaa46d894a37f",
+      "start_ns": 1777073801036729000,
+      "end_ns": 1777073801735958000,
+      "wall_time_ms": 699.229,
+      "cpu_time_ms": 16.456,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1138,
+        "llm.output_tokens": 71,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "8916a35f86da8f3502d869828fcb61fe",
+      "span_id": "3f02cc636e978c4a",
+      "parent_id": "cb7eaa46d894a37f",
+      "start_ns": 1777073801736090000,
+      "end_ns": 1777073802321788000,
+      "wall_time_ms": 585.698,
+      "cpu_time_ms": 181.194,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "b7a403c35790e8f6",
+        "tool.url": "https://www.cfr.org/backgrounders/role-un-secretary-general",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 15533
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "8916a35f86da8f3502d869828fcb61fe",
+      "span_id": "45a9539a66b8bc15",
+      "parent_id": "cb7eaa46d894a37f",
+      "start_ns": 1777073807327546000,
+      "end_ns": 1777073808324895000,
+      "wall_time_ms": 997.349,
+      "cpu_time_ms": 20.363,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 4439,
+        "llm.output_tokens": 48,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

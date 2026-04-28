@@ -1,0 +1,201 @@
+{
+  "trace_id": "98c5273d84efc87e4ccaf489aba57af9",
+  "config": "cell_concurrent_py_hotpot_b4",
+  "query_id": "q019",
+  "label": "cell_concurrent_py_hotpot_b4",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "98c5273d84efc87e4ccaf489aba57af9",
+      "span_id": "61f4a89b8b9449dd",
+      "parent_id": null,
+      "start_ns": 1777182952357753000,
+      "end_ns": 1777182971058692000,
+      "wall_time_ms": 18700.939,
+      "cpu_time_ms": 16988.952,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b4",
+        "query_id": "q019",
+        "query_text": "Do D-A-D and G\u00e2ndul M\u00e2\u021bei play the same style of rock music?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 4
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "98c5273d84efc87e4ccaf489aba57af9",
+      "span_id": "4d629ac7a48f4c89",
+      "parent_id": "61f4a89b8b9449dd",
+      "start_ns": 1777182952357876000,
+      "end_ns": 1777182955275484000,
+      "wall_time_ms": 2917.608,
+      "cpu_time_ms": 793.052,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "9e7ba2e500402fd0",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 500
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "98c5273d84efc87e4ccaf489aba57af9",
+      "span_id": "95e48c824af21f55",
+      "parent_id": "61f4a89b8b9449dd",
+      "start_ns": 1777182955275672000,
+      "end_ns": 1777182958327163000,
+      "wall_time_ms": 3051.491,
+      "cpu_time_ms": 2697.472,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "16bc87b682bdf3f5",
+        "tool.url": "https://en.wikipedia.org/wiki/G\u00e2ndul_M\u00e2\u021bei",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "98c5273d84efc87e4ccaf489aba57af9",
+      "span_id": "448ecc2dec0fd23d",
+      "parent_id": "61f4a89b8b9449dd",
+      "start_ns": 1777182958327308000,
+      "end_ns": 1777182962115268000,
+      "wall_time_ms": 3787.96,
+      "cpu_time_ms": 4211.937,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "2120bc266a5d537a",
+        "tool.url": "https://myrockshows.com/band/6856-gandul-matei/",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "98c5273d84efc87e4ccaf489aba57af9",
+      "span_id": "7563808bcf9a1c0b",
+      "parent_id": "61f4a89b8b9449dd",
+      "start_ns": 1777182962115445000,
+      "end_ns": 1777182965163557000,
+      "wall_time_ms": 3048.112,
+      "cpu_time_ms": 3172.743,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "16fced168584334c",
+        "tool.url": "https://gandul-mateigc.bandcamp.com/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 5121
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "98c5273d84efc87e4ccaf489aba57af9",
+      "span_id": "9148e970b801740c",
+      "parent_id": "61f4a89b8b9449dd",
+      "start_ns": 1777182965163736000,
+      "end_ns": 1777182966487054000,
+      "wall_time_ms": 1323.318,
+      "cpu_time_ms": 1359.814,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "400dabda03ff02a0",
+        "tool.url": "https://soundcloud.com/alexandru-ciobanu-199530/gandul-matei-viata-e-o-intamplare",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 285
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "98c5273d84efc87e4ccaf489aba57af9",
+      "span_id": "d86408bb912a8134",
+      "parent_id": "61f4a89b8b9449dd",
+      "start_ns": 1777182966487295000,
+      "end_ns": 1777182967898499000,
+      "wall_time_ms": 1411.204,
+      "cpu_time_ms": 1453.106,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "16794f31000f247d",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 83,
+        "tool.output_size_bytes": 109
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "98c5273d84efc87e4ccaf489aba57af9",
+      "span_id": "630eb844b70e6cc8",
+      "parent_id": "61f4a89b8b9449dd",
+      "start_ns": 1777182967899410000,
+      "end_ns": 1777182968863012000,
+      "wall_time_ms": 963.602,
+      "cpu_time_ms": 1014.646,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "c09a9d0a02f28f82",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 6,
+        "tool.output_size_bytes": 125
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "98c5273d84efc87e4ccaf489aba57af9",
+      "span_id": "70317b2b2fbc1092",
+      "parent_id": "61f4a89b8b9449dd",
+      "start_ns": 1777182968864372000,
+      "end_ns": 1777182971058625000,
+      "wall_time_ms": 2194.253,
+      "cpu_time_ms": 2283.066,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 108,
+        "llm.output_tokens": 108,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "trace_id": "708b46d27e2671107b0399c1e7a1e90b",
+  "config": "pipeline_opus",
+  "query_id": "q018",
+  "label": "cell_opus_pipeline",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "708b46d27e2671107b0399c1e7a1e90b",
+      "span_id": "f933a5a8d62e477a",
+      "parent_id": null,
+      "start_ns": 1777155260893296000,
+      "end_ns": 1777155269950610000,
+      "wall_time_ms": 9057.314,
+      "cpu_time_ms": 594.552,
+      "kind": "root",
+      "attrs": {
+        "config": "pipeline_opus",
+        "query_id": "q018",
+        "query_text": "Do the Toronto Raptors have a winning record in the latest NBA season?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "708b46d27e2671107b0399c1e7a1e90b",
+      "span_id": "b060ae496a24bd5a",
+      "parent_id": "f933a5a8d62e477a",
+      "start_ns": 1777155260893440000,
+      "end_ns": 1777155262726669000,
+      "wall_time_ms": 1833.229,
+      "cpu_time_ms": 20.868,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "94739be404a29425",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 604
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "708b46d27e2671107b0399c1e7a1e90b",
+      "span_id": "66b698c040390fa3",
+      "parent_id": "f933a5a8d62e477a",
+      "start_ns": 1777155262726810000,
+      "end_ns": 1777155265621202000,
+      "wall_time_ms": 2894.392,
+      "cpu_time_ms": 198.321,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "5cacdbd13cf54318",
+        "tool.url": "https://en.wikipedia.org/wiki/Toronto_Raptors",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "708b46d27e2671107b0399c1e7a1e90b",
+      "span_id": "027d7a31425cd1ee",
+      "parent_id": "f933a5a8d62e477a",
+      "start_ns": 1777155265621407000,
+      "end_ns": 1777155266192607000,
+      "wall_time_ms": 571.2,
+      "cpu_time_ms": 72.007,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "4f2c1e5231e0039f",
+        "tool.url": "https://www.espn.com/nba/standings",
+        "tool.retry_count": 0,
+        "tool.http_status": 202,
+        "tool.output_size_bytes": 157
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "708b46d27e2671107b0399c1e7a1e90b",
+      "span_id": "0d9e2afab958b413",
+      "parent_id": "f933a5a8d62e477a",
+      "start_ns": 1777155266192781000,
+      "end_ns": 1777155267792948000,
+      "wall_time_ms": 1600.167,
+      "cpu_time_ms": 129.572,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "a6046e2ef6b5c3f1",
+        "tool.url": "https://www.cbc.ca/news/canada/toronto/raptors-playoffs-bandwagon-2026-9.7165444",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 5775
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "708b46d27e2671107b0399c1e7a1e90b",
+      "span_id": "5b3b9cc08b5e0fca",
+      "parent_id": "f933a5a8d62e477a",
+      "start_ns": 1777155267793089000,
+      "end_ns": 1777155267852821000,
+      "wall_time_ms": 59.732,
+      "cpu_time_ms": 55.687,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "ebccbd5922b41e48",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 3,
+        "tool.output_size_bytes": 87
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "708b46d27e2671107b0399c1e7a1e90b",
+      "span_id": "a97fa159eb529e72",
+      "parent_id": "f933a5a8d62e477a",
+      "start_ns": 1777155267853553000,
+      "end_ns": 1777155267959110000,
+      "wall_time_ms": 105.557,
+      "cpu_time_ms": 104.284,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "d1fd64dc0144aa26",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 57,
+        "tool.output_size_bytes": 216
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "708b46d27e2671107b0399c1e7a1e90b",
+      "span_id": "3619e7c9b9259e11",
+      "parent_id": "f933a5a8d62e477a",
+      "start_ns": 1777155267959899000,
+      "end_ns": 1777155269950492000,
+      "wall_time_ms": 1990.593,
+      "cpu_time_ms": 11.648,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 100,
+        "llm.output_tokens": 104,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

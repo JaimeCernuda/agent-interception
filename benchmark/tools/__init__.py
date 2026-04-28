@@ -11,3 +11,13 @@ from benchmark.tools.search import web_search
 from benchmark.tools.summarize import lexrank_summarize
 
 __all__ = ["web_search", "fetch_url", "lexrank_summarize"]
+
+
+def __getattr__(name: str):
+    # Lazy-import the chemistry tools so configs that don't need RDKit can still
+    # `from benchmark.tools import web_search` without paying the import cost.
+    if name in {"lookup_molecule", "smiles_to_3d", "compute_descriptors"}:
+        from benchmark.tools import chemcrow
+
+        return getattr(chemcrow, name)
+    raise AttributeError(name)

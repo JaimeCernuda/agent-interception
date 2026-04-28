@@ -1,0 +1,200 @@
+{
+  "trace_id": "1902451746789c8a47212aeb1bbd367d",
+  "config": "pipeline_opus",
+  "query_id": "q019",
+  "label": "cell_opus_pipeline",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "1902451746789c8a47212aeb1bbd367d",
+      "span_id": "94f4c00cf7f8a747",
+      "parent_id": null,
+      "start_ns": 1777155275013716000,
+      "end_ns": 1777155289907520000,
+      "wall_time_ms": 14893.804,
+      "cpu_time_ms": 1385.987,
+      "kind": "root",
+      "attrs": {
+        "config": "pipeline_opus",
+        "query_id": "q019",
+        "query_text": "Who posted the most-liked Instagram post last year?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "1902451746789c8a47212aeb1bbd367d",
+      "span_id": "93172cf5e18731e8",
+      "parent_id": "94f4c00cf7f8a747",
+      "start_ns": 1777155275013841000,
+      "end_ns": 1777155277591193000,
+      "wall_time_ms": 2577.352,
+      "cpu_time_ms": 39.153,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "36273eee9807a55b",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 614
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "1902451746789c8a47212aeb1bbd367d",
+      "span_id": "110d3624cfa0a0a7",
+      "parent_id": "94f4c00cf7f8a747",
+      "start_ns": 1777155277591384000,
+      "end_ns": 1777155280692957000,
+      "wall_time_ms": 3101.573,
+      "cpu_time_ms": 195.919,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "0045df7aa174e238",
+        "tool.url": "https://en.wikipedia.org/wiki/List_of_most-liked_Instagram_posts",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "1902451746789c8a47212aeb1bbd367d",
+      "span_id": "86602d7591671c92",
+      "parent_id": "94f4c00cf7f8a747",
+      "start_ns": 1777155280693213000,
+      "end_ns": 1777155284198708000,
+      "wall_time_ms": 3505.495,
+      "cpu_time_ms": 199.627,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "4bb4a4a17337ed63",
+        "tool.url": "https://www.pathsocial.com/resources/most-liked-ig-posts/",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "1902451746789c8a47212aeb1bbd367d",
+      "span_id": "c310fec93e4ac2bd",
+      "parent_id": "94f4c00cf7f8a747",
+      "start_ns": 1777155284198943000,
+      "end_ns": 1777155286081508000,
+      "wall_time_ms": 1882.565,
+      "cpu_time_ms": 305.347,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "99dbb1d9070ed3d3",
+        "tool.url": "https://www.brandwatch.com/blog/most-liked-pictures-on-instagram/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 839
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "1902451746789c8a47212aeb1bbd367d",
+      "span_id": "a7ccb051f5ce3816",
+      "parent_id": "94f4c00cf7f8a747",
+      "start_ns": 1777155286081652000,
+      "end_ns": 1777155287256337000,
+      "wall_time_ms": 1174.685,
+      "cpu_time_ms": 174.226,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "1e4ee3e37f71e4ef",
+        "tool.url": "https://www.demandsage.com/instagram-statistics/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 15851
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "1902451746789c8a47212aeb1bbd367d",
+      "span_id": "ed41dae2abe6433b",
+      "parent_id": "94f4c00cf7f8a747",
+      "start_ns": 1777155287256485000,
+      "end_ns": 1777155287304245000,
+      "wall_time_ms": 47.76,
+      "cpu_time_ms": 47.786,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "3185956da11032ff",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 7,
+        "tool.output_size_bytes": 249
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "1902451746789c8a47212aeb1bbd367d",
+      "span_id": "3d9017cebe431908",
+      "parent_id": "94f4c00cf7f8a747",
+      "start_ns": 1777155287305779000,
+      "end_ns": 1777155287714033000,
+      "wall_time_ms": 408.254,
+      "cpu_time_ms": 407.944,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "957b8fb7954bc7f4",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 158,
+        "tool.output_size_bytes": 228
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "1902451746789c8a47212aeb1bbd367d",
+      "span_id": "25448f41afaaac0b",
+      "parent_id": "94f4c00cf7f8a747",
+      "start_ns": 1777155287714854000,
+      "end_ns": 1777155289907398000,
+      "wall_time_ms": 2192.544,
+      "cpu_time_ms": 12.812,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 135,
+        "llm.output_tokens": 103,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

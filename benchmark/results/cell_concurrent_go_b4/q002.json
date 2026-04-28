@@ -1,0 +1,160 @@
+{
+  "config": "cell_concurrent_go_b4",
+  "label": "cell_concurrent_go_b4",
+  "query_id": "q002",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 4,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 2,
+        "agent.num_urls_fetched": 2,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b4",
+        "query_id": "q002",
+        "query_text": "Who wrote the book titled Orientalism?"
+      },
+      "cpu_time_ms": 6096.966,
+      "end_ns": 1777167510217839000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "4a6e74a6d3ef6b08",
+      "start_ns": 1777167504120872000,
+      "status": "ok",
+      "trace_id": "4335300c1fdb5be5c5a4ba55609ef69a",
+      "wall_time_ms": 6096.967
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "ec4f0f516d458418",
+        "tool.name": "ddg",
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 2052,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 1217.387,
+      "end_ns": 1777167505338278000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "4a6e74a6d3ef6b08",
+      "span_id": "bcfc6eb1def37a1d",
+      "start_ns": 1777167504120892000,
+      "status": "ok",
+      "trace_id": "4335300c1fdb5be5c5a4ba55609ef69a",
+      "wall_time_ms": 1217.386
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "a04ff73fed611608",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 21944,
+        "tool.retry_count": 0,
+        "tool.url": "https://duckduckgo.com/y.js?ad_domain=amazon.es\u0026amp;ad_provider=bingv7aa\u0026amp;ad_type=txad\u0026amp;click_metadata=h1xjkwWgHB8HdiOGGK8Grk1uxE%2DwANdgU4Jexr9yAwk6NDBUCB41GN1RR74K3Vj_1oPvuynJN3prgy7o8Fq1BjjiqP54xtfzxxniiULXBsOkZ1fOD84a_5H1vzG3prkgLWwnZ6wq9b8TgNk3KR1qSlWw5ov4o78KHWjDcLEfmn4.ZOYycr3Qg7pgTUAm%2D8CNKg\u0026amp;rut=c6a9a033a730d86f1fbe5c55250cc2a8326469499ec0661af0c15fce052773cc\u0026amp;u3=https%3A%2F%2Fwww.bing.com%2Faclick%3Fld%3De8RJ67lcc6eRmiB5B0uFDNjDVUCUxxj2dXFeeZoD1pLgt8JCrL0eliN0Cuj%2D7BCz5ujCCc8c6PAR1HwYwjB5JQbvsBG2nND9Q%2DJspjK1VSlnB5qwjfRARuOu7bk2t4692EHhauLLdYMC2DQGgk4ey%2DKb5bzWQfA7DVwHr51ZK_r_IMXRAwUTU_H_RbQ25kZ7xR26SgUdAN3yPsg4_bp65COxd2rWE%26u%3DaHR0cHMlM2ElMmYlMmZ3d3cuYW1hem9uLmVzJTJmcyUyZiUzZmllJTNkVVRGOCUyNmtleXdvcmRzJTNkZWR3YXJkJTJic2FpZCUyYm9yaWVudGFsaXNtJTI2aW5kZXglM2RhcHMlMjZ0YWclM2RiaW5nYW1hem9uZXN0LTIxJTI2cmVmJTNkcGRfc2xfN2hxOWQ1cTg4OV9lJTI2YWRncnBpZCUzZDEzMDA3MjI2OTExNjM3NjUlMjZodmFkaWQlM2Q4MTI5NTI1Njk3ODE2OCUyNmh2bmV0dyUzZHMlMjZodnFtdCUzZGUlMjZodmJtdCUzZGJlJTI2aHZkZXYlM2RjJTI2aHZsb2NpbnQlM2QlMjZodmxvY3BoeSUzZDE2NDU4MCUyNmh2dGFyZ2lkJTNka3dkLTgxMjk1NDAzNTg3ODcxJTNhbG9jLTE3MCUyNmh5ZGFkY3IlM2QyMzgyNF8xODU1NjAwJTI2bWNpZCUzZDc3M2ZmY2NhMzZhZTMyZDZiOGZmYzQ4ZjBhMjQ2MGFiJTI2bXNjbGtpZCUzZGQ2MTEyMjUzYTgxYTE1MTY0ODk4NGJiZWM0OGJkYTg0%26rlid%3Dd6112253a81a151648984bbec48bda84\u0026amp;vqd=4-88019138047435564189884058426176760963\u0026amp;iurl=%7B1%7DIG%3DC3084655A99048018D7460A021172273%26CID%3D007EFDA6E17E62A41EE0EAE1E00963BD%26ID%3DDevEx%2C5045.1"
+      },
+      "cpu_time_ms": 3369.243,
+      "end_ns": 1777167508707543000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "4a6e74a6d3ef6b08",
+      "span_id": "9eb9f5e6eabd991a",
+      "start_ns": 1777167505338299000,
+      "status": "ok",
+      "trace_id": "4335300c1fdb5be5c5a4ba55609ef69a",
+      "wall_time_ms": 3369.244
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "62a39a420003d10b",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 54315,
+        "tool.retry_count": 0,
+        "tool.url": "https://en.wikipedia.org/wiki/Orientalism_(book)"
+      },
+      "cpu_time_ms": 220.463,
+      "end_ns": 1777167508928020000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "4a6e74a6d3ef6b08",
+      "span_id": "6938b819afbfe010",
+      "start_ns": 1777167508707557000,
+      "status": "ok",
+      "trace_id": "4335300c1fdb5be5c5a4ba55609ef69a",
+      "wall_time_ms": 220.463
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "f39bbc443bf66011",
+        "tool.n_sentences_in": 109,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 372,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 17.361,
+      "end_ns": 1777167508945469000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "4a6e74a6d3ef6b08",
+      "span_id": "b8ca30555a7ee280",
+      "start_ns": 1777167508928109000,
+      "status": "ok",
+      "trace_id": "4335300c1fdb5be5c5a4ba55609ef69a",
+      "wall_time_ms": 17.36
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "d97df95c1711f824",
+        "tool.n_sentences_in": 355,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 21,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 76.738,
+      "end_ns": 1777167509022423000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "4a6e74a6d3ef6b08",
+      "span_id": "a48dea4357bf7666",
+      "start_ns": 1777167508945686000,
+      "status": "ok",
+      "trace_id": "4335300c1fdb5be5c5a4ba55609ef69a",
+      "wall_time_ms": 76.737
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 157,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 73,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1195.357,
+      "end_ns": 1777167510217833000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "4a6e74a6d3ef6b08",
+      "span_id": "d67fcd81d7cb998e",
+      "start_ns": 1777167509022476000,
+      "status": "ok",
+      "trace_id": "4335300c1fdb5be5c5a4ba55609ef69a",
+      "wall_time_ms": 1195.357
+    }
+  ],
+  "trace_id": "4335300c1fdb5be5c5a4ba55609ef69a"
+}

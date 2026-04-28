@@ -1,0 +1,179 @@
+{
+  "trace_id": "166791113dddeacd7819a78a98b868e4",
+  "config": "pipeline_opus",
+  "query_id": "q014",
+  "label": "cell_opus_pipeline",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "166791113dddeacd7819a78a98b868e4",
+      "span_id": "8c2c4a8e7d35db2e",
+      "parent_id": null,
+      "start_ns": 1777155198302229000,
+      "end_ns": 1777155209678965000,
+      "wall_time_ms": 11376.736,
+      "cpu_time_ms": 939.483,
+      "kind": "root",
+      "attrs": {
+        "config": "pipeline_opus",
+        "query_id": "q014",
+        "query_text": "Who has the most liked post on Instagram?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "166791113dddeacd7819a78a98b868e4",
+      "span_id": "c1e55d4b7feaf576",
+      "parent_id": "8c2c4a8e7d35db2e",
+      "start_ns": 1777155198302352000,
+      "end_ns": 1777155200205331000,
+      "wall_time_ms": 1902.979,
+      "cpu_time_ms": 28.626,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "7b83fc27dd877193",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 727
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "166791113dddeacd7819a78a98b868e4",
+      "span_id": "393d47948813b557",
+      "parent_id": "8c2c4a8e7d35db2e",
+      "start_ns": 1777155200205519000,
+      "end_ns": 1777155204076817000,
+      "wall_time_ms": 3871.298,
+      "cpu_time_ms": 174.325,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "0045df7aa174e238",
+        "tool.url": "https://en.wikipedia.org/wiki/List_of_most-liked_Instagram_posts",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "166791113dddeacd7819a78a98b868e4",
+      "span_id": "ec84cc9323d2a016",
+      "parent_id": "8c2c4a8e7d35db2e",
+      "start_ns": 1777155204076964000,
+      "end_ns": 1777155206063743000,
+      "wall_time_ms": 1986.779,
+      "cpu_time_ms": 275.557,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "99dbb1d9070ed3d3",
+        "tool.url": "https://www.brandwatch.com/blog/most-liked-pictures-on-instagram/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 839
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "166791113dddeacd7819a78a98b868e4",
+      "span_id": "56c4b75d2a3526de",
+      "parent_id": "8c2c4a8e7d35db2e",
+      "start_ns": 1777155206063881000,
+      "end_ns": 1777155207651715000,
+      "wall_time_ms": 1587.834,
+      "cpu_time_ms": 167.567,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "858bd75b147f688e",
+        "tool.url": "https://wolfpackadvising.com/blog/what-is-the-most-liked-instagram-post-of-all-time/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 9189
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "166791113dddeacd7819a78a98b868e4",
+      "span_id": "511736fd72dd4509",
+      "parent_id": "8c2c4a8e7d35db2e",
+      "start_ns": 1777155207651968000,
+      "end_ns": 1777155207713454000,
+      "wall_time_ms": 61.486,
+      "cpu_time_ms": 57.108,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "3185956da11032ff",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 7,
+        "tool.output_size_bytes": 249
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "166791113dddeacd7819a78a98b868e4",
+      "span_id": "aea19ee98f914c39",
+      "parent_id": "8c2c4a8e7d35db2e",
+      "start_ns": 1777155207714644000,
+      "end_ns": 1777155207940931000,
+      "wall_time_ms": 226.287,
+      "cpu_time_ms": 223.911,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "bbebec8092964cd8",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 110,
+        "tool.output_size_bytes": 132
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "166791113dddeacd7819a78a98b868e4",
+      "span_id": "3c9b25ee59c7a24b",
+      "parent_id": "8c2c4a8e7d35db2e",
+      "start_ns": 1777155207941870000,
+      "end_ns": 1777155209678848000,
+      "wall_time_ms": 1736.978,
+      "cpu_time_ms": 9.622,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 109,
+        "llm.output_tokens": 96,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

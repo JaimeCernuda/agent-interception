@@ -1,0 +1,35 @@
+[run] config=opus_custom  label='cell_opus_custom'  queries=20  out=benchmark/results/cell_opus_custom
+[probe] sanity-checking models before sweep
+[probe]   claude-haiku-4-5-20251001              OK
+[probe]   claude-opus-4-7                        OK
+  [  1/20] q001 ok ( 8.70s)  answer='Based on the search results, **Maura Healey** was the first elected female Governor of Massachusetts'
+  [  2/20] q002 ok ( 8.20s)  answer='The book titled **Orientalism** was written by **Edward W. Said**. It was originally published in 19'
+  [  3/20] q003 ok (20.40s)  answer='Based on the information from multiple sources, **Wuhan, China** was the city connected with the ear'
+  [  4/20] q004 ok (18.86s)  answer='**Maya Angelou** was the first African American woman to appear on a U.S. quarter. The Maya Angelou '
+  [  5/20] q005 ok (41.59s)  answer='Based on the search results, **Elon Musk has 14 confirmed children total, including his deceased chi'
+  [  6/20] q006 ok (19.98s)  answer='Based on the search results and the article I fetched, **Bulgaria** is the latest country to adopt t'
+  [  7/20] q007 ok (31.44s)  answer='Based on the sources, **the shortest war in history was the Anglo-Zanzibar War (also called the Brit'
+  [  8/20] q008 ok (16.91s)  answer='Based on the search results, **the best-selling jazz album of all time is "Come Away with Me" by Nor'
+  [  9/20] q009 ok (58.38s)  answer='Based on my search results, **Maryna Viazovska** is the most recent female recipient of the Fields M'
+  [ 10/20] q010 ok (15.93s)  answer='Based on the search results, **the Netflix Standard plan without ads costs $15.49 per month in the U'
+  [ 11/20] q011 ok (27.87s)  answer='Based on the current information from the CDC and the Advisory Committee on Immunization Practices ('
+  [ 12/20] q012 ok (43.55s)  answer='Based on the search results, **"The Pitt"** won the most recent Primetime Emmy Award for Outstanding'
+  [ 13/20] q013 ok (77.15s)  answer='Let me try a different approach with a more current search.'
+  [ 14/20] q014 ok (17.43s)  answer='Perfect! I found the answer. According to the search results:  **Lionel Messi** has the most liked p'
+  [ 15/20] q015 ok (41.03s)  answer='Based on my research, I can provide you with a clear answer:  **Professor Uma Kanjilal** is the Vice'
+  [ 16/20] q016 ok (39.01s)  answer='**António Guterres, the current UN Secretary General, is from Portugal.** He was born in Lisbon, Por'
+  [ 17/20] q017 ok (25.38s)  answer='Based on the search results, **the tallest building in the world is the Burj Khalifa in Dubai, Unite'
+  [ 18/20] q018 ok (15.45s)  answer='Based on the information from ESPN, **yes, the Toronto Raptors have a winning record** in the latest'
+  [ 19/20] q019 ok (27.07s)  answer='Based on the search results, **the most-liked Instagram post from 2024 (last year) was posted by use'
+  [ 20/20] q020 ok (83.45s)  answer='Based on the data I found, Bitcoin has been well above $40,000 recently. Let me search for more spec'
+[run] done. 20/20 succeeded, 0 failed.
+
+[summary] cell_opus_custom
+  ----------------------------------------------------------------------
+  queries completed         20 / 20
+  median active_latency_ms    11,170.7
+  mean LLM share of active       46.0%
+  mean tool share of active      54.0%
+  total llm.retry_wait               0
+  truncated (max_turns hit)          2  ['q013', 'q020']
+  ----------------------------------------------------------------------

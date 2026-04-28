@@ -1,0 +1,99 @@
+{
+  "trace_id": "efb573d2af3a40ea4aae4aad20c39f81",
+  "config": "toolformer_py",
+  "query_id": "q01",
+  "label": "single_op",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "efb573d2af3a40ea4aae4aad20c39f81",
+      "span_id": "4ab79bee4bc1dc17",
+      "parent_id": null,
+      "start_ns": 1777405801333347000,
+      "end_ns": 1777405820716188000,
+      "wall_time_ms": 19382.841,
+      "cpu_time_ms": 329.523,
+      "kind": "root",
+      "attrs": {
+        "config": "toolformer_py",
+        "query_id": "q01",
+        "query_text": "Jeff had some Pen. Denise took 88 from him. Now Jeff has 96 Pen. How many Pen Jeff had primitively?",
+        "agent.num_turns": 2,
+        "agent.total_input_tokens": 18,
+        "agent.total_output_tokens": 369,
+        "agent.total_cost_usd": 0.012387750000000001,
+        "agent.duration_ms": 6867.0,
+        "agent.duration_api_ms": 7597.0,
+        "agent.is_error": false,
+        "agent.truncated": false,
+        "agent.num_tool_calls": 1,
+        "agent.cpu_time_ms": 329.49800000000005
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "efb573d2af3a40ea4aae4aad20c39f81",
+      "span_id": "33e9bc8d68959138",
+      "parent_id": "4ab79bee4bc1dc17",
+      "start_ns": 1777405801333381000,
+      "end_ns": 1777405817171487000,
+      "wall_time_ms": 15838.106,
+      "cpu_time_ms": 243.939,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 0,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "efb573d2af3a40ea4aae4aad20c39f81",
+      "span_id": "2062d44884282a4c",
+      "parent_id": "4ab79bee4bc1dc17",
+      "start_ns": 1777405817196809000,
+      "end_ns": 1777405817197871000,
+      "wall_time_ms": 1.062,
+      "cpu_time_ms": 1.908,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "55e53acc9f39f432",
+        "expression": "96 + 88",
+        "result": 184.0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "efb573d2af3a40ea4aae4aad20c39f81",
+      "span_id": "f44b916151cb3d96",
+      "parent_id": "4ab79bee4bc1dc17",
+      "start_ns": 1777405817209954000,
+      "end_ns": 1777405820092455000,
+      "wall_time_ms": 2882.501,
+      "cpu_time_ms": 46.834,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 1,
+        "llm.has_tool_use": false,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

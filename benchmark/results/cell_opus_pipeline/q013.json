@@ -1,0 +1,179 @@
+{
+  "trace_id": "523a2a6e98e0bc3e4e59f1632b4a3f8d",
+  "config": "pipeline_opus",
+  "query_id": "q013",
+  "label": "cell_opus_pipeline",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "523a2a6e98e0bc3e4e59f1632b4a3f8d",
+      "span_id": "97cfd756838f89e6",
+      "parent_id": null,
+      "start_ns": 1777155181189579000,
+      "end_ns": 1777155193237117000,
+      "wall_time_ms": 12047.538,
+      "cpu_time_ms": 1160.15,
+      "kind": "root",
+      "attrs": {
+        "config": "pipeline_opus",
+        "query_id": "q013",
+        "query_text": "What is the current best-selling children's book on Amazon?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "523a2a6e98e0bc3e4e59f1632b4a3f8d",
+      "span_id": "951af1d4b073f688",
+      "parent_id": "97cfd756838f89e6",
+      "start_ns": 1777155181189705000,
+      "end_ns": 1777155183924109000,
+      "wall_time_ms": 2734.404,
+      "cpu_time_ms": 34.829,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "1ba8429a5dfdc500",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 633
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "523a2a6e98e0bc3e4e59f1632b4a3f8d",
+      "span_id": "d1202ecae7c3f461",
+      "parent_id": "97cfd756838f89e6",
+      "start_ns": 1777155183924296000,
+      "end_ns": 1777155186791433000,
+      "wall_time_ms": 2867.137,
+      "cpu_time_ms": 188.488,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "e96bafe6f2edc6c7",
+        "tool.url": "https://en.wikipedia.org/wiki/List_of_best-selling_books",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "523a2a6e98e0bc3e4e59f1632b4a3f8d",
+      "span_id": "fab7d3537fe9dd29",
+      "parent_id": "97cfd756838f89e6",
+      "start_ns": 1777155186791669000,
+      "end_ns": 1777155189223367000,
+      "wall_time_ms": 2431.698,
+      "cpu_time_ms": 659.115,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "1373586178aeb908",
+        "tool.url": "https://www.amazon.com/Best-Sellers-Children's-Books/zgbs/books/4",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 256
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "523a2a6e98e0bc3e4e59f1632b4a3f8d",
+      "span_id": "f441aa03156d9728",
+      "parent_id": "97cfd756838f89e6",
+      "start_ns": 1777155189223503000,
+      "end_ns": 1777155190806843000,
+      "wall_time_ms": 1583.34,
+      "cpu_time_ms": 171.645,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "f75ce51a69fb55e2",
+        "tool.url": "https://www.nytimes.com/books/best-sellers/childrens-middle-grade-hardcover/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 551
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "523a2a6e98e0bc3e4e59f1632b4a3f8d",
+      "span_id": "bf6dec882735af8f",
+      "parent_id": "97cfd756838f89e6",
+      "start_ns": 1777155190806981000,
+      "end_ns": 1777155190855400000,
+      "wall_time_ms": 48.419,
+      "cpu_time_ms": 45.423,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "f226e0931ec1c87d",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 2,
+        "tool.output_size_bytes": 236
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "523a2a6e98e0bc3e4e59f1632b4a3f8d",
+      "span_id": "c0d19600e0b283ba",
+      "parent_id": "97cfd756838f89e6",
+      "start_ns": 1777155190856997000,
+      "end_ns": 1777155190902021000,
+      "wall_time_ms": 45.024,
+      "cpu_time_ms": 45.068,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "ee587ac14ea3b90c",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 3,
+        "tool.output_size_bytes": 156
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "523a2a6e98e0bc3e4e59f1632b4a3f8d",
+      "span_id": "95db3a51838c658a",
+      "parent_id": "97cfd756838f89e6",
+      "start_ns": 1777155190902665000,
+      "end_ns": 1777155193236998000,
+      "wall_time_ms": 2334.333,
+      "cpu_time_ms": 12.782,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 119,
+        "llm.output_tokens": 129,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

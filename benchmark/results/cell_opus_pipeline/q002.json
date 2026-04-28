@@ -1,0 +1,200 @@
+{
+  "trace_id": "adfb61c2af82f117370610a2204cd04e",
+  "config": "pipeline_opus",
+  "query_id": "q002",
+  "label": "cell_opus_pipeline",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "adfb61c2af82f117370610a2204cd04e",
+      "span_id": "54a4e6e36e376c7f",
+      "parent_id": null,
+      "start_ns": 1777154824267216000,
+      "end_ns": 1777154984629460000,
+      "wall_time_ms": 160362.244,
+      "cpu_time_ms": 142620.81,
+      "kind": "root",
+      "attrs": {
+        "config": "pipeline_opus",
+        "query_id": "q002",
+        "query_text": "Who wrote the book titled Orientalism?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "adfb61c2af82f117370610a2204cd04e",
+      "span_id": "228cb49dbd2f921b",
+      "parent_id": "54a4e6e36e376c7f",
+      "start_ns": 1777154824267446000,
+      "end_ns": 1777154827808355000,
+      "wall_time_ms": 3540.909,
+      "cpu_time_ms": 53.987,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "ec4f0f516d458418",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 606
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "adfb61c2af82f117370610a2204cd04e",
+      "span_id": "f2ee06ed403aa69a",
+      "parent_id": "54a4e6e36e376c7f",
+      "start_ns": 1777154827808522000,
+      "end_ns": 1777154830688194000,
+      "wall_time_ms": 2879.672,
+      "cpu_time_ms": 195.851,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "62a39a420003d10b",
+        "tool.url": "https://en.wikipedia.org/wiki/Orientalism_(book)",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "adfb61c2af82f117370610a2204cd04e",
+      "span_id": "e70ab087852fe370",
+      "parent_id": "54a4e6e36e376c7f",
+      "start_ns": 1777154830688525000,
+      "end_ns": 1777154834144168000,
+      "wall_time_ms": 3455.643,
+      "cpu_time_ms": 194.739,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "b025a395d885b449",
+        "tool.url": "https://www.wikiwand.com/en/Orientalism_(book)",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "adfb61c2af82f117370610a2204cd04e",
+      "span_id": "315d8b167584dc89",
+      "parent_id": "54a4e6e36e376c7f",
+      "start_ns": 1777154834144406000,
+      "end_ns": 1777154835027339000,
+      "wall_time_ms": 882.933,
+      "cpu_time_ms": 114.435,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "c619f615d63236f2",
+        "tool.url": "https://theconversation.com/orientalism-edward-saids-groundbreaking-book-explained-197429",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 8653
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "adfb61c2af82f117370610a2204cd04e",
+      "span_id": "5c0857121f9346fe",
+      "parent_id": "54a4e6e36e376c7f",
+      "start_ns": 1777154835027470000,
+      "end_ns": 1777154837148339000,
+      "wall_time_ms": 2120.869,
+      "cpu_time_ms": 241.991,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "05551a99232f3e8b",
+        "tool.url": "https://www.eaford.org/site/assets/files/1631/said_edward1977_orientalism.pdf",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 2744718
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "adfb61c2af82f117370610a2204cd04e",
+      "span_id": "091ca751dff3f9c8",
+      "parent_id": "54a4e6e36e376c7f",
+      "start_ns": 1777154837148546000,
+      "end_ns": 1777154837293792000,
+      "wall_time_ms": 145.246,
+      "cpu_time_ms": 144.495,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "03e99095071c8da7",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 64,
+        "tool.output_size_bytes": 181
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "adfb61c2af82f117370610a2204cd04e",
+      "span_id": "2460c39d6e8c8fa4",
+      "parent_id": "54a4e6e36e376c7f",
+      "start_ns": 1777154837313016000,
+      "end_ns": 1777154982822264000,
+      "wall_time_ms": 145509.248,
+      "cpu_time_ms": 141599.226,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "30dffc2e6b7b07bb",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 5421,
+        "tool.output_size_bytes": 1097
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "adfb61c2af82f117370610a2204cd04e",
+      "span_id": "745c0796a0c70219",
+      "parent_id": "54a4e6e36e376c7f",
+      "start_ns": 1777154982837723000,
+      "end_ns": 1777154984629285000,
+      "wall_time_ms": 1791.562,
+      "cpu_time_ms": 41.489,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 492,
+        "llm.output_tokens": 73,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

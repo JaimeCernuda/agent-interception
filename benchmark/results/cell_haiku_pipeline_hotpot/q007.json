@@ -1,0 +1,200 @@
+{
+  "trace_id": "4d00cbea9e12d2f470cd6406d7c5207e",
+  "config": "pipeline_haiku_hotpot",
+  "query_id": "q007",
+  "label": "cell_haiku_pipeline_hotpot",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "4d00cbea9e12d2f470cd6406d7c5207e",
+      "span_id": "586c4cc0dcc114c0",
+      "parent_id": null,
+      "start_ns": 1777169854788952000,
+      "end_ns": 1777169871000880000,
+      "wall_time_ms": 16211.928,
+      "cpu_time_ms": 1290.844,
+      "kind": "root",
+      "attrs": {
+        "config": "pipeline_haiku_hotpot",
+        "query_id": "q007",
+        "query_text": "Sian Gibson co-wrote which British sitcom, set around a supermarket and car share scheme?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "4d00cbea9e12d2f470cd6406d7c5207e",
+      "span_id": "dfeb69c9ab895cb5",
+      "parent_id": "586c4cc0dcc114c0",
+      "start_ns": 1777169854789073000,
+      "end_ns": 1777169858669562000,
+      "wall_time_ms": 3880.489,
+      "cpu_time_ms": 56.685,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "d3a4d110c7a6906c",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 536
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "4d00cbea9e12d2f470cd6406d7c5207e",
+      "span_id": "db3616eecf628655",
+      "parent_id": "586c4cc0dcc114c0",
+      "start_ns": 1777169858669729000,
+      "end_ns": 1777169861588466000,
+      "wall_time_ms": 2918.737,
+      "cpu_time_ms": 204.029,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "1d28868315de727c",
+        "tool.url": "https://en.wikipedia.org/wiki/Peter_Kay's_Car_Share",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "4d00cbea9e12d2f470cd6406d7c5207e",
+      "span_id": "efbebc6c07178692",
+      "parent_id": "586c4cc0dcc114c0",
+      "start_ns": 1777169861588761000,
+      "end_ns": 1777169864489707000,
+      "wall_time_ms": 2900.946,
+      "cpu_time_ms": 212.071,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "08621a93d43e23b7",
+        "tool.url": "https://en.wikipedia.org/wiki/Sian_Gibson",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "4d00cbea9e12d2f470cd6406d7c5207e",
+      "span_id": "a5dc92636d913289",
+      "parent_id": "586c4cc0dcc114c0",
+      "start_ns": 1777169864489909000,
+      "end_ns": 1777169865320425000,
+      "wall_time_ms": 830.516,
+      "cpu_time_ms": 91.302,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "c0aa7e989725b4c7",
+        "tool.url": "https://www.imdb.com/title/tt4635922/",
+        "tool.retry_count": 0,
+        "tool.http_status": 202,
+        "tool.output_size_bytes": 157
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "4d00cbea9e12d2f470cd6406d7c5207e",
+      "span_id": "8355bd0fdc971cc0",
+      "parent_id": "586c4cc0dcc114c0",
+      "start_ns": 1777169865320615000,
+      "end_ns": 1777169867506272000,
+      "wall_time_ms": 2185.657,
+      "cpu_time_ms": 459.362,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "801c092cef1fabe5",
+        "tool.url": "https://grokipedia.com/page/Sian_Gibson",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 10839
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "4d00cbea9e12d2f470cd6406d7c5207e",
+      "span_id": "0cd6b1e615039614",
+      "parent_id": "586c4cc0dcc114c0",
+      "start_ns": 1777169867506768000,
+      "end_ns": 1777169867570067000,
+      "wall_time_ms": 63.299,
+      "cpu_time_ms": 59.222,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "ebccbd5922b41e48",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 3,
+        "tool.output_size_bytes": 87
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "4d00cbea9e12d2f470cd6406d7c5207e",
+      "span_id": "cceb26e5ad7d6ff1",
+      "parent_id": "586c4cc0dcc114c0",
+      "start_ns": 1777169867571384000,
+      "end_ns": 1777169867772262000,
+      "wall_time_ms": 200.878,
+      "cpu_time_ms": 187.644,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "64239469f3928a52",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 58,
+        "tool.output_size_bytes": 166
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "4d00cbea9e12d2f470cd6406d7c5207e",
+      "span_id": "b1f7d02a9c8c2cd2",
+      "parent_id": "586c4cc0dcc114c0",
+      "start_ns": 1777169867773741000,
+      "end_ns": 1777169871000786000,
+      "wall_time_ms": 3227.045,
+      "cpu_time_ms": 16.811,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 97,
+        "llm.output_tokens": 121,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

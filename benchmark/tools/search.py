@@ -7,11 +7,12 @@ Three backends, picked by SEARCH_BACKEND env var (default: 'auto'):
                    queries/freshqa_20.json. Deterministic. The paper does this too
                    (see external/cpu-centric-agentic-ai/langchain/orchestrator.py
                    under --skip-web-search).
-  - 'auto'       : Try Google CSE if keys set, else DDG, else static.
+  - 'auto'       : Try Google CSE if keys set, else fall through to DDG (live).
 
-For thesis defensibility, prefer 'static' when measuring latency shape - it removes
-network variance as a confound. Use 'google_cse' or 'ddg' when you specifically want
-to measure live search cost.
+Default backend ('auto' with no Google keys) is 'ddg' so that tool.search spans
+reflect real network wall time. Static lookup produced ~0 ms search timings, which
+made the cost-breakdown figures misleading. 'static' is still fully reachable via
+SEARCH_BACKEND=static for reproducing historical traces in benchmark/traces/py/.
 """
 from __future__ import annotations
 
@@ -65,7 +66,7 @@ def _resolve_backend() -> str:
     # auto
     if os.getenv("GOOGLE_API_KEY") and os.getenv("GOOGLE_CX"):
         return "google_cse"
-    return "static"  # DDG is unreliable enough that we prefer deterministic default
+    return "ddg"  # live search; previously 'static' but that produced ~0 ms timings
 
 
 def _dispatch(

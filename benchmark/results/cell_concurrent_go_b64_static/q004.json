@@ -1,0 +1,160 @@
+{
+  "config": "cell_concurrent_go_b64",
+  "label": "cell_concurrent_go_b64",
+  "query_id": "q004",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 64,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 2,
+        "agent.num_urls_fetched": 2,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b64",
+        "query_id": "q004",
+        "query_text": "Who was the first African American woman to appear on a quarter in the United States?"
+      },
+      "cpu_time_ms": 3089.949,
+      "end_ns": 1777167785212391000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "406f91ce3cc47e7c",
+      "start_ns": 1777167782122442000,
+      "status": "ok",
+      "trace_id": "166e17a5be433f1d2e8c683ba69cb104",
+      "wall_time_ms": 3089.949
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "522a594217841fe6",
+        "tool.name": "static",
+        "tool.num_results": 4,
+        "tool.output_size_bytes": 329,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 0.003,
+      "end_ns": 1777167782122471000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "406f91ce3cc47e7c",
+      "span_id": "66a4a2dd58db9967",
+      "start_ns": 1777167782122468000,
+      "status": "ok",
+      "trace_id": "166e17a5be433f1d2e8c683ba69cb104",
+      "wall_time_ms": 0.003
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "cc0b55e766c2f33b",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 7827,
+        "tool.retry_count": 0,
+        "tool.url": "https://mymodernmet.com/maya-angelou-quarter/"
+      },
+      "cpu_time_ms": 1106.156,
+      "end_ns": 1777167783228644000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "406f91ce3cc47e7c",
+      "span_id": "9190922e09fde29c",
+      "start_ns": 1777167782122487000,
+      "status": "ok",
+      "trace_id": "166e17a5be433f1d2e8c683ba69cb104",
+      "wall_time_ms": 1106.157
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "89988b9086693109",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 6941,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.kqed.org/arts/13907987/maya-angelou-is-the-first-black-woman-to-be-featured-on-a-u-s-quarter"
+      },
+      "cpu_time_ms": 926.585,
+      "end_ns": 1777167784155239000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "406f91ce3cc47e7c",
+      "span_id": "3bc6c2c3e92c0aec",
+      "start_ns": 1777167783228653000,
+      "status": "ok",
+      "trace_id": "166e17a5be433f1d2e8c683ba69cb104",
+      "wall_time_ms": 926.586
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "e97a2d2ab5db642c",
+        "tool.n_sentences_in": 52,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 84,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 4.083,
+      "end_ns": 1777167784159357000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "406f91ce3cc47e7c",
+      "span_id": "bc6a6558766bdaf8",
+      "start_ns": 1777167784155275000,
+      "status": "ok",
+      "trace_id": "166e17a5be433f1d2e8c683ba69cb104",
+      "wall_time_ms": 4.082
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "e2b6f188b3777d57",
+        "tool.n_sentences_in": 55,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 173,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 4.555,
+      "end_ns": 1777167784163947000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "406f91ce3cc47e7c",
+      "span_id": "7b2d8e3f4f404b92",
+      "start_ns": 1777167784159392000,
+      "status": "ok",
+      "trace_id": "166e17a5be433f1d2e8c683ba69cb104",
+      "wall_time_ms": 4.555
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 95,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 56,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1048.395,
+      "end_ns": 1777167785212379000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "406f91ce3cc47e7c",
+      "span_id": "0b1719a656e3841e",
+      "start_ns": 1777167784163985000,
+      "status": "ok",
+      "trace_id": "166e17a5be433f1d2e8c683ba69cb104",
+      "wall_time_ms": 1048.394
+    }
+  ],
+  "trace_id": "166e17a5be433f1d2e8c683ba69cb104"
+}

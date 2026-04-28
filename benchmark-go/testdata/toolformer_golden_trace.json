@@ -1,0 +1,90 @@
+{
+  "trace_id": "61f1ddf6a958f01b2ff9e1855eb519ed",
+  "config": "toolformer_golden",
+  "query_id": "fixture_toolformer_001",
+  "label": null,
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "61f1ddf6a958f01b2ff9e1855eb519ed",
+      "span_id": "20d3c138c0887ea9",
+      "parent_id": null,
+      "start_ns": 1000000000,
+      "end_ns": 3000000000,
+      "wall_time_ms": 2000.0,
+      "cpu_time_ms": 0.003,
+      "kind": "root",
+      "attrs": {
+        "config": "toolformer_golden",
+        "query_id": "fixture_toolformer_001",
+        "query_text": "golden toolformer fixture",
+        "agent.cpu_time_ms": 12.34
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "61f1ddf6a958f01b2ff9e1855eb519ed",
+      "span_id": "d4db1228a36de505",
+      "parent_id": "20d3c138c0887ea9",
+      "start_ns": 1010000000,
+      "end_ns": 1490000000,
+      "wall_time_ms": 480.0,
+      "cpu_time_ms": 0.0004,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 0,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "61f1ddf6a958f01b2ff9e1855eb519ed",
+      "span_id": "aa8198c416d70b3d",
+      "parent_id": "20d3c138c0887ea9",
+      "start_ns": 1500000000,
+      "end_ns": 1500500000,
+      "wall_time_ms": 0.5,
+      "cpu_time_ms": 0.001,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "0000000000000001",
+        "expression": "96 + 88",
+        "result": 184.0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "61f1ddf6a958f01b2ff9e1855eb519ed",
+      "span_id": "e4dd527150b208f4",
+      "parent_id": "20d3c138c0887ea9",
+      "start_ns": 1510000000,
+      "end_ns": 2990000000,
+      "wall_time_ms": 1480.0,
+      "cpu_time_ms": 0.0004,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 1,
+        "llm.has_tool_use": false,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

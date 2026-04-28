@@ -1,0 +1,44 @@
+{
+  "trace_id": "4dcbd6ded43a85cf86648332b2500183",
+  "config": "cell_concurrent_py_hotpot_b64_static",
+  "query_id": "q011",
+  "label": "cell_concurrent_py_hotpot_b64_static",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "4dcbd6ded43a85cf86648332b2500183",
+      "span_id": "0f357c7f7588c7e3",
+      "parent_id": null,
+      "start_ns": 1777183121938537000,
+      "end_ns": 1777183122025858000,
+      "wall_time_ms": 87.321,
+      "cpu_time_ms": 87.122,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b64_static",
+        "query_id": "q011",
+        "query_text": "Which was formed first, Noori or Test Icicles?"
+      },
+      "status": "error",
+      "error": "RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q011. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls()."
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "4dcbd6ded43a85cf86648332b2500183",
+      "span_id": "cfd67e5875c747da",
+      "parent_id": "0f357c7f7588c7e3",
+      "start_ns": 1777183121938700000,
+      "end_ns": 1777183121991296000,
+      "wall_time_ms": 52.596,
+      "cpu_time_ms": 3.221,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "static",
+        "tool.input_hash": "1845919c3578ab5a",
+        "tool.retry_count": 0
+      },
+      "status": "error",
+      "error": "RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q011. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls()."
+    }
+  ]
+}

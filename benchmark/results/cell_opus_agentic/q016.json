@@ -1,0 +1,265 @@
+{
+  "trace_id": "6fa890d0681da985801091d91e658d48",
+  "config": "opus_custom",
+  "query_id": "q016",
+  "label": "cell_opus_custom",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "6fa890d0681da985801091d91e658d48",
+      "span_id": "896dc356298727a5",
+      "parent_id": null,
+      "start_ns": 1777074906372797000,
+      "end_ns": 1777074945320771000,
+      "wall_time_ms": 38947.974,
+      "cpu_time_ms": 796.004,
+      "kind": "root",
+      "attrs": {
+        "config": "opus_custom",
+        "query_id": "q016",
+        "query_text": "The UN Secretary general is from which country?",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.max_turns": 10
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "6fa890d0681da985801091d91e658d48",
+      "span_id": "38ba1dd67cdb8fe6",
+      "parent_id": "896dc356298727a5",
+      "start_ns": 1777074906372897000,
+      "end_ns": 1777074907087759000,
+      "wall_time_ms": 714.862,
+      "cpu_time_ms": 11.715,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 818,
+        "llm.output_tokens": 69,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "6fa890d0681da985801091d91e658d48",
+      "span_id": "cd412397dc8c70ea",
+      "parent_id": "896dc356298727a5",
+      "start_ns": 1777074907088024000,
+      "end_ns": 1777074908263493000,
+      "wall_time_ms": 1175.469,
+      "cpu_time_ms": 28.79,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "2c959b291e0bb86c",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 760
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "6fa890d0681da985801091d91e658d48",
+      "span_id": "c7c0a89d631ee6f5",
+      "parent_id": "896dc356298727a5",
+      "start_ns": 1777074913265100000,
+      "end_ns": 1777074914154887000,
+      "wall_time_ms": 889.787,
+      "cpu_time_ms": 19.623,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1201,
+        "llm.output_tokens": 97,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "6fa890d0681da985801091d91e658d48",
+      "span_id": "f2695f21800a99c2",
+      "parent_id": "896dc356298727a5",
+      "start_ns": 1777074914155139000,
+      "end_ns": 1777074916314844000,
+      "wall_time_ms": 2159.705,
+      "cpu_time_ms": 192.277,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "0b2669d89e3abe9b",
+        "tool.url": "https://en.wikipedia.org/wiki/Ant\u00f3nio_Guterres",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "6fa890d0681da985801091d91e658d48",
+      "span_id": "be9a17c6bfa69318",
+      "parent_id": "896dc356298727a5",
+      "start_ns": 1777074921316754000,
+      "end_ns": 1777074922369882000,
+      "wall_time_ms": 1053.128,
+      "cpu_time_ms": 20.538,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1324,
+        "llm.output_tokens": 73,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "6fa890d0681da985801091d91e658d48",
+      "span_id": "37d8f8df5100be61",
+      "parent_id": "896dc356298727a5",
+      "start_ns": 1777074922370143000,
+      "end_ns": 1777074922842892000,
+      "wall_time_ms": 472.749,
+      "cpu_time_ms": 267.738,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "a4114145fce88e4b",
+        "tool.url": "https://www.un.org/sg/en",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 1168
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "6fa890d0681da985801091d91e658d48",
+      "span_id": "a4b69f356b6f6adb",
+      "parent_id": "896dc356298727a5",
+      "start_ns": 1777074927848379000,
+      "end_ns": 1777074929903306000,
+      "wall_time_ms": 2054.927,
+      "cpu_time_ms": 23.73,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1667,
+        "llm.output_tokens": 89,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "6fa890d0681da985801091d91e658d48",
+      "span_id": "838ee96477c0fbbc",
+      "parent_id": "896dc356298727a5",
+      "start_ns": 1777074929903483000,
+      "end_ns": 1777074932687099000,
+      "wall_time_ms": 2783.616,
+      "cpu_time_ms": 34.908,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "7ad2007dbb3b8272",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 525
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "6fa890d0681da985801091d91e658d48",
+      "span_id": "259c88388d20da6d",
+      "parent_id": "896dc356298727a5",
+      "start_ns": 1777074937687563000,
+      "end_ns": 1777074939055465000,
+      "wall_time_ms": 1367.902,
+      "cpu_time_ms": 22.56,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1980,
+        "llm.output_tokens": 78,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "6fa890d0681da985801091d91e658d48",
+      "span_id": "eb4afbd2fc7bd8c5",
+      "parent_id": "896dc356298727a5",
+      "start_ns": 1777074939055651000,
+      "end_ns": 1777074939429336000,
+      "wall_time_ms": 373.685,
+      "cpu_time_ms": 143.292,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "4b5c98ae63413129",
+        "tool.url": "https://www.britannica.com/biography/Antonio-Guterres",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 3662
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "6fa890d0681da985801091d91e658d48",
+      "span_id": "6e13ba3cc8436493",
+      "parent_id": "896dc356298727a5",
+      "start_ns": 1777074944431667000,
+      "end_ns": 1777074945320654000,
+      "wall_time_ms": 888.987,
+      "cpu_time_ms": 28.385,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 2947,
+        "llm.output_tokens": 75,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "trace_id": "e46aeb64326b2737168210bee5d0ef2b",
+  "config": "cell_concurrent_py_hotpot_b64_static",
+  "query_id": "q008",
+  "label": "cell_concurrent_py_hotpot_b64_static",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "e46aeb64326b2737168210bee5d0ef2b",
+      "span_id": "920dbec46188502e",
+      "parent_id": null,
+      "start_ns": 1777183121940149000,
+      "end_ns": 1777183122060037000,
+      "wall_time_ms": 119.888,
+      "cpu_time_ms": 100.564,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b64_static",
+        "query_id": "q008",
+        "query_text": "What animal does Mahratta Greyhound and Tibetan Spaniel have in common?"
+      },
+      "status": "error",
+      "error": "RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q008. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls()."
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "e46aeb64326b2737168210bee5d0ef2b",
+      "span_id": "fd02082261bfe0f4",
+      "parent_id": "920dbec46188502e",
+      "start_ns": 1777183121940259000,
+      "end_ns": 1777183121981008000,
+      "wall_time_ms": 40.749,
+      "cpu_time_ms": 2.175,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "static",
+        "tool.input_hash": "29afef04581f4869",
+        "tool.retry_count": 0
+      },
+      "status": "error",
+      "error": "RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q008. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls()."
+    }
+  ]
+}

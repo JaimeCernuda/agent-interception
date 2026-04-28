@@ -1,0 +1,160 @@
+{
+  "config": "cell_concurrent_go_b64",
+  "label": "cell_concurrent_go_b64",
+  "query_id": "q014",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 64,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 2,
+        "agent.num_urls_fetched": 2,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b64",
+        "query_id": "q014",
+        "query_text": "Who has the most liked post on Instagram?"
+      },
+      "cpu_time_ms": 4428.832,
+      "end_ns": 1777167786551265000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "dddc2762edab24c8",
+      "start_ns": 1777167782122432000,
+      "status": "ok",
+      "trace_id": "b5c645473b94744d6b43cbadfc041b95",
+      "wall_time_ms": 4428.833
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "7b83fc27dd877193",
+        "tool.name": "static",
+        "tool.num_results": 4,
+        "tool.output_size_bytes": 292,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 0.003,
+      "end_ns": 1777167782122441000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "dddc2762edab24c8",
+      "span_id": "5aa48d3af4406f6b",
+      "start_ns": 1777167782122438000,
+      "status": "ok",
+      "trace_id": "b5c645473b94744d6b43cbadfc041b95",
+      "wall_time_ms": 0.003
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "99dbb1d9070ed3d3",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 12733,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.brandwatch.com/blog/most-liked-pictures-on-instagram/"
+      },
+      "cpu_time_ms": 1630.882,
+      "end_ns": 1777167783753339000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "dddc2762edab24c8",
+      "span_id": "f250fac01699abc0",
+      "start_ns": 1777167782122457000,
+      "status": "ok",
+      "trace_id": "b5c645473b94744d6b43cbadfc041b95",
+      "wall_time_ms": 1630.882
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "89aa30ccdc3132c8",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 6525,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.nbclosangeles.com/entertainment/entertainment-news/most-liked-instagram-post/3770355/"
+      },
+      "cpu_time_ms": 1063.973,
+      "end_ns": 1777167784817322000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "dddc2762edab24c8",
+      "span_id": "8b1fed4e8cb9d14f",
+      "start_ns": 1777167783753349000,
+      "status": "ok",
+      "trace_id": "b5c645473b94744d6b43cbadfc041b95",
+      "wall_time_ms": 1063.973
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "6ee21e8fb4b427fe",
+        "tool.n_sentences_in": 113,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 55,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 8.859,
+      "end_ns": 1777167784826236000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "dddc2762edab24c8",
+      "span_id": "2d36efe762dd72bc",
+      "start_ns": 1777167784817377000,
+      "status": "ok",
+      "trace_id": "b5c645473b94744d6b43cbadfc041b95",
+      "wall_time_ms": 8.859
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "15262711e0f6205f",
+        "tool.n_sentences_in": 54,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 69,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 3.093,
+      "end_ns": 1777167784829362000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "dddc2762edab24c8",
+      "span_id": "a85995711908badf",
+      "start_ns": 1777167784826269000,
+      "status": "ok",
+      "trace_id": "b5c645473b94744d6b43cbadfc041b95",
+      "wall_time_ms": 3.093
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 59,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 90,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1721.86,
+      "end_ns": 1777167786551254000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "dddc2762edab24c8",
+      "span_id": "c65df7f430df7cb7",
+      "start_ns": 1777167784829395000,
+      "status": "ok",
+      "trace_id": "b5c645473b94744d6b43cbadfc041b95",
+      "wall_time_ms": 1721.859
+    }
+  ],
+  "trace_id": "b5c645473b94744d6b43cbadfc041b95"
+}

@@ -1,0 +1,158 @@
+{
+  "trace_id": "359cce41cffc17ae012e67175a283b94",
+  "config": "haiku_custom",
+  "query_id": "q017",
+  "label": "cell_haiku_custom",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "359cce41cffc17ae012e67175a283b94",
+      "span_id": "43da71961877043c",
+      "parent_id": null,
+      "start_ns": 1777073813384944000,
+      "end_ns": 1777073830571341000,
+      "wall_time_ms": 17186.397,
+      "cpu_time_ms": 377.016,
+      "kind": "root",
+      "attrs": {
+        "config": "haiku_custom",
+        "query_id": "q017",
+        "query_text": "What is the total height of the tallest building in the world?",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.max_turns": -1
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "359cce41cffc17ae012e67175a283b94",
+      "span_id": "a5f30131ae7779f1",
+      "parent_id": "43da71961877043c",
+      "start_ns": 1777073813385047000,
+      "end_ns": 1777073814058510000,
+      "wall_time_ms": 673.463,
+      "cpu_time_ms": 9.034,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 823,
+        "llm.output_tokens": 60,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "359cce41cffc17ae012e67175a283b94",
+      "span_id": "95819f5d0a67c94c",
+      "parent_id": "43da71961877043c",
+      "start_ns": 1777073814058690000,
+      "end_ns": 1777073815222303000,
+      "wall_time_ms": 1163.613,
+      "cpu_time_ms": 24.471,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "f6eb8a4d8bfee962",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 668
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "359cce41cffc17ae012e67175a283b94",
+      "span_id": "2c55ca9af6ff726b",
+      "parent_id": "43da71961877043c",
+      "start_ns": 1777073820231230000,
+      "end_ns": 1777073821433249000,
+      "wall_time_ms": 1202.019,
+      "cpu_time_ms": 16.855,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1171,
+        "llm.output_tokens": 142,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "359cce41cffc17ae012e67175a283b94",
+      "span_id": "35f088542f0a417e",
+      "parent_id": "43da71961877043c",
+      "start_ns": 1777073821433442000,
+      "end_ns": 1777073821954798000,
+      "wall_time_ms": 521.356,
+      "cpu_time_ms": 119.891,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "764badf503fd9e6d",
+        "tool.url": "https://www.guinnessworldrecords.com/records/hall-of-fame/burj-khalifa-tallest-building-in-the-world",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 4616
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "359cce41cffc17ae012e67175a283b94",
+      "span_id": "c2418cbb1bc39865",
+      "parent_id": "43da71961877043c",
+      "start_ns": 1777073821954942000,
+      "end_ns": 1777073824099130000,
+      "wall_time_ms": 2144.188,
+      "cpu_time_ms": 188.26,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "3844a2d68d949b09",
+        "tool.url": "https://en.wikipedia.org/wiki/List_of_tallest_buildings",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "359cce41cffc17ae012e67175a283b94",
+      "span_id": "91e336cb10af6e98",
+      "parent_id": "43da71961877043c",
+      "start_ns": 1777073829106672000,
+      "end_ns": 1777073830571236000,
+      "wall_time_ms": 1464.564,
+      "cpu_time_ms": 17.429,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 2647,
+        "llm.output_tokens": 114,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "trace_id": "86d3a889c4032a7e7fcd42b2836aac89",
+  "config": "cell_concurrent_py_hotpot_b16",
+  "query_id": "q001",
+  "label": "cell_concurrent_py_hotpot_b16",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "86d3a889c4032a7e7fcd42b2836aac89",
+      "span_id": "b7844d02f7e444b1",
+      "parent_id": null,
+      "start_ns": 1777183002738316000,
+      "end_ns": 1777183017402950000,
+      "wall_time_ms": 14664.634,
+      "cpu_time_ms": 17975.415,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b16",
+        "query_id": "q001",
+        "query_text": "In which county does the  8th Military Police Brigade  of the United States Army's Barracks located?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 16
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "86d3a889c4032a7e7fcd42b2836aac89",
+      "span_id": "71786dde05eaab0a",
+      "parent_id": "b7844d02f7e444b1",
+      "start_ns": 1777183002738410000,
+      "end_ns": 1777183006632900000,
+      "wall_time_ms": 3894.49,
+      "cpu_time_ms": 1720.095,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "61c232f8d2244b72",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 508
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "86d3a889c4032a7e7fcd42b2836aac89",
+      "span_id": "4e887a2673a0f649",
+      "parent_id": "b7844d02f7e444b1",
+      "start_ns": 1777183006633212000,
+      "end_ns": 1777183010630731000,
+      "wall_time_ms": 3997.519,
+      "cpu_time_ms": 4591.507,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "4e4286a94a0ab79b",
+        "tool.url": "https://en.wikipedia.org/wiki/United_States_Armed_Forces",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "86d3a889c4032a7e7fcd42b2836aac89",
+      "span_id": "31847ab1c504228e",
+      "parent_id": "b7844d02f7e444b1",
+      "start_ns": 1777183010630889000,
+      "end_ns": 1777183013832218000,
+      "wall_time_ms": 3201.329,
+      "cpu_time_ms": 5958.793,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "c4a70259ff326c2f",
+        "tool.url": "https://nigerianqueries.com/nigerian-army-barracks-locations/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 6149
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "86d3a889c4032a7e7fcd42b2836aac89",
+      "span_id": "cf57204a43c80ae5",
+      "parent_id": "b7844d02f7e444b1",
+      "start_ns": 1777183013832359000,
+      "end_ns": 1777183015075196000,
+      "wall_time_ms": 1242.837,
+      "cpu_time_ms": 2398.643,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "fc16b0d6640a7770",
+        "tool.url": "https://www.military-ranks.org/army",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 2431
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "86d3a889c4032a7e7fcd42b2836aac89",
+      "span_id": "6ba00ee339e0e480",
+      "parent_id": "b7844d02f7e444b1",
+      "start_ns": 1777183015075550000,
+      "end_ns": 1777183015235519000,
+      "wall_time_ms": 159.969,
+      "cpu_time_ms": 433.701,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "6a3b752e7fa2afc6",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 55,
+        "tool.output_size_bytes": 108
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "86d3a889c4032a7e7fcd42b2836aac89",
+      "span_id": "e247ea4df99c985f",
+      "parent_id": "b7844d02f7e444b1",
+      "start_ns": 1777183015236413000,
+      "end_ns": 1777183015305553000,
+      "wall_time_ms": 69.14,
+      "cpu_time_ms": 94.318,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "054b13abfdb1d9b7",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 16,
+        "tool.output_size_bytes": 63
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "86d3a889c4032a7e7fcd42b2836aac89",
+      "span_id": "944a175c52614039",
+      "parent_id": "b7844d02f7e444b1",
+      "start_ns": 1777183015306362000,
+      "end_ns": 1777183017402885000,
+      "wall_time_ms": 2096.523,
+      "cpu_time_ms": 2774.122,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 75,
+        "llm.output_tokens": 131,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

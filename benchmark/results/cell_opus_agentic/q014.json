@@ -1,0 +1,158 @@
+{
+  "trace_id": "40263d4f9ccaf05ff0c16244cb0f5c55",
+  "config": "opus_custom",
+  "query_id": "q014",
+  "label": "cell_opus_custom",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "40263d4f9ccaf05ff0c16244cb0f5c55",
+      "span_id": "ea985e27058dc1a6",
+      "parent_id": null,
+      "start_ns": 1777074837906234000,
+      "end_ns": 1777074855273440000,
+      "wall_time_ms": 17367.206,
+      "cpu_time_ms": 486.548,
+      "kind": "root",
+      "attrs": {
+        "config": "opus_custom",
+        "query_id": "q014",
+        "query_text": "Who has the most liked post on Instagram?",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.max_turns": 10
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "40263d4f9ccaf05ff0c16244cb0f5c55",
+      "span_id": "ab0f854458b13ce4",
+      "parent_id": "ea985e27058dc1a6",
+      "start_ns": 1777074837906334000,
+      "end_ns": 1777074838699401000,
+      "wall_time_ms": 793.067,
+      "cpu_time_ms": 11.214,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 818,
+        "llm.output_tokens": 71,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "40263d4f9ccaf05ff0c16244cb0f5c55",
+      "span_id": "3311885f634b9ad6",
+      "parent_id": "ea985e27058dc1a6",
+      "start_ns": 1777074838699607000,
+      "end_ns": 1777074839799806000,
+      "wall_time_ms": 1100.199,
+      "cpu_time_ms": 37.389,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "07ffa8c37cf11e09",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 602
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "40263d4f9ccaf05ff0c16244cb0f5c55",
+      "span_id": "f7b273054dc42522",
+      "parent_id": "ea985e27058dc1a6",
+      "start_ns": 1777074844801239000,
+      "end_ns": 1777074845955220000,
+      "wall_time_ms": 1153.981,
+      "cpu_time_ms": 19.645,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1135,
+        "llm.output_tokens": 144,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "40263d4f9ccaf05ff0c16244cb0f5c55",
+      "span_id": "5ceed454c5c1c96a",
+      "parent_id": "ea985e27058dc1a6",
+      "start_ns": 1777074845955470000,
+      "end_ns": 1777074848106647000,
+      "wall_time_ms": 2151.177,
+      "cpu_time_ms": 197.532,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "0045df7aa174e238",
+        "tool.url": "https://en.wikipedia.org/wiki/List_of_most-liked_Instagram_posts",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "40263d4f9ccaf05ff0c16244cb0f5c55",
+      "span_id": "e3a5ee2bd00b3633",
+      "parent_id": "ea985e27058dc1a6",
+      "start_ns": 1777074848106893000,
+      "end_ns": 1777074848438567000,
+      "wall_time_ms": 331.674,
+      "cpu_time_ms": 195.633,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "1e4ee3e37f71e4ef",
+        "tool.url": "https://www.demandsage.com/instagram-statistics/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 15851
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "40263d4f9ccaf05ff0c16244cb0f5c55",
+      "span_id": "4d94f1d4f968e011",
+      "parent_id": "ea985e27058dc1a6",
+      "start_ns": 1777074853443195000,
+      "end_ns": 1777074855273326000,
+      "wall_time_ms": 1830.131,
+      "cpu_time_ms": 23.807,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 5178,
+        "llm.output_tokens": 98,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

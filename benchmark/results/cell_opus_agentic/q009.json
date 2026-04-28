@@ -1,0 +1,371 @@
+{
+  "trace_id": "d1215557b1c2c88ed0a1da7fc3a6ec83",
+  "config": "opus_custom",
+  "query_id": "q009",
+  "label": "cell_opus_custom",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "d1215557b1c2c88ed0a1da7fc3a6ec83",
+      "span_id": "543c6fe3967d4e77",
+      "parent_id": null,
+      "start_ns": 1777074590001349000,
+      "end_ns": 1777074648318933000,
+      "wall_time_ms": 58317.584,
+      "cpu_time_ms": 1356.214,
+      "kind": "root",
+      "attrs": {
+        "config": "opus_custom",
+        "query_id": "q009",
+        "query_text": "Who is the most recent female recipient of the Fields Medal?",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.max_turns": 10
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "d1215557b1c2c88ed0a1da7fc3a6ec83",
+      "span_id": "9853a9c3a25215e3",
+      "parent_id": "543c6fe3967d4e77",
+      "start_ns": 1777074590001457000,
+      "end_ns": 1777074590635619000,
+      "wall_time_ms": 634.162,
+      "cpu_time_ms": 9.578,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 821,
+        "llm.output_tokens": 75,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "d1215557b1c2c88ed0a1da7fc3a6ec83",
+      "span_id": "bef664c71a5a519e",
+      "parent_id": "543c6fe3967d4e77",
+      "start_ns": 1777074590635805000,
+      "end_ns": 1777074592898245000,
+      "wall_time_ms": 2262.44,
+      "cpu_time_ms": 29.909,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "03f2981778ca8cff",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 754
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "d1215557b1c2c88ed0a1da7fc3a6ec83",
+      "span_id": "92fef96897853087",
+      "parent_id": "543c6fe3967d4e77",
+      "start_ns": 1777074597904156000,
+      "end_ns": 1777074598940469000,
+      "wall_time_ms": 1036.313,
+      "cpu_time_ms": 16.251,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1213,
+        "llm.output_tokens": 83,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "d1215557b1c2c88ed0a1da7fc3a6ec83",
+      "span_id": "c28005069de2a0d2",
+      "parent_id": "543c6fe3967d4e77",
+      "start_ns": 1777074598940713000,
+      "end_ns": 1777074601100854000,
+      "wall_time_ms": 2160.141,
+      "cpu_time_ms": 193.288,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "301e2a4515fcbd3b",
+        "tool.url": "https://en.wikipedia.org/wiki/Fields_Medal",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "d1215557b1c2c88ed0a1da7fc3a6ec83",
+      "span_id": "4f220beb0738ca51",
+      "parent_id": "543c6fe3967d4e77",
+      "start_ns": 1777074606104292000,
+      "end_ns": 1777074607059694000,
+      "wall_time_ms": 955.402,
+      "cpu_time_ms": 19.458,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1322,
+        "llm.output_tokens": 81,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "d1215557b1c2c88ed0a1da7fc3a6ec83",
+      "span_id": "2b35276aa57e07c1",
+      "parent_id": "543c6fe3967d4e77",
+      "start_ns": 1777074607059992000,
+      "end_ns": 1777074608274619000,
+      "wall_time_ms": 1214.627,
+      "cpu_time_ms": 26.912,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "979a04ab3feb1c6a",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 691
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "d1215557b1c2c88ed0a1da7fc3a6ec83",
+      "span_id": "bc6aa86f8e1887f5",
+      "parent_id": "543c6fe3967d4e77",
+      "start_ns": 1777074613276841000,
+      "end_ns": 1777074614635100000,
+      "wall_time_ms": 1358.259,
+      "cpu_time_ms": 21.211,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1697,
+        "llm.output_tokens": 154,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "d1215557b1c2c88ed0a1da7fc3a6ec83",
+      "span_id": "0707b6224917973d",
+      "parent_id": "543c6fe3967d4e77",
+      "start_ns": 1777074614635251000,
+      "end_ns": 1777074618299720000,
+      "wall_time_ms": 3664.469,
+      "cpu_time_ms": 131.052,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "3d8a67b6182926c1",
+        "tool.url": "https://www.mathunion.org/imu-awards/fields-medal/fields-medals-2022",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 1299
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "d1215557b1c2c88ed0a1da7fc3a6ec83",
+      "span_id": "3178d77b887b5206",
+      "parent_id": "543c6fe3967d4e77",
+      "start_ns": 1777074618299907000,
+      "end_ns": 1777074618830202000,
+      "wall_time_ms": 530.295,
+      "cpu_time_ms": 303.215,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "d0a414e5abafd041",
+        "tool.url": "https://www.nature.com/articles/d41586-022-01871-0",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 288
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "d1215557b1c2c88ed0a1da7fc3a6ec83",
+      "span_id": "2e986b4f16a35ef4",
+      "parent_id": "543c6fe3967d4e77",
+      "start_ns": 1777074623837286000,
+      "end_ns": 1777074624888837000,
+      "wall_time_ms": 1051.551,
+      "cpu_time_ms": 21.729,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 2252,
+        "llm.output_tokens": 91,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "d1215557b1c2c88ed0a1da7fc3a6ec83",
+      "span_id": "1c9e74d3a3dfe900",
+      "parent_id": "543c6fe3967d4e77",
+      "start_ns": 1777074624889031000,
+      "end_ns": 1777074626017144000,
+      "wall_time_ms": 1128.113,
+      "cpu_time_ms": 27.926,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "875a838156909a6e",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 767
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "d1215557b1c2c88ed0a1da7fc3a6ec83",
+      "span_id": "d1f5c575fe035311",
+      "parent_id": "543c6fe3967d4e77",
+      "start_ns": 1777074631025963000,
+      "end_ns": 1777074632141336000,
+      "wall_time_ms": 1115.373,
+      "cpu_time_ms": 25.874,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 2670,
+        "llm.output_tokens": 132,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "d1215557b1c2c88ed0a1da7fc3a6ec83",
+      "span_id": "29f7f8d62164b56e",
+      "parent_id": "543c6fe3967d4e77",
+      "start_ns": 1777074632141589000,
+      "end_ns": 1777074634165542000,
+      "wall_time_ms": 2023.953,
+      "cpu_time_ms": 206.428,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "ddcd965593448aa9",
+        "tool.url": "https://www.rfi.fr/en/international-news/20220705-ukrainian-becomes-second-woman-to-win-fields-math-medal",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "d1215557b1c2c88ed0a1da7fc3a6ec83",
+      "span_id": "4d37a7fb5cb49213",
+      "parent_id": "543c6fe3967d4e77",
+      "start_ns": 1777074639165513000,
+      "end_ns": 1777074640256301000,
+      "wall_time_ms": 1090.788,
+      "cpu_time_ms": 30.047,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 2784,
+        "llm.output_tokens": 86,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "d1215557b1c2c88ed0a1da7fc3a6ec83",
+      "span_id": "4d66b598e0b65af2",
+      "parent_id": "543c6fe3967d4e77",
+      "start_ns": 1777074640256546000,
+      "end_ns": 1777074641281731000,
+      "wall_time_ms": 1025.185,
+      "cpu_time_ms": 264.779,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "db0fe683d35fef84",
+        "tool.url": "https://www.quantamagazine.org/ukrainian-mathematician-maryna-viazovska-wins-fields-medal-20220705/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 25891
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "d1215557b1c2c88ed0a1da7fc3a6ec83",
+      "span_id": "e93afc1332540e41",
+      "parent_id": "543c6fe3967d4e77",
+      "start_ns": 1777074646282185000,
+      "end_ns": 1777074648318852000,
+      "wall_time_ms": 2036.667,
+      "cpu_time_ms": 25.539,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 8931,
+        "llm.output_tokens": 157,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

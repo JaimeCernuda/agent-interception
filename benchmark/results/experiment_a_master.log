@@ -1,0 +1,425 @@
+
+==================================================================
+[CELL] py  batch=1  backend=ddg  out=benchmark/results/cell_concurrent_py_b1
+[CELL] start: 2026-04-26T01:28:49Z
+==================================================================
+/Users/anna/Desktop/agent-interception/.venv/lib/python3.13/site-packages/sumy/summarizers/lex_rank.py:167: RuntimeWarning: invalid value encountered in divide
+  next_p /= numpy.linalg.norm(next_p)
+[concurrent_py] label=cell_concurrent_py_b1  queries=20  workers=1  out=benchmark/results/cell_concurrent_py_b1  model=claude-haiku-4-5-20251001  backend=ddg
+[concurrent_py] pre-warming NLTK punkt tokenizer...
+  [q001] ok (14.26s)  answer='# Answer  Based on these summaries, the text does not explicitly state who the f'
+  [q002] ok (16.99s)  answer='# Answer  Based on the summary provided, **Edward Said** wrote the book titled *'
+  [q003] ok ( 8.49s)  answer='# Answer  Based on the summaries provided, **Wuhan** was connected with the earl'
+  [q004] ok ( 9.03s)  answer="I don't have enough information in the provided summaries to answer your questio"
+  [q005] ok (18.19s)  answer='# Answer  Based on the summaries provided, I cannot give you a definitive total '
+  [q006] ok (17.58s)  answer='# Answer  Based on the summaries provided, **Latvia** is mentioned as the latest'
+  [q007] ok (19.28s)  answer="# I cannot answer this question based on the provided text.  The summaries you'v"
+  [q008] ok (21.50s)  answer='# Best-Selling Jazz Album of All Time  Based on the summary provided, **Kind of '
+  [q009] ok (17.40s)  answer='Based on the summary provided, **Maryna Viazovska** is the most recent female re'
+  [q010] ok (11.61s)  answer="I don't have information about Netflix pricing in the summaries provided. The te"
+  [q011] ok (42.66s)  answer='Based on the summaries provided, the youngest age eligible for COVID-19 vaccinat'
+  [q012] ok (35.65s)  answer='# Answer  Based on the summaries provided, I cannot definitively answer which dr'
+  [q013] ok (10.28s)  answer="I cannot answer this question based on the provided text. The summaries you've s"
+  [q014] ok (11.42s)  answer='# Most Liked Post on Instagram  Based on the summary provided, **@kyliejenner** '
+  [q015] ok (10.73s)  answer="I don't have enough information to answer your question based on the provided su"
+  [q016] ok (11.33s)  answer='I cannot answer this question based on the provided summaries. While the text me'
+  [q017] ok (11.21s)  answer='# Answer  Based on the provided summaries, the total height of the tallest build'
+  [q018] ok (11.57s)  answer="I'm unable to answer your question because the content you're trying to referenc"
+  [q019] ok (17.56s)  answer='I cannot answer this question based on the provided information. The summaries a'
+  [q020] ok (10.30s)  answer="I don't have access to any summaries in your message to review. You've provided "
+[concurrent_py] done. 20/20 succeeded, 0 failed.
+
+[summary] cell_concurrent_py_b1  (CONCURRENT_BATCH_SIZE=1)
+  ----------------------------------------------------------------------
+  queries completed         20 / 20
+  batch wall-clock (s)          327.19
+  throughput (q/s)              0.0611
+  median active_latency_ms    12,803.4
+  mean LLM share of active       16.7%
+  mean tool share of active      83.3%
+  total llm.retry_wait               0
+  ----------------------------------------------------------------------
+[CELL] end: 2026-04-26T01:34:21Z
+[sweep] cooling down 10s...
+
+==================================================================
+[CELL] go  batch=1  backend=ddg  out=benchmark/results/cell_concurrent_go_b1
+[CELL] start: 2026-04-26T01:34:31Z
+==================================================================
+[concurrent_go] label=cell_concurrent_go_b1  queries=20  workers=1  out=../benchmark/results/cell_concurrent_go_b1  model=claude-haiku-4-5-20251001  backend=ddg
+  [q001] ok ( 6.01s)  answer="# First Elected Female Governor of Massachusetts  Based on the summaries provide..."
+  [q002] ok ( 6.20s)  answer="Based on the summaries provided, **Edward W. Said** wrote the book titled *Orien..."
+  [q003] ok ( 3.56s)  answer="Based on the summaries provided, **Wuhan** was the city connected with the earli..."
+  [q004] ok ( 4.61s)  answer="Based on the summary provided, **Maya Angelou** was the first African American w..."
+  [q005] ok (16.47s)  answer="I don't have enough information in these text fragments to provide an accurate t..."
+  [q006] ok ( 4.02s)  answer="# Bulgaria  Based on the summary provided, **Bulgaria** became the latest countr..."
+  [q007] ok ( 4.81s)  answer="# The Shortest War in History  Based on the summaries provided, the **Anglo-Zanz..."
+  [q008] ok ( 8.73s)  answer="# I don't have any summaries to review  You've asked me to base my answer on sum..."
+  [q009] ok ( 4.16s)  answer="I cannot answer this question based on the provided text. The summary only lists..."
+  [q010] ok ( 5.86s)  answer="I don't see the specific pricing information in the summaries you provided. The ..."
+  [q011] ok (14.55s)  answer="# COVID-19 Vaccination Eligibility  Based on the summary provided, the **younges..."
+  [q012] ok ( 6.27s)  answer="# Answer  Based on the summaries provided, **The Crown (Season 4)** won the most..."
+  [q013] ok (11.51s)  answer="I cannot determine the current best-selling children's book on Amazon from the t..."
+  [q014] ok ( 3.59s)  answer="Based on the summary provided, **Lionel Messi** has the most liked post on Insta..."
+  [q015] ok ( 7.08s)  answer="I cannot answer this question based on the summaries provided. While the summari..."
+  [q016] ok ( 3.62s)  answer="Based on the summaries provided, **U Thant was from Burma (Myanmar)**.   He serv..."
+  [q017] ok ( 4.98s)  answer="# Answer  Based on the provided summaries, **One World Trade Center has a total ..."
+  [q018] ok ( 5.13s)  answer="I cannot answer whether the Toronto Raptors have a winning record in the latest ..."
+  [q019] ok ( 5.92s)  answer="# Answer  Based on the information provided, **Lionel Messi** posted the most-li..."
+  [q020] ok ( 4.71s)  answer="I don't have enough information in the provided summaries to answer your questio..."
+[concurrent_go] done. 20/20 succeeded, 0 failed.
+
+[summary] cell_concurrent_go_b1  (CONCURRENT_BATCH_SIZE=1)
+  ----------------------------------------------------------------------
+  queries completed         20 / 20
+  batch wall-clock (s)          131.79
+  throughput (q/s)              0.1518
+  ----------------------------------------------------------------------
+  (run `python -m benchmark.analysis.metrics --traces-root benchmark/results --configs cell_concurrent_go_b1`
+   for per-stage breakdown of these traces)
+[CELL] end: 2026-04-26T01:36:44Z
+[sweep] cooling down 10s...
+
+==================================================================
+[CELL] py  batch=4  backend=ddg  out=benchmark/results/cell_concurrent_py_b4
+[CELL] start: 2026-04-26T01:36:54Z
+==================================================================
+/Users/anna/Desktop/agent-interception/.venv/lib/python3.13/site-packages/sumy/summarizers/lex_rank.py:167: RuntimeWarning: invalid value encountered in divide
+  next_p /= numpy.linalg.norm(next_p)
+[concurrent_py] label=cell_concurrent_py_b4  queries=20  workers=4  out=benchmark/results/cell_concurrent_py_b4  model=claude-haiku-4-5-20251001  backend=ddg
+[concurrent_py] pre-warming NLTK punkt tokenizer...
+  [q004] ok (10.04s)  answer="I don't have enough information in the provided summaries to answer your questio"
+  [q003] ok (10.63s)  answer='# Answer  Based on the summaries provided, **Wuhan** is the city connected with '
+  [q001] ok (15.39s)  answer='I can see from these summaries that they reference the election of a female gove'
+  [q002] ok (22.75s)  answer='# Answer  Based on the summaries provided, the author of "Orientalism" is not ex'
+  [q006] ok (15.28s)  answer='Based on the summaries provided, **Latvia** is identified as the country expecte'
+  [q005] ok (19.22s)  answer='# Elon Musk Information  ## Number of Children Based on the summary provided, **'
+  [q007] ok (15.11s)  answer='# The Shortest War in History  Based on these summaries, the **Anglo-Zanzibar Wa'
+  [q009] ok ( 9.06s)  answer='Based on the summaries provided, **Maryam Mirzakhani** is the most recent female'
+  [q008] ok (12.28s)  answer='Based on the text provided, **"Kind of Blue"** by Miles Davis is indicated to be'
+  [q010] ok (11.16s)  answer='Based on the summaries provided, the Netflix Standard plan without ads costs **$'
+  [q011] ok (10.83s)  answer='# Youngest Age Eligible for COVID-19 Vaccination in the United States  Based on '
+  [q012] ok (10.40s)  answer='Based on the provided summaries, I cannot definitively answer which drama series'
+  [q013] ok (13.00s)  answer='I cannot provide a specific answer based on the information given. While the tex'
+  [q014] ok (11.71s)  answer='# Answer  Based on the summaries provided, **@kyliejenner** has the most liked p'
+  [q016] ok ( 9.38s)  answer='I cannot answer this question based on the provided summaries.   The text given '
+  [q015] ok (14.77s)  answer="I don't have enough information to answer your question based on the summaries p"
+  [q017] ok (14.85s)  answer='# Total Height of the Tallest Building in the World  Based on the summary provid'
+  [q020] ok (14.28s)  answer='Based on the summaries provided, I cannot determine the specific month and year '
+  [q019] ok (16.63s)  answer="I don't have any summaries to review in your message. The text you've provided a"
+  [q018] ok (22.85s)  answer='I cannot definitively answer whether the Toronto Raptors have a winning record i'
+[concurrent_py] done. 20/20 succeeded, 0 failed.
+
+[summary] cell_concurrent_py_b4  (CONCURRENT_BATCH_SIZE=4)
+  ----------------------------------------------------------------------
+  queries completed         20 / 20
+  batch wall-clock (s)           74.99
+  throughput (q/s)              0.2667
+  median active_latency_ms    13,582.4
+  mean LLM share of active       16.5%
+  mean tool share of active      83.5%
+  total llm.retry_wait               0
+  ----------------------------------------------------------------------
+[CELL] end: 2026-04-26T01:38:13Z
+[sweep] cooling down 10s...
+
+==================================================================
+[CELL] go  batch=4  backend=ddg  out=benchmark/results/cell_concurrent_go_b4
+[CELL] start: 2026-04-26T01:38:23Z
+==================================================================
+[concurrent_go] label=cell_concurrent_go_b4  queries=20  workers=4  out=../benchmark/results/cell_concurrent_go_b4  model=claude-haiku-4-5-20251001  backend=ddg
+  [q003] ok ( 4.01s)  answer="Based on the summaries provided, **Wuhan** was the city connected with the earli..."
+  [q004] ok ( 4.97s)  answer="Based on the summary provided, **Maya Angelou** was the first African American w..."
+  [q001] ok ( 5.01s)  answer="# First Elected Female Governor of Massachusetts  Based on the summaries provide..."
+  [q002] ok ( 6.10s)  answer="Based on the summaries provided, **Edward Said** wrote the book titled *Oriental..."
+  [q007] ok ( 3.91s)  answer="# The Shortest War in History  Based on the summaries provided, the **Anglo-Zanz..."
+  [q008] ok ( 3.10s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q006] ok ( 4.55s)  answer="Based on the summary provided, **Bulgaria** is set to become the latest country ..."
+  [q009] ok ( 2.95s)  answer="I don't have access to any summaries to review. Could you please provide the sum..."
+  [q005] ok ( 8.49s)  answer="I don't have enough information in the provided summaries to answer how many chi..."
+  [q010] ok ( 3.30s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q011] ok ( 2.97s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q012] ok ( 2.93s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q015] ok ( 3.10s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q014] ok ( 3.21s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q013] ok ( 4.29s)  answer="I don't see any summaries provided in your message. You mentioned \"based on thes..."
+  [q016] ok ( 3.43s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q017] ok ( 3.15s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q018] ok ( 3.11s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q019] ok ( 3.39s)  answer="I don't see any summaries provided in your message that I could analyze to answe..."
+  [q020] ok ( 2.97s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+[concurrent_go] done. 20/20 succeeded, 0 failed.
+
+[summary] cell_concurrent_go_b4  (CONCURRENT_BATCH_SIZE=4)
+  ----------------------------------------------------------------------
+  queries completed         20 / 20
+  batch wall-clock (s)           21.20
+  throughput (q/s)              0.9434
+  ----------------------------------------------------------------------
+  (run `python -m benchmark.analysis.metrics --traces-root benchmark/results --configs cell_concurrent_go_b4`
+   for per-stage breakdown of these traces)
+[CELL] end: 2026-04-26T01:38:45Z
+[sweep] cooling down 10s...
+
+==================================================================
+[CELL] py  batch=16  backend=ddg  out=benchmark/results/cell_concurrent_py_b16
+[CELL] start: 2026-04-26T01:38:55Z
+==================================================================
+/Users/anna/Desktop/agent-interception/.venv/lib/python3.13/site-packages/sumy/summarizers/lex_rank.py:167: RuntimeWarning: invalid value encountered in divide
+  next_p /= numpy.linalg.norm(next_p)
+[concurrent_py] label=cell_concurrent_py_b16  queries=20  workers=16  out=benchmark/results/cell_concurrent_py_b16  model=claude-haiku-4-5-20251001  backend=ddg
+[concurrent_py] pre-warming NLTK punkt tokenizer...
+  [q001] ok ( 9.30s)  answer='# Answer  Based on the summary provided, **Maura Healey** was the first elected '
+  [q003] ok (10.34s)  answer='# Wuhan  Based on the summary provided, **Wuhan** was the city connected with th'
+  [q007] ok (10.34s)  answer='# The Shortest War in History  Based on the summaries provided, **the shortest w'
+  [q005] ok (11.79s)  answer='# Answer  Based on the summaries provided, Elon Musk has **12 living children** '
+  [q016] ok (13.14s)  answer='I cannot answer this question based on the provided summaries. The text discusse'
+  [q012] ok (13.59s)  answer='# Answer  Based on the provided text, I cannot definitively answer which drama s'
+  [q010] ok (13.80s)  answer='Based on the summaries provided, the Netflix Standard plan without ads costs **$'
+  [q013] ok (13.96s)  answer="I cannot answer this question based on the provided summaries. The text you've s"
+  [q004] ok (14.90s)  answer='Based on the summary provided, **Maya Angelou** was the first African American w'
+  [q014] ok (15.31s)  answer="I don't have enough information to answer this question based on the summaries p"
+  [q015] ok (15.52s)  answer="I don't have enough information to answer your question based on the summaries p"
+  [q008] ok (16.43s)  answer='# Best-Selling Jazz Album of All Time  Based on the summary provided, **"Kind of'
+  [q009] ok (16.55s)  answer="I don't have enough information in these summaries to definitively answer who th"
+  [q006] ok (17.33s)  answer='Based on the summaries provided, **Croatia** was the latest country to adopt the'
+  [q002] ok (17.41s)  answer='Based on the summaries provided, **Edward Said** wrote the book titled *Oriental'
+  [q017] ok (11.86s)  answer='# Answer  Based on the summaries provided, the **total height is not specified**'
+  [q018] ok (11.97s)  answer="I don't have access to the summaries you're referring to. It appears your messag"
+  [q019] ok (14.10s)  answer="I don't have access to any summaries in your message that would contain informat"
+  [q020] ok (13.48s)  answer='# Unable to Determine  Based on the summaries provided, I cannot answer this que'
+  [q011] ok (46.14s)  answer='Based on the summaries provided, the youngest age eligible for COVID-19 vaccinat'
+[concurrent_py] done. 20/20 succeeded, 0 failed.
+
+[summary] cell_concurrent_py_b16  (CONCURRENT_BATCH_SIZE=16)
+  ----------------------------------------------------------------------
+  queries completed         20 / 20
+  batch wall-clock (s)           46.15
+  throughput (q/s)              0.4334
+  median active_latency_ms    13,234.8
+  mean LLM share of active       15.0%
+  mean tool share of active      85.0%
+  total llm.retry_wait               0
+  ----------------------------------------------------------------------
+[CELL] end: 2026-04-26T01:39:47Z
+[sweep] cooling down 10s...
+
+==================================================================
+[CELL] go  batch=16  backend=ddg  out=benchmark/results/cell_concurrent_go_b16
+[CELL] start: 2026-04-26T01:39:57Z
+==================================================================
+[concurrent_go] label=cell_concurrent_go_b16  queries=20  workers=16  out=../benchmark/results/cell_concurrent_go_b16  model=claude-haiku-4-5-20251001  backend=ddg
+  [q012] ok ( 2.69s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  429 rate-limited; sleeping 12s before retry 1
+  [q006] ok ( 2.91s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q008] ok ( 2.91s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q009] ok ( 2.92s)  answer="I don't have access to any summaries to review. Could you please share the summa..."
+  [q001] ok ( 2.94s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q002] ok ( 3.03s)  answer="Edward W. Said wrote the book titled *Orientalism*."
+  [q016] ok ( 3.04s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q004] ok ( 3.40s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q011] ok ( 3.43s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q015] ok ( 3.50s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q010] ok ( 3.51s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q014] ok ( 3.59s)  answer="I don't see any summaries attached to your message. Could you please share the s..."
+  [q005] ok ( 3.65s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q013] ok ( 4.79s)  answer="I don't have access to any summaries in your message, and I don't have real-time..."
+  [q007] ok ( 5.33s)  answer="# The Shortest War in History  The **Anglo-Zanzibar War** (August 27-29, 1896) i..."
+  [q018] ok ( 2.95s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q020] ok ( 3.10s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q019] ok ( 3.12s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q017] ok ( 3.39s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q003] ok (16.02s)  answer="I don't see any summaries provided in your message. To answer your question abou..."
+[concurrent_go] done. 20/20 succeeded, 0 failed.
+
+[summary] cell_concurrent_go_b16  (CONCURRENT_BATCH_SIZE=16)
+  ----------------------------------------------------------------------
+  queries completed         20 / 20
+  batch wall-clock (s)           16.02
+  throughput (q/s)              1.2484
+  ----------------------------------------------------------------------
+  (run `python -m benchmark.analysis.metrics --traces-root benchmark/results --configs cell_concurrent_go_b16`
+   for per-stage breakdown of these traces)
+[CELL] end: 2026-04-26T01:40:14Z
+[sweep] cooling down 10s...
+
+==================================================================
+[CELL] py  batch=64  backend=ddg  out=benchmark/results/cell_concurrent_py_b64
+[CELL] start: 2026-04-26T01:40:24Z
+==================================================================
+/Users/anna/Desktop/agent-interception/.venv/lib/python3.13/site-packages/sumy/summarizers/lex_rank.py:167: RuntimeWarning: invalid value encountered in divide
+  next_p /= numpy.linalg.norm(next_p)
+[concurrent_py] label=cell_concurrent_py_b64  queries=20  workers=64  out=benchmark/results/cell_concurrent_py_b64  model=claude-haiku-4-5-20251001  backend=ddg
+[concurrent_py] pre-warming NLTK punkt tokenizer...
+  [q008] ok ( 9.02s)  answer='# Best-Selling Jazz Album of All Time  Based on the summaries provided, **Kind o'
+  [q015] ok (10.29s)  answer='I cannot answer this question based on the provided summaries.   The first summa'
+  [q010] ok (10.40s)  answer="I don't have enough information in the summaries provided to answer your questio"
+  [q005] ok (11.72s)  answer='# Answer  Based on the summaries provided, **Elon Musk has 14 children as of 202'
+  [q007] ok (12.08s)  answer="I don't see any summaries in your message - only YouTube footer text repeated tw"
+  [q009] ok (12.08s)  answer='Based on the summaries provided, **Maryam Mirzakhani** is the most recent female'
+  [q020] ok (12.20s)  answer="I don't have access to any summaries or data in your message. You've only provid"
+  [q003] ok (13.59s)  answer='Based on the summaries provided, **Wuhan** is the city connected with the earlie'
+  [q004] ok (14.08s)  answer='# Answer  Based on the summaries provided, **Maya Angelou** was the first Africa'
+  [q014] ok (15.50s)  answer='# Most Liked Post on Instagram  Based on the information provided, **@kyliejenne'
+  [q018] ok (15.52s)  answer="I don't have access to the summaries you're referring to, as they weren't includ"
+  [q019] ok (16.56s)  answer='Based on the summary provided, **Kylie Jenner** posted the most-liked Instagram '
+  [q013] ok (16.89s)  answer="I cannot answer this question based on the information provided. The text you've"
+  [q011] ok (17.01s)  answer='# Answer  Based on the summary provided, **the youngest age eligible for COVID-1'
+  [q017] ok (18.38s)  answer='# Total Height of the Tallest Building  Based on the summaries provided, the **B'
+  [q001] ok (19.39s)  answer='Based on these summaries, the text does not explicitly state who the first elect'
+  [q002] ok (20.42s)  answer='# Edward Said  Based on the summaries provided, **Edward Said** wrote the book t'
+  [q016] ok (22.02s)  answer='# Answer  Based on the summaries provided, the UN Secretary General is from **Po'
+  [q006] ok (26.98s)  answer='Based on the summaries provided, **Latvia** is mentioned as the country expected'
+  [q012] ok (34.98s)  answer='I cannot definitively answer which drama series won the most recent Primetime Em'
+[concurrent_py] done. 20/20 succeeded, 0 failed.
+
+[summary] cell_concurrent_py_b64  (CONCURRENT_BATCH_SIZE=64)
+  ----------------------------------------------------------------------
+  queries completed         20 / 20
+  batch wall-clock (s)           34.99
+  throughput (q/s)              0.5716
+  median active_latency_ms    14,545.3
+  mean LLM share of active       14.0%
+  mean tool share of active      86.0%
+  total llm.retry_wait               0
+  ----------------------------------------------------------------------
+[CELL] end: 2026-04-26T01:41:03Z
+[sweep] cooling down 10s...
+
+==================================================================
+[CELL] go  batch=64  backend=ddg  out=benchmark/results/cell_concurrent_go_b64
+[CELL] start: 2026-04-26T01:41:13Z
+==================================================================
+[concurrent_go] label=cell_concurrent_go_b64  queries=20  workers=64  out=../benchmark/results/cell_concurrent_go_b64  model=claude-haiku-4-5-20251001  backend=ddg
+  429 rate-limited; sleeping 12s before retry 1
+  429 rate-limited; sleeping 12s before retry 1
+  429 rate-limited; sleeping 12s before retry 1
+  429 rate-limited; sleeping 12s before retry 1
+  429 rate-limited; sleeping 12s before retry 1
+  429 rate-limited; sleeping 12s before retry 1
+  429 rate-limited; sleeping 12s before retry 1
+  429 rate-limited; sleeping 12s before retry 1
+  429 rate-limited; sleeping 12s before retry 1
+  429 rate-limited; sleeping 12s before retry 1
+  429 rate-limited; sleeping 12s before retry 1
+  [q016] ok (37.20s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q006] ok (37.23s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q019] ok (37.24s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q017] ok (37.25s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q012] ok (37.32s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q009] ok (37.33s)  answer="I don't have any summaries provided in your message to review. Could you please ..."
+  [q008] ok (37.33s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q002] ok (37.59s)  answer="# Orientalism  **Edward Said** wrote the book titled *Orientalism*.  The book wa..."
+  [q004] ok (37.99s)  answer="I don't have any summaries to reference in your message. Could you please provid..."
+  429 rate-limited; sleeping 18s before retry 2
+  429 rate-limited; sleeping 18s before retry 2
+  [q014] ok (49.69s)  answer="I don't see any summaries or Instagram data in your message. Could you please sh..."
+  [q007] ok (49.69s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q003] ok (49.89s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q015] ok (49.89s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q005] ok (49.89s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q018] ok (49.89s)  answer="I don't see any summaries provided in your message that I could analyze to answe..."
+  [q010] ok (49.90s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q020] ok (49.97s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q001] ok (50.50s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q011] ok (68.40s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+  [q013] ok (68.73s)  answer="I don't see any summaries provided in your message. Could you please share the s..."
+[concurrent_go] done. 20/20 succeeded, 0 failed.
+
+[summary] cell_concurrent_go_b64  (CONCURRENT_BATCH_SIZE=64)
+  ----------------------------------------------------------------------
+  queries completed         20 / 20
+  batch wall-clock (s)           68.73
+  throughput (q/s)              0.2910
+  ----------------------------------------------------------------------
+  (run `python -m benchmark.analysis.metrics --traces-root benchmark/results --configs cell_concurrent_go_b64`
+   for per-stage breakdown of these traces)
+[CELL] end: 2026-04-26T01:42:23Z
+[sweep] cooling down 10s...
+
+==================================================================
+[CELL] py  batch=64  backend=static  out=benchmark/results/cell_concurrent_py_b64_static
+[CELL] start: 2026-04-26T01:42:33Z
+==================================================================
+/Users/anna/Desktop/agent-interception/.venv/lib/python3.13/site-packages/sumy/summarizers/lex_rank.py:167: RuntimeWarning: invalid value encountered in divide
+  next_p /= numpy.linalg.norm(next_p)
+[concurrent_py] label=cell_concurrent_py_b64  queries=20  workers=64  out=benchmark/results/cell_concurrent_py_b64_static  model=claude-haiku-4-5-20251001  backend=static
+[concurrent_py] pre-warming NLTK punkt tokenizer...
+  [q008] ok ( 6.48s)  answer='# Answer  Based on the summaries provided, **Kind of Blue by Miles Davis** is th'
+  [q020] ok ( 6.74s)  answer="I don't have information in the provided text to answer your question about when"
+  [q004] ok ( 7.08s)  answer='# Maya Angelou  Based on the summaries provided, **Maya Angelou** was the first '
+  [q007] ok ( 7.52s)  answer='# The Shortest War in History  Based on the summaries provided, the shortest war'
+  [q002] ok ( 7.86s)  answer='# Answer  **Edward Said** wrote the book titled *Orientalism*.  According to the'
+  [q016] ok ( 7.94s)  answer='# Answer: (C) Portugal  Based on the information provided in the summaries, **An'
+  [q006] ok ( 7.99s)  answer='Based on the summaries provided, **Bulgaria** became the latest country to adopt'
+  [q017] ok ( 8.19s)  answer="# Total Height of the World's Tallest Building  Based on the summaries provided,"
+  [q015] ok ( 8.21s)  answer="I don't have enough information to answer your question. The text provided only "
+  [q011] ok ( 8.77s)  answer='# Answer  I cannot answer this question based on the provided summaries. The tex'
+  [q003] ok ( 9.54s)  answer='Based on the summaries provided, **Wuhan** is the city connected with the earlie'
+  [q005] ok (10.22s)  answer="I appreciate you sharing these text summaries, but I'm unable to answer your que"
+  [q001] ok (10.33s)  answer='Based on the summary provided, **Maura Healey** was the first elected female Gov'
+  [q018] ok (10.84s)  answer='I cannot definitively answer whether the Toronto Raptors have a winning record i'
+  [q009] ok (11.30s)  answer='# Answer  Based on the provided summaries, **Maryna Viazovska** appears to be th'
+  [q014] ok (11.30s)  answer="I don't have enough information to answer your question about who has the most l"
+  [q012] ok (11.35s)  answer='Based on the summary provided, **Sherlock** won the most recent Primetime Emmy A'
+  [q019] ok (11.50s)  answer="I can't answer this question based on the summaries provided. While the first su"
+  [q010] ok (13.02s)  answer='# Netflix Standard Plan Cost (US)  According to the summary provided, the Netfli'
+  [q013] ok (14.43s)  answer="# I cannot determine the current best-selling children's book on Amazon from thi"
+[concurrent_py] done. 20/20 succeeded, 0 failed.
+
+[summary] cell_concurrent_py_b64  (CONCURRENT_BATCH_SIZE=64)
+  ----------------------------------------------------------------------
+  queries completed         20 / 20
+  batch wall-clock (s)           14.44
+  throughput (q/s)              1.3853
+  median active_latency_ms     8,246.2
+  mean LLM share of active       24.0%
+  mean tool share of active      76.0%
+  total llm.retry_wait               0
+  ----------------------------------------------------------------------
+[CELL] end: 2026-04-26T01:42:51Z
+[sweep] cooling down 10s...
+
+==================================================================
+[CELL] go  batch=64  backend=static  out=benchmark/results/cell_concurrent_go_b64_static
+[CELL] start: 2026-04-26T01:43:01Z
+==================================================================
+[concurrent_go] label=cell_concurrent_go_b64  queries=20  workers=64  out=../benchmark/results/cell_concurrent_go_b64_static  model=claude-haiku-4-5-20251001  backend=static
+  429 rate-limited; sleeping 12s before retry 1
+  429 rate-limited; sleeping 12s before retry 1
+  429 rate-limited; sleeping 12s before retry 1
+  [q002] ok ( 2.76s)  answer="Based on the summaries provided, **Edward Said** wrote the book titled *Oriental..."
+  [q001] ok ( 2.90s)  answer="Based on the summaries provided, **Maura Healey** was the first elected female G..."
+  429 rate-limited; sleeping 12s before retry 1
+  [q003] ok ( 3.01s)  answer="Based on the summary provided, **Wuhan** was the city connected with the earlies..."
+  429 rate-limited; sleeping 12s before retry 1
+  [q004] ok ( 3.09s)  answer="Based on the summaries provided, **Maya Angelou** was the first African American..."
+  [q020] ok ( 3.15s)  answer="I cannot answer this question based on the provided summaries. The summaries you..."
+  [q008] ok ( 3.30s)  answer="I don't see the answer to your question in the text provided. The passage discus..."
+  [q009] ok ( 3.50s)  answer="# Most Recent Female Fields Medal Recipient  Based on the summaries provided, I ..."
+  [q007] ok ( 3.52s)  answer="# The Shortest War in History  Based on the summary provided, **the war in Zanzi..."
+  [q015] ok ( 3.82s)  answer="I cannot definitively answer this question based on the provided summaries.   Wh..."
+  [q011] ok ( 4.43s)  answer="# Answer  Based on the provided summaries, **the specific youngest age eligible ..."
+  [q014] ok ( 4.43s)  answer="I don't have access to the actual summaries or list you're referring to. You've ..."
+  [q010] ok ( 4.43s)  answer="I cannot answer this question based on the provided summaries. While the text me..."
+  [q005] ok ( 4.69s)  answer="# Based on the Summaries Provided  I don't see any summaries included in your me..."
+  [q013] ok ( 5.32s)  answer="I cannot answer this question based on the provided content.   The text you've s..."
+  [q018] ok ( 7.30s)  answer="# Toronto Raptors Winning Record  Based on the summaries provided, **yes, the To..."
+  [q017] ok (16.00s)  answer="I don't have enough information to answer your question. The text snippets you p..."
+  [q012] ok (16.13s)  answer="I cannot provide an answer to your question based on the provided text. The summ..."
+  [q006] ok (16.77s)  answer="I don't have enough information from the provided text to answer your question. ..."
+  [q016] ok (16.77s)  answer="# Current UN Secretary General  Based on the context provided, the document appe..."
+  [q019] ok (16.92s)  answer="I cannot answer this question based on the provided text. While the summaries re..."
+[concurrent_go] done. 20/20 succeeded, 0 failed.
+
+[summary] cell_concurrent_go_b64  (CONCURRENT_BATCH_SIZE=64)
+  ----------------------------------------------------------------------
+  queries completed         20 / 20
+  batch wall-clock (s)           16.92
+  throughput (q/s)              1.1821
+  ----------------------------------------------------------------------
+  (run `python -m benchmark.analysis.metrics --traces-root benchmark/results --configs cell_concurrent_go_b64`
+   for per-stage breakdown of these traces)
+[CELL] end: 2026-04-26T01:43:19Z
+
+[sweep] all 10 cells done at 2026-04-26T01:43:19Z

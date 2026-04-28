@@ -1,0 +1,76 @@
+{
+  "config": "cell_concurrent_go_b16",
+  "label": "cell_concurrent_go_b16",
+  "query_id": "q008",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 16,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 0,
+        "agent.num_urls_fetched": 0,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b16",
+        "query_id": "q008",
+        "query_text": "What is the best-selling jazz album of all time?"
+      },
+      "cpu_time_ms": 2909.401,
+      "end_ns": 1777167601468419000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "24ab9479a83f2907",
+      "start_ns": 1777167598559018000,
+      "status": "ok",
+      "trace_id": "85c6cbd45ca4d8153bc122df17b61689",
+      "wall_time_ms": 2909.401
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "32c28547ed2dceb0",
+        "tool.name": "ddg",
+        "tool.num_results": 0,
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3
+      },
+      "cpu_time_ms": 1454.72,
+      "end_ns": 1777167600013743000,
+      "error": "ddg status 429",
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "24ab9479a83f2907",
+      "span_id": "534fb936f519e7c7",
+      "start_ns": 1777167598559024000,
+      "status": "error",
+      "trace_id": "85c6cbd45ca4d8153bc122df17b61689",
+      "wall_time_ms": 1454.719
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 27,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 54,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1454.478,
+      "end_ns": 1777167601468415000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "24ab9479a83f2907",
+      "span_id": "41873ceaef73c6d0",
+      "start_ns": 1777167600013937000,
+      "status": "ok",
+      "trace_id": "85c6cbd45ca4d8153bc122df17b61689",
+      "wall_time_ms": 1454.478
+    }
+  ],
+  "trace_id": "85c6cbd45ca4d8153bc122df17b61689"
+}

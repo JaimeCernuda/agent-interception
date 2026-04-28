@@ -1,0 +1,222 @@
+{
+  "trace_id": "1c870bb7fa7cefbfc71d2dfa453973bb",
+  "config": "cell_concurrent_py_hotpot_b16",
+  "query_id": "q014",
+  "label": "cell_concurrent_py_hotpot_b16",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "1c870bb7fa7cefbfc71d2dfa453973bb",
+      "span_id": "0a1acb5dcc5a3493",
+      "parent_id": null,
+      "start_ns": 1777183002737968000,
+      "end_ns": 1777183025198229000,
+      "wall_time_ms": 22460.261,
+      "cpu_time_ms": 23760.358,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b16",
+        "query_id": "q014",
+        "query_text": "Who died first, Bryce Courtenay or Juan Carlos Onetti?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 16
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "1c870bb7fa7cefbfc71d2dfa453973bb",
+      "span_id": "cc79f4dd9d1cf086",
+      "parent_id": "0a1acb5dcc5a3493",
+      "start_ns": 1777183002738081000,
+      "end_ns": 1777183009473364000,
+      "wall_time_ms": 6735.283,
+      "cpu_time_ms": 4237.705,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "8d48a0f8069be8b2",
+        "tool.retry_count": 0,
+        "tool.num_results": 7,
+        "tool.output_size_bytes": 482
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "1c870bb7fa7cefbfc71d2dfa453973bb",
+      "span_id": "7f370b710bf35d5c",
+      "parent_id": "0a1acb5dcc5a3493",
+      "start_ns": 1777183009473605000,
+      "end_ns": 1777183012531512000,
+      "wall_time_ms": 3057.907,
+      "cpu_time_ms": 5732.714,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "18464d336eca0969",
+        "tool.url": "https://en.wikipedia.org/wiki/Bryce_Courtenay",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "1c870bb7fa7cefbfc71d2dfa453973bb",
+      "span_id": "251e06dabf3054de",
+      "parent_id": "0a1acb5dcc5a3493",
+      "start_ns": 1777183012531682000,
+      "end_ns": 1777183016562519000,
+      "wall_time_ms": 4030.837,
+      "cpu_time_ms": 6846.333,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "387b19ac82cd74e2",
+        "tool.url": "https://www.legacy.com/obituaries/name/bryce-courtenay-obituary?pid=161195301",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "1c870bb7fa7cefbfc71d2dfa453973bb",
+      "span_id": "b5187e0a614c9f68",
+      "parent_id": "0a1acb5dcc5a3493",
+      "start_ns": 1777183016562640000,
+      "end_ns": 1777183019708809000,
+      "wall_time_ms": 3146.169,
+      "cpu_time_ms": 2650.22,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "43440c19d23a193a",
+        "tool.url": "https://www.nytimes.com/2012/11/24/books/bryce-courtenay-australian-novelist-dies-at-79.html",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "1c870bb7fa7cefbfc71d2dfa453973bb",
+      "span_id": "2e3a14aec8b65505",
+      "parent_id": "0a1acb5dcc5a3493",
+      "start_ns": 1777183019709052000,
+      "end_ns": 1777183020861312000,
+      "wall_time_ms": 1152.26,
+      "cpu_time_ms": 439.142,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "36906d2059e19dbc",
+        "tool.url": "https://www.independent.co.uk/news/people/obituary-juan-carlos-onetti-1419656.html",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 3926
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "1c870bb7fa7cefbfc71d2dfa453973bb",
+      "span_id": "dbb75360c75e8291",
+      "parent_id": "0a1acb5dcc5a3493",
+      "start_ns": 1777183020861458000,
+      "end_ns": 1777183022879423000,
+      "wall_time_ms": 2017.965,
+      "cpu_time_ms": 877.789,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "732da2925d6bed8e",
+        "tool.url": "https://www.abc.net.au/news/2012-11-23/bryce-courtenay/4388240",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 6068
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "1c870bb7fa7cefbfc71d2dfa453973bb",
+      "span_id": "138d66f5dd2ea122",
+      "parent_id": "0a1acb5dcc5a3493",
+      "start_ns": 1777183022879656000,
+      "end_ns": 1777183023016760000,
+      "wall_time_ms": 137.104,
+      "cpu_time_ms": 237.648,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "8a2e4c4938565c48",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 33,
+        "tool.output_size_bytes": 176
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "1c870bb7fa7cefbfc71d2dfa453973bb",
+      "span_id": "358894f5cdb521b0",
+      "parent_id": "0a1acb5dcc5a3493",
+      "start_ns": 1777183023017660000,
+      "end_ns": 1777183023372034000,
+      "wall_time_ms": 354.374,
+      "cpu_time_ms": 556.971,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "6113fc5998644ac1",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 52,
+        "tool.output_size_bytes": 110
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "1c870bb7fa7cefbfc71d2dfa453973bb",
+      "span_id": "26a683ce229f0fb1",
+      "parent_id": "0a1acb5dcc5a3493",
+      "start_ns": 1777183023372903000,
+      "end_ns": 1777183025198147000,
+      "wall_time_ms": 1825.244,
+      "cpu_time_ms": 2171.802,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 120,
+        "llm.output_tokens": 100,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

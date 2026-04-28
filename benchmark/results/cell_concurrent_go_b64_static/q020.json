@@ -1,0 +1,118 @@
+{
+  "config": "cell_concurrent_go_b64",
+  "label": "cell_concurrent_go_b64",
+  "query_id": "q020",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 64,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 1,
+        "agent.num_urls_fetched": 1,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b64",
+        "query_id": "q020",
+        "query_text": "In what month and year was the price of Bitcoin last above $40,000?"
+      },
+      "cpu_time_ms": 3145.382,
+      "end_ns": 1777167785264835000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "52046fc14a29cd81",
+      "start_ns": 1777167782119453000,
+      "status": "ok",
+      "trace_id": "17035e25db4aa067cab86cf58f8b3a71",
+      "wall_time_ms": 3145.382
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "ff58a4e8431fd444",
+        "tool.name": "static",
+        "tool.num_results": 1,
+        "tool.output_size_bytes": 57,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 0.002,
+      "end_ns": 1777167782119471000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "52046fc14a29cd81",
+      "span_id": "c384c136e228654f",
+      "start_ns": 1777167782119469000,
+      "status": "ok",
+      "trace_id": "17035e25db4aa067cab86cf58f8b3a71",
+      "wall_time_ms": 0.002
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "2ff3b0c09565e77c",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 17946,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.bankrate.com/investing/bitcoin-price-history/"
+      },
+      "cpu_time_ms": 1417.077,
+      "end_ns": 1777167783536550000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "52046fc14a29cd81",
+      "span_id": "782fe111254cf880",
+      "start_ns": 1777167782119473000,
+      "status": "ok",
+      "trace_id": "17035e25db4aa067cab86cf58f8b3a71",
+      "wall_time_ms": 1417.077
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "441fda20eb62aaf5",
+        "tool.n_sentences_in": 79,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 478,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 10.125,
+      "end_ns": 1777167783546748000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "52046fc14a29cd81",
+      "span_id": "d750fa2e842b1041",
+      "start_ns": 1777167783536624000,
+      "status": "ok",
+      "trace_id": "17035e25db4aa067cab86cf58f8b3a71",
+      "wall_time_ms": 10.124
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 161,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 78,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1717.796,
+      "end_ns": 1777167785264830000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "52046fc14a29cd81",
+      "span_id": "28f31ba4e848b218",
+      "start_ns": 1777167783547034000,
+      "status": "ok",
+      "trace_id": "17035e25db4aa067cab86cf58f8b3a71",
+      "wall_time_ms": 1717.796
+    }
+  ],
+  "trace_id": "17035e25db4aa067cab86cf58f8b3a71"
+}

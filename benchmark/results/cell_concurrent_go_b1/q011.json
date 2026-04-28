@@ -1,0 +1,223 @@
+{
+  "config": "cell_concurrent_go_b1",
+  "label": "cell_concurrent_go_b1",
+  "query_id": "q011",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 1,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 2,
+        "agent.num_urls_fetched": 2,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b1",
+        "query_id": "q011",
+        "query_text": "What is the youngest age eligible for COVID-19 vaccination in the United States?"
+      },
+      "cpu_time_ms": 14553.013,
+      "end_ns": 1777167351495426000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "e0fa07bb84bed541",
+      "start_ns": 1777167336942413000,
+      "status": "ok",
+      "trace_id": "67bf156c40988c26995ba39488760340",
+      "wall_time_ms": 14553.013
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "bb429540c09dc22d",
+        "tool.name": "ddg",
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 1017,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 902.559,
+      "end_ns": 1777167337844983000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "e0fa07bb84bed541",
+      "span_id": "806cf841979b05ef",
+      "start_ns": 1777167336942425000,
+      "status": "ok",
+      "trace_id": "67bf156c40988c26995ba39488760340",
+      "wall_time_ms": 902.558
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "f04f098f9c2a3265",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 13768,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.cdc.gov/covid/hcp/vaccine-considerations/routine-guidance.html"
+      },
+      "cpu_time_ms": 1273.486,
+      "end_ns": 1777167339118480000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "e0fa07bb84bed541",
+      "span_id": "5c25641f05b33102",
+      "start_ns": 1777167337844995000,
+      "status": "ok",
+      "trace_id": "67bf156c40988c26995ba39488760340",
+      "wall_time_ms": 1273.485
+    },
+    {
+      "attrs": {
+        "tool.http_status": 403,
+        "tool.input_hash": "55aec5e6b3e8077b",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3,
+        "tool.url": "https://publications.aap.org/pediatrics/article/156/5/e2025073924/203222/Recommendations-for-COVID-19-Vaccines-in-Infants"
+      },
+      "cpu_time_ms": 2542.957,
+      "end_ns": 1777167341661449000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "e0fa07bb84bed541",
+      "span_id": "38a9a839f440ddcf",
+      "start_ns": 1777167339118493000,
+      "status": "ok",
+      "trace_id": "67bf156c40988c26995ba39488760340",
+      "wall_time_ms": 2542.956
+    },
+    {
+      "attrs": {
+        "tool.http_status": 403,
+        "tool.input_hash": "8a619a85a13deb36",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3,
+        "tool.url": "https://www.mayoclinic.org/diseases-conditions/coronavirus/in-depth/covid-19-vaccines-for-kids/art-20513332"
+      },
+      "cpu_time_ms": 2276.035,
+      "end_ns": 1777167343937516000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "e0fa07bb84bed541",
+      "span_id": "e77205e9f835cf31",
+      "start_ns": 1777167341661481000,
+      "status": "ok",
+      "trace_id": "67bf156c40988c26995ba39488760340",
+      "wall_time_ms": 2276.035
+    },
+    {
+      "attrs": {
+        "tool.http_status": 403,
+        "tool.input_hash": "22b06c8adfc65b15",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3,
+        "tool.url": "https://www.sciencedirect.com/science/article/pii/S0264410X2400166X"
+      },
+      "cpu_time_ms": 3291.416,
+      "end_ns": 1777167347228951000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "e0fa07bb84bed541",
+      "span_id": "03ad37cc365cd7a2",
+      "start_ns": 1777167343937534000,
+      "status": "ok",
+      "trace_id": "67bf156c40988c26995ba39488760340",
+      "wall_time_ms": 3291.417
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "fcc6cab020d4117d",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 13428,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.pbs.org/newshour/health/who-is-eligible-for-a-covid-shot-what-to-know-about-the-fdas-latest-changes"
+      },
+      "cpu_time_ms": 1862.247,
+      "end_ns": 1777167349091226000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "e0fa07bb84bed541",
+      "span_id": "aa2ce4a51e2017cf",
+      "start_ns": 1777167347228979000,
+      "status": "ok",
+      "trace_id": "67bf156c40988c26995ba39488760340",
+      "wall_time_ms": 1862.247
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "dd8fe05929a8df22",
+        "tool.n_sentences_in": 41,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 970,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 5.661,
+      "end_ns": 1777167349096965000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "e0fa07bb84bed541",
+      "span_id": "da8f2812b1f49a5d",
+      "start_ns": 1777167349091305000,
+      "status": "ok",
+      "trace_id": "67bf156c40988c26995ba39488760340",
+      "wall_time_ms": 5.66
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "8b3eb4306b468282",
+        "tool.n_sentences_in": 86,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 62,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 9.332,
+      "end_ns": 1777167349106352000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "e0fa07bb84bed541",
+      "span_id": "8e4aaffac220e4ae",
+      "start_ns": 1777167349097021000,
+      "status": "ok",
+      "trace_id": "67bf156c40988c26995ba39488760340",
+      "wall_time_ms": 9.331
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 371,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 224,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 2389.002,
+      "end_ns": 1777167351495415000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "e0fa07bb84bed541",
+      "span_id": "fcf7693cf4764125",
+      "start_ns": 1777167349106413000,
+      "status": "ok",
+      "trace_id": "67bf156c40988c26995ba39488760340",
+      "wall_time_ms": 2389.002
+    }
+  ],
+  "trace_id": "67bf156c40988c26995ba39488760340"
+}

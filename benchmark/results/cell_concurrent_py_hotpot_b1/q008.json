@@ -1,0 +1,306 @@
+{
+  "trace_id": "4edf337f20861e7dd9f3b4c3f9fd391a",
+  "config": "cell_concurrent_py_hotpot_b1",
+  "query_id": "q008",
+  "label": "cell_concurrent_py_hotpot_b1",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "4edf337f20861e7dd9f3b4c3f9fd391a",
+      "span_id": "bd23e80c93394020",
+      "parent_id": null,
+      "start_ns": 1777182595587848000,
+      "end_ns": 1777182627013776000,
+      "wall_time_ms": 31425.928,
+      "cpu_time_ms": 2484.69,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b1",
+        "query_id": "q008",
+        "query_text": "What animal does Mahratta Greyhound and Tibetan Spaniel have in common?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 1
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "4edf337f20861e7dd9f3b4c3f9fd391a",
+      "span_id": "23bd7fd18ec976e4",
+      "parent_id": "bd23e80c93394020",
+      "start_ns": 1777182595587971000,
+      "end_ns": 1777182599210209000,
+      "wall_time_ms": 3622.238,
+      "cpu_time_ms": 56.736,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "29afef04581f4869",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 539
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "4edf337f20861e7dd9f3b4c3f9fd391a",
+      "span_id": "e2402e6ef4b69b75",
+      "parent_id": "bd23e80c93394020",
+      "start_ns": 1777182599210346000,
+      "end_ns": 1777182602123770000,
+      "wall_time_ms": 2913.424,
+      "cpu_time_ms": 191.886,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "d01866f6155cd9c9",
+        "tool.url": "https://en.wikipedia.org/wiki/Mahratta_Hound",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "4edf337f20861e7dd9f3b4c3f9fd391a",
+      "span_id": "620cc362622f3644",
+      "parent_id": "bd23e80c93394020",
+      "start_ns": 1777182602124018000,
+      "end_ns": 1777182605008782000,
+      "wall_time_ms": 2884.764,
+      "cpu_time_ms": 201.014,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "b39ac66f43bd5d1a",
+        "tool.url": "https://en.wikipedia.org/wiki/List_of_Tibetan_dog_breeds",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "4edf337f20861e7dd9f3b4c3f9fd391a",
+      "span_id": "7d9464f764f75e6f",
+      "parent_id": "bd23e80c93394020",
+      "start_ns": 1777182605009001000,
+      "end_ns": 1777182607865185000,
+      "wall_time_ms": 2856.184,
+      "cpu_time_ms": 171.691,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "61a7017d8b13d3a1",
+        "tool.url": "https://en.wikipedia.org/wiki/Tibetan_Mastiff",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "4edf337f20861e7dd9f3b4c3f9fd391a",
+      "span_id": "1ffc46047b147bba",
+      "parent_id": "bd23e80c93394020",
+      "start_ns": 1777182607865401000,
+      "end_ns": 1777182610781030000,
+      "wall_time_ms": 2915.629,
+      "cpu_time_ms": 202.725,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "9578bd964518b527",
+        "tool.url": "https://en.wikipedia.org/wiki/Tibetan_spaniel",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "4edf337f20861e7dd9f3b4c3f9fd391a",
+      "span_id": "da49718157f3b0b6",
+      "parent_id": "bd23e80c93394020",
+      "start_ns": 1777182610781370000,
+      "end_ns": 1777182613653788000,
+      "wall_time_ms": 2872.418,
+      "cpu_time_ms": 194.903,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "39514f9bc8ad3b0d",
+        "tool.url": "https://en.wikipedia.org/wiki/Category:Dog_breeds_originating_in_Tibet",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "4edf337f20861e7dd9f3b4c3f9fd391a",
+      "span_id": "89febcf2573cd89b",
+      "parent_id": "bd23e80c93394020",
+      "start_ns": 1777182613654058000,
+      "end_ns": 1777182617109954000,
+      "wall_time_ms": 3455.896,
+      "cpu_time_ms": 203.148,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "35672721979a8a0e",
+        "tool.url": "https://dogell.com/en/dog-breed/mahratta-greyhound",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "4edf337f20861e7dd9f3b4c3f9fd391a",
+      "span_id": "139842de2c15b92f",
+      "parent_id": "bd23e80c93394020",
+      "start_ns": 1777182617110140000,
+      "end_ns": 1777182619324993000,
+      "wall_time_ms": 2214.853,
+      "cpu_time_ms": 104.291,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "11ca48fbcc0b3cd0",
+        "tool.url": "https://factsanddetails.com/china/cat6/sub36/entry-4443.html",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 23499
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "4edf337f20861e7dd9f3b4c3f9fd391a",
+      "span_id": "054c553b7146be7a",
+      "parent_id": "bd23e80c93394020",
+      "start_ns": 1777182619325151000,
+      "end_ns": 1777182622867552000,
+      "wall_time_ms": 3542.401,
+      "cpu_time_ms": 195.598,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "156e4d00981c3e31",
+        "tool.url": "https://articles.hepper.com/tibetan-dog-breeds/",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "4edf337f20861e7dd9f3b4c3f9fd391a",
+      "span_id": "1b6a2d359c6f8cd7",
+      "parent_id": "bd23e80c93394020",
+      "start_ns": 1777182622867730000,
+      "end_ns": 1777182624144921000,
+      "wall_time_ms": 1277.191,
+      "cpu_time_ms": 134.728,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "a3ab23ee5e40a9e8",
+        "tool.url": "https://www.akc.org/expert-advice/dog-breeds/lhasa-apso-history-tibetan-watchdogs/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 6958
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "4edf337f20861e7dd9f3b4c3f9fd391a",
+      "span_id": "41908865414ded7d",
+      "parent_id": "bd23e80c93394020",
+      "start_ns": 1777182624145277000,
+      "end_ns": 1777182624840242000,
+      "wall_time_ms": 694.965,
+      "cpu_time_ms": 692.427,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "ec0b1328e26558c3",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 168,
+        "tool.output_size_bytes": 233
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "4edf337f20861e7dd9f3b4c3f9fd391a",
+      "span_id": "81b15839ffe0136e",
+      "parent_id": "bd23e80c93394020",
+      "start_ns": 1777182624841183000,
+      "end_ns": 1777182624955017000,
+      "wall_time_ms": 113.834,
+      "cpu_time_ms": 113.106,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "97fda7f57a2ca81c",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 57,
+        "tool.output_size_bytes": 103
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "4edf337f20861e7dd9f3b4c3f9fd391a",
+      "span_id": "a3da53b5ba93bd4c",
+      "parent_id": "bd23e80c93394020",
+      "start_ns": 1777182624955900000,
+      "end_ns": 1777182627013626000,
+      "wall_time_ms": 2057.726,
+      "cpu_time_ms": 18.942,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 124,
+        "llm.output_tokens": 101,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

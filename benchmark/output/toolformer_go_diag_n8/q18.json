@@ -1,0 +1,138 @@
+{
+  "config": "toolformer_go",
+  "label": "fractional",
+  "query_id": "q18",
+  "spans": [
+    {
+      "attrs": {
+        "agent.cpu_time_ms": 406.27,
+        "agent.duration_api_ms": 14527,
+        "agent.duration_ms": 14027,
+        "agent.is_error": false,
+        "agent.num_turns": 3,
+        "agent.total_cost_usd": 0.013663250000000002,
+        "agent.truncated": false,
+        "config": "toolformer_go",
+        "query_id": "q18",
+        "query_text": "A water flow restrictor has reduced the flow of water to 2 gallons per minute. This amount is 1 gallon per minute less than 0.6 the original flow rate. Find the original rate in gallons per minute.",
+        "toolformer.category": "fractional"
+      },
+      "cpu_time_ms": 79871.931,
+      "end_ns": 1777405966554911000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "17bc69f4cd33c9d5",
+      "start_ns": 1777405886682980000,
+      "status": "ok",
+      "trace_id": "76f7e0c3e5425e6049f51c59361f20c3",
+      "wall_time_ms": 79871.931
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 0
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777405958122077000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "17bc69f4cd33c9d5",
+      "span_id": "0760ab2ab20472fe",
+      "start_ns": 1777405886706671000,
+      "status": "ok",
+      "trace_id": "76f7e0c3e5425e6049f51c59361f20c3",
+      "wall_time_ms": 71415.406
+    },
+    {
+      "attrs": {
+        "expression": "3 / 0.6",
+        "result": 5,
+        "tool.input_hash": "249468d381c1189a",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.074,
+      "end_ns": 1777405958141182000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "17bc69f4cd33c9d5",
+      "span_id": "b3efcbab5c9b820c",
+      "start_ns": 1777405958141108000,
+      "status": "ok",
+      "trace_id": "76f7e0c3e5425e6049f51c59361f20c3",
+      "wall_time_ms": 0.074
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 1
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777405962960035000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "17bc69f4cd33c9d5",
+      "span_id": "59235bb620703c0a",
+      "start_ns": 1777405958181719000,
+      "status": "ok",
+      "trace_id": "76f7e0c3e5425e6049f51c59361f20c3",
+      "wall_time_ms": 4778.316
+    },
+    {
+      "attrs": {
+        "expression": "2 + 1",
+        "result": 3,
+        "tool.input_hash": "ad6a3bbe835f4f7e",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.037,
+      "end_ns": 1777405962966385000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "17bc69f4cd33c9d5",
+      "span_id": "5c85f1e12bd2ad3a",
+      "start_ns": 1777405962966348000,
+      "status": "ok",
+      "trace_id": "76f7e0c3e5425e6049f51c59361f20c3",
+      "wall_time_ms": 0.037
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 2
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777405965775132000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "17bc69f4cd33c9d5",
+      "span_id": "9e34b407de709ff7",
+      "start_ns": 1777405963007702000,
+      "status": "ok",
+      "trace_id": "76f7e0c3e5425e6049f51c59361f20c3",
+      "wall_time_ms": 2767.43
+    }
+  ],
+  "trace_id": "76f7e0c3e5425e6049f51c59361f20c3"
+}

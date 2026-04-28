@@ -1,0 +1,159 @@
+{
+  "trace_id": "7b5b3fd08ba70fe3c757ac94484294f4",
+  "config": "cell_concurrent_py_b64",
+  "query_id": "q006",
+  "label": "cell_concurrent_py_b64",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "7b5b3fd08ba70fe3c757ac94484294f4",
+      "span_id": "3610980cc7b35e88",
+      "parent_id": null,
+      "start_ns": 1777167757412321000,
+      "end_ns": 1777167764493063000,
+      "wall_time_ms": 7080.742,
+      "cpu_time_ms": 17081.097,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b64",
+        "query_id": "q006",
+        "query_text": "What country became the latest country to adopt the Euro?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 64
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "7b5b3fd08ba70fe3c757ac94484294f4",
+      "span_id": "2cf6bb36ee668dab",
+      "parent_id": "3610980cc7b35e88",
+      "start_ns": 1777167757412481000,
+      "end_ns": 1777167757412548000,
+      "wall_time_ms": 0.067,
+      "cpu_time_ms": 0.82,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "static",
+        "tool.input_hash": "974813d7ec0f4ad6",
+        "tool.retry_count": 0,
+        "tool.num_results": 4,
+        "tool.output_size_bytes": 447
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "7b5b3fd08ba70fe3c757ac94484294f4",
+      "span_id": "7971f1c9143a549e",
+      "parent_id": "3610980cc7b35e88",
+      "start_ns": 1777167757412630000,
+      "end_ns": 1777167760810239000,
+      "wall_time_ms": 3397.609,
+      "cpu_time_ms": 11079.917,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "f20952b1eaf59cf6",
+        "tool.url": "https://www.linkedin.com/posts/european-central-bank_with-bulgaria-becoming-the-21st-country-to-activity-7412796029013692416-_yK8",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 5238
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "7b5b3fd08ba70fe3c757ac94484294f4",
+      "span_id": "74a34e4e98c3a1b6",
+      "parent_id": "3610980cc7b35e88",
+      "start_ns": 1777167760810410000,
+      "end_ns": 1777167762869276000,
+      "wall_time_ms": 2058.866,
+      "cpu_time_ms": 3985.879,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "37dd66bf7eb66863",
+        "tool.url": "https://www.independent.com.mt/articles/2026-01-01/world-news/Bulgaria-becomes-21st-country-to-join-the-euro-deepening-EU-ties-despite-fears-6736286029",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 5971
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "7b5b3fd08ba70fe3c757ac94484294f4",
+      "span_id": "18493aab0d9a4ea9",
+      "parent_id": "3610980cc7b35e88",
+      "start_ns": 1777167762869771000,
+      "end_ns": 1777167762967888000,
+      "wall_time_ms": 98.117,
+      "cpu_time_ms": 117.747,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "7fa37ec016a4bbc1",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 44,
+        "tool.output_size_bytes": 126
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "7b5b3fd08ba70fe3c757ac94484294f4",
+      "span_id": "1f28332edfe80d7a",
+      "parent_id": "3610980cc7b35e88",
+      "start_ns": 1777167762968776000,
+      "end_ns": 1777167763116566000,
+      "wall_time_ms": 147.79,
+      "cpu_time_ms": 162.0,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "ce8ff9b07060b51e",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 40,
+        "tool.output_size_bytes": 191
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "7b5b3fd08ba70fe3c757ac94484294f4",
+      "span_id": "099bbb1194b582ae",
+      "parent_id": "3610980cc7b35e88",
+      "start_ns": 1777167763117739000,
+      "end_ns": 1777167764492998000,
+      "wall_time_ms": 1375.259,
+      "cpu_time_ms": 1730.726,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 96,
+        "llm.output_tokens": 33,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

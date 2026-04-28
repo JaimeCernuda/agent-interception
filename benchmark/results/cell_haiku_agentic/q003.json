@@ -1,0 +1,158 @@
+{
+  "trace_id": "27286d52aba8beecfc9759139fab861e",
+  "config": "haiku_custom",
+  "query_id": "q003",
+  "label": "cell_haiku_custom",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "27286d52aba8beecfc9759139fab861e",
+      "span_id": "4c8499601f65d37d",
+      "parent_id": null,
+      "start_ns": 1777073277412331000,
+      "end_ns": 1777073300053737000,
+      "wall_time_ms": 22641.406,
+      "cpu_time_ms": 593.417,
+      "kind": "root",
+      "attrs": {
+        "config": "haiku_custom",
+        "query_id": "q003",
+        "query_text": "What city was connected with the earliest cases of COVID-19?",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.max_turns": -1
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "27286d52aba8beecfc9759139fab861e",
+      "span_id": "a4bebe9b7e1fe0e4",
+      "parent_id": "4c8499601f65d37d",
+      "start_ns": 1777073277412445000,
+      "end_ns": 1777073278188949000,
+      "wall_time_ms": 776.504,
+      "cpu_time_ms": 11.941,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 822,
+        "llm.output_tokens": 60,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "27286d52aba8beecfc9759139fab861e",
+      "span_id": "7802b1a56b14639a",
+      "parent_id": "4c8499601f65d37d",
+      "start_ns": 1777073278189136000,
+      "end_ns": 1777073280261817000,
+      "wall_time_ms": 2072.681,
+      "cpu_time_ms": 33.817,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "3838c0b9c342d11c",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 811
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "27286d52aba8beecfc9759139fab861e",
+      "span_id": "5d71384ed2f3dcc4",
+      "parent_id": "4c8499601f65d37d",
+      "start_ns": 1777073285263520000,
+      "end_ns": 1777073286690249000,
+      "wall_time_ms": 1426.729,
+      "cpu_time_ms": 16.463,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1236,
+        "llm.output_tokens": 174,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "27286d52aba8beecfc9759139fab861e",
+      "span_id": "590cfb9206717707",
+      "parent_id": "4c8499601f65d37d",
+      "start_ns": 1777073286690520000,
+      "end_ns": 1777073291640714000,
+      "wall_time_ms": 4950.194,
+      "cpu_time_ms": 204.334,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "488fa1a331584543",
+        "tool.url": "https://attheu.utah.edu/facultystaff/scientists-trace-earliest-cases-of-covid-19-to-market-in-wuhan-china/",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "27286d52aba8beecfc9759139fab861e",
+      "span_id": "82e69812b9d160f6",
+      "parent_id": "4c8499601f65d37d",
+      "start_ns": 1777073291640897000,
+      "end_ns": 1777073293415653000,
+      "wall_time_ms": 1774.756,
+      "cpu_time_ms": 310.614,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "ded4c420242be318",
+        "tool.url": "https://www.history.com/this-day-in-history/December-31/wuhan-government-confirms-first-covid-cases",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 3529
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "27286d52aba8beecfc9759139fab861e",
+      "span_id": "a50068c838f58f33",
+      "parent_id": "4c8499601f65d37d",
+      "start_ns": 1777073298416656000,
+      "end_ns": 1777073300053672000,
+      "wall_time_ms": 1637.016,
+      "cpu_time_ms": 15.296,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 2285,
+        "llm.output_tokens": 135,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

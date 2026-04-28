@@ -1,0 +1,158 @@
+{
+  "trace_id": "03fe766076602a8e5594f1147c10eca6",
+  "config": "opus_custom",
+  "query_id": "q008",
+  "label": "cell_opus_custom",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "03fe766076602a8e5594f1147c10eca6",
+      "span_id": "b89bb53d493e88ae",
+      "parent_id": null,
+      "start_ns": 1777074568085799000,
+      "end_ns": 1777074584939661000,
+      "wall_time_ms": 16853.862,
+      "cpu_time_ms": 280.803,
+      "kind": "root",
+      "attrs": {
+        "config": "opus_custom",
+        "query_id": "q008",
+        "query_text": "What is the best-selling jazz album of all time?",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.max_turns": 10
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "03fe766076602a8e5594f1147c10eca6",
+      "span_id": "adfbdd1a31707fe3",
+      "parent_id": "b89bb53d493e88ae",
+      "start_ns": 1777074568085906000,
+      "end_ns": 1777074568743954000,
+      "wall_time_ms": 658.048,
+      "cpu_time_ms": 12.397,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 821,
+        "llm.output_tokens": 61,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "03fe766076602a8e5594f1147c10eca6",
+      "span_id": "28d626bfc3385daa",
+      "parent_id": "b89bb53d493e88ae",
+      "start_ns": 1777074568744229000,
+      "end_ns": 1777074569992093000,
+      "wall_time_ms": 1247.864,
+      "cpu_time_ms": 27.848,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "21df9bf28efb6a61",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 607
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "03fe766076602a8e5594f1147c10eca6",
+      "span_id": "c86a2368b1896586",
+      "parent_id": "b89bb53d493e88ae",
+      "start_ns": 1777074574998623000,
+      "end_ns": 1777074576077609000,
+      "wall_time_ms": 1078.986,
+      "cpu_time_ms": 16.229,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1158,
+        "llm.output_tokens": 143,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "03fe766076602a8e5594f1147c10eca6",
+      "span_id": "64963b8dc80f9c0f",
+      "parent_id": "b89bb53d493e88ae",
+      "start_ns": 1777074576077807000,
+      "end_ns": 1777074576587112000,
+      "wall_time_ms": 509.305,
+      "cpu_time_ms": 112.036,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "8fc0b8fd26f483c0",
+        "tool.url": "https://bestofjazz.org/what-is-the-best-selling-jazz-album-of-all-time/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 5415
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "03fe766076602a8e5594f1147c10eca6",
+      "span_id": "8228460ecd6ea981",
+      "parent_id": "b89bb53d493e88ae",
+      "start_ns": 1777074576587250000,
+      "end_ns": 1777074576979761000,
+      "wall_time_ms": 392.511,
+      "cpu_time_ms": 91.806,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "c0f581a4b5e15a2f",
+        "tool.url": "https://faroutmagazine.co.uk/what-is-the-best-selling-jazz-album/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 3382
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "03fe766076602a8e5594f1147c10eca6",
+      "span_id": "749e0f94c091d662",
+      "parent_id": "b89bb53d493e88ae",
+      "start_ns": 1777074581988527000,
+      "end_ns": 1777074584939559000,
+      "wall_time_ms": 2951.032,
+      "cpu_time_ms": 19.277,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 3691,
+        "llm.output_tokens": 192,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

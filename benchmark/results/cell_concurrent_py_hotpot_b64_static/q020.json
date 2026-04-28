@@ -1,0 +1,44 @@
+{
+  "trace_id": "848ba53220272eae96aa62e6b8517112",
+  "config": "cell_concurrent_py_hotpot_b64_static",
+  "query_id": "q020",
+  "label": "cell_concurrent_py_hotpot_b64_static",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "848ba53220272eae96aa62e6b8517112",
+      "span_id": "4ac9770dcb603432",
+      "parent_id": null,
+      "start_ns": 1777183121959944000,
+      "end_ns": 1777183122017672000,
+      "wall_time_ms": 57.728,
+      "cpu_time_ms": 43.339,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b64_static",
+        "query_id": "q020",
+        "query_text": "Has Entrepreneur had a longer lifespan than Optimize?"
+      },
+      "status": "error",
+      "error": "RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q020. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls()."
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "848ba53220272eae96aa62e6b8517112",
+      "span_id": "333db5bc7bf5233d",
+      "parent_id": "4ac9770dcb603432",
+      "start_ns": 1777183121960053000,
+      "end_ns": 1777183121974066000,
+      "wall_time_ms": 14.013,
+      "cpu_time_ms": 1.061,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "static",
+        "tool.input_hash": "97a68de2ce6f1e07",
+        "tool.retry_count": 0
+      },
+      "status": "error",
+      "error": "RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q020. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls()."
+    }
+  ]
+}

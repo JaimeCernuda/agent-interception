@@ -1,0 +1,200 @@
+{
+  "trace_id": "274d8d6a3e9739957c040bcad7b71852",
+  "config": "pipeline_opus",
+  "query_id": "q012",
+  "label": "cell_opus_pipeline",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "274d8d6a3e9739957c040bcad7b71852",
+      "span_id": "2947f2f73db18414",
+      "parent_id": null,
+      "start_ns": 1777155161950937000,
+      "end_ns": 1777155176126023000,
+      "wall_time_ms": 14175.086,
+      "cpu_time_ms": 1131.732,
+      "kind": "root",
+      "attrs": {
+        "config": "pipeline_opus",
+        "query_id": "q012",
+        "query_text": "Which drama series won the most recent Primetime Emmy Award for Outstanding Drama Series?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "274d8d6a3e9739957c040bcad7b71852",
+      "span_id": "c74cb41d979e52b9",
+      "parent_id": "2947f2f73db18414",
+      "start_ns": 1777155161951058000,
+      "end_ns": 1777155164609177000,
+      "wall_time_ms": 2658.119,
+      "cpu_time_ms": 49.573,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "e4dfccfe8445ac51",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 645
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "274d8d6a3e9739957c040bcad7b71852",
+      "span_id": "8f363117769c4f5a",
+      "parent_id": "2947f2f73db18414",
+      "start_ns": 1777155164609312000,
+      "end_ns": 1777155167541183000,
+      "wall_time_ms": 2931.871,
+      "cpu_time_ms": 191.555,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "efe0b1263278f0fe",
+        "tool.url": "https://en.wikipedia.org/wiki/Primetime_Emmy_Award_for_Outstanding_Drama_Series",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "274d8d6a3e9739957c040bcad7b71852",
+      "span_id": "bcee3292b7c36caa",
+      "parent_id": "2947f2f73db18414",
+      "start_ns": 1777155167541461000,
+      "end_ns": 1777155170416238000,
+      "wall_time_ms": 2874.777,
+      "cpu_time_ms": 197.608,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "d928f85d5734fb22",
+        "tool.url": "https://en.wikipedia.org/wiki/74th_Primetime_Emmy_Awards",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "274d8d6a3e9739957c040bcad7b71852",
+      "span_id": "16f2695fc4f65e55",
+      "parent_id": "2947f2f73db18414",
+      "start_ns": 1777155170416496000,
+      "end_ns": 1777155171235779000,
+      "wall_time_ms": 819.283,
+      "cpu_time_ms": 72.862,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "a256fa25a200fe9d",
+        "tool.url": "https://www.imdb.com/list/ls567931975/",
+        "tool.retry_count": 0,
+        "tool.http_status": 202,
+        "tool.output_size_bytes": 157
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "274d8d6a3e9739957c040bcad7b71852",
+      "span_id": "a902984a1fac97ec",
+      "parent_id": "2947f2f73db18414",
+      "start_ns": 1777155171235960000,
+      "end_ns": 1777155174714716000,
+      "wall_time_ms": 3478.756,
+      "cpu_time_ms": 492.844,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "b5b91a88c42b6546",
+        "tool.url": "https://www.televisionacademy.com/awards/nominees-winners/2025/outstanding-drama-series",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 2200
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "274d8d6a3e9739957c040bcad7b71852",
+      "span_id": "d2bb2607db4a7424",
+      "parent_id": "2947f2f73db18414",
+      "start_ns": 1777155174714873000,
+      "end_ns": 1777155174770958000,
+      "wall_time_ms": 56.085,
+      "cpu_time_ms": 52.398,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "ebccbd5922b41e48",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 3,
+        "tool.output_size_bytes": 87
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "274d8d6a3e9739957c040bcad7b71852",
+      "span_id": "52421aa438687732",
+      "parent_id": "2947f2f73db18414",
+      "start_ns": 1777155174772250000,
+      "end_ns": 1777155174840536000,
+      "wall_time_ms": 68.286,
+      "cpu_time_ms": 62.753,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "bb34519f340584a9",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 1,
+        "tool.output_size_bytes": 2200
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "274d8d6a3e9739957c040bcad7b71852",
+      "span_id": "8354baef76ce0101",
+      "parent_id": "2947f2f73db18414",
+      "start_ns": 1777155174841334000,
+      "end_ns": 1777155176125938000,
+      "wall_time_ms": 1284.604,
+      "cpu_time_ms": 9.371,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 390,
+        "llm.output_tokens": 45,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

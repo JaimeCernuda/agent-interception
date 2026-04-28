@@ -1,0 +1,160 @@
+{
+  "config": "cell_concurrent_go_b1",
+  "label": "cell_concurrent_go_b1",
+  "query_id": "q015",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 1,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 2,
+        "agent.num_urls_fetched": 2,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b1",
+        "query_id": "q015",
+        "query_text": "Who is the vice-chancellor of the largest university by enrollment in the world?"
+      },
+      "cpu_time_ms": 7065.594,
+      "end_ns": 1777167379932993000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "3b47994041ee3c2f",
+      "start_ns": 1777167372867400000,
+      "status": "ok",
+      "trace_id": "e1b515384457f8b52f931abe56d8ccdd",
+      "wall_time_ms": 7065.593
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "69499afd09a35f3c",
+        "tool.name": "ddg",
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 784,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 900.781,
+      "end_ns": 1777167373768194000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "3b47994041ee3c2f",
+      "span_id": "b32c51aa4c98401d",
+      "start_ns": 1777167372867414000,
+      "status": "ok",
+      "trace_id": "e1b515384457f8b52f931abe56d8ccdd",
+      "wall_time_ms": 900.78
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "4789a34fc2fc3685",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 8427,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.unc.edu/posts/2025/07/01/james-orr-named-senior-vice-provost-for-undergraduate-student-success/"
+      },
+      "cpu_time_ms": 1929.123,
+      "end_ns": 1777167375697331000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "3b47994041ee3c2f",
+      "span_id": "35ff3d0afc89f2be",
+      "start_ns": 1777167373768207000,
+      "status": "ok",
+      "trace_id": "e1b515384457f8b52f931abe56d8ccdd",
+      "wall_time_ms": 1929.124
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "55847c1693f11272",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 8722,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.uis.edu/about/leadership"
+      },
+      "cpu_time_ms": 2749.08,
+      "end_ns": 1777167378446434000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "3b47994041ee3c2f",
+      "span_id": "410c7fdb9d427497",
+      "start_ns": 1777167375697355000,
+      "status": "ok",
+      "trace_id": "e1b515384457f8b52f931abe56d8ccdd",
+      "wall_time_ms": 2749.079
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "69f5b63dd6b1ab54",
+        "tool.n_sentences_in": 35,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 283,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 3.604,
+      "end_ns": 1777167378450089000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "3b47994041ee3c2f",
+      "span_id": "c67bc65af058c6bb",
+      "start_ns": 1777167378446485000,
+      "status": "ok",
+      "trace_id": "e1b515384457f8b52f931abe56d8ccdd",
+      "wall_time_ms": 3.604
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "3727fff00efce6a5",
+        "tool.n_sentences_in": 29,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 454,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 2.729,
+      "end_ns": 1777167378452852000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "3b47994041ee3c2f",
+      "span_id": "c52033113b77cda0",
+      "start_ns": 1777167378450124000,
+      "status": "ok",
+      "trace_id": "e1b515384457f8b52f931abe56d8ccdd",
+      "wall_time_ms": 2.728
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 176,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 94,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1480.088,
+      "end_ns": 1777167379932982000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "3b47994041ee3c2f",
+      "span_id": "08eef4d60393c86e",
+      "start_ns": 1777167378452894000,
+      "status": "ok",
+      "trace_id": "e1b515384457f8b52f931abe56d8ccdd",
+      "wall_time_ms": 1480.088
+    }
+  ],
+  "trace_id": "e1b515384457f8b52f931abe56d8ccdd"
+}

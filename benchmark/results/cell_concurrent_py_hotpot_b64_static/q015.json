@@ -1,0 +1,44 @@
+{
+  "trace_id": "9d6f105a7b09aab0c65180d31f36582e",
+  "config": "cell_concurrent_py_hotpot_b64_static",
+  "query_id": "q015",
+  "label": "cell_concurrent_py_hotpot_b64_static",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "9d6f105a7b09aab0c65180d31f36582e",
+      "span_id": "7d8a3dcc9a24aa5d",
+      "parent_id": null,
+      "start_ns": 1777183121929186000,
+      "end_ns": 1777183122044383000,
+      "wall_time_ms": 115.197,
+      "cpu_time_ms": 148.234,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b64_static",
+        "query_id": "q015",
+        "query_text": "Are Denzel Washington and David Hewlett both actors?"
+      },
+      "status": "error",
+      "error": "RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q015. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls()."
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "9d6f105a7b09aab0c65180d31f36582e",
+      "span_id": "d0c97f1414312643",
+      "parent_id": "7d8a3dcc9a24aa5d",
+      "start_ns": 1777183121929570000,
+      "end_ns": 1777183122007367000,
+      "wall_time_ms": 77.797,
+      "cpu_time_ms": 79.891,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "static",
+        "tool.input_hash": "63e25859110ec002",
+        "tool.retry_count": 0
+      },
+      "status": "error",
+      "error": "RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q015. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls()."
+    }
+  ]
+}

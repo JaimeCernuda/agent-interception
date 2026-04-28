@@ -1,0 +1,158 @@
+{
+  "trace_id": "c4f6cdb6cf700a9ccdcf45745cc87f47",
+  "config": "pipeline_opus",
+  "query_id": "q001",
+  "label": "cell_opus_pipeline",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "c4f6cdb6cf700a9ccdcf45745cc87f47",
+      "span_id": "3ecb338845ef7124",
+      "parent_id": null,
+      "start_ns": 1777154807621414000,
+      "end_ns": 1777154819206097000,
+      "wall_time_ms": 11584.683,
+      "cpu_time_ms": 1728.256,
+      "kind": "root",
+      "attrs": {
+        "config": "pipeline_opus",
+        "query_id": "q001",
+        "query_text": "Who was the first elected female Governor of Massachusetts?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "c4f6cdb6cf700a9ccdcf45745cc87f47",
+      "span_id": "56150de48cad1ea8",
+      "parent_id": "3ecb338845ef7124",
+      "start_ns": 1777154807621664000,
+      "end_ns": 1777154813613261000,
+      "wall_time_ms": 5991.597,
+      "cpu_time_ms": 443.379,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "3f3a27b6adccb45c",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 1105
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "c4f6cdb6cf700a9ccdcf45745cc87f47",
+      "span_id": "43bddf05927ee0df",
+      "parent_id": "3ecb338845ef7124",
+      "start_ns": 1777154813613443000,
+      "end_ns": 1777154816173560000,
+      "wall_time_ms": 2560.117,
+      "cpu_time_ms": 728.28,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "0a65be85ee868d3b",
+        "tool.url": "https://bunewsservice.com/watch-maura-healey-elected-as-the-first-female-governor-in-massachusetts/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 323
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "c4f6cdb6cf700a9ccdcf45745cc87f47",
+      "span_id": "0f8f9fdee1eb70dd",
+      "parent_id": "3ecb338845ef7124",
+      "start_ns": 1777154816173754000,
+      "end_ns": 1777154817143843000,
+      "wall_time_ms": 970.089,
+      "cpu_time_ms": 94.668,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "32e1ed7ece86d230",
+        "tool.url": "https://www.npr.org/2022/11/08/1134199246/massachusetts-governor-results-maura-healey",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 1796
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "c4f6cdb6cf700a9ccdcf45745cc87f47",
+      "span_id": "981c3e174850badb",
+      "parent_id": "3ecb338845ef7124",
+      "start_ns": 1777154817528701000,
+      "end_ns": 1777154817662290000,
+      "wall_time_ms": 133.589,
+      "cpu_time_ms": 129.967,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "6aa5cbea2f8ab2d4",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 3,
+        "tool.output_size_bytes": 188
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "c4f6cdb6cf700a9ccdcf45745cc87f47",
+      "span_id": "06db62260efe576e",
+      "parent_id": "3ecb338845ef7124",
+      "start_ns": 1777154817662440000,
+      "end_ns": 1777154817711088000,
+      "wall_time_ms": 48.648,
+      "cpu_time_ms": 48.581,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "d05a8a7f4f5fe480",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 14,
+        "tool.output_size_bytes": 115
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "c4f6cdb6cf700a9ccdcf45745cc87f47",
+      "span_id": "f7cadbaf2dafd24a",
+      "parent_id": "3ecb338845ef7124",
+      "start_ns": 1777154817711757000,
+      "end_ns": 1777154819205971000,
+      "wall_time_ms": 1494.214,
+      "cpu_time_ms": 13.389,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 97,
+        "llm.output_tokens": 46,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "points": [
+    {
+      "mode": "go",
+      "N": 1,
+      "dir": "go_n1",
+      "summary_path": "/Users/anna/Desktop/agent-interception/benchmark/output/sweep/go_n1/summary.json"
+    },
+    {
+      "mode": "go",
+      "N": 2,
+      "dir": "go_n2",
+      "summary_path": "/Users/anna/Desktop/agent-interception/benchmark/output/sweep/go_n2/summary.json"
+    },
+    {
+      "mode": "go",
+      "N": 4,
+      "dir": "go_n4",
+      "summary_path": "/Users/anna/Desktop/agent-interception/benchmark/output/sweep/go_n4/summary.json"
+    },
+    {
+      "mode": "go",
+      "N": 8,
+      "dir": "go_n8",
+      "summary_path": "/Users/anna/Desktop/agent-interception/benchmark/output/sweep/go_n8/summary.json"
+    },
+    {
+      "mode": "go",
+      "N": 16,
+      "dir": "go_n16",
+      "summary_path": "/Users/anna/Desktop/agent-interception/benchmark/output/sweep/go_n16/summary.json"
+    },
+    {
+      "mode": "py-mp",
+      "N": 1,
+      "dir": "py-mp_n1",
+      "summary_path": "/Users/anna/Desktop/agent-interception/benchmark/output/sweep/py-mp_n1/summary.json"
+    },
+    {
+      "mode": "py-mp",
+      "N": 2,
+      "dir": "py-mp_n2",
+      "summary_path": "/Users/anna/Desktop/agent-interception/benchmark/output/sweep/py-mp_n2/summary.json"
+    },
+    {
+      "mode": "py-mp",
+      "N": 4,
+      "dir": "py-mp_n4",
+      "summary_path": "/Users/anna/Desktop/agent-interception/benchmark/output/sweep/py-mp_n4/summary.json"
+    },
+    {
+      "mode": "py-mp",
+      "N": 8,
+      "dir": "py-mp_n8",
+      "summary_path": "/Users/anna/Desktop/agent-interception/benchmark/output/sweep/py-mp_n8/summary.json"
+    },
+    {
+      "mode": "py-mt",
+      "N": 1,
+      "dir": "py-mt_n1",
+      "summary_path": "/Users/anna/Desktop/agent-interception/benchmark/output/sweep/py-mt_n1/summary.json"
+    },
+    {
+      "mode": "py-mt",
+      "N": 2,
+      "dir": "py-mt_n2",
+      "summary_path": "/Users/anna/Desktop/agent-interception/benchmark/output/sweep/py-mt_n2/summary.json"
+    },
+    {
+      "mode": "py-mt",
+      "N": 4,
+      "dir": "py-mt_n4",
+      "summary_path": "/Users/anna/Desktop/agent-interception/benchmark/output/sweep/py-mt_n4/summary.json"
+    },
+    {
+      "mode": "py-mt",
+      "N": 8,
+      "dir": "py-mt_n8",
+      "summary_path": "/Users/anna/Desktop/agent-interception/benchmark/output/sweep/py-mt_n8/summary.json"
+    },
+    {
+      "mode": "py-mt",
+      "N": 16,
+      "dir": "py-mt_n16",
+      "summary_path": "/Users/anna/Desktop/agent-interception/benchmark/output/sweep/py-mt_n16/summary.json"
+    }
+  ]
+}

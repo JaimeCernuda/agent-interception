@@ -1,0 +1,181 @@
+{
+  "config": "cell_concurrent_go_b1",
+  "label": "cell_concurrent_go_b1",
+  "query_id": "q013",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 1,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 2,
+        "agent.num_urls_fetched": 2,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b1",
+        "query_id": "q013",
+        "query_text": "What is the current best-selling children's book on Amazon?"
+      },
+      "cpu_time_ms": 11512.514,
+      "end_ns": 1777167369279867000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "cd561b1b4672ce0c",
+      "start_ns": 1777167357767353000,
+      "status": "ok",
+      "trace_id": "bcac62c2cc835d069dff5ddabd57e60c",
+      "wall_time_ms": 11512.514
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "1ba8429a5dfdc500",
+        "tool.name": "ddg",
+        "tool.num_results": 9,
+        "tool.output_size_bytes": 1799,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 1195.817,
+      "end_ns": 1777167358963189000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "cd561b1b4672ce0c",
+      "span_id": "6d1149bb06409312",
+      "start_ns": 1777167357767373000,
+      "status": "ok",
+      "trace_id": "bcac62c2cc835d069dff5ddabd57e60c",
+      "wall_time_ms": 1195.816
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "379e70f64528c9d8",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 18853,
+        "tool.retry_count": 0,
+        "tool.url": "https://duckduckgo.com/y.js?ad_domain=amazon.es\u0026amp;ad_provider=bingv7aa\u0026amp;ad_type=txad\u0026amp;click_metadata=8xFyxKf7arfLWuxguMAgDs2JSOj_fTZVJOGs_i5ndzFr0KUe3UwYLYo32yMA7kxst744YRCqH341wFO1x3SirsayumCzJPG9NXMjdBQauTCp%2DT2OaZN_SOB7fEBalwZ2nnnRyCfvbTj9mD2jvgf8JabZrYbBc%2DwY0AjEnE%2D7r08.QWdTcE_M568m3Wm99JcKVQ\u0026amp;rut=b10aea7dd331a68e8db8a44751b03ec65050d0dde1bb6e33a0cdabab50687b75\u0026amp;u3=https%3A%2F%2Fwww.bing.com%2Faclick%3Fld%3De8mXkjTt%2D3oSSdD%2Dq_4K3zcjVUCUz8IfPyIze2%2Do4DmUtuDiBD5tSkFcrzYWYSYZJSzDwAKop7Wx2Sd0hmUeucXDQeHh7lLe2ksAOnIpl309aWdxpiH6on76LynNqo1ZOPbWsTYfZ009yFbn%2D7C2gw4lVh5c4waH27n_kfAQlEnGtsR_cfsnE6FK3H7d3sdd_5g7X2Vz8lMKee_Ccu%2DS6rABCUK8s%26u%3DaHR0cHMlM2ElMmYlMmZ3d3cuYW1hem9uLmVzJTJmYiUyZiUzZmllJTNkVVRGOCUyNm5vZGUlM2Q1OTkzNjQwMzElMjZ0YWclM2RiaW5nYW1hem9uZXN0LTIxJTI2aHZhZGlkJTNkJTI2aHZwb3MlM2QlMjZodmV4aWQlM2QlN2JhY2VpZCU3ZCUyNmh2bmV0dyUzZHMlMjZodnJhbmQlM2QlMjZodnBvbmUlM2QlMjZodnB0d28lM2QlMjZodnFtdCUzZHAlMjZodmRldiUzZGMlMjZyZWYlM2RwZF9zbF84am5wN3puMG1jX3AlMjZtc2Nsa2lkJTNkNDZlODU1NTY0YjE0MTk0ZWMyZDEzY2JiMjBlYTNkNzE%26rlid%3D46e855564b14194ec2d13cbb20ea3d71\u0026amp;vqd=4-259408697773554182717359488092516011286\u0026amp;iurl=%7B1%7DIG%3D1312758CAE9A429298ADD50E08883865%26CID%3D3D51537FBF2C640B0B494438BE0A6585%26ID%3DDevEx%2C5045.1"
+      },
+      "cpu_time_ms": 3114.324,
+      "end_ns": 1777167362077533000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "cd561b1b4672ce0c",
+      "span_id": "a4f0c96a4d2dc711",
+      "start_ns": 1777167358963210000,
+      "status": "ok",
+      "trace_id": "bcac62c2cc835d069dff5ddabd57e60c",
+      "wall_time_ms": 3114.323
+    },
+    {
+      "attrs": {
+        "tool.http_status": 404,
+        "tool.input_hash": "ddbf5b791579f5f4",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3,
+        "tool.url": "https://www.amazon.com/Best-Sellers-Children\u0026#39;s-Books/zgbs/books/4"
+      },
+      "cpu_time_ms": 3277.288,
+      "end_ns": 1777167365354835000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "cd561b1b4672ce0c",
+      "span_id": "77bb43ab41a289b7",
+      "start_ns": 1777167362077547000,
+      "status": "ok",
+      "trace_id": "bcac62c2cc835d069dff5ddabd57e60c",
+      "wall_time_ms": 3277.288
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "4c46f3802f6332cc",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 1968,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.nytimes.com/books/best-sellers/childrens-/"
+      },
+      "cpu_time_ms": 1574.13,
+      "end_ns": 1777167366929010000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "cd561b1b4672ce0c",
+      "span_id": "44fc445569d74dd0",
+      "start_ns": 1777167365354881000,
+      "status": "ok",
+      "trace_id": "bcac62c2cc835d069dff5ddabd57e60c",
+      "wall_time_ms": 1574.129
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "80411ce08dd82922",
+        "tool.n_sentences_in": 93,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 104,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 11.804,
+      "end_ns": 1777167366940891000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "cd561b1b4672ce0c",
+      "span_id": "c241e9bb527fae98",
+      "start_ns": 1777167366929087000,
+      "status": "ok",
+      "trace_id": "bcac62c2cc835d069dff5ddabd57e60c",
+      "wall_time_ms": 11.804
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "f498c7b480eae8a2",
+        "tool.n_sentences_in": 4,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 84,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 0.467,
+      "end_ns": 1777167366941375000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "cd561b1b4672ce0c",
+      "span_id": "96e1d215616cd3ab",
+      "start_ns": 1777167366940909000,
+      "status": "ok",
+      "trace_id": "bcac62c2cc835d069dff5ddabd57e60c",
+      "wall_time_ms": 0.466
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 98,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 162,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 2338.435,
+      "end_ns": 1777167369279855000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "cd561b1b4672ce0c",
+      "span_id": "d256a4b0039d9fda",
+      "start_ns": 1777167366941420000,
+      "status": "ok",
+      "trace_id": "bcac62c2cc835d069dff5ddabd57e60c",
+      "wall_time_ms": 2338.435
+    }
+  ],
+  "trace_id": "bcac62c2cc835d069dff5ddabd57e60c"
+}

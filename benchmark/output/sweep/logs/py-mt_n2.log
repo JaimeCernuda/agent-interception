@@ -1,0 +1,31 @@
+Fatal error in message reader: Command failed with exit code 1 (exit code: 1)
+Error output: Check stderr output for details
+[00:52:10] SMILES Parse Error: extra open parentheses while parsing: CCC1C(C(C(C(=O)C(CC(C(C(C(C(C(=O)O1)C)OC2CC(C(C(O2)C)O)(C)OC)C)OC3C(C(C(CC(O3)C)N(C)C)O)(C)O)C)C)O)(C)O
+[00:52:10] SMILES Parse Error: check for mistakes around position 6:
+[00:52:10] CCC1C(C(C(C(=O)C(CC(C(C(C(C(C(=O)O1)C)OC2
+[00:52:10] ~~~~~^
+[00:52:10] SMILES Parse Error: Failed parsing SMILES 'CCC1C(C(C(C(=O)C(CC(C(C(C(C(C(=O)O1)C)OC2CC(C(C(O2)C)O)(C)OC)C)OC3C(C(C(CC(O3)C)N(C)C)O)(C)O)C)C)O)(C)O' for input: 'CCC1C(C(C(C(=O)C(CC(C(C(C(C(C(=O)O1)C)OC2CC(C(C(O2)C)O)(C)OC)C)OC3C(C(C(CC(O3)C)N(C)C)O)(C)O)C)C)O)(C)O'
+[00:52:10] SMILES Parse Error: extra open parentheses while parsing: CCC1C(C(C(C(=O)C(CC(C(C(C(C(C(=O)O1)C)OC2CC(C(C(O2)C)O)(C)OC)C)OC3C(C(C(CC(O3)C)N(C)C)O)(C)O)C)C)O)(C)O
+[00:52:10] SMILES Parse Error: check for mistakes around position 6:
+[00:52:10] CCC1C(C(C(C(=O)C(CC(C(C(C(C(C(=O)O1)C)OC2
+[00:52:10] ~~~~~^
+[00:52:10] SMILES Parse Error: Failed parsing SMILES 'CCC1C(C(C(C(=O)C(CC(C(C(C(C(C(=O)O1)C)OC2CC(C(C(O2)C)O)(C)OC)C)OC3C(C(C(CC(O3)C)N(C)C)O)(C)O)C)C)O)(C)O' for input: 'CCC1C(C(C(C(=O)C(CC(C(C(C(C(C(=O)O1)C)OC2CC(C(C(O2)C)O)(C)OC)C)OC3C(C(C(CC(O3)C)N(C)C)O)(C)O)C)C)O)(C)O'
+[00:52:30] SMILES Parse Error: extra open parentheses while parsing: CC1C=CC=CC=CC=CC=CC=CC=CC(CC2C(C(CC(O2)(CC(CC(C(CCC(CC(CC(=O)OC(C(C1O)C)C)O)O)O)O)O)O)O)C(=O)O)OC3C(C(C(C(C(O3)C)O)N)O
+[00:52:30] SMILES Parse Error: check for mistakes around position 100:
+[00:52:30] )O)O)O)O)C(=O)O)OC3C(C(C(C(C(O3)C)O)N)O
+[00:52:30] ~~~~~~~~~~~~~~~~~~~~^
+[00:52:30] SMILES Parse Error: Failed parsing SMILES 'CC1C=CC=CC=CC=CC=CC=CC=CC(CC2C(C(CC(O2)(CC(CC(C(CCC(CC(CC(=O)OC(C(C1O)C)C)O)O)O)O)O)O)O)C(=O)O)OC3C(C(C(C(C(O3)C)O)N)O' for input: 'CC1C=CC=CC=CC=CC=CC=CC=CC(CC2C(C(CC(O2)(CC(CC(C(CCC(CC(CC(=O)OC(C(C1O)C)C)O)O)O)O)O)O)O)C(=O)O)OC3C(C(C(C(C(O3)C)O)N)O'
+[sweep] mode=py-mt Ns=[2] runs=3 warmup=4 out=/Users/anna/Desktop/agent-interception/benchmark/output/sweep
+[sweep] cold-start probe (py-mt, N=1, 1 query, fresh process)
+[sweep]   cold_start_ms = 19354.1
+[sweep] warmup: 4 queries at N=2
+[sweep] measured run 1/3 (mode=py-mt, N=2, queries=20)
+[py-mt] q019 FAIL: Exception: Command failed with exit code 1 (exit code: 1)
+Error output: Check stderr output for details
+[sweep]   wallclock_ms=156481.0 failures=1/20
+[sweep] measured run 2/3 (mode=py-mt, N=2, queries=20)
+[sweep]   wallclock_ms=162486.2 failures=0/20
+[sweep] measured run 3/3 (mode=py-mt, N=2, queries=20)
+[sweep]   wallclock_ms=159743.8 failures=0/20
+[sweep] wrote /Users/anna/Desktop/agent-interception/benchmark/output/sweep/py-mt_n2/summary.json
+[sweep] done in 528.7s

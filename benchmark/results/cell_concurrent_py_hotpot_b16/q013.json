@@ -1,0 +1,180 @@
+{
+  "trace_id": "2006d43b314c522d8a05cf696864c78a",
+  "config": "cell_concurrent_py_hotpot_b16",
+  "query_id": "q013",
+  "label": "cell_concurrent_py_hotpot_b16",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "2006d43b314c522d8a05cf696864c78a",
+      "span_id": "6da49560524f420c",
+      "parent_id": null,
+      "start_ns": 1777183002738808000,
+      "end_ns": 1777183014350802000,
+      "wall_time_ms": 11611.994,
+      "cpu_time_ms": 13516.102,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b16",
+        "query_id": "q013",
+        "query_text": "Which band released more albums, Forest for the Trees or Jon Spencer Blues Explosion?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 16
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "2006d43b314c522d8a05cf696864c78a",
+      "span_id": "d1b6f9f8e78d23b4",
+      "parent_id": "6da49560524f420c",
+      "start_ns": 1777183002738910000,
+      "end_ns": 1777183005215575000,
+      "wall_time_ms": 2476.665,
+      "cpu_time_ms": 826.96,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "997da34d1c2c2a68",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 544
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "2006d43b314c522d8a05cf696864c78a",
+      "span_id": "693095b743d1badd",
+      "parent_id": "6da49560524f420c",
+      "start_ns": 1777183005215754000,
+      "end_ns": 1777183008148493000,
+      "wall_time_ms": 2932.739,
+      "cpu_time_ms": 1922.175,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "f9cee992f47d0a1b",
+        "tool.url": "https://en.wikipedia.org/wiki/The_Jon_Spencer_Blues_Explosion",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "2006d43b314c522d8a05cf696864c78a",
+      "span_id": "a6344f0a255af50b",
+      "parent_id": "6da49560524f420c",
+      "start_ns": 1777183008148628000,
+      "end_ns": 1777183009858853000,
+      "wall_time_ms": 1710.225,
+      "cpu_time_ms": 2179.869,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "d003c4e4378a9fa3",
+        "tool.url": "https://www.youtube.com/watch?v=z2vmN0Zdsoc",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 173
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "2006d43b314c522d8a05cf696864c78a",
+      "span_id": "071b869cd166c474",
+      "parent_id": "6da49560524f420c",
+      "start_ns": 1777183009858994000,
+      "end_ns": 1777183011823991000,
+      "wall_time_ms": 1964.997,
+      "cpu_time_ms": 3853.489,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "6fc6dfb63f917596",
+        "tool.url": "https://jonspencer.bandcamp.com/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 2013
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "2006d43b314c522d8a05cf696864c78a",
+      "span_id": "46ab50b2f01d6658",
+      "parent_id": "6da49560524f420c",
+      "start_ns": 1777183011824711000,
+      "end_ns": 1777183011965141000,
+      "wall_time_ms": 140.43,
+      "cpu_time_ms": 278.235,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "6a7a2438a8beff97",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 1,
+        "tool.output_size_bytes": 173
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "2006d43b314c522d8a05cf696864c78a",
+      "span_id": "0638e80365becd42",
+      "parent_id": "6da49560524f420c",
+      "start_ns": 1777183011965974000,
+      "end_ns": 1777183012178670000,
+      "wall_time_ms": 212.696,
+      "cpu_time_ms": 412.743,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "c06facafa372cdcc",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 18,
+        "tool.output_size_bytes": 191
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "2006d43b314c522d8a05cf696864c78a",
+      "span_id": "68af36f913c9a85a",
+      "parent_id": "6da49560524f420c",
+      "start_ns": 1777183012179450000,
+      "end_ns": 1777183014350719000,
+      "wall_time_ms": 2171.269,
+      "cpu_time_ms": 4039.314,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 123,
+        "llm.output_tokens": 88,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

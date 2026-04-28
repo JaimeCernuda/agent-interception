@@ -1,0 +1,201 @@
+{
+  "trace_id": "b5bddcd7d976fb95c4cab93d83c92f0c",
+  "config": "opus_custom",
+  "query_id": "q011",
+  "label": "cell_opus_custom",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "b5bddcd7d976fb95c4cab93d83c92f0c",
+      "span_id": "89cf45bb4f07c046",
+      "parent_id": null,
+      "start_ns": 1777074674328610000,
+      "end_ns": 1777074702134104000,
+      "wall_time_ms": 27805.494,
+      "cpu_time_ms": 680.265,
+      "kind": "root",
+      "attrs": {
+        "config": "opus_custom",
+        "query_id": "q011",
+        "query_text": "What is the youngest age eligible for COVID-19 vaccination in the United States?",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.max_turns": 10
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "b5bddcd7d976fb95c4cab93d83c92f0c",
+      "span_id": "1ab0e6255462af82",
+      "parent_id": "89cf45bb4f07c046",
+      "start_ns": 1777074674328717000,
+      "end_ns": 1777074675306010000,
+      "wall_time_ms": 977.293,
+      "cpu_time_ms": 12.557,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 826,
+        "llm.output_tokens": 83,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "b5bddcd7d976fb95c4cab93d83c92f0c",
+      "span_id": "87ecf0204886accf",
+      "parent_id": "89cf45bb4f07c046",
+      "start_ns": 1777074675306251000,
+      "end_ns": 1777074677308418000,
+      "wall_time_ms": 2002.167,
+      "cpu_time_ms": 49.716,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "7eac0c034fb91936",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 929
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "b5bddcd7d976fb95c4cab93d83c92f0c",
+      "span_id": "48eeda5a865bbd87",
+      "parent_id": "89cf45bb4f07c046",
+      "start_ns": 1777074682315232000,
+      "end_ns": 1777074683749962000,
+      "wall_time_ms": 1434.73,
+      "cpu_time_ms": 15.609,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1282,
+        "llm.output_tokens": 171,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "b5bddcd7d976fb95c4cab93d83c92f0c",
+      "span_id": "3fe3582b050b8cb2",
+      "parent_id": "89cf45bb4f07c046",
+      "start_ns": 1777074683750235000,
+      "end_ns": 1777074685227904000,
+      "wall_time_ms": 1477.669,
+      "cpu_time_ms": 102.704,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "4a7d4c8d221fa88b",
+        "tool.url": "https://www.cdc.gov/covidvaxview/weekly-dashboard/vaccine-administration-coverage-jurisdiction.html",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 5971
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "b5bddcd7d976fb95c4cab93d83c92f0c",
+      "span_id": "2056b148a76cd52f",
+      "parent_id": "89cf45bb4f07c046",
+      "start_ns": 1777074685228046000,
+      "end_ns": 1777074687230902000,
+      "wall_time_ms": 2002.856,
+      "cpu_time_ms": 198.292,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "8a619a85a13deb36",
+        "tool.url": "https://www.mayoclinic.org/diseases-conditions/coronavirus/in-depth/covid-19-vaccines-for-kids/art-20513332",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "b5bddcd7d976fb95c4cab93d83c92f0c",
+      "span_id": "9451c4bdb79b9a16",
+      "parent_id": "89cf45bb4f07c046",
+      "start_ns": 1777074692232052000,
+      "end_ns": 1777074693806326000,
+      "wall_time_ms": 1574.274,
+      "cpu_time_ms": 22.761,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 2885,
+        "llm.output_tokens": 108,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "b5bddcd7d976fb95c4cab93d83c92f0c",
+      "span_id": "7f92e14dc24c883b",
+      "parent_id": "89cf45bb4f07c046",
+      "start_ns": 1777074693806522000,
+      "end_ns": 1777074694221818000,
+      "wall_time_ms": 415.296,
+      "cpu_time_ms": 251.704,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "e12898817c1b4d40",
+        "tool.url": "https://www.livescience.com/health/medicine-drugs/who-is-eligible-for-this-years-covid-vaccine-everything-you-need-to-know",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 13072
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "b5bddcd7d976fb95c4cab93d83c92f0c",
+      "span_id": "2af71c9e5fc81fbb",
+      "parent_id": "89cf45bb4f07c046",
+      "start_ns": 1777074699223344000,
+      "end_ns": 1777074702133991000,
+      "wall_time_ms": 2910.647,
+      "cpu_time_ms": 25.567,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 5879,
+        "llm.output_tokens": 192,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

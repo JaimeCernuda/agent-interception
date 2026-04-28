@@ -1,0 +1,115 @@
+{
+  "config": "cell_concurrent_go_b16",
+  "label": "cell_concurrent_go_b16",
+  "query_id": "q003",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 16,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 0,
+        "agent.num_urls_fetched": 0,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b16",
+        "query_id": "q003",
+        "query_text": "What city was connected with the earliest cases of COVID-19?"
+      },
+      "cpu_time_ms": 16018.625,
+      "end_ns": 1777167614576800000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "92c157dfabb6a79d",
+      "start_ns": 1777167598558175000,
+      "status": "ok",
+      "trace_id": "5727de129a1a6801479d0d2d5e1086e1",
+      "wall_time_ms": 16018.625
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "ec6f1b1a92ac9ecd",
+        "tool.name": "ddg",
+        "tool.num_results": 0,
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3
+      },
+      "cpu_time_ms": 2539.958,
+      "end_ns": 1777167601098211000,
+      "error": "ddg status 403",
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "92c157dfabb6a79d",
+      "span_id": "c977f6da4aa4afea",
+      "start_ns": 1777167598558254000,
+      "status": "error",
+      "trace_id": "5727de129a1a6801479d0d2d5e1086e1",
+      "wall_time_ms": 2539.957
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.rate_limited": true,
+        "llm.status_code": 429
+      },
+      "cpu_time_ms": 344.522,
+      "end_ns": 1777167601442760000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "92c157dfabb6a79d",
+      "span_id": "12ce141105cad79e",
+      "start_ns": 1777167601098239000,
+      "status": "ok",
+      "trace_id": "5727de129a1a6801479d0d2d5e1086e1",
+      "wall_time_ms": 344.521
+    },
+    {
+      "attrs": {
+        "llm.retry_after_s": 12,
+        "llm.retry_attempt": 1,
+        "llm.retry_trigger": "http_429"
+      },
+      "cpu_time_ms": 12000.909,
+      "end_ns": 1777167613443675000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.retry_wait",
+      "parent_id": "92c157dfabb6a79d",
+      "span_id": "a51ffc68bedbbaf4",
+      "start_ns": 1777167601442767000,
+      "status": "ok",
+      "trace_id": "5727de129a1a6801479d0d2d5e1086e1",
+      "wall_time_ms": 12000.908
+    },
+    {
+      "attrs": {
+        "llm.attempt": 1,
+        "llm.input_tokens": 28,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 96,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1133.002,
+      "end_ns": 1777167614576789000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "92c157dfabb6a79d",
+      "span_id": "dde3cd07b062ca49",
+      "start_ns": 1777167613443788000,
+      "status": "ok",
+      "trace_id": "5727de129a1a6801479d0d2d5e1086e1",
+      "wall_time_ms": 1133.001
+    }
+  ],
+  "trace_id": "5727de129a1a6801479d0d2d5e1086e1"
+}

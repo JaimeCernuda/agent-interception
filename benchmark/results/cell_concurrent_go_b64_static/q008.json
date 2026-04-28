@@ -1,0 +1,160 @@
+{
+  "config": "cell_concurrent_go_b64",
+  "label": "cell_concurrent_go_b64",
+  "query_id": "q008",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 64,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 2,
+        "agent.num_urls_fetched": 2,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b64",
+        "query_id": "q008",
+        "query_text": "What is the best-selling jazz album of all time?"
+      },
+      "cpu_time_ms": 3302.2,
+      "end_ns": 1777167785424945000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "76f5ce6f5434a0b8",
+      "start_ns": 1777167782122746000,
+      "status": "ok",
+      "trace_id": "f808a92c1f8bfeae346dd1e18f281999",
+      "wall_time_ms": 3302.199
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "32c28547ed2dceb0",
+        "tool.name": "static",
+        "tool.num_results": 2,
+        "tool.output_size_bytes": 142,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 0.002,
+      "end_ns": 1777167782122753000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "76f5ce6f5434a0b8",
+      "span_id": "15b4747733f72b52",
+      "start_ns": 1777167782122751000,
+      "status": "ok",
+      "trace_id": "f808a92c1f8bfeae346dd1e18f281999",
+      "wall_time_ms": 0.002
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "8fc0b8fd26f483c0",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 7107,
+        "tool.retry_count": 0,
+        "tool.url": "https://bestofjazz.org/what-is-the-best-selling-jazz-album-of-all-time/"
+      },
+      "cpu_time_ms": 1064.848,
+      "end_ns": 1777167783187666000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "76f5ce6f5434a0b8",
+      "span_id": "80d129e805b98197",
+      "start_ns": 1777167782122818000,
+      "status": "ok",
+      "trace_id": "f808a92c1f8bfeae346dd1e18f281999",
+      "wall_time_ms": 1064.848
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "ca1b3d614122e51c",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 3350,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.milesdavis.com/news/still-the-best-selling-jazz-album-ever/"
+      },
+      "cpu_time_ms": 1022.656,
+      "end_ns": 1777167784210332000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "76f5ce6f5434a0b8",
+      "span_id": "fcae7066f9aa16ad",
+      "start_ns": 1777167783187676000,
+      "status": "ok",
+      "trace_id": "f808a92c1f8bfeae346dd1e18f281999",
+      "wall_time_ms": 1022.656
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "b14fe91f4cdb1bd7",
+        "tool.n_sentences_in": 42,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 48,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 3.038,
+      "end_ns": 1777167784213405000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "76f5ce6f5434a0b8",
+      "span_id": "7090c9314c31600b",
+      "start_ns": 1777167784210367000,
+      "status": "ok",
+      "trace_id": "f808a92c1f8bfeae346dd1e18f281999",
+      "wall_time_ms": 3.038
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "dec69b39bb5b7306",
+        "tool.n_sentences_in": 30,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 159,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 1.539,
+      "end_ns": 1777167784214963000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "76f5ce6f5434a0b8",
+      "span_id": "52f126ea555186c5",
+      "start_ns": 1777167784213424000,
+      "status": "ok",
+      "trace_id": "f808a92c1f8bfeae346dd1e18f281999",
+      "wall_time_ms": 1.539
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 87,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 75,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1209.926,
+      "end_ns": 1777167785424936000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "76f5ce6f5434a0b8",
+      "span_id": "08039880ca678553",
+      "start_ns": 1777167784215011000,
+      "status": "ok",
+      "trace_id": "f808a92c1f8bfeae346dd1e18f281999",
+      "wall_time_ms": 1209.925
+    }
+  ],
+  "trace_id": "f808a92c1f8bfeae346dd1e18f281999"
+}

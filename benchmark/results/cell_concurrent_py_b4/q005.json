@@ -1,0 +1,222 @@
+{
+  "trace_id": "828291639f1f4d0c56c05f6f1cc760bb",
+  "config": "cell_concurrent_py_b4",
+  "query_id": "q005",
+  "label": "cell_concurrent_py_b4",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "828291639f1f4d0c56c05f6f1cc760bb",
+      "span_id": "ddedeb5e7d6e90dd",
+      "parent_id": null,
+      "start_ns": 1777167428166534000,
+      "end_ns": 1777167447336773000,
+      "wall_time_ms": 19170.239,
+      "cpu_time_ms": 6424.484,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b4",
+        "query_id": "q005",
+        "query_text": "How many children does Elon Musk have, including his deceased child?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 4
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "828291639f1f4d0c56c05f6f1cc760bb",
+      "span_id": "64ceeabe51c03d3c",
+      "parent_id": "ddedeb5e7d6e90dd",
+      "start_ns": 1777167428166664000,
+      "end_ns": 1777167431310569000,
+      "wall_time_ms": 3143.905,
+      "cpu_time_ms": 856.143,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "46cadae90e04fcae",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 746
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "828291639f1f4d0c56c05f6f1cc760bb",
+      "span_id": "82b80d8dbd6c4b4e",
+      "parent_id": "ddedeb5e7d6e90dd",
+      "start_ns": 1777167431310768000,
+      "end_ns": 1777167434207703000,
+      "wall_time_ms": 2896.935,
+      "cpu_time_ms": 1222.067,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "06069623a89b5346",
+        "tool.url": "https://en.wikipedia.org/wiki/Musk_family",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "828291639f1f4d0c56c05f6f1cc760bb",
+      "span_id": "ab535c9560ede8f0",
+      "parent_id": "ddedeb5e7d6e90dd",
+      "start_ns": 1777167434207888000,
+      "end_ns": 1777167437151519000,
+      "wall_time_ms": 2943.631,
+      "cpu_time_ms": 427.73,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "a71a4f95f85a966c",
+        "tool.url": "https://parade.com/celebrities/elon-musk-children",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "828291639f1f4d0c56c05f6f1cc760bb",
+      "span_id": "99364aebcf9c1a1c",
+      "parent_id": "ddedeb5e7d6e90dd",
+      "start_ns": 1777167437151763000,
+      "end_ns": 1777167438504835000,
+      "wall_time_ms": 1353.072,
+      "cpu_time_ms": 442.201,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "e48305ef19b8cd04",
+        "tool.url": "https://www.bbc.com/news/articles/c0r1975ded7o",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 10830
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "828291639f1f4d0c56c05f6f1cc760bb",
+      "span_id": "e4670d99e46327de",
+      "parent_id": "ddedeb5e7d6e90dd",
+      "start_ns": 1777167438504969000,
+      "end_ns": 1777167443400092000,
+      "wall_time_ms": 4895.123,
+      "cpu_time_ms": 1961.372,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "3020ba76e8480318",
+        "tool.url": "https://views.washingtonian.com/vie/how-many-children-does-elon-musk-have-the-family-behind-the-tech-titans-legacy",
+        "tool.retry_count": 3,
+        "tool.http_status": 404,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "828291639f1f4d0c56c05f6f1cc760bb",
+      "span_id": "6e12c4d0d6d9a29e",
+      "parent_id": "ddedeb5e7d6e90dd",
+      "start_ns": 1777167443400235000,
+      "end_ns": 1777167444812943000,
+      "wall_time_ms": 1412.708,
+      "cpu_time_ms": 558.013,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "cb51ba3c6af4445b",
+        "tool.url": "https://www.thefamouspeople.com/profiles/elon-musk-5562.php",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 3384
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "828291639f1f4d0c56c05f6f1cc760bb",
+      "span_id": "bbf454fcc427c5d5",
+      "parent_id": "ddedeb5e7d6e90dd",
+      "start_ns": 1777167444813143000,
+      "end_ns": 1777167445009086000,
+      "wall_time_ms": 195.943,
+      "cpu_time_ms": 202.03,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "007bf5fefa8e9ac3",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 75,
+        "tool.output_size_bytes": 43
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "828291639f1f4d0c56c05f6f1cc760bb",
+      "span_id": "7cb1aba926959175",
+      "parent_id": "ddedeb5e7d6e90dd",
+      "start_ns": 1777167445010067000,
+      "end_ns": 1777167445068501000,
+      "wall_time_ms": 58.434,
+      "cpu_time_ms": 103.56,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "9fb78cf0e7f1c8d2",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 24,
+        "tool.output_size_bytes": 77
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "828291639f1f4d0c56c05f6f1cc760bb",
+      "span_id": "3cae93a0c0d83525",
+      "parent_id": "ddedeb5e7d6e90dd",
+      "start_ns": 1777167445069275000,
+      "end_ns": 1777167447336679000,
+      "wall_time_ms": 2267.404,
+      "cpu_time_ms": 647.697,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 76,
+        "llm.output_tokens": 139,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

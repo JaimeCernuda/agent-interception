@@ -1,0 +1,199 @@
+{
+  "config": "cell_concurrent_go_b64",
+  "label": "cell_concurrent_go_b64",
+  "query_id": "q006",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 64,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 2,
+        "agent.num_urls_fetched": 2,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b64",
+        "query_id": "q006",
+        "query_text": "What country became the latest country to adopt the Euro?"
+      },
+      "cpu_time_ms": 16765.127,
+      "end_ns": 1777167798885245000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "bcaaa0cc712d1c3f",
+      "start_ns": 1777167782120118000,
+      "status": "ok",
+      "trace_id": "10e524dbf10b4badb233f0b4f2137c79",
+      "wall_time_ms": 16765.127
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "974813d7ec0f4ad6",
+        "tool.name": "static",
+        "tool.num_results": 4,
+        "tool.output_size_bytes": 447,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 0.015,
+      "end_ns": 1777167782120223000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "bcaaa0cc712d1c3f",
+      "span_id": "5ceee459d3a0dd37",
+      "start_ns": 1777167782120207000,
+      "status": "ok",
+      "trace_id": "10e524dbf10b4badb233f0b4f2137c79",
+      "wall_time_ms": 0.016
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "f20952b1eaf59cf6",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 9192,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.linkedin.com/posts/european-central-bank_with-bulgaria-becoming-the-21st-country-to-activity-7412796029013692416-_yK8"
+      },
+      "cpu_time_ms": 1590.54,
+      "end_ns": 1777167783710791000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "bcaaa0cc712d1c3f",
+      "span_id": "f4976ebcddda5aa6",
+      "start_ns": 1777167782120251000,
+      "status": "ok",
+      "trace_id": "10e524dbf10b4badb233f0b4f2137c79",
+      "wall_time_ms": 1590.54
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "37dd66bf7eb66863",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 7708,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.independent.com.mt/articles/2026-01-01/world-news/Bulgaria-becomes-21st-country-to-join-the-euro-deepening-EU-ties-despite-fears-6736286029"
+      },
+      "cpu_time_ms": 1024.103,
+      "end_ns": 1777167784734905000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "bcaaa0cc712d1c3f",
+      "span_id": "bdd2cab3cba85e1f",
+      "start_ns": 1777167783710802000,
+      "status": "ok",
+      "trace_id": "10e524dbf10b4badb233f0b4f2137c79",
+      "wall_time_ms": 1024.103
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "0d5d30356f41a7ea",
+        "tool.n_sentences_in": 46,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 129,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 5.009,
+      "end_ns": 1777167784739957000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "bcaaa0cc712d1c3f",
+      "span_id": "cef17b1655a771bc",
+      "start_ns": 1777167784734947000,
+      "status": "ok",
+      "trace_id": "10e524dbf10b4badb233f0b4f2137c79",
+      "wall_time_ms": 5.01
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "ef03b16fd332326e",
+        "tool.n_sentences_in": 44,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 131,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 3.301,
+      "end_ns": 1777167784743298000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "bcaaa0cc712d1c3f",
+      "span_id": "481f0cda1625068a",
+      "start_ns": 1777167784739998000,
+      "status": "ok",
+      "trace_id": "10e524dbf10b4badb233f0b4f2137c79",
+      "wall_time_ms": 3.3
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.rate_limited": true,
+        "llm.status_code": 429
+      },
+      "cpu_time_ms": 327.506,
+      "end_ns": 1777167785070843000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "bcaaa0cc712d1c3f",
+      "span_id": "b47231a1f0bb3ac3",
+      "start_ns": 1777167784743338000,
+      "status": "ok",
+      "trace_id": "10e524dbf10b4badb233f0b4f2137c79",
+      "wall_time_ms": 327.505
+    },
+    {
+      "attrs": {
+        "llm.retry_after_s": 12,
+        "llm.retry_attempt": 1,
+        "llm.retry_trigger": "http_429"
+      },
+      "cpu_time_ms": 12000.416,
+      "end_ns": 1777167797071272000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.retry_wait",
+      "parent_id": "bcaaa0cc712d1c3f",
+      "span_id": "9cf0fc33f5331bd7",
+      "start_ns": 1777167785070856000,
+      "status": "ok",
+      "trace_id": "10e524dbf10b4badb233f0b4f2137c79",
+      "wall_time_ms": 12000.416
+    },
+    {
+      "attrs": {
+        "llm.attempt": 1,
+        "llm.input_tokens": 91,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 79,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1813.939,
+      "end_ns": 1777167798885235000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "bcaaa0cc712d1c3f",
+      "span_id": "095e0c55a1034aa9",
+      "start_ns": 1777167797071297000,
+      "status": "ok",
+      "trace_id": "10e524dbf10b4badb233f0b4f2137c79",
+      "wall_time_ms": 1813.938
+    }
+  ],
+  "trace_id": "10e524dbf10b4badb233f0b4f2137c79"
+}

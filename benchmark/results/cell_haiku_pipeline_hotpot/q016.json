@@ -1,0 +1,158 @@
+{
+  "trace_id": "b63bd747fc237d86ab31509d26c58e19",
+  "config": "pipeline_haiku_hotpot",
+  "query_id": "q016",
+  "label": "cell_haiku_pipeline_hotpot",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "b63bd747fc237d86ab31509d26c58e19",
+      "span_id": "40036910f795a675",
+      "parent_id": null,
+      "start_ns": 1777170059605701000,
+      "end_ns": 1777170072277387000,
+      "wall_time_ms": 12671.686,
+      "cpu_time_ms": 1148.204,
+      "kind": "root",
+      "attrs": {
+        "config": "pipeline_haiku_hotpot",
+        "query_id": "q016",
+        "query_text": "Are both Barry Unsworth and P. G. Wodehouse from the same country?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "b63bd747fc237d86ab31509d26c58e19",
+      "span_id": "272e646d9fe95ca0",
+      "parent_id": "40036910f795a675",
+      "start_ns": 1777170059605819000,
+      "end_ns": 1777170066577609000,
+      "wall_time_ms": 6971.79,
+      "cpu_time_ms": 27.339,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "7f6391080f35ea1e",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 600
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "b63bd747fc237d86ab31509d26c58e19",
+      "span_id": "c5ef5abd13a49135",
+      "parent_id": "40036910f795a675",
+      "start_ns": 1777170066577814000,
+      "end_ns": 1777170067736132000,
+      "wall_time_ms": 1158.318,
+      "cpu_time_ms": 170.589,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "85fa502bf33c103f",
+        "tool.url": "https://www.newworldencyclopedia.org/entry/P._G._Wodehouse",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 23447
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "b63bd747fc237d86ab31509d26c58e19",
+      "span_id": "0a4ed8c4a909c8a1",
+      "parent_id": "40036910f795a675",
+      "start_ns": 1777170067736270000,
+      "end_ns": 1777170069617497000,
+      "wall_time_ms": 1881.227,
+      "cpu_time_ms": 205.746,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "21f6a161dd35ef8a",
+        "tool.url": "https://www.goodreads.com/author/show/7963.P_G_Wodehouse",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 774
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "b63bd747fc237d86ab31509d26c58e19",
+      "span_id": "200f12f43df46be4",
+      "parent_id": "40036910f795a675",
+      "start_ns": 1777170069617765000,
+      "end_ns": 1777170070311013000,
+      "wall_time_ms": 693.248,
+      "cpu_time_ms": 687.289,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "3f8aa61167883f7b",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 177,
+        "tool.output_size_bytes": 409
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "b63bd747fc237d86ab31509d26c58e19",
+      "span_id": "046cd2e375e05aa2",
+      "parent_id": "40036910f795a675",
+      "start_ns": 1777170070312171000,
+      "end_ns": 1777170070357548000,
+      "wall_time_ms": 45.377,
+      "cpu_time_ms": 45.184,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "97b53951428504ab",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 6,
+        "tool.output_size_bytes": 334
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "b63bd747fc237d86ab31509d26c58e19",
+      "span_id": "0e86284c9217413c",
+      "parent_id": "40036910f795a675",
+      "start_ns": 1777170070358335000,
+      "end_ns": 1777170072277301000,
+      "wall_time_ms": 1918.966,
+      "cpu_time_ms": 9.568,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 240,
+        "llm.output_tokens": 92,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

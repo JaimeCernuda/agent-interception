@@ -1,0 +1,26 @@
+{
+  "trace_id": "aa240116c093d2d1cc0927675435fa5c",
+  "config": "toolformer_py",
+  "query_id": "q14",
+  "label": "multi_op",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "aa240116c093d2d1cc0927675435fa5c",
+      "span_id": "f112441d2035aa08",
+      "parent_id": null,
+      "start_ns": 1777405858871695000,
+      "end_ns": 1777405926176332000,
+      "wall_time_ms": 67304.637,
+      "cpu_time_ms": 601.092,
+      "kind": "root",
+      "attrs": {
+        "config": "toolformer_py",
+        "query_id": "q14",
+        "query_text": "Luke had 20 stickers. He bought 12 stickers from a store in the mall and got 20 stickers for his birthday. Then Luke gave 5 of the stickers to his sister and used 8 to decorate a greeting card. How many stickers does Luke have left?"
+      },
+      "status": "error",
+      "error": "Exception: Control request timeout: initialize"
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "trace_id": "ae1d67a1935a67a830155c15ad313aa8",
+  "config": "chemcrow_py_mt",
+  "query_id": "q013",
+  "label": "heavy",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "ae1d67a1935a67a830155c15ad313aa8",
+      "span_id": "a35c0fb51e18360e",
+      "parent_id": null,
+      "start_ns": 1777355520398046000,
+      "end_ns": 1777355538951797000,
+      "wall_time_ms": 18553.751,
+      "cpu_time_ms": 2450.863,
+      "kind": "root",
+      "attrs": {
+        "config": "chemcrow_py_mt",
+        "query_id": "q013",
+        "query_text": "What is the 3D structure and key molecular descriptors of erythromycin? Look up the molecule, generate a 3D conformer, and report molecular weight, logP, TPSA, heavy-atom count, and number of rotatable bonds.",
+        "agent.num_turns": 4,
+        "agent.total_input_tokens": 26,
+        "agent.total_output_tokens": 1534,
+        "agent.total_cost_usd": 0.024531400000000002,
+        "agent.duration_ms": 15176.0,
+        "agent.duration_api_ms": 15840.0,
+        "agent.is_error": false,
+        "agent.truncated": false,
+        "agent.num_tool_calls": 3
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "ae1d67a1935a67a830155c15ad313aa8",
+      "span_id": "e6fd166b536eee14",
+      "parent_id": "a35c0fb51e18360e",
+      "start_ns": 1777355520398083000,
+      "end_ns": 1777355526904363000,
+      "wall_time_ms": 6506.28,
+      "cpu_time_ms": 43.807,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 0,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.lookup_molecule",
+      "trace_id": "ae1d67a1935a67a830155c15ad313aa8",
+      "span_id": "e81a0098868a29e6",
+      "parent_id": "a35c0fb51e18360e",
+      "start_ns": 1777355526909963000,
+      "end_ns": 1777355526911591000,
+      "wall_time_ms": 1.628,
+      "cpu_time_ms": 0.87,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lookup_molecule",
+        "tool.input_hash": "e91629ef683d8ddc",
+        "tool.molecule_name": "erythromycin",
+        "tool.retry_count": 0,
+        "tool.cache_hit": true,
+        "tool.smiles": "CCC1C(C(C(C(=O)C(CC(C(C(C(C(C(=O)O1)C)OC2CC(C(C(O2)C)O)(C)OC)C)OC3C(C(CC(O3)C)N(C)C)O)(C)O)C)C)O)(C)O",
+        "tool.molecular_weight": 733.9,
+        "tool.output_size_bytes": 166
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "ae1d67a1935a67a830155c15ad313aa8",
+      "span_id": "b5f895d813924e6e",
+      "parent_id": "a35c0fb51e18360e",
+      "start_ns": 1777355526942275000,
+      "end_ns": 1777355530013625000,
+      "wall_time_ms": 3071.35,
+      "cpu_time_ms": 9.384,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 1,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.smiles_to_3d",
+      "trace_id": "ae1d67a1935a67a830155c15ad313aa8",
+      "span_id": "0a3023adb46042d4",
+      "parent_id": "a35c0fb51e18360e",
+      "start_ns": 1777355530017230000,
+      "end_ns": 1777355530053979000,
+      "wall_time_ms": 36.749,
+      "cpu_time_ms": 17.551,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "smiles_to_3d",
+        "tool.input_hash": "b71fec13ff06f5c0",
+        "tool.smiles": "CCC1C(C(C(C(=O)C(CC(C(C(C(C(C(=O)O1)C)OC2CC(C(C(O2)C)O)(C)OC)C)OC3C(C(C(CC(O3)C)N(C)C)O)(C)O)C)C)O)(C)O",
+        "tool.retry_count": 0,
+        "tool.error": "invalid_smiles"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "ae1d67a1935a67a830155c15ad313aa8",
+      "span_id": "667db8857f48c8cd",
+      "parent_id": "a35c0fb51e18360e",
+      "start_ns": 1777355530432667000,
+      "end_ns": 1777355530452761000,
+      "wall_time_ms": 20.094,
+      "cpu_time_ms": 0.587,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 2,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.compute_descriptors",
+      "trace_id": "ae1d67a1935a67a830155c15ad313aa8",
+      "span_id": "fc3425750a912b4b",
+      "parent_id": "a35c0fb51e18360e",
+      "start_ns": 1777355530456181000,
+      "end_ns": 1777355530459088000,
+      "wall_time_ms": 2.907,
+      "cpu_time_ms": 2.973,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "compute_descriptors",
+        "tool.input_hash": "b71fec13ff06f5c0",
+        "tool.smiles": "CCC1C(C(C(C(=O)C(CC(C(C(C(C(C(=O)O1)C)OC2CC(C(C(O2)C)O)(C)OC)C)OC3C(C(C(CC(O3)C)N(C)C)O)(C)O)C)C)O)(C)O",
+        "tool.retry_count": 0,
+        "tool.error": "invalid_smiles"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "ae1d67a1935a67a830155c15ad313aa8",
+      "span_id": "4deace0ef496a2a3",
+      "parent_id": "a35c0fb51e18360e",
+      "start_ns": 1777355530464414000,
+      "end_ns": 1777355538778396000,
+      "wall_time_ms": 8313.982,
+      "cpu_time_ms": 2362.374,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 3,
+        "llm.has_tool_use": false,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "config": "cell_concurrent_go_b64",
+  "label": "cell_concurrent_go_b64",
+  "query_id": "q003",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 64,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 2,
+        "agent.num_urls_fetched": 2,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b64",
+        "query_id": "q003",
+        "query_text": "What city was connected with the earliest cases of COVID-19?"
+      },
+      "cpu_time_ms": 3012.316,
+      "end_ns": 1777167785132506000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "7ccf9c676dd23956",
+      "start_ns": 1777167782120190000,
+      "status": "ok",
+      "trace_id": "6032b15711ea79cdf4e86d2407fc3112",
+      "wall_time_ms": 3012.316
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "ec6f1b1a92ac9ecd",
+        "tool.name": "static",
+        "tool.num_results": 2,
+        "tool.output_size_bytes": 88,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 0.016,
+      "end_ns": 1777167782120266000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "7ccf9c676dd23956",
+      "span_id": "9d7650bb21452007",
+      "start_ns": 1777167782120250000,
+      "status": "ok",
+      "trace_id": "6032b15711ea79cdf4e86d2407fc3112",
+      "wall_time_ms": 0.016
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "8d1655b8a3ef9ad6",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 5472,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.britannica.com/event/COVID-19-pandemic"
+      },
+      "cpu_time_ms": 1036.623,
+      "end_ns": 1777167783156892000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "7ccf9c676dd23956",
+      "span_id": "665e8799b79021c3",
+      "start_ns": 1777167782120268000,
+      "status": "ok",
+      "trace_id": "6032b15711ea79cdf4e86d2407fc3112",
+      "wall_time_ms": 1036.624
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "0cc349b507c6019a",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 12662,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.britannica.com/place/Wuhan"
+      },
+      "cpu_time_ms": 479.436,
+      "end_ns": 1777167783636337000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "7ccf9c676dd23956",
+      "span_id": "ea89b3b33f9a9fd5",
+      "start_ns": 1777167783156902000,
+      "status": "ok",
+      "trace_id": "6032b15711ea79cdf4e86d2407fc3112",
+      "wall_time_ms": 479.435
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "c2557f1a878ec791",
+        "tool.n_sentences_in": 26,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 53,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 3.145,
+      "end_ns": 1777167783639560000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "7ccf9c676dd23956",
+      "span_id": "675ae25abd73ca4d",
+      "start_ns": 1777167783636415000,
+      "status": "ok",
+      "trace_id": "6032b15711ea79cdf4e86d2407fc3112",
+      "wall_time_ms": 3.145
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "a4650f91a0d38d69",
+        "tool.n_sentences_in": 81,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 111,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 8.13,
+      "end_ns": 1777167783647787000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "7ccf9c676dd23956",
+      "span_id": "582aab13489384fd",
+      "start_ns": 1777167783639657000,
+      "status": "ok",
+      "trace_id": "6032b15711ea79cdf4e86d2407fc3112",
+      "wall_time_ms": 8.13
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 71,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 49,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1484.67,
+      "end_ns": 1777167785132497000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "7ccf9c676dd23956",
+      "span_id": "a9b556299959f2b1",
+      "start_ns": 1777167783647828000,
+      "status": "ok",
+      "trace_id": "6032b15711ea79cdf4e86d2407fc3112",
+      "wall_time_ms": 1484.669
+    }
+  ],
+  "trace_id": "6032b15711ea79cdf4e86d2407fc3112"
+}

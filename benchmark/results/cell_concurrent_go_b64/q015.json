@@ -1,0 +1,115 @@
+{
+  "config": "cell_concurrent_go_b64",
+  "label": "cell_concurrent_go_b64",
+  "query_id": "q015",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 64,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 0,
+        "agent.num_urls_fetched": 0,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b64",
+        "query_id": "q015",
+        "query_text": "Who is the vice-chancellor of the largest university by enrollment in the world?"
+      },
+      "cpu_time_ms": 49891.302,
+      "end_ns": 1777167724184318000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "4a46c60a9e46b71c",
+      "start_ns": 1777167674293016000,
+      "status": "ok",
+      "trace_id": "a5bfd20e14b66003e773c48974281376",
+      "wall_time_ms": 49891.302
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "69499afd09a35f3c",
+        "tool.name": "ddg",
+        "tool.num_results": 0,
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3
+      },
+      "cpu_time_ms": 36005.447,
+      "end_ns": 1777167710298482000,
+      "error": "Post \"https://html.duckduckgo.com/html/\": context deadline exceeded",
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "4a46c60a9e46b71c",
+      "span_id": "cfdc1202d966920b",
+      "start_ns": 1777167674293036000,
+      "status": "error",
+      "trace_id": "a5bfd20e14b66003e773c48974281376",
+      "wall_time_ms": 36005.446
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.rate_limited": true,
+        "llm.status_code": 429
+      },
+      "cpu_time_ms": 827.116,
+      "end_ns": 1777167711129203000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "4a46c60a9e46b71c",
+      "span_id": "6830e6b1e7e4c0a6",
+      "start_ns": 1777167710302087000,
+      "status": "ok",
+      "trace_id": "a5bfd20e14b66003e773c48974281376",
+      "wall_time_ms": 827.116
+    },
+    {
+      "attrs": {
+        "llm.retry_after_s": 12,
+        "llm.retry_attempt": 1,
+        "llm.retry_trigger": "http_429"
+      },
+      "cpu_time_ms": 12000.448,
+      "end_ns": 1777167723129658000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.retry_wait",
+      "parent_id": "4a46c60a9e46b71c",
+      "span_id": "7c465636d3dda909",
+      "start_ns": 1777167711129211000,
+      "status": "ok",
+      "trace_id": "a5bfd20e14b66003e773c48974281376",
+      "wall_time_ms": 12000.447
+    },
+    {
+      "attrs": {
+        "llm.attempt": 1,
+        "llm.input_tokens": 31,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 57,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1054.621,
+      "end_ns": 1777167724184306000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "4a46c60a9e46b71c",
+      "span_id": "56e1376b86aa0323",
+      "start_ns": 1777167723129685000,
+      "status": "ok",
+      "trace_id": "a5bfd20e14b66003e773c48974281376",
+      "wall_time_ms": 1054.621
+    }
+  ],
+  "trace_id": "a5bfd20e14b66003e773c48974281376"
+}

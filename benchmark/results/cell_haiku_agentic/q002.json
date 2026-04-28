@@ -1,0 +1,94 @@
+{
+  "trace_id": "6bdf743bd7992b5cf90cb437535d0a14",
+  "config": "haiku_custom",
+  "query_id": "q002",
+  "label": "cell_haiku_custom",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "6bdf743bd7992b5cf90cb437535d0a14",
+      "span_id": "9432dbd14e9a97e7",
+      "parent_id": null,
+      "start_ns": 1777073258821749000,
+      "end_ns": 1777073272351341000,
+      "wall_time_ms": 13529.592,
+      "cpu_time_ms": 74.141,
+      "kind": "root",
+      "attrs": {
+        "config": "haiku_custom",
+        "query_id": "q002",
+        "query_text": "Who wrote the book titled Orientalism?",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.max_turns": -1
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "6bdf743bd7992b5cf90cb437535d0a14",
+      "span_id": "62fab86de8184f91",
+      "parent_id": "9432dbd14e9a97e7",
+      "start_ns": 1777073258821853000,
+      "end_ns": 1777073259527798000,
+      "wall_time_ms": 705.945,
+      "cpu_time_ms": 10.275,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 818,
+        "llm.output_tokens": 59,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "6bdf743bd7992b5cf90cb437535d0a14",
+      "span_id": "867f472575ea9d23",
+      "parent_id": "9432dbd14e9a97e7",
+      "start_ns": 1777073259527979000,
+      "end_ns": 1777073266421663000,
+      "wall_time_ms": 6893.684,
+      "cpu_time_ms": 48.627,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "fc80ebb14938f4de",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 603
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "6bdf743bd7992b5cf90cb437535d0a14",
+      "span_id": "719821f3363af146",
+      "parent_id": "9432dbd14e9a97e7",
+      "start_ns": 1777073271422690000,
+      "end_ns": 1777073272351294000,
+      "wall_time_ms": 928.604,
+      "cpu_time_ms": 14.716,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1148,
+        "llm.output_tokens": 55,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "trace_id": "1c7f2c402ad02e490d8357d6747a79ab",
+  "config": "cell_concurrent_py_hotpot_b64_static",
+  "query_id": "q004",
+  "label": "cell_concurrent_py_hotpot_b64_static",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "1c7f2c402ad02e490d8357d6747a79ab",
+      "span_id": "ba7efc5074c843ff",
+      "parent_id": null,
+      "start_ns": 1777183121945270000,
+      "end_ns": 1777183122020495000,
+      "wall_time_ms": 75.225,
+      "cpu_time_ms": 59.424,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_hotpot_b64_static",
+        "query_id": "q004",
+        "query_text": "Which areas of the United States were still able to deny sames sex marriages after the case in which Edith \"Edie\" Windsor was the main plaintiff?"
+      },
+      "status": "error",
+      "error": "RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q004. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls()."
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "1c7f2c402ad02e490d8357d6747a79ab",
+      "span_id": "2dc97342075ace34",
+      "parent_id": "ba7efc5074c843ff",
+      "start_ns": 1777183121945387000,
+      "end_ns": 1777183121977217000,
+      "wall_time_ms": 31.83,
+      "cpu_time_ms": 0.908,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "static",
+        "tool.input_hash": "7dcf0e10445cb8d2",
+        "tool.retry_count": 0
+      },
+      "status": "error",
+      "error": "RuntimeError: SEARCH_BACKEND=static but no urls registered for query_id=q004. Check queries/freshqa_20.json has a 'urls' field for this query, and that run.py called register_static_urls()."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "mode": "py-mt",
+  "concurrency": 4,
+  "sweep": false,
+  "max_n": 64,
+  "runs": 3,
+  "warmup_queries": 4,
+  "queries": "/Users/anna/Desktop/agent-interception/benchmark/queries/chemcrow_20.json",
+  "out_root": "/Users/anna/Desktop/agent-interception/benchmark/output/sweep",
+  "skip_cold_start": false,
+  "reset": true
+}

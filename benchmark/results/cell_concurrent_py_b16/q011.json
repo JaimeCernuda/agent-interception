@@ -1,0 +1,201 @@
+{
+  "trace_id": "406ea8cf2b78063cf62c74d93daefa04",
+  "config": "cell_concurrent_py_b16",
+  "query_id": "q011",
+  "label": "cell_concurrent_py_b16",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "406ea8cf2b78063cf62c74d93daefa04",
+      "span_id": "ca18660644c4c8fd",
+      "parent_id": null,
+      "start_ns": 1777167541863941000,
+      "end_ns": 1777167587098274000,
+      "wall_time_ms": 45234.333,
+      "cpu_time_ms": 21189.258,
+      "kind": "root",
+      "attrs": {
+        "config": "cell_concurrent_py_b16",
+        "query_id": "q011",
+        "query_text": "What is the youngest age eligible for COVID-19 vaccination in the United States?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2,
+        "agent.concurrent_batch_size": 16
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "406ea8cf2b78063cf62c74d93daefa04",
+      "span_id": "c6768822f2d74e73",
+      "parent_id": "ca18660644c4c8fd",
+      "start_ns": 1777167541864076000,
+      "end_ns": 1777167547066064000,
+      "wall_time_ms": 5201.988,
+      "cpu_time_ms": 2688.825,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "bb429540c09dc22d",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 807
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "406ea8cf2b78063cf62c74d93daefa04",
+      "span_id": "1f7d68335dff8db4",
+      "parent_id": "ca18660644c4c8fd",
+      "start_ns": 1777167547066258000,
+      "end_ns": 1777167547896104000,
+      "wall_time_ms": 829.846,
+      "cpu_time_ms": 942.373,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "23e2a0454eda635a",
+        "tool.url": "https://www.voanews.com/a/us-vaccinates-youngest-against-covid-19/6627341.html",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 4088
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "406ea8cf2b78063cf62c74d93daefa04",
+      "span_id": "158ce3ebb4cddd8d",
+      "parent_id": "ca18660644c4c8fd",
+      "start_ns": 1777167547896247000,
+      "end_ns": 1777167551399064000,
+      "wall_time_ms": 3502.817,
+      "cpu_time_ms": 8115.56,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "fb9c1cfc793f639e",
+        "tool.url": "https://www.caribbeanherald.com/news/272594138/us-vaccinates-youngest-against-covid-19",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "406ea8cf2b78063cf62c74d93daefa04",
+      "span_id": "7614a27ac0145315",
+      "parent_id": "ca18660644c4c8fd",
+      "start_ns": 1777167551399270000,
+      "end_ns": 1777167583664611000,
+      "wall_time_ms": 32265.341,
+      "cpu_time_ms": 9158.857,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "b020c1da22a1fa4f",
+        "tool.url": "https://boorsee.com/2022/06/us-vaccinates-youngest-against-covid-19.html",
+        "tool.retry_count": 3,
+        "tool.http_status": 0,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "406ea8cf2b78063cf62c74d93daefa04",
+      "span_id": "93cc344ddc0912a0",
+      "parent_id": "ca18660644c4c8fd",
+      "start_ns": 1777167583666737000,
+      "end_ns": 1777167585270888000,
+      "wall_time_ms": 1604.151,
+      "cpu_time_ms": 119.157,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "d2895df16427f9bd",
+        "tool.url": "https://www.upi.com/Health_News/2022/06/03/COVID-19-vaccine-Ashish-Jha-children-FDA-CDC/7701654261314/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 2245
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "406ea8cf2b78063cf62c74d93daefa04",
+      "span_id": "bc77a227b2011797",
+      "parent_id": "ca18660644c4c8fd",
+      "start_ns": 1777167585271244000,
+      "end_ns": 1777167585368238000,
+      "wall_time_ms": 96.994,
+      "cpu_time_ms": 90.931,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "e6ddb220f52a7200",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 26,
+        "tool.output_size_bytes": 74
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "406ea8cf2b78063cf62c74d93daefa04",
+      "span_id": "1bb447644d023841",
+      "parent_id": "ca18660644c4c8fd",
+      "start_ns": 1777167585369244000,
+      "end_ns": 1777167585420091000,
+      "wall_time_ms": 50.847,
+      "cpu_time_ms": 50.375,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "a05733a8f20772e4",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 12,
+        "tool.output_size_bytes": 214
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "406ea8cf2b78063cf62c74d93daefa04",
+      "span_id": "9b1494a429778d9f",
+      "parent_id": "ca18660644c4c8fd",
+      "start_ns": 1777167585421081000,
+      "end_ns": 1777167587098121000,
+      "wall_time_ms": 1677.04,
+      "cpu_time_ms": 18.853,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 109,
+        "llm.output_tokens": 92,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

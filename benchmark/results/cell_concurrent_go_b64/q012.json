@@ -1,0 +1,76 @@
+{
+  "config": "cell_concurrent_go_b64",
+  "label": "cell_concurrent_go_b64",
+  "query_id": "q012",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 64,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 0,
+        "agent.num_urls_fetched": 0,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b64",
+        "query_id": "q012",
+        "query_text": "Which drama series won the most recent Primetime Emmy Award for Outstanding Drama Series?"
+      },
+      "cpu_time_ms": 37318.931,
+      "end_ns": 1777167711611938000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "8deea4420b361699",
+      "start_ns": 1777167674293007000,
+      "status": "ok",
+      "trace_id": "f2b6620cbb43ad11aabbf98d0d8c8b74",
+      "wall_time_ms": 37318.931
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "e4dfccfe8445ac51",
+        "tool.name": "ddg",
+        "tool.num_results": 0,
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3
+      },
+      "cpu_time_ms": 36005.442,
+      "end_ns": 1777167710298466000,
+      "error": "Post \"https://html.duckduckgo.com/html/\": context deadline exceeded",
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "8deea4420b361699",
+      "span_id": "2e8958294d2d9a78",
+      "start_ns": 1777167674293024000,
+      "status": "error",
+      "trace_id": "f2b6620cbb43ad11aabbf98d0d8c8b74",
+      "wall_time_ms": 36005.442
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 32,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 56,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1309.924,
+      "end_ns": 1777167711611931000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "8deea4420b361699",
+      "span_id": "7c204ecb5a144972",
+      "start_ns": 1777167710302007000,
+      "status": "ok",
+      "trace_id": "f2b6620cbb43ad11aabbf98d0d8c8b74",
+      "wall_time_ms": 1309.924
+    }
+  ],
+  "trace_id": "f2b6620cbb43ad11aabbf98d0d8c8b74"
+}

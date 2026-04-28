@@ -1,0 +1,160 @@
+{
+  "config": "cell_concurrent_go_b1",
+  "label": "cell_concurrent_go_b1",
+  "query_id": "q007",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 1,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 2,
+        "agent.num_urls_fetched": 2,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b1",
+        "query_id": "q007",
+        "query_text": "What was the shortest war in history?"
+      },
+      "cpu_time_ms": 4813.135,
+      "end_ns": 1777167318200192000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "796e569bcab5ea2a",
+      "start_ns": 1777167313387057000,
+      "status": "ok",
+      "trace_id": "c4b1ed64cfd7964c33e967c0ab21a2a0",
+      "wall_time_ms": 4813.135
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "28ee672e27b21aa7",
+        "tool.name": "ddg",
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 873,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 896.18,
+      "end_ns": 1777167314283246000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "796e569bcab5ea2a",
+      "span_id": "4fb3cd97b53d029e",
+      "start_ns": 1777167313387066000,
+      "status": "ok",
+      "trace_id": "c4b1ed64cfd7964c33e967c0ab21a2a0",
+      "wall_time_ms": 896.18
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "9fd7736727a3a2aa",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 40138,
+        "tool.retry_count": 0,
+        "tool.url": "https://en.wikipedia.org/wiki/Anglo-Zanzibar_War"
+      },
+      "cpu_time_ms": 204.296,
+      "end_ns": 1777167314487553000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "796e569bcab5ea2a",
+      "span_id": "a45e59e18741191c",
+      "start_ns": 1777167314283257000,
+      "status": "ok",
+      "trace_id": "c4b1ed64cfd7964c33e967c0ab21a2a0",
+      "wall_time_ms": 204.296
+    },
+    {
+      "attrs": {
+        "tool.http_status": 200,
+        "tool.input_hash": "1307a486208c48ac",
+        "tool.name": "fetch_url",
+        "tool.output_size_bytes": 9117,
+        "tool.retry_count": 0,
+        "tool.url": "https://www.britannica.com/event/Anglo-Zanzibar-War"
+      },
+      "cpu_time_ms": 1810.172,
+      "end_ns": 1777167316297753000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.fetch",
+      "parent_id": "796e569bcab5ea2a",
+      "span_id": "24d48a2bf3b6a040",
+      "start_ns": 1777167314487582000,
+      "status": "ok",
+      "trace_id": "c4b1ed64cfd7964c33e967c0ab21a2a0",
+      "wall_time_ms": 1810.171
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "c6057259b6faa660",
+        "tool.n_sentences_in": 122,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 850,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 29.705,
+      "end_ns": 1777167316327613000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "796e569bcab5ea2a",
+      "span_id": "e24e2b105c55b663",
+      "start_ns": 1777167316297908000,
+      "status": "ok",
+      "trace_id": "c4b1ed64cfd7964c33e967c0ab21a2a0",
+      "wall_time_ms": 29.705
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "6b47d0229316d9a3",
+        "tool.n_sentences_in": 60,
+        "tool.n_sentences_out": 1,
+        "tool.name": "lexrank",
+        "tool.output_size_bytes": 344,
+        "tool.retry_count": 0
+      },
+      "cpu_time_ms": 5.883,
+      "end_ns": 1777167316333572000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.summarize",
+      "parent_id": "796e569bcab5ea2a",
+      "span_id": "5caf43a39410ecf4",
+      "start_ns": 1777167316327689000,
+      "status": "ok",
+      "trace_id": "c4b1ed64cfd7964c33e967c0ab21a2a0",
+      "wall_time_ms": 5.883
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 514,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 103,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1866.538,
+      "end_ns": 1777167318200182000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "796e569bcab5ea2a",
+      "span_id": "780a99e750667e33",
+      "start_ns": 1777167316333645000,
+      "status": "ok",
+      "trace_id": "c4b1ed64cfd7964c33e967c0ab21a2a0",
+      "wall_time_ms": 1866.537
+    }
+  ],
+  "trace_id": "c4b1ed64cfd7964c33e967c0ab21a2a0"
+}

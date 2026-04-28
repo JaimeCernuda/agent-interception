@@ -1,0 +1,263 @@
+{
+  "trace_id": "cd559059bebe9030e41be8d031a1332d",
+  "config": "pipeline_haiku_hotpot",
+  "query_id": "q001",
+  "label": "cell_haiku_pipeline_hotpot",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "cd559059bebe9030e41be8d031a1332d",
+      "span_id": "fe9ecde84bcd0034",
+      "parent_id": null,
+      "start_ns": 1777169674034264000,
+      "end_ns": 1777169707710506000,
+      "wall_time_ms": 33676.242,
+      "cpu_time_ms": 4241.096,
+      "kind": "root",
+      "attrs": {
+        "config": "pipeline_haiku_hotpot",
+        "query_id": "q001",
+        "query_text": "In which county does the  8th Military Police Brigade  of the United States Army's Barracks located?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "cd559059bebe9030e41be8d031a1332d",
+      "span_id": "f22fec3e5e61c9fb",
+      "parent_id": "fe9ecde84bcd0034",
+      "start_ns": 1777169674034542000,
+      "end_ns": 1777169682957991000,
+      "wall_time_ms": 8923.449,
+      "cpu_time_ms": 489.393,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "61c232f8d2244b72",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 565
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "cd559059bebe9030e41be8d031a1332d",
+      "span_id": "9270825669eb7834",
+      "parent_id": "fe9ecde84bcd0034",
+      "start_ns": 1777169682958175000,
+      "end_ns": 1777169685860219000,
+      "wall_time_ms": 2902.044,
+      "cpu_time_ms": 206.363,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "ecde9b48e29a5a25",
+        "tool.url": "https://en.wikipedia.org/wiki/8th_Military_Police_Brigade_(United_States)",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "cd559059bebe9030e41be8d031a1332d",
+      "span_id": "201334f9dec173a4",
+      "parent_id": "fe9ecde84bcd0034",
+      "start_ns": 1777169685860396000,
+      "end_ns": 1777169688796395000,
+      "wall_time_ms": 2935.999,
+      "cpu_time_ms": 206.38,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "f779147dd9b078df",
+        "tool.url": "https://en.wikipedia.org/wiki/89th_Military_Police_Brigade_(United_States)",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "cd559059bebe9030e41be8d031a1332d",
+      "span_id": "e26d73228727e9f9",
+      "parent_id": "fe9ecde84bcd0034",
+      "start_ns": 1777169688796550000,
+      "end_ns": 1777169691754534000,
+      "wall_time_ms": 2957.984,
+      "cpu_time_ms": 232.718,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "8874f73edb69fc5f",
+        "tool.url": "https://en.wikipedia.org/wiki/728th_Military_Police_Battalion",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "cd559059bebe9030e41be8d031a1332d",
+      "span_id": "be0372acb79c81ce",
+      "parent_id": "fe9ecde84bcd0034",
+      "start_ns": 1777169691754726000,
+      "end_ns": 1777169694648053000,
+      "wall_time_ms": 2893.327,
+      "cpu_time_ms": 206.273,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "a9539ae5d990d868",
+        "tool.url": "https://en.wikipedia.org/wiki/List_of_United_States_Army_Military_Police_Corps_units",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "cd559059bebe9030e41be8d031a1332d",
+      "span_id": "c881add76260078e",
+      "parent_id": "fe9ecde84bcd0034",
+      "start_ns": 1777169694648256000,
+      "end_ns": 1777169698253695000,
+      "wall_time_ms": 3605.439,
+      "cpu_time_ms": 205.016,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "dc6645fffde82f73",
+        "tool.url": "https://military-history.fandom.com/wiki/8th_Military_Police_Brigade_(United_States)",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "cd559059bebe9030e41be8d031a1332d",
+      "span_id": "88d71f51e4bb841b",
+      "parent_id": "fe9ecde84bcd0034",
+      "start_ns": 1777169698253951000,
+      "end_ns": 1777169701106688000,
+      "wall_time_ms": 2852.737,
+      "cpu_time_ms": 1079.399,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "d854523ed20907d4",
+        "tool.url": "https://www.army.mil/8thtsc",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 23363
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "cd559059bebe9030e41be8d031a1332d",
+      "span_id": "1fe3c81e7f2396eb",
+      "parent_id": "fe9ecde84bcd0034",
+      "start_ns": 1777169701106836000,
+      "end_ns": 1777169703760476000,
+      "wall_time_ms": 2653.64,
+      "cpu_time_ms": 414.074,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "d0dc98d6f3dce0e1",
+        "tool.url": "https://currentops.com/unit/us/army/8-mp-bde",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 1230
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "cd559059bebe9030e41be8d031a1332d",
+      "span_id": "28b778702c75db5e",
+      "parent_id": "fe9ecde84bcd0034",
+      "start_ns": 1777169704267062000,
+      "end_ns": 1777169705083929000,
+      "wall_time_ms": 816.867,
+      "cpu_time_ms": 780.11,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "50b692fbf55afcc3",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 178,
+        "tool.output_size_bytes": 81
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "cd559059bebe9030e41be8d031a1332d",
+      "span_id": "91132676894fffaa",
+      "parent_id": "fe9ecde84bcd0034",
+      "start_ns": 1777169705084091000,
+      "end_ns": 1777169705131988000,
+      "wall_time_ms": 47.897,
+      "cpu_time_ms": 46.955,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "d54c1a56bacee4f6",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 10,
+        "tool.output_size_bytes": 48
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "cd559059bebe9030e41be8d031a1332d",
+      "span_id": "2b3d71b0cb29dcc6",
+      "parent_id": "fe9ecde84bcd0034",
+      "start_ns": 1777169705132713000,
+      "end_ns": 1777169707710338000,
+      "wall_time_ms": 2577.625,
+      "cpu_time_ms": 82.657,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 67,
+        "llm.output_tokens": 115,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

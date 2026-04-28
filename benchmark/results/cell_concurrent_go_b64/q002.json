@@ -1,0 +1,76 @@
+{
+  "config": "cell_concurrent_go_b64",
+  "label": "cell_concurrent_go_b64",
+  "query_id": "q002",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 64,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 0,
+        "agent.num_urls_fetched": 0,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b64",
+        "query_id": "q002",
+        "query_text": "Who wrote the book titled Orientalism?"
+      },
+      "cpu_time_ms": 37587.583,
+      "end_ns": 1777167711879766000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "0818a86886aa8069",
+      "start_ns": 1777167674292182000,
+      "status": "ok",
+      "trace_id": "c1f4294ad21bb501bbb98163620553ef",
+      "wall_time_ms": 37587.584
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "ec4f0f516d458418",
+        "tool.name": "ddg",
+        "tool.num_results": 0,
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3
+      },
+      "cpu_time_ms": 36004.156,
+      "end_ns": 1777167710296344000,
+      "error": "Post \"https://html.duckduckgo.com/html/\": context deadline exceeded",
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "0818a86886aa8069",
+      "span_id": "2d158b56ab1ad9d7",
+      "start_ns": 1777167674292187000,
+      "status": "error",
+      "trace_id": "c1f4294ad21bb501bbb98163620553ef",
+      "wall_time_ms": 36004.157
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 24,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 55,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1577.989,
+      "end_ns": 1777167711879759000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "0818a86886aa8069",
+      "span_id": "8cf4ec5843946baa",
+      "start_ns": 1777167710301770000,
+      "status": "ok",
+      "trace_id": "c1f4294ad21bb501bbb98163620553ef",
+      "wall_time_ms": 1577.989
+    }
+  ],
+  "trace_id": "c1f4294ad21bb501bbb98163620553ef"
+}

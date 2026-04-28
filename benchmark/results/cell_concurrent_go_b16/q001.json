@@ -1,0 +1,76 @@
+{
+  "config": "cell_concurrent_go_b16",
+  "label": "cell_concurrent_go_b16",
+  "query_id": "q001",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 16,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 0,
+        "agent.num_urls_fetched": 0,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b16",
+        "query_id": "q001",
+        "query_text": "Who was the first elected female Governor of Massachusetts?"
+      },
+      "cpu_time_ms": 2937.598,
+      "end_ns": 1777167601495751000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "a4b392a3c920cb69",
+      "start_ns": 1777167598558153000,
+      "status": "ok",
+      "trace_id": "701a20bf4d852b0464601c3b622cb6fd",
+      "wall_time_ms": 2937.598
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "3f3a27b6adccb45c",
+        "tool.name": "ddg",
+        "tool.num_results": 0,
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3
+      },
+      "cpu_time_ms": 1972.311,
+      "end_ns": 1777167600530468000,
+      "error": "ddg status 403",
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "a4b392a3c920cb69",
+      "span_id": "3a44fd55b4ff6899",
+      "start_ns": 1777167598558158000,
+      "status": "error",
+      "trace_id": "701a20bf4d852b0464601c3b622cb6fd",
+      "wall_time_ms": 1972.31
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 25,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 51,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 965.189,
+      "end_ns": 1777167601495724000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "a4b392a3c920cb69",
+      "span_id": "ee61459963389fa5",
+      "start_ns": 1777167600530535000,
+      "status": "ok",
+      "trace_id": "701a20bf4d852b0464601c3b622cb6fd",
+      "wall_time_ms": 965.189
+    }
+  ],
+  "trace_id": "701a20bf4d852b0464601c3b622cb6fd"
+}

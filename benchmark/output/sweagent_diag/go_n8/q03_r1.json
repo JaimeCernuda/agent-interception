@@ -1,0 +1,186 @@
+{
+  "config": "sweagent_go_n8",
+  "label": "log_analysis",
+  "query_id": "q03_r1",
+  "spans": [
+    {
+      "attrs": {
+        "agent.cpu_time_ms": 496.82899999999995,
+        "agent.duration_api_ms": 10914,
+        "agent.duration_ms": 14864,
+        "agent.is_error": false,
+        "agent.num_turns": 3,
+        "agent.total_cost_usd": 0.018785450000000002,
+        "agent.truncated": false,
+        "agent.workspace_dir": "/tmp/go_n8_ws/q03_r1",
+        "config": "sweagent_go_n8",
+        "query_id": "q03_r1",
+        "query_text": "metrics.csv has columns timestamp,host,metric,value. For host 'host-042', what is the average value of the 'cpu_pct' metric? Round to 2 decimals.",
+        "sweagent.category": "A",
+        "sweagent.label": "log_analysis"
+      },
+      "cpu_time_ms": 36896.757,
+      "end_ns": 1777388087428382000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "8cfb53733992d6fb",
+      "start_ns": 1777388050531625000,
+      "status": "ok",
+      "trace_id": "78e05a734cb58789d3eb45bbadd51b7b",
+      "wall_time_ms": 36896.757
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 0
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777388075189676000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "8cfb53733992d6fb",
+      "span_id": "95e0f0764ba3593f",
+      "start_ns": 1777388050544381000,
+      "status": "ok",
+      "trace_id": "78e05a734cb58789d3eb45bbadd51b7b",
+      "wall_time_ms": 24645.295
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "58d204a5a05d453f",
+        "tool.name": "read_file",
+        "tool.path": "metrics.csv",
+        "tool.size_bytes": 3521092,
+        "tool.truncated": true
+      },
+      "cpu_time_ms": 7.03,
+      "end_ns": 1777388075211371000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.read_file",
+      "parent_id": "8cfb53733992d6fb",
+      "span_id": "6e33362ae9f29257",
+      "start_ns": 1777388075204341000,
+      "status": "ok",
+      "trace_id": "78e05a734cb58789d3eb45bbadd51b7b",
+      "wall_time_ms": 7.03
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 1
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777388080802505000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "8cfb53733992d6fb",
+      "span_id": "d118954ed24e23cc",
+      "start_ns": 1777388076361956000,
+      "status": "ok",
+      "trace_id": "78e05a734cb58789d3eb45bbadd51b7b",
+      "wall_time_ms": 4440.549
+    },
+    {
+      "attrs": {
+        "bash.command_preview": "awk -F',' '$2 == \"host-042\" \u0026\u0026 $3 == \"cpu_pct\" {sum += $4; count++} END {if (count \u003e 0) printf \"%.2f\\n\", sum/count}' metrics.csv",
+        "bash.exit_code": 0,
+        "bash.shell_wrapped": true,
+        "bash.stderr_bytes": 0,
+        "bash.stderr_truncated": false,
+        "bash.stdout_bytes": 6,
+        "bash.stdout_truncated": false,
+        "bash.timed_out": false,
+        "bash.timeout_seconds": 30,
+        "tool.input_hash": "b870eb6142239b73",
+        "tool.name": "bash_run"
+      },
+      "cpu_time_ms": 3461.907,
+      "end_ns": 1777388084273531000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.bash_run",
+      "parent_id": "8cfb53733992d6fb",
+      "span_id": "7df1eab4807516fc",
+      "start_ns": 1777388080811628000,
+      "status": "ok",
+      "trace_id": "78e05a734cb58789d3eb45bbadd51b7b",
+      "wall_time_ms": 3461.903
+    },
+    {
+      "attrs": {
+        "bash.pid": 4166,
+        "bash.shell_wrapped": true,
+        "tool.name": "bash_spawn"
+      },
+      "cpu_time_ms": 6.484,
+      "end_ns": 1777388080818239000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.bash_spawn",
+      "parent_id": "7df1eab4807516fc",
+      "span_id": "ccc10f87f5bceab2",
+      "start_ns": 1777388080811755000,
+      "status": "ok",
+      "trace_id": "78e05a734cb58789d3eb45bbadd51b7b",
+      "wall_time_ms": 6.484
+    },
+    {
+      "attrs": {
+        "bash.exit_code": 0,
+        "bash.stderr_bytes": 0,
+        "bash.stdout_bytes": 6,
+        "bash.timed_out": false,
+        "tool.name": "bash_work"
+      },
+      "cpu_time_ms": 3455.173,
+      "end_ns": 1777388084273412000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.bash_work",
+      "parent_id": "7df1eab4807516fc",
+      "span_id": "a1513d3e807d9c50",
+      "start_ns": 1777388080818239000,
+      "status": "ok",
+      "trace_id": "78e05a734cb58789d3eb45bbadd51b7b",
+      "wall_time_ms": 3455.173
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 2
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777388086837408000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "8cfb53733992d6fb",
+      "span_id": "353a657f2687630e",
+      "start_ns": 1777388084289633000,
+      "status": "ok",
+      "trace_id": "78e05a734cb58789d3eb45bbadd51b7b",
+      "wall_time_ms": 2547.775
+    }
+  ],
+  "trace_id": "78e05a734cb58789d3eb45bbadd51b7b"
+}

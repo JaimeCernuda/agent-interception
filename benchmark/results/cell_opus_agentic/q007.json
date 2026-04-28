@@ -1,0 +1,222 @@
+{
+  "trace_id": "a44af0fe373108ccb5fe354531bed882",
+  "config": "opus_custom",
+  "query_id": "q007",
+  "label": "cell_opus_custom",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "a44af0fe373108ccb5fe354531bed882",
+      "span_id": "1e571fabb6043d90",
+      "parent_id": null,
+      "start_ns": 1777074531639886000,
+      "end_ns": 1777074563024371000,
+      "wall_time_ms": 31384.485,
+      "cpu_time_ms": 700.751,
+      "kind": "root",
+      "attrs": {
+        "config": "opus_custom",
+        "query_id": "q007",
+        "query_text": "What was the shortest war in history?",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.max_turns": 10
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "a44af0fe373108ccb5fe354531bed882",
+      "span_id": "2c79b7d61dfaadbd",
+      "parent_id": "1e571fabb6043d90",
+      "start_ns": 1777074531639991000,
+      "end_ns": 1777074533023055000,
+      "wall_time_ms": 1383.064,
+      "cpu_time_ms": 10.412,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 817,
+        "llm.output_tokens": 57,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "a44af0fe373108ccb5fe354531bed882",
+      "span_id": "846d4d7b2f5cdaf8",
+      "parent_id": "1e571fabb6043d90",
+      "start_ns": 1777074533023303000,
+      "end_ns": 1777074534893021000,
+      "wall_time_ms": 1869.718,
+      "cpu_time_ms": 27.314,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "fabd9a170697048e",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 693
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "a44af0fe373108ccb5fe354531bed882",
+      "span_id": "c1bf9fe9225f1e56",
+      "parent_id": "1e571fabb6043d90",
+      "start_ns": 1777074539895184000,
+      "end_ns": 1777074541329856000,
+      "wall_time_ms": 1434.672,
+      "cpu_time_ms": 16.816,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1169,
+        "llm.output_tokens": 140,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "a44af0fe373108ccb5fe354531bed882",
+      "span_id": "5b4b7da61171e6fc",
+      "parent_id": "1e571fabb6043d90",
+      "start_ns": 1777074541330048000,
+      "end_ns": 1777074543478768000,
+      "wall_time_ms": 2148.72,
+      "cpu_time_ms": 192.755,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "dcc8c6df5c7f313c",
+        "tool.url": "https://en.wikipedia.org/wiki/Shortest_war_in_history",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "a44af0fe373108ccb5fe354531bed882",
+      "span_id": "51263e7a36a092b1",
+      "parent_id": "1e571fabb6043d90",
+      "start_ns": 1777074543478987000,
+      "end_ns": 1777074545255648000,
+      "wall_time_ms": 1776.661,
+      "cpu_time_ms": 198.844,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "8851f1b993e833ca",
+        "tool.url": "https://www.historic-uk.com/HistoryUK/HistoryofBritain/The-Shortest-War-in-History/",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "a44af0fe373108ccb5fe354531bed882",
+      "span_id": "cc2c2ca3abb1c494",
+      "parent_id": "1e571fabb6043d90",
+      "start_ns": 1777074550263402000,
+      "end_ns": 1777074551343529000,
+      "wall_time_ms": 1080.127,
+      "cpu_time_ms": 22.002,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 1384,
+        "llm.output_tokens": 151,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "a44af0fe373108ccb5fe354531bed882",
+      "span_id": "ca8379718252d86c",
+      "parent_id": "1e571fabb6043d90",
+      "start_ns": 1777074551343751000,
+      "end_ns": 1777074554645137000,
+      "wall_time_ms": 3301.386,
+      "cpu_time_ms": 121.839,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "73a49b5b365ab9e8",
+        "tool.url": "https://todayinhistory.blog/2019/08/27/august-27-1896-the-shortest-war-in-history/",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 2999
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "a44af0fe373108ccb5fe354531bed882",
+      "span_id": "329924e6572b8210",
+      "parent_id": "1e571fabb6043d90",
+      "start_ns": 1777074554645274000,
+      "end_ns": 1777074554972046000,
+      "wall_time_ms": 326.772,
+      "cpu_time_ms": 86.862,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "f475795827cc88db",
+        "tool.url": "https://www.worldatlas.com/articles/shortest-wars-in-human-history.html",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 9038
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "a44af0fe373108ccb5fe354531bed882",
+      "span_id": "2fe405f074fd4db9",
+      "parent_id": "1e571fabb6043d90",
+      "start_ns": 1777074559977224000,
+      "end_ns": 1777074563024311000,
+      "wall_time_ms": 3047.087,
+      "cpu_time_ms": 22.489,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 4472,
+        "llm.output_tokens": 303,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

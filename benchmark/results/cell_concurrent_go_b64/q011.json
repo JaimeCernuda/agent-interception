@@ -1,0 +1,154 @@
+{
+  "config": "cell_concurrent_go_b64",
+  "label": "cell_concurrent_go_b64",
+  "query_id": "q011",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 64,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 0,
+        "agent.num_urls_fetched": 0,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b64",
+        "query_id": "q011",
+        "query_text": "What is the youngest age eligible for COVID-19 vaccination in the United States?"
+      },
+      "cpu_time_ms": 68402.332,
+      "end_ns": 1777167742694965000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "8787f02ffd0dcd2e",
+      "start_ns": 1777167674292633000,
+      "status": "ok",
+      "trace_id": "91a99dcd086d7e3911df471ba77cf5a8",
+      "wall_time_ms": 68402.332
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "bb429540c09dc22d",
+        "tool.name": "ddg",
+        "tool.num_results": 0,
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3
+      },
+      "cpu_time_ms": 36005.768,
+      "end_ns": 1777167710298405000,
+      "error": "Post \"https://html.duckduckgo.com/html/\": context deadline exceeded",
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "8787f02ffd0dcd2e",
+      "span_id": "cc68e8e4b06af283",
+      "start_ns": 1777167674292637000,
+      "status": "error",
+      "trace_id": "91a99dcd086d7e3911df471ba77cf5a8",
+      "wall_time_ms": 36005.768
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.rate_limited": true,
+        "llm.status_code": 429
+      },
+      "cpu_time_ms": 765.08,
+      "end_ns": 1777167711067035000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "8787f02ffd0dcd2e",
+      "span_id": "3172c31da2835ff6",
+      "start_ns": 1777167710301956000,
+      "status": "ok",
+      "trace_id": "91a99dcd086d7e3911df471ba77cf5a8",
+      "wall_time_ms": 765.079
+    },
+    {
+      "attrs": {
+        "llm.retry_after_s": 12,
+        "llm.retry_attempt": 1,
+        "llm.retry_trigger": "http_429"
+      },
+      "cpu_time_ms": 12000.953,
+      "end_ns": 1777167723067996000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.retry_wait",
+      "parent_id": "8787f02ffd0dcd2e",
+      "span_id": "9884da3d3f1f8f92",
+      "start_ns": 1777167711067043000,
+      "status": "ok",
+      "trace_id": "91a99dcd086d7e3911df471ba77cf5a8",
+      "wall_time_ms": 12000.953
+    },
+    {
+      "attrs": {
+        "llm.attempt": 1,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.rate_limited": true,
+        "llm.status_code": 429
+      },
+      "cpu_time_ms": 603.512,
+      "end_ns": 1777167723671554000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "8787f02ffd0dcd2e",
+      "span_id": "eecd32aa42974f11",
+      "start_ns": 1777167723068043000,
+      "status": "ok",
+      "trace_id": "91a99dcd086d7e3911df471ba77cf5a8",
+      "wall_time_ms": 603.511
+    },
+    {
+      "attrs": {
+        "llm.retry_after_s": 18,
+        "llm.retry_attempt": 2,
+        "llm.retry_trigger": "http_429"
+      },
+      "cpu_time_ms": 18000.437,
+      "end_ns": 1777167741672001000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.retry_wait",
+      "parent_id": "8787f02ffd0dcd2e",
+      "span_id": "f4fb2b9cc8079afa",
+      "start_ns": 1777167723671565000,
+      "status": "ok",
+      "trace_id": "91a99dcd086d7e3911df471ba77cf5a8",
+      "wall_time_ms": 18000.436
+    },
+    {
+      "attrs": {
+        "llm.attempt": 2,
+        "llm.input_tokens": 32,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 58,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1022.917,
+      "end_ns": 1777167742694955000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "8787f02ffd0dcd2e",
+      "span_id": "0bb34f22668f915c",
+      "start_ns": 1777167741672038000,
+      "status": "ok",
+      "trace_id": "91a99dcd086d7e3911df471ba77cf5a8",
+      "wall_time_ms": 1022.917
+    }
+  ],
+  "trace_id": "91a99dcd086d7e3911df471ba77cf5a8"
+}

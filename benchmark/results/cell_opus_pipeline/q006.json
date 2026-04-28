@@ -1,0 +1,179 @@
+{
+  "trace_id": "d10c33ae57217e276ca02e7cf99f6bc1",
+  "config": "pipeline_opus",
+  "query_id": "q006",
+  "label": "cell_opus_pipeline",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "d10c33ae57217e276ca02e7cf99f6bc1",
+      "span_id": "ba19aac6340fe496",
+      "parent_id": null,
+      "start_ns": 1777155046748977000,
+      "end_ns": 1777155058071034000,
+      "wall_time_ms": 11322.057,
+      "cpu_time_ms": 583.245,
+      "kind": "root",
+      "attrs": {
+        "config": "pipeline_opus",
+        "query_id": "q006",
+        "query_text": "What country became the latest country to adopt the Euro?",
+        "agent.architecture": "pipeline",
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_urls_fetched": 2,
+        "agent.num_summaries": 2
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.search",
+      "trace_id": "d10c33ae57217e276ca02e7cf99f6bc1",
+      "span_id": "5ca6992a7a34467d",
+      "parent_id": "ba19aac6340fe496",
+      "start_ns": 1777155046749103000,
+      "end_ns": 1777155050449035000,
+      "wall_time_ms": 3699.932,
+      "cpu_time_ms": 45.869,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "ddg",
+        "tool.input_hash": "974813d7ec0f4ad6",
+        "tool.retry_count": 0,
+        "tool.num_results": 10,
+        "tool.output_size_bytes": 784
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "d10c33ae57217e276ca02e7cf99f6bc1",
+      "span_id": "a2686d7b8f9d3d4b",
+      "parent_id": "ba19aac6340fe496",
+      "start_ns": 1777155050449224000,
+      "end_ns": 1777155053327090000,
+      "wall_time_ms": 2877.866,
+      "cpu_time_ms": 190.657,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "205aa781d101552f",
+        "tool.url": "https://en.wikipedia.org/wiki/Euro",
+        "tool.retry_count": 3,
+        "tool.http_status": 403,
+        "tool.output_size_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "d10c33ae57217e276ca02e7cf99f6bc1",
+      "span_id": "42be220f3912a859",
+      "parent_id": "ba19aac6340fe496",
+      "start_ns": 1777155053327497000,
+      "end_ns": 1777155055326709000,
+      "wall_time_ms": 1999.212,
+      "cpu_time_ms": 126.014,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "c9352aabafadf725",
+        "tool.url": "https://www.bloomberg.com/news/articles/2026-01-01/lagarde-says-bulgaria-joining-euro-is-powerful-symbol-for-europe",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 544
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.fetch",
+      "trace_id": "d10c33ae57217e276ca02e7cf99f6bc1",
+      "span_id": "8f003d2e9620fed6",
+      "parent_id": "ba19aac6340fe496",
+      "start_ns": 1777155055326908000,
+      "end_ns": 1777155056747204000,
+      "wall_time_ms": 1420.296,
+      "cpu_time_ms": 112.374,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "fetch_url",
+        "tool.input_hash": "fa967733619473ec",
+        "tool.url": "https://www.linkedin.com/posts/d-ample-ads-5aa902156_bulgaria-set-to-adopt-the-euro-marking-major-activity-7411442146811133952-rEs_",
+        "tool.retry_count": 0,
+        "tool.http_status": 200,
+        "tool.output_size_bytes": 378
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "d10c33ae57217e276ca02e7cf99f6bc1",
+      "span_id": "d2a2c799b9dc6d1f",
+      "parent_id": "ba19aac6340fe496",
+      "start_ns": 1777155056747347000,
+      "end_ns": 1777155056803908000,
+      "wall_time_ms": 56.561,
+      "cpu_time_ms": 54.288,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "37a0cb1f0929f754",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 2,
+        "tool.output_size_bytes": 262
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.summarize",
+      "trace_id": "d10c33ae57217e276ca02e7cf99f6bc1",
+      "span_id": "b20d39495228aec4",
+      "parent_id": "ba19aac6340fe496",
+      "start_ns": 1777155056804571000,
+      "end_ns": 1777155056847166000,
+      "wall_time_ms": 42.595,
+      "cpu_time_ms": 42.646,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "lexrank",
+        "tool.input_hash": "86df6f1c8fbff0c2",
+        "tool.retry_count": 0,
+        "tool.n_sentences_out": 1,
+        "tool.n_sentences_in": 4,
+        "tool.output_size_bytes": 205
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "d10c33ae57217e276ca02e7cf99f6bc1",
+      "span_id": "21178b5d4a23b5f4",
+      "parent_id": "ba19aac6340fe496",
+      "start_ns": 1777155056847838000,
+      "end_ns": 1777155058070918000,
+      "wall_time_ms": 1223.08,
+      "cpu_time_ms": 9.35,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.input_tokens": 119,
+        "llm.output_tokens": 52,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

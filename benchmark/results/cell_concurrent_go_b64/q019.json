@@ -1,0 +1,76 @@
+{
+  "config": "cell_concurrent_go_b64",
+  "label": "cell_concurrent_go_b64",
+  "query_id": "q019",
+  "spans": [
+    {
+      "attrs": {
+        "agent.architecture": "pipeline",
+        "agent.concurrent_batch_size": 64,
+        "agent.last_stop_reason": "end_turn",
+        "agent.num_summaries": 0,
+        "agent.num_urls_fetched": 0,
+        "agent.terminated_reason": "natural",
+        "agent.truncated": false,
+        "config": "cell_concurrent_go_b64",
+        "query_id": "q019",
+        "query_text": "Who posted the most-liked Instagram post last year?"
+      },
+      "cpu_time_ms": 37238.48,
+      "end_ns": 1777167711530667000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "7aa6b2b197e296c8",
+      "start_ns": 1777167674292187000,
+      "status": "ok",
+      "trace_id": "8ac84990ae185567b9df1cf3d25bfa6c",
+      "wall_time_ms": 37238.48
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "36273eee9807a55b",
+        "tool.name": "ddg",
+        "tool.num_results": 0,
+        "tool.output_size_bytes": 0,
+        "tool.retry_count": 3
+      },
+      "cpu_time_ms": 36006.197,
+      "end_ns": 1777167710298389000,
+      "error": "Post \"https://html.duckduckgo.com/html/\": context deadline exceeded",
+      "kind": "tool",
+      "name": "tool.search",
+      "parent_id": "7aa6b2b197e296c8",
+      "span_id": "32d9a91b9cf0e737",
+      "start_ns": 1777167674292191000,
+      "status": "error",
+      "trace_id": "8ac84990ae185567b9df1cf3d25bfa6c",
+      "wall_time_ms": 36006.198
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.input_tokens": 26,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.output_tokens": 52,
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.status_code": 200,
+        "llm.stop_reason": "end_turn"
+      },
+      "cpu_time_ms": 1228.753,
+      "end_ns": 1777167711530656000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "7aa6b2b197e296c8",
+      "span_id": "7ed92f0ab7f9939a",
+      "start_ns": 1777167710301903000,
+      "status": "ok",
+      "trace_id": "8ac84990ae185567b9df1cf3d25bfa6c",
+      "wall_time_ms": 1228.753
+    }
+  ],
+  "trace_id": "8ac84990ae185567b9df1cf3d25bfa6c"
+}
