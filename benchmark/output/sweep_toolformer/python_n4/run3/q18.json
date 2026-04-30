@@ -1,0 +1,140 @@
+{
+  "trace_id": "ca8ac4fb5d56375638ae788f195fa62a",
+  "config": "toolformer_py",
+  "query_id": "q18",
+  "label": "fractional",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "ca8ac4fb5d56375638ae788f195fa62a",
+      "span_id": "57b74fd6be78acaa",
+      "parent_id": null,
+      "start_ns": 1777413197614191000,
+      "end_ns": 1777413206716751000,
+      "wall_time_ms": 9102.56,
+      "cpu_time_ms": 155.773,
+      "kind": "root",
+      "attrs": {
+        "config": "toolformer_py",
+        "query_id": "q18",
+        "query_text": "A water flow restrictor has reduced the flow of water to 2 gallons per minute. This amount is 1 gallon per minute less than 0.6 the original flow rate. Find the original rate in gallons per minute.",
+        "agent.num_turns": 3,
+        "agent.total_input_tokens": 26,
+        "agent.total_output_tokens": 634,
+        "agent.total_cost_usd": 0.01945115,
+        "agent.duration_ms": 5901.0,
+        "agent.duration_api_ms": 6652.0,
+        "agent.is_error": false,
+        "agent.truncated": false,
+        "agent.num_tool_calls": 2,
+        "agent.cpu_time_ms": 155.76899999999978
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "ca8ac4fb5d56375638ae788f195fa62a",
+      "span_id": "b0cc6907373e9905",
+      "parent_id": "57b74fd6be78acaa",
+      "start_ns": 1777413197614241000,
+      "end_ns": 1777413203333047000,
+      "wall_time_ms": 5718.806,
+      "cpu_time_ms": 88.862,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 0,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "ca8ac4fb5d56375638ae788f195fa62a",
+      "span_id": "0192dabde94c28e1",
+      "parent_id": "57b74fd6be78acaa",
+      "start_ns": 1777413203339008000,
+      "end_ns": 1777413203339262000,
+      "wall_time_ms": 0.254,
+      "cpu_time_ms": 0.376,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "ad6a3bbe835f4f7e",
+        "expression": "2 + 1",
+        "result": 3.0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "ca8ac4fb5d56375638ae788f195fa62a",
+      "span_id": "26786d17e3ca34ce",
+      "parent_id": "57b74fd6be78acaa",
+      "start_ns": 1777413203374691000,
+      "end_ns": 1777413204735710000,
+      "wall_time_ms": 1361.019,
+      "cpu_time_ms": 8.349,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 1,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "ca8ac4fb5d56375638ae788f195fa62a",
+      "span_id": "0b454bf182dbcbea",
+      "parent_id": "57b74fd6be78acaa",
+      "start_ns": 1777413204739264000,
+      "end_ns": 1777413204739461000,
+      "wall_time_ms": 0.197,
+      "cpu_time_ms": 0.28,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "249468d381c1189a",
+        "expression": "3 / 0.6",
+        "result": 5.0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "ca8ac4fb5d56375638ae788f195fa62a",
+      "span_id": "0048d8e6078344a0",
+      "parent_id": "57b74fd6be78acaa",
+      "start_ns": 1777413204755120000,
+      "end_ns": 1777413206414225000,
+      "wall_time_ms": 1659.105,
+      "cpu_time_ms": 23.897,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 2,
+        "llm.has_tool_use": false,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

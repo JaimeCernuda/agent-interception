@@ -1,0 +1,118 @@
+{
+  "trace_id": "585f6c84e27805a49e77090c4809df0f",
+  "config": "toolformer_py",
+  "query_id": "q09",
+  "label": "two_op",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "585f6c84e27805a49e77090c4809df0f",
+      "span_id": "6b6993298712fabf",
+      "parent_id": null,
+      "start_ns": 1777411748150185000,
+      "end_ns": 1777411757287530000,
+      "wall_time_ms": 9137.345,
+      "cpu_time_ms": 27.743,
+      "kind": "root",
+      "attrs": {
+        "config": "toolformer_py",
+        "query_id": "q09",
+        "query_text": "Tiffany baked 8 brownies, but needed 17 total for her party. If she used 8 cups of flour on each one, how much cups of flour does she still need?",
+        "agent.num_turns": 3,
+        "agent.total_input_tokens": 18,
+        "agent.total_output_tokens": 464,
+        "agent.total_cost_usd": 0.0131047,
+        "agent.duration_ms": 5693.0,
+        "agent.duration_api_ms": 6649.0,
+        "agent.is_error": false,
+        "agent.truncated": false,
+        "agent.num_tool_calls": 2,
+        "agent.cpu_time_ms": 27.746000000000095
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "585f6c84e27805a49e77090c4809df0f",
+      "span_id": "e5d5eb541f502a46",
+      "parent_id": "6b6993298712fabf",
+      "start_ns": 1777411748150227000,
+      "end_ns": 1777411754657578000,
+      "wall_time_ms": 6507.351,
+      "cpu_time_ms": 20.754,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 0,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "585f6c84e27805a49e77090c4809df0f",
+      "span_id": "b82393d4506443d2",
+      "parent_id": "6b6993298712fabf",
+      "start_ns": 1777411754656516000,
+      "end_ns": 1777411754656902000,
+      "wall_time_ms": 0.386,
+      "cpu_time_ms": 0.658,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "35881e223b26e3cf",
+        "expression": "17 - 8",
+        "result": 9.0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "585f6c84e27805a49e77090c4809df0f",
+      "span_id": "f015ae4ac493f302",
+      "parent_id": "6b6993298712fabf",
+      "start_ns": 1777411754666097000,
+      "end_ns": 1777411754666255000,
+      "wall_time_ms": 0.158,
+      "cpu_time_ms": 0.226,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "78dc2a28ab01f859",
+        "expression": "9 * 8",
+        "result": 72.0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "585f6c84e27805a49e77090c4809df0f",
+      "span_id": "df73e76ea0a73489",
+      "parent_id": "6b6993298712fabf",
+      "start_ns": 1777411754669232000,
+      "end_ns": 1777411757003107000,
+      "wall_time_ms": 2333.875,
+      "cpu_time_ms": 1.687,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 1,
+        "llm.has_tool_use": false,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

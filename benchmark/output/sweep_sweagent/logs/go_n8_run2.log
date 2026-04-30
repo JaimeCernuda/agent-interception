@@ -1,0 +1,23 @@
+[run] config=sweagent_go queries=20 concurrency=8 out=../benchmark/output/sweep_sweagent/go_n8/run2
+  [  6/20] q06 ok  (23.83s) answer="Here are all the classes that inherit from `BaseHandler` and their defined methods:  ## **AdminHandl..."
+  [  8/20] q08 ok  (26.61s) answer="Based on my analysis of all the Python files in the project, here are the functions that take a 'req..."
+  [  7/20] q07 ok  (27.89s) answer="Perfect! Now I'll create a unified diff showing all the changes needed to rename 'legacy_utils' to '..."
+  [  4/20] q04 ok  (35.61s) answer="Yes, there are **12 transaction IDs that appear more than once**:  1. **TXN-25799907** — appears 2..."
+  [  9/20] q09 ok  (16.47s) answer="Perfect! I've analyzed the import dependencies in this project. Here's what I found:  ## Circular Im..."
+  [ 10/20] q10 ok  (18.46s) answer="## TODO Comments Summary  Here are all the TODO comments grouped by author:  | Author | Count | |---..."
+  [ 11/20] q11 ok  (28.25s) answer="## Summary  **Bug Found:** In `slicer.py`, the `first_n()` function was using `seq[:n-1]` instead of..."
+  [  2/20] q02 ok  (57.13s) answer="**Top 5 event types in the SECOND HALF (lines 20,001–40,000):**  1. **cache_miss**: 1,316 2. **cli..."
+  [ 13/20] q13 ok  (22.63s) answer="Perfect! I've identified and fixed the bug. Here's the summary:  ## Bug Analysis The failing test sh..."
+  [ 12/20] q12 ok  (28.64s) answer="Perfect! All tests now pass. Here's a summary of the bug and fix:  ## Bug Identified The `describe()..."
+  [  5/20] q05 ok  (71.13s) answer="Perfect! Now I can analyze the results. Let me count the distinct actions for each user from the out..."
+  [ 14/20] q14 ok  (27.29s) answer="Perfect! All tests now pass. Here's the summary:  ## Bug Found The `test_mean_empty` test was failin..."
+  [  1/20] q01 ok  (76.71s) answer="Perfect! Here's the distribution of HTTP status codes from the access.log file:  | Status Code | Cou..."
+  [ 17/20] q17 ok  (13.96s) answer="## Summary  **Total Distinct Exception Types: 7**  Here's the breakdown of each exception type and t..."
+  [ 16/20] q16 ok  (21.37s) answer="Perfect! I've found all the service config files and identified the timeout fields. Here's the compl..."
+  [ 18/20] q18 ok  (14.48s) answer="Here are the heading hierarchies for all .md files in the workspace:  ## **./ops.md** ``` # Operatio..."
+  [ 15/20] q15 ok  (25.04s) answer="Perfect! ✅ Both tests now pass.  ## Summary  **Bug Found:** Operator precedence error in `perm.py`..."
+  [ 20/20] q20 ok  (12.27s) answer="Perfect! I found and stitched together all 10 `frag_*.log` files by sorting on the unix timestamp (f..."
+  [ 19/20] q19 ok  (18.72s) answer="Perfect! I've analyzed all the files. Here's the dependency graph as an adjacency list:  ``` src_00...."
+  [  3/20] q03 ok  (128.73s) answer="## Answer  For **host-042** with metric **cpu_pct**:  - **Number of values**: 708 - **Sum**: 36,178...."
+WALLCLOCK_MS=128832.262
+[run] done. 20/20 succeeded, 0 failed. wallclock=128.83s

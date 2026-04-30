@@ -1,0 +1,23 @@
+[run] config=toolformer_go queries=20 concurrency=16 out=../benchmark/output/sweep_toolformer/go_n16/run2
+  [ 16/20] q16 ok  (14.76s) answer="Nancy has **$3.00**.  Here's the calculation: - 1 dozen = 12 quarters - 12 quarters × $0.25 per qua..."
+  [  1/20] q01 ok  (15.69s) answer="Jeff originally had **184 Pen**.  Here's the reasoning: - Jeff started with some amount (unknown) - ..."
+  [  2/20] q02 ok  (15.80s) answer="**Robert gave Chris 146 apricots.**  Here's the solution: - Chris started with: 39 apricots - Chris ..."
+  [  5/20] q05 ok  (15.81s) answer="**Jacqueline had 52 cherry initially.**  Here's the solution: - Let x = the number of cherry Jacquel..."
+  [ 14/20] q14 ok  (16.06s) answer="I'll solve this step-by-step using the calculator. **Luke has 39 stickers left.**  Here's how I calc..."
+  [  8/20] q08 ok  (16.28s) answer="Sally has **18 nickels** now.  Here's the breakdown: - Started with: 7 nickels - Dad gave her: 9 nic..."
+  [ 13/20] q13 ok  (16.34s) answer="The simple interest you would earn in 2.5 years is **$5.25**.  Using the simple interest formula: I ..."
+  [  9/20] q09 ok  (16.57s) answer="Tiffany still needs **72 cups of flour**.  Here's the breakdown: - Brownies still needed: 17 - 8 = *..."
+  [ 12/20] q12 ok  (17.99s) answer="The cost per pound of the trail mix is **$5.46 per pound**.  Here's how I calculated it:  **Cost of ..."
+  [  6/20] q06 ok  (18.10s) answer="Sam should buy **8 cupcakes**.  Here's the breakdown: - Sam invited 9 friends, but 6 couldn't come, ..."
+  [  4/20] q04 ok  (18.21s) answer="**Answer: Approximately 5.93 figs per bag**  To find how many figs are in each bag, I divided the to..."
+  [ 15/20] q15 ok  (18.41s) answer="I need to calculate the total amount Fred spent and then find the change from his $20 bill.  Let me ..."
+  [  7/20] q07 ok  (18.53s) answer="**Answer: $18**  Here's the breakdown: - Total bars in the box: 9 - Bars sold: 9 - 3 = 6 bars - Mone..."
+  [  3/20] q03 ok  (19.07s) answer="I'll solve this step by step.  The problem states: - Ronald wants to share flowers among 17 friends ..."
+  [ 10/20] q10 ok  (21.64s) answer="**Answer: 7 extra flowers**  Here's the solution: - Total flowers picked: 39 tulips + 49 roses = **8..."
+  [ 19/20] q19 ok  ( 7.59s) answer="Mike spent **$151.00** at the music store.  Here's how I calculated it: - Trumpet: $145.16 - Song bo..."
+  [ 11/20] q11 ok  (24.83s) answer="I need to solve this step-by-step.  **Given information:** - Daily rental: $24.95/day - Mileage cost..."
+  [ 18/20] q18 ok  (10.50s) answer="Let me set up an equation for this problem.  Let **x** = the original flow rate in gallons per minut..."
+  [ 20/20] q20 ok  (10.53s) answer="I need to find how much fruit is left by subtracting the amount eaten from the amount purchased. **A..."
+  [ 17/20] q17 ok  (11.87s) answer="The fraction of students in either the trumpet section or the trombone section is:  **0.5 + 0.125 = ..."
+WALLCLOCK_MS=26629.767
+[run] done. 20/20 succeeded, 0 failed. wallclock=26.63s

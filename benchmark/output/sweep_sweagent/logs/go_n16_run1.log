@@ -1,0 +1,24 @@
+[run] config=sweagent_go queries=20 concurrency=16 out=../benchmark/output/sweep_sweagent/go_n16/run1
+  [  9/20] q09 FAIL (12.43s) CLI result is_error: subtype=success result=You've hit your org's monthly usage limit
+  [ 11/20] q11 FAIL (12.58s) CLI result is_error: subtype=success result=You've hit your org's monthly usage limit
+  [  5/20] q05 FAIL (12.60s) CLI result is_error: subtype=success result=You've hit your org's monthly usage limit
+  [  8/20] q08 FAIL (12.63s) CLI result is_error: subtype=success result=You've hit your org's monthly usage limit
+  [ 12/20] q12 FAIL (13.02s) CLI result is_error: subtype=success result=You've hit your org's monthly usage limit
+  [  3/20] q03 FAIL (13.04s) CLI result is_error: subtype=success result=You've hit your org's monthly usage limit
+  [ 15/20] q15 FAIL (13.18s) CLI result is_error: subtype=success result=You've hit your org's monthly usage limit
+  [  6/20] q06 FAIL (13.18s) CLI result is_error: subtype=success result=You've hit your org's monthly usage limit
+  [  1/20] q01 FAIL (13.22s) CLI result is_error: subtype=success result=You've hit your org's monthly usage limit
+  [  7/20] q07 FAIL (13.32s) CLI result is_error: subtype=success result=You've hit your org's monthly usage limit
+  [  2/20] q02 FAIL (13.29s) CLI result is_error: subtype=success result=You've hit your org's monthly usage limit
+  [ 13/20] q13 FAIL (13.39s) CLI result is_error: subtype=success result=You've hit your org's monthly usage limit
+  [ 14/20] q14 FAIL (13.51s) CLI result is_error: subtype=success result=You've hit your org's monthly usage limit
+  [ 16/20] q16 FAIL (13.66s) CLI result is_error: subtype=success result=You've hit your org's monthly usage limit
+  [ 10/20] q10 FAIL (13.80s) CLI result is_error: subtype=success result=You've hit your org's monthly usage limit
+  [  4/20] q04 FAIL (13.75s) CLI result is_error: subtype=success result=You've hit your org's monthly usage limit
+  [ 17/20] q17 FAIL ( 5.85s) CLI result is_error: subtype=success result=You've hit your org's monthly usage limit
+  [ 18/20] q18 FAIL ( 6.28s) CLI result is_error: subtype=success result=You've hit your org's monthly usage limit
+  [ 20/20] q20 FAIL ( 6.14s) CLI result is_error: subtype=success result=You've hit your org's monthly usage limit
+  [ 19/20] q19 FAIL ( 6.38s) CLI result is_error: subtype=success result=You've hit your org's monthly usage limit
+WALLCLOCK_MS=19088.154
+[run] done. 0/20 succeeded, 20 failed. wallclock=19.09s
+exit status 1

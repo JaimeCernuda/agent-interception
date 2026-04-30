@@ -1,0 +1,97 @@
+{
+  "config": "toolformer_go",
+  "label": "two_op",
+  "query_id": "q08",
+  "spans": [
+    {
+      "attrs": {
+        "agent.cpu_time_ms": 14.045999999999992,
+        "agent.duration_api_ms": 5269,
+        "agent.duration_ms": 4466,
+        "agent.is_error": false,
+        "agent.num_turns": 2,
+        "agent.total_cost_usd": 0.012168950000000001,
+        "agent.truncated": false,
+        "config": "toolformer_go",
+        "query_id": "q08",
+        "query_text": "Sally had 8 pennies and 7 nickels in her bank . Her dad gave her 9 nickels and her mother gave her 2 nickels . How many nickels does Sally have now ?",
+        "toolformer.category": "two_op"
+      },
+      "cpu_time_ms": 14.061,
+      "end_ns": 1777412345523197000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "146ecdc7fa379b6e",
+      "start_ns": 1777412338445802000,
+      "status": "ok",
+      "trace_id": "fb978ecd60a3add7b79cfa0b8c49150f",
+      "wall_time_ms": 7077.395
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 0
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777412343790128000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "146ecdc7fa379b6e",
+      "span_id": "a9249b82413489d7",
+      "start_ns": 1777412338449422000,
+      "status": "ok",
+      "trace_id": "fb978ecd60a3add7b79cfa0b8c49150f",
+      "wall_time_ms": 5340.706
+    },
+    {
+      "attrs": {
+        "expression": "7 + 9 + 2",
+        "result": 18,
+        "tool.input_hash": "a7facc51b9dda586",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.045,
+      "end_ns": 1777412343794627000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "146ecdc7fa379b6e",
+      "span_id": "3f8300ce0b6fe302",
+      "start_ns": 1777412343794592000,
+      "status": "ok",
+      "trace_id": "fb978ecd60a3add7b79cfa0b8c49150f",
+      "wall_time_ms": 0.035
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 1
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777412345209579000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "146ecdc7fa379b6e",
+      "span_id": "e9ede5504b1d0c33",
+      "start_ns": 1777412343803094000,
+      "status": "ok",
+      "trace_id": "fb978ecd60a3add7b79cfa0b8c49150f",
+      "wall_time_ms": 1406.485
+    }
+  ],
+  "trace_id": "fb978ecd60a3add7b79cfa0b8c49150f"
+}

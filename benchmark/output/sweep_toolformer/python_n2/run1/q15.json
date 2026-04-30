@@ -1,0 +1,159 @@
+{
+  "trace_id": "c59240f915a696af7314c489c8361f78",
+  "config": "toolformer_py",
+  "query_id": "q15",
+  "label": "multi_op",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "c59240f915a696af7314c489c8361f78",
+      "span_id": "00dcd69d12619d9e",
+      "parent_id": null,
+      "start_ns": 1777412471893306000,
+      "end_ns": 1777412483916674000,
+      "wall_time_ms": 12023.368,
+      "cpu_time_ms": 104.248,
+      "kind": "root",
+      "attrs": {
+        "config": "toolformer_py",
+        "query_id": "q15",
+        "query_text": "On Friday, Fred paid $5.92 each on 2 tickets to a movie theater. He also borrowed a movie for $6.79. Fred paid with a $20 bill. How much change did Fred receive?",
+        "agent.num_turns": 4,
+        "agent.total_input_tokens": 26,
+        "agent.total_output_tokens": 640,
+        "agent.total_cost_usd": 0.019624700000000002,
+        "agent.duration_ms": 6879.0,
+        "agent.duration_api_ms": 8077.0,
+        "agent.is_error": false,
+        "agent.truncated": false,
+        "agent.num_tool_calls": 3,
+        "agent.cpu_time_ms": 104.26299999999992
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "c59240f915a696af7314c489c8361f78",
+      "span_id": "936d3c4a7746c424",
+      "parent_id": "00dcd69d12619d9e",
+      "start_ns": 1777412471893368000,
+      "end_ns": 1777412479593067000,
+      "wall_time_ms": 7699.699,
+      "cpu_time_ms": 69.747,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 0,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "c59240f915a696af7314c489c8361f78",
+      "span_id": "f11525a3aee98af7",
+      "parent_id": "00dcd69d12619d9e",
+      "start_ns": 1777412479586817000,
+      "end_ns": 1777412479587014000,
+      "wall_time_ms": 0.197,
+      "cpu_time_ms": 0.28,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "2e739df518cb2e85",
+        "expression": "2 * 5.92",
+        "result": 11.84
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "c59240f915a696af7314c489c8361f78",
+      "span_id": "529d7f977c1eae0d",
+      "parent_id": "00dcd69d12619d9e",
+      "start_ns": 1777412479595178000,
+      "end_ns": 1777412479595336000,
+      "wall_time_ms": 0.158,
+      "cpu_time_ms": 0.223,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "f56334f7126b62d4",
+        "expression": "2 * 5.92 + 6.79",
+        "result": 18.63
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "c59240f915a696af7314c489c8361f78",
+      "span_id": "8afb143a3ffd8e15",
+      "parent_id": "00dcd69d12619d9e",
+      "start_ns": 1777412479611284000,
+      "end_ns": 1777412481388815000,
+      "wall_time_ms": 1777.531,
+      "cpu_time_ms": 21.088,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 1,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "c59240f915a696af7314c489c8361f78",
+      "span_id": "fbd9428f23d8972f",
+      "parent_id": "00dcd69d12619d9e",
+      "start_ns": 1777412481391968000,
+      "end_ns": 1777412481392275000,
+      "wall_time_ms": 0.307,
+      "cpu_time_ms": 0.521,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "a5564c0ac35a0f2f",
+        "expression": "20 - 18.63",
+        "result": 1.370000000000001
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "c59240f915a696af7314c489c8361f78",
+      "span_id": "28ea1cf9fcbab73b",
+      "parent_id": "00dcd69d12619d9e",
+      "start_ns": 1777412481406408000,
+      "end_ns": 1777412483624556000,
+      "wall_time_ms": 2218.148,
+      "cpu_time_ms": 3.912,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 2,
+        "llm.has_tool_use": false,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

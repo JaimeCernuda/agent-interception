@@ -1,0 +1,97 @@
+{
+  "config": "toolformer_go",
+  "label": "fractional",
+  "query_id": "q19",
+  "spans": [
+    {
+      "attrs": {
+        "agent.cpu_time_ms": 9.76299999999992,
+        "agent.duration_api_ms": 3589,
+        "agent.duration_ms": 2885,
+        "agent.is_error": false,
+        "agent.num_turns": 2,
+        "agent.total_cost_usd": 0.011643100000000002,
+        "agent.truncated": false,
+        "config": "toolformer_go",
+        "query_id": "q19",
+        "query_text": "Mike joined his school's band. He bought a trumpet for $145.16, and a song book which was $5.84. How much did Mike spend at the music store?",
+        "toolformer.category": "fractional"
+      },
+      "cpu_time_ms": 9.755,
+      "end_ns": 1777412084686680000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "ae96468d3c579098",
+      "start_ns": 1777412078511752000,
+      "status": "ok",
+      "trace_id": "31bd020e91d236e06793df86f6fbbb04",
+      "wall_time_ms": 6174.928
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 0
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777412083149802000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "ae96468d3c579098",
+      "span_id": "00e3ad01f880f557",
+      "start_ns": 1777412078514623000,
+      "status": "ok",
+      "trace_id": "31bd020e91d236e06793df86f6fbbb04",
+      "wall_time_ms": 4635.179
+    },
+    {
+      "attrs": {
+        "expression": "145.16 + 5.84",
+        "result": 151,
+        "tool.input_hash": "8b97f1b392796f0d",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.042,
+      "end_ns": 1777412083155619000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "ae96468d3c579098",
+      "span_id": "8e4297ad84d6e797",
+      "start_ns": 1777412083155592000,
+      "status": "ok",
+      "trace_id": "31bd020e91d236e06793df86f6fbbb04",
+      "wall_time_ms": 0.027
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 1
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777412084404537000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "ae96468d3c579098",
+      "span_id": "1ebba9490c72577f",
+      "start_ns": 1777412083163301000,
+      "status": "ok",
+      "trace_id": "31bd020e91d236e06793df86f6fbbb04",
+      "wall_time_ms": 1241.236
+    }
+  ],
+  "trace_id": "31bd020e91d236e06793df86f6fbbb04"
+}

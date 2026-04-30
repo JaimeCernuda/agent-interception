@@ -1,0 +1,181 @@
+{
+  "trace_id": "00084665cea7bf7e91df52a3131cef2b",
+  "config": "toolformer_py",
+  "query_id": "q18",
+  "label": "fractional",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "00084665cea7bf7e91df52a3131cef2b",
+      "span_id": "8a988c02f46d74da",
+      "parent_id": null,
+      "start_ns": 1777412708915045000,
+      "end_ns": 1777412720821800000,
+      "wall_time_ms": 11906.755,
+      "cpu_time_ms": 75.982,
+      "kind": "root",
+      "attrs": {
+        "config": "toolformer_py",
+        "query_id": "q18",
+        "query_text": "A water flow restrictor has reduced the flow of water to 2 gallons per minute. This amount is 1 gallon per minute less than 0.6 the original flow rate. Find the original rate in gallons per minute.",
+        "agent.num_turns": 4,
+        "agent.total_input_tokens": 34,
+        "agent.total_output_tokens": 703,
+        "agent.total_cost_usd": 0.02494085,
+        "agent.duration_ms": 8406.0,
+        "agent.duration_api_ms": 9266.0,
+        "agent.is_error": false,
+        "agent.truncated": false,
+        "agent.num_tool_calls": 3,
+        "agent.cpu_time_ms": 75.99400000000014
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "00084665cea7bf7e91df52a3131cef2b",
+      "span_id": "5d147dd0d904a6f6",
+      "parent_id": "8a988c02f46d74da",
+      "start_ns": 1777412708915084000,
+      "end_ns": 1777412714501699000,
+      "wall_time_ms": 5586.615,
+      "cpu_time_ms": 33.289,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 0,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "00084665cea7bf7e91df52a3131cef2b",
+      "span_id": "6688b74831c6b764",
+      "parent_id": "8a988c02f46d74da",
+      "start_ns": 1777412714506776000,
+      "end_ns": 1777412714506942000,
+      "wall_time_ms": 0.166,
+      "cpu_time_ms": 0.234,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "249468d381c1189a",
+        "expression": "3 / 0.6",
+        "result": 5.0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "00084665cea7bf7e91df52a3131cef2b",
+      "span_id": "5ccc15b4b0e01161",
+      "parent_id": "8a988c02f46d74da",
+      "start_ns": 1777412714533756000,
+      "end_ns": 1777412716720294000,
+      "wall_time_ms": 2186.538,
+      "cpu_time_ms": 19.516,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 1,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "00084665cea7bf7e91df52a3131cef2b",
+      "span_id": "70a7c56fe3ce1d56",
+      "parent_id": "8a988c02f46d74da",
+      "start_ns": 1777412716725228000,
+      "end_ns": 1777412716725731000,
+      "wall_time_ms": 0.503,
+      "cpu_time_ms": 0.864,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "ad6a3bbe835f4f7e",
+        "expression": "2 + 1",
+        "result": 3.0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "00084665cea7bf7e91df52a3131cef2b",
+      "span_id": "fad26b7b14951188",
+      "parent_id": "8a988c02f46d74da",
+      "start_ns": 1777412716736338000,
+      "end_ns": 1777412719103723000,
+      "wall_time_ms": 2367.385,
+      "cpu_time_ms": 5.718,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 2,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "00084665cea7bf7e91df52a3131cef2b",
+      "span_id": "9116102f863e9b11",
+      "parent_id": "8a988c02f46d74da",
+      "start_ns": 1777412719107487000,
+      "end_ns": 1777412719107724000,
+      "wall_time_ms": 0.237,
+      "cpu_time_ms": 0.339,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "0d1c1cfd67c9a964",
+        "expression": "0.6 * 5 - 1",
+        "result": 2.0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "00084665cea7bf7e91df52a3131cef2b",
+      "span_id": "aa0c4a120ca24a95",
+      "parent_id": "8a988c02f46d74da",
+      "start_ns": 1777412719118845000,
+      "end_ns": 1777412720486860000,
+      "wall_time_ms": 1368.015,
+      "cpu_time_ms": 1.446,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 3,
+        "llm.has_tool_use": false,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+[run] config=sweagent_go queries=20 concurrency=2 out=../benchmark/output/sweep_sweagent/go_n2/run1
+  [  1/20] q01 ok  (34.55s) answer="## HTTP Status Code Distribution  Based on the 110,000 log entries in access.log, here's the distrib..."
+  [  2/20] q02 ok  (35.81s) answer="## Top 5 Event Types in the Second Half of events.jsonl  Here are the 5 most frequent event types in..."
+  [  4/20] q04 ok  (21.58s) answer="## Results  Yes, there are **12 transaction IDs that appear more than once**. Each appears exactly t..."
+  [  5/20] q05 ok  (22.69s) answer="## Result  **Username:** `user-q`   **Count of distinct actions:** `16`  User-q performed 16 distinc..."
+  [  3/20] q03 ok  (53.12s) answer="**Answer: 51.10**  I filtered the metrics.csv file for rows where host is 'host-042' and metric is '..."
+  [  6/20] q06 ok  (16.96s) answer="Perfect! Here are all the classes that inherit from `BaseHandler` and their defined methods:  ## **A..."
+  [  8/20] q08 ok  (15.19s) answer="Based on my analysis, here are all the functions that take a 'request' parameter but **do NOT** call..."
+  [  7/20] q07 ok  (34.89s) answer="Now I'll generate the unified diff for renaming 'legacy_utils' to 'compat_utils':  ```diff diff --gi..."
+  [  9/20] q09 ok  (15.54s) answer="Based on my analysis of the import statements in this project, I found **1 circular import**:  ## Ci..."
+  [ 11/20] q11 ok  (26.67s) answer="Excellent! Both tests are now passing. Here's a summary of what I found and fixed:  ## Bug Found  **..."
+  [ 10/20] q10 ok  (33.99s) answer="## TODO Comments Summary  I found **12 TODO comments** in the project, grouped by author:  | Author ..."
+  [ 13/20] q13 ok  (19.39s) answer="## Summary  I found and fixed the bug. Here's the unified diff:  ```diff --- counter.py (original) +..."
+  [ 14/20] q14 ok  (22.18s) answer="Excellent! All tests are now passing. Here's a summary of what I found and fixed:  ## Bug Identified..."
+  [ 12/20] q12 ok  (65.95s) answer="Perfect! All tests pass now. Here's a summary:  ## Bug Found and Fixed  **File:** `describe.py`  **I..."
+  [ 15/20] q15 ok  (25.44s) answer="Excellent! All tests now pass. Here's the unified diff of the fix:  ```diff --- a/perm.py +++ b/perm..."
+  [ 16/20] q16 ok  (18.45s) answer="## Summary: Timeout Fields in Config Files  Found **11 out of 15** configs with timeout fields:  | C..."
+  [ 17/20] q17 ok  (16.16s) answer="## Summary  I found **7 distinct exception types** raised across the 20 module_*.py files in the wor..."
+  [ 19/20] q19 ok  (12.81s) answer="Perfect! Here's the dependency graph as an adjacency list (file → files it imports from):  ``` src..."
+  [ 18/20] q18 ok  (14.30s) answer="Here are the heading hierarchies for all .md files in the workspace:  ## ops.md ``` # Operations   #..."
+  [ 20/20] q20 ok  (10.42s) answer="Perfect! I've stitched together all 10 frag_*.log files by sorting them chronologically by unix time..."
+WALLCLOCK_MS=263067.040
+[run] done. 20/20 succeeded, 0 failed. wallclock=263.07s

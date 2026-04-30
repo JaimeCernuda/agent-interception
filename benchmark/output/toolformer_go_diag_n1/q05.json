@@ -5,29 +5,29 @@
   "spans": [
     {
       "attrs": {
-        "agent.cpu_time_ms": 83.803,
-        "agent.duration_api_ms": 7997,
-        "agent.duration_ms": 8289,
+        "agent.cpu_time_ms": 10.87400000000001,
+        "agent.duration_api_ms": 8170,
+        "agent.duration_ms": 7236,
         "agent.is_error": false,
         "agent.num_turns": 2,
-        "agent.total_cost_usd": 0.01508535,
+        "agent.total_cost_usd": 0.012280500000000001,
         "agent.truncated": false,
         "config": "toolformer_go",
         "query_id": "q05",
         "query_text": "Jacqueline had some cherry. Bruce took 24 from him. Now Jacqueline has 28 cherry. How many cherry Jacqueline had incipiently?",
         "toolformer.category": "single_op"
       },
-      "cpu_time_ms": 21835.367,
-      "end_ns": 1777405976269182000,
+      "cpu_time_ms": 10.864,
+      "end_ns": 1777411141102883000,
       "error": null,
       "kind": "root",
       "name": "agent.query",
       "parent_id": null,
-      "span_id": "86c62169e6a0556a",
-      "start_ns": 1777405954433815000,
+      "span_id": "799a886f13cd9db4",
+      "start_ns": 1777411130665009000,
       "status": "ok",
-      "trace_id": "8fce4b8a55f3edb7a0406ce69c60af82",
-      "wall_time_ms": 21835.367
+      "trace_id": "4196abb741b11e2055090bd065ad816a",
+      "wall_time_ms": 10437.874
     },
     {
       "attrs": {
@@ -40,16 +40,16 @@
         "llm.turn": 0
       },
       "cpu_time_ms": 0,
-      "end_ns": 1777405972746581000,
+      "end_ns": 1777411136871750000,
       "error": null,
       "kind": "llm",
       "name": "llm.generate",
-      "parent_id": "86c62169e6a0556a",
-      "span_id": "7a1d1d8ab8685ac8",
-      "start_ns": 1777405954451890000,
+      "parent_id": "799a886f13cd9db4",
+      "span_id": "c592338ef03bc895",
+      "start_ns": 1777411130668380000,
       "status": "ok",
-      "trace_id": "8fce4b8a55f3edb7a0406ce69c60af82",
-      "wall_time_ms": 18294.691
+      "trace_id": "4196abb741b11e2055090bd065ad816a",
+      "wall_time_ms": 6203.37
     },
     {
       "attrs": {
@@ -58,17 +58,17 @@
         "tool.input_hash": "759a022dd19d081e",
         "tool.name": "calculator"
       },
-      "cpu_time_ms": 0.109,
-      "end_ns": 1777405972760258000,
+      "cpu_time_ms": 0.042,
+      "end_ns": 1777411136876035000,
       "error": null,
       "kind": "tool",
       "name": "tool.calculator",
-      "parent_id": "86c62169e6a0556a",
-      "span_id": "4b8bcef769a0864d",
-      "start_ns": 1777405972760150000,
+      "parent_id": "799a886f13cd9db4",
+      "span_id": "1024765e553a8bf3",
+      "start_ns": 1777411136875995000,
       "status": "ok",
-      "trace_id": "8fce4b8a55f3edb7a0406ce69c60af82",
-      "wall_time_ms": 0.108
+      "trace_id": "4196abb741b11e2055090bd065ad816a",
+      "wall_time_ms": 0.04
     },
     {
       "attrs": {
@@ -81,17 +81,17 @@
         "llm.turn": 1
       },
       "cpu_time_ms": 0,
-      "end_ns": 1777405975594481000,
+      "end_ns": 1777411140864213000,
       "error": null,
       "kind": "llm",
       "name": "llm.generate",
-      "parent_id": "86c62169e6a0556a",
-      "span_id": "11302ffb01fdbb5e",
-      "start_ns": 1777405972778707000,
+      "parent_id": "799a886f13cd9db4",
+      "span_id": "ea358a170d269be3",
+      "start_ns": 1777411136904068000,
       "status": "ok",
-      "trace_id": "8fce4b8a55f3edb7a0406ce69c60af82",
-      "wall_time_ms": 2815.774
+      "trace_id": "4196abb741b11e2055090bd065ad816a",
+      "wall_time_ms": 3960.145
     }
   ],
-  "trace_id": "8fce4b8a55f3edb7a0406ce69c60af82"
+  "trace_id": "4196abb741b11e2055090bd065ad816a"
 }

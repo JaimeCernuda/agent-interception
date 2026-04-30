@@ -1,0 +1,23 @@
+[run] config=toolformer_go queries=20 concurrency=1 out=../benchmark/output/sweep_toolformer/go_n1/run3
+  [  1/20] q01 ok  ( 9.79s) answer="I need to find how many Pen Jeff had originally.  Let me set up the problem: - Jeff started with som..."
+  [  2/20] q02 ok  ( 6.91s) answer="Robert gave Chris **146 apricots**.  Here's the solution: - Chris started with: 39 apricots - Chris ..."
+  [  3/20] q03 ok  (11.38s) answer="I'll solve this step by step.  **Given information:** - Ronald is sharing flowers among 17 friends -..."
+  [  4/20] q04 ok  ( 9.53s) answer="Based on the calculation:  **83 figs ÷ 14 bags = 5.93 figs per bag** (approximately)  Since you can..."
+  [  5/20] q05 ok  ( 7.15s) answer="**Jacqueline had 52 cherry initially.**  Here's the reasoning: - Jacqueline started with some amount..."
+  [  6/20] q06 ok  (11.10s) answer="Sam should buy **8 cupcakes**.  Here's how I worked it out: - Sam invited 9 friends, but 6 couldn't ..."
+  [  7/20] q07 ok  (11.52s) answer="**Answer: $18**  Here's the breakdown: - Bars sold: 9 - 3 = 6 bars - Money made: 6 bars × $3 per ba..."
+  [  8/20] q08 ok  ( 7.08s) answer="**Sally has 18 nickels now.**  Here's the breakdown: - Started with: 7 nickels - Dad gave her: 9 nic..."
+  [  9/20] q09 ok  ( 9.89s) answer="Tiffany still needs **72 cups of flour**.  Here's how I solved it: 1. **Brownies still needed:** 17 ..."
+  [ 10/20] q10 ok  (11.41s) answer="Bianca picked a total of **88 flowers** (39 tulips + 49 roses).  Since she only used 81 flowers, she..."
+  [ 11/20] q11 ok  (11.72s) answer="I'll solve this step-by-step using the calculator.  **Step 1: Calculate the total daily rental cost ..."
+  [ 12/20] q12 ok  (20.39s) answer="I need to find the cost per pound of the trail mix by calculating the total cost and total weight.  ..."
+  [ 13/20] q13 ok  ( 7.18s) answer="The simple interest you would earn is **$5.25**.  Here's the calculation using the simple interest f..."
+  [ 14/20] q14 ok  ( 8.39s) answer="**Luke has 39 stickers left.**  Here's how I calculated it: - Started with: 20 stickers - Bought 12 ..."
+  [ 15/20] q15 ok  (10.70s) answer="**Solution:**  1. Cost of 2 tickets: $5.92 × 2 = $11.84 2. Cost of movie rental: $6.79 3. Total spe..."
+  [ 16/20] q16 ok  ( 7.44s) answer="Nancy has **$3.00** (three dollars).  Here's the breakdown: - 1 dozen = 12 quarters - Each quarter =..."
+  [ 17/20] q17 ok  ( 8.41s) answer="The fraction of students in either the trumpet section or the trombone section is **0.625** or **5/8..."
+  [ 18/20] q18 ok  (13.71s) answer="I need to find the original flow rate. Let me set up and solve the equation.  **Setting up the equat..."
+  [ 19/20] q19 ok  ( 7.41s) answer="Mike spent **$151.00** at the music store.  Here's the breakdown: - Trumpet: $145.16 - Song book: $5..."
+  [ 20/20] q20 ok  ( 6.97s) answer="**Answer: 1.22 pounds**  To find how much fruit is left, I subtracted the amount eaten from the amou..."
+WALLCLOCK_MS=198077.323
+[run] done. 20/20 succeeded, 0 failed. wallclock=198.08s

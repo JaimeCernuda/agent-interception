@@ -1,0 +1,118 @@
+{
+  "trace_id": "59eb3f18ee6f1fc6d48b4ae1045425ea",
+  "config": "toolformer_py",
+  "query_id": "q07",
+  "label": "two_op",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "59eb3f18ee6f1fc6d48b4ae1045425ea",
+      "span_id": "3634508823496b05",
+      "parent_id": null,
+      "start_ns": 1777412471892430000,
+      "end_ns": 1777412481049319000,
+      "wall_time_ms": 9156.889,
+      "cpu_time_ms": 77.736,
+      "kind": "root",
+      "attrs": {
+        "config": "toolformer_py",
+        "query_id": "q07",
+        "query_text": "Each chocolate bar in a box cost $3. If a box had 9 bars total and Wendy sold all but 3 bars, how much money would she have made?",
+        "agent.num_turns": 3,
+        "agent.total_input_tokens": 18,
+        "agent.total_output_tokens": 355,
+        "agent.total_cost_usd": 0.012475,
+        "agent.duration_ms": 3671.0,
+        "agent.duration_api_ms": 4658.0,
+        "agent.is_error": false,
+        "agent.truncated": false,
+        "agent.num_tool_calls": 2,
+        "agent.cpu_time_ms": 77.75800000000004
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "59eb3f18ee6f1fc6d48b4ae1045425ea",
+      "span_id": "42de02d589e0365a",
+      "parent_id": "3634508823496b05",
+      "start_ns": 1777412471892527000,
+      "end_ns": 1777412479203827000,
+      "wall_time_ms": 7311.3,
+      "cpu_time_ms": 63.104,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 0,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "59eb3f18ee6f1fc6d48b4ae1045425ea",
+      "span_id": "5112e2f26aab41ea",
+      "parent_id": "3634508823496b05",
+      "start_ns": 1777412479200842000,
+      "end_ns": 1777412479201458000,
+      "wall_time_ms": 0.616,
+      "cpu_time_ms": 0.918,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "dde1bee24d428347",
+        "expression": "9 - 3",
+        "result": 6.0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "59eb3f18ee6f1fc6d48b4ae1045425ea",
+      "span_id": "d245b0f219eb1e48",
+      "parent_id": "3634508823496b05",
+      "start_ns": 1777412479213750000,
+      "end_ns": 1777412479213912000,
+      "wall_time_ms": 0.162,
+      "cpu_time_ms": 0.226,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "bfbba7270a85e057",
+        "expression": "6 * 3",
+        "result": 18.0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "59eb3f18ee6f1fc6d48b4ae1045425ea",
+      "span_id": "8aeaecc2c0b13a01",
+      "parent_id": "3634508823496b05",
+      "start_ns": 1777412479240809000,
+      "end_ns": 1777412480764727000,
+      "wall_time_ms": 1523.918,
+      "cpu_time_ms": 8.527,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 1,
+        "llm.has_tool_use": false,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,343 @@
+{
+  "config": "toolformer_go",
+  "label": "multi_op",
+  "query_id": "q11",
+  "spans": [
+    {
+      "attrs": {
+        "agent.cpu_time_ms": 54.870000000000005,
+        "agent.duration_api_ms": 17621,
+        "agent.duration_ms": 16721,
+        "agent.is_error": false,
+        "agent.num_turns": 8,
+        "agent.total_cost_usd": 0.048389650000000006,
+        "agent.truncated": false,
+        "config": "toolformer_go",
+        "query_id": "q11",
+        "query_text": "A car rental agency advertised renting a luxury , full size car for 24.95 dollars per day and 0.49 dollars per mile. If you rent this car for 5 days , how many whole miles can you drive if you only have 200.00 dollars to spend?",
+        "toolformer.category": "multi_op"
+      },
+      "cpu_time_ms": 54.952,
+      "end_ns": 1777412831805876000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "ffa79eed5ee20a9f",
+      "start_ns": 1777412812177037000,
+      "status": "ok",
+      "trace_id": "791dc68ebd3e14191d96154c0fcf0ed4",
+      "wall_time_ms": 19628.839
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 0
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777412818025242000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "ffa79eed5ee20a9f",
+      "span_id": "0cd31103df8ff4c3",
+      "start_ns": 1777412812179526000,
+      "status": "ok",
+      "trace_id": "791dc68ebd3e14191d96154c0fcf0ed4",
+      "wall_time_ms": 5845.716
+    },
+    {
+      "attrs": {
+        "expression": "24.95 * 5",
+        "result": 124.75,
+        "tool.input_hash": "66a918d2030f5ac1",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.069,
+      "end_ns": 1777412818031259000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "ffa79eed5ee20a9f",
+      "span_id": "bec04dc5fd2562d3",
+      "start_ns": 1777412818031229000,
+      "status": "ok",
+      "trace_id": "791dc68ebd3e14191d96154c0fcf0ed4",
+      "wall_time_ms": 0.03
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 1
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777412819997948000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "ffa79eed5ee20a9f",
+      "span_id": "dfab01a90a89bbe9",
+      "start_ns": 1777412818072859000,
+      "status": "ok",
+      "trace_id": "791dc68ebd3e14191d96154c0fcf0ed4",
+      "wall_time_ms": 1925.089
+    },
+    {
+      "attrs": {
+        "expression": "200.00 - 124.75",
+        "result": 75.25,
+        "tool.input_hash": "c0c7d7a4a5fed1b7",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.06,
+      "end_ns": 1777412820000403000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "ffa79eed5ee20a9f",
+      "span_id": "f8e579697f0c1abe",
+      "start_ns": 1777412820000361000,
+      "status": "ok",
+      "trace_id": "791dc68ebd3e14191d96154c0fcf0ed4",
+      "wall_time_ms": 0.042
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 2
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777412821597925000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "ffa79eed5ee20a9f",
+      "span_id": "4187d7c224777b0f",
+      "start_ns": 1777412820060722000,
+      "status": "ok",
+      "trace_id": "791dc68ebd3e14191d96154c0fcf0ed4",
+      "wall_time_ms": 1537.203
+    },
+    {
+      "attrs": {
+        "expression": "75.25 / 0.49",
+        "result": 153.57142857142858,
+        "tool.input_hash": "3024362d5dd38af3",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.041,
+      "end_ns": 1777412821599962000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "ffa79eed5ee20a9f",
+      "span_id": "7d9679120203257b",
+      "start_ns": 1777412821599931000,
+      "status": "ok",
+      "trace_id": "791dc68ebd3e14191d96154c0fcf0ed4",
+      "wall_time_ms": 0.031
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 3
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777412824465947000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "ffa79eed5ee20a9f",
+      "span_id": "c593a491138ddc4c",
+      "start_ns": 1777412821629490000,
+      "status": "ok",
+      "trace_id": "791dc68ebd3e14191d96154c0fcf0ed4",
+      "wall_time_ms": 2836.457
+    },
+    {
+      "attrs": {
+        "expression": "153 * 0.49",
+        "result": 74.97,
+        "tool.input_hash": "af63ce09d2256dc3",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.044,
+      "end_ns": 1777412824468612000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "ffa79eed5ee20a9f",
+      "span_id": "05bb06903fba5ae5",
+      "start_ns": 1777412824468586000,
+      "status": "ok",
+      "trace_id": "791dc68ebd3e14191d96154c0fcf0ed4",
+      "wall_time_ms": 0.026
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 4
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777412826054141000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "ffa79eed5ee20a9f",
+      "span_id": "007a448f16c58525",
+      "start_ns": 1777412824500642000,
+      "status": "ok",
+      "trace_id": "791dc68ebd3e14191d96154c0fcf0ed4",
+      "wall_time_ms": 1553.499
+    },
+    {
+      "attrs": {
+        "expression": "124.75 + 74.97",
+        "result": 199.72,
+        "tool.input_hash": "a4a8e18f5cf09819",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.073,
+      "end_ns": 1777412826056951000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "ffa79eed5ee20a9f",
+      "span_id": "e5ef10306cb29472",
+      "start_ns": 1777412826056922000,
+      "status": "ok",
+      "trace_id": "791dc68ebd3e14191d96154c0fcf0ed4",
+      "wall_time_ms": 0.029
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 5
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777412827947053000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "ffa79eed5ee20a9f",
+      "span_id": "9548ab6d5d6b03b0",
+      "start_ns": 1777412826066283000,
+      "status": "ok",
+      "trace_id": "791dc68ebd3e14191d96154c0fcf0ed4",
+      "wall_time_ms": 1880.77
+    },
+    {
+      "attrs": {
+        "expression": "154 * 0.49",
+        "result": 75.46,
+        "tool.input_hash": "f1893e63301201ca",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.041,
+      "end_ns": 1777412827949808000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "ffa79eed5ee20a9f",
+      "span_id": "ca357f0a6396020c",
+      "start_ns": 1777412827949782000,
+      "status": "ok",
+      "trace_id": "791dc68ebd3e14191d96154c0fcf0ed4",
+      "wall_time_ms": 0.026
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 6
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777412829409269000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "ffa79eed5ee20a9f",
+      "span_id": "d7f8a9b211685b8f",
+      "start_ns": 1777412827954264000,
+      "status": "ok",
+      "trace_id": "791dc68ebd3e14191d96154c0fcf0ed4",
+      "wall_time_ms": 1455.005
+    },
+    {
+      "attrs": {
+        "expression": "124.75 + 75.46",
+        "result": 200.20999999999998,
+        "tool.input_hash": "30ed5d0d938bd2ae",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.039,
+      "end_ns": 1777412829411330000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "ffa79eed5ee20a9f",
+      "span_id": "5e018c6f7416d0b6",
+      "start_ns": 1777412829411306000,
+      "status": "ok",
+      "trace_id": "791dc68ebd3e14191d96154c0fcf0ed4",
+      "wall_time_ms": 0.024
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 7
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777412831613971000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "ffa79eed5ee20a9f",
+      "span_id": "7233ae95f3e52f53",
+      "start_ns": 1777412829422312000,
+      "status": "ok",
+      "trace_id": "791dc68ebd3e14191d96154c0fcf0ed4",
+      "wall_time_ms": 2191.659
+    }
+  ],
+  "trace_id": "791dc68ebd3e14191d96154c0fcf0ed4"
+}

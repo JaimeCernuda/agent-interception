@@ -1,0 +1,222 @@
+{
+  "trace_id": "b802ff2b2f935a799b55defec1b3ffe2",
+  "config": "toolformer_py",
+  "query_id": "q11",
+  "label": "multi_op",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "b802ff2b2f935a799b55defec1b3ffe2",
+      "span_id": "c1345ff8a1922e33",
+      "parent_id": null,
+      "start_ns": 1777413200010262000,
+      "end_ns": 1777413214913129000,
+      "wall_time_ms": 14902.867,
+      "cpu_time_ms": 208.437,
+      "kind": "root",
+      "attrs": {
+        "config": "toolformer_py",
+        "query_id": "q11",
+        "query_text": "A car rental agency advertised renting a luxury , full size car for 24.95 dollars per day and 0.49 dollars per mile. If you rent this car for 5 days , how many whole miles can you drive if you only have 200.00 dollars to spend?",
+        "agent.num_turns": 5,
+        "agent.total_input_tokens": 34,
+        "agent.total_output_tokens": 941,
+        "agent.total_cost_usd": 0.0260305,
+        "agent.duration_ms": 11651.0,
+        "agent.duration_api_ms": 12326.0,
+        "agent.is_error": false,
+        "agent.truncated": false,
+        "agent.num_tool_calls": 4,
+        "agent.cpu_time_ms": 208.44400000000041
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "b802ff2b2f935a799b55defec1b3ffe2",
+      "span_id": "87bd891927406165",
+      "parent_id": "c1345ff8a1922e33",
+      "start_ns": 1777413200010301000,
+      "end_ns": 1777413206707273000,
+      "wall_time_ms": 6696.972,
+      "cpu_time_ms": 101.349,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 0,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "b802ff2b2f935a799b55defec1b3ffe2",
+      "span_id": "4f79d7000e8188b6",
+      "parent_id": "c1345ff8a1922e33",
+      "start_ns": 1777413206715211000,
+      "end_ns": 1777413206715608000,
+      "wall_time_ms": 0.397,
+      "cpu_time_ms": 0.642,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "a103152273e3f2f3",
+        "expression": "5 * 24.95",
+        "result": 124.75
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "b802ff2b2f935a799b55defec1b3ffe2",
+      "span_id": "f09dba4660b179e9",
+      "parent_id": "c1345ff8a1922e33",
+      "start_ns": 1777413206728353000,
+      "end_ns": 1777413206808410000,
+      "wall_time_ms": 80.057,
+      "cpu_time_ms": 1.02,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 1,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "b802ff2b2f935a799b55defec1b3ffe2",
+      "span_id": "adee15aac9351120",
+      "parent_id": "c1345ff8a1922e33",
+      "start_ns": 1777413206811493000,
+      "end_ns": 1777413206811788000,
+      "wall_time_ms": 0.295,
+      "cpu_time_ms": 0.389,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "c0c7d7a4a5fed1b7",
+        "expression": "200.00 - 124.75",
+        "result": 75.25
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "b802ff2b2f935a799b55defec1b3ffe2",
+      "span_id": "843ae86fe5c302c1",
+      "parent_id": "c1345ff8a1922e33",
+      "start_ns": 1777413206825449000,
+      "end_ns": 1777413208631388000,
+      "wall_time_ms": 1805.939,
+      "cpu_time_ms": 12.433,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 2,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "b802ff2b2f935a799b55defec1b3ffe2",
+      "span_id": "019a2aa87a7f1f72",
+      "parent_id": "c1345ff8a1922e33",
+      "start_ns": 1777413208635464000,
+      "end_ns": 1777413208635884000,
+      "wall_time_ms": 0.42,
+      "cpu_time_ms": 0.722,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "3024362d5dd38af3",
+        "expression": "75.25 / 0.49",
+        "result": 153.57142857142858
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "b802ff2b2f935a799b55defec1b3ffe2",
+      "span_id": "bda0cfafbfad8101",
+      "parent_id": "c1345ff8a1922e33",
+      "start_ns": 1777413208669292000,
+      "end_ns": 1777413211926226000,
+      "wall_time_ms": 3256.934,
+      "cpu_time_ms": 23.169,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 3,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "b802ff2b2f935a799b55defec1b3ffe2",
+      "span_id": "5d0bf9d9cdf805c1",
+      "parent_id": "c1345ff8a1922e33",
+      "start_ns": 1777413211928456000,
+      "end_ns": 1777413211928619000,
+      "wall_time_ms": 0.163,
+      "cpu_time_ms": 0.243,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "af63ce09d2256dc3",
+        "expression": "153 * 0.49",
+        "result": 74.97
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "b802ff2b2f935a799b55defec1b3ffe2",
+      "span_id": "f9878d7ce5b2e932",
+      "parent_id": "c1345ff8a1922e33",
+      "start_ns": 1777413212058076000,
+      "end_ns": 1777413214565173000,
+      "wall_time_ms": 2507.097,
+      "cpu_time_ms": 37.546,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 4,
+        "llm.has_tool_use": false,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

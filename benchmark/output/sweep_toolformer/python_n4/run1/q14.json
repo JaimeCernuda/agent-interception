@@ -1,0 +1,99 @@
+{
+  "trace_id": "a66d9897e92a7e208e3d5f68c8d7af74",
+  "config": "toolformer_py",
+  "query_id": "q14",
+  "label": "multi_op",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "a66d9897e92a7e208e3d5f68c8d7af74",
+      "span_id": "b9d8c313849f896e",
+      "parent_id": null,
+      "start_ns": 1777413096911321000,
+      "end_ns": 1777413105077466000,
+      "wall_time_ms": 8166.145,
+      "cpu_time_ms": 64.509,
+      "kind": "root",
+      "attrs": {
+        "config": "toolformer_py",
+        "query_id": "q14",
+        "query_text": "Luke had 20 stickers. He bought 12 stickers from a store in the mall and got 20 stickers for his birthday. Then Luke gave 5 of the stickers to his sister and used 8 to decorate a greeting card. How many stickers does Luke have left?",
+        "agent.num_turns": 2,
+        "agent.total_input_tokens": 18,
+        "agent.total_output_tokens": 496,
+        "agent.total_cost_usd": 0.0131724,
+        "agent.duration_ms": 4779.0,
+        "agent.duration_api_ms": 5489.0,
+        "agent.is_error": false,
+        "agent.truncated": false,
+        "agent.num_tool_calls": 1,
+        "agent.cpu_time_ms": 64.53099999999995
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "a66d9897e92a7e208e3d5f68c8d7af74",
+      "span_id": "265e37327309d657",
+      "parent_id": "b9d8c313849f896e",
+      "start_ns": 1777413096911377000,
+      "end_ns": 1777413102580335000,
+      "wall_time_ms": 5668.958,
+      "cpu_time_ms": 45.463,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 0,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "a66d9897e92a7e208e3d5f68c8d7af74",
+      "span_id": "934806a1f12a144f",
+      "parent_id": "b9d8c313849f896e",
+      "start_ns": 1777413102587133000,
+      "end_ns": 1777413102587489000,
+      "wall_time_ms": 0.356,
+      "cpu_time_ms": 0.445,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "a9edfac296e6840f",
+        "expression": "20 + 12 + 20 - 5 - 8",
+        "result": 39.0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "a66d9897e92a7e208e3d5f68c8d7af74",
+      "span_id": "dd69f6a2a3800409",
+      "parent_id": "b9d8c313849f896e",
+      "start_ns": 1777413102599696000,
+      "end_ns": 1777413104777405000,
+      "wall_time_ms": 2177.709,
+      "cpu_time_ms": 7.19,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 1,
+        "llm.has_tool_use": false,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

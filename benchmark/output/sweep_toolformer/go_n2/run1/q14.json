@@ -1,0 +1,97 @@
+{
+  "config": "toolformer_go",
+  "label": "multi_op",
+  "query_id": "q14",
+  "spans": [
+    {
+      "attrs": {
+        "agent.cpu_time_ms": 18.793000000000006,
+        "agent.duration_api_ms": 6717,
+        "agent.duration_ms": 5619,
+        "agent.is_error": false,
+        "agent.num_turns": 2,
+        "agent.total_cost_usd": 0.01280295,
+        "agent.truncated": false,
+        "config": "toolformer_go",
+        "query_id": "q14",
+        "query_text": "Luke had 20 stickers. He bought 12 stickers from a store in the mall and got 20 stickers for his birthday. Then Luke gave 5 of the stickers to his sister and used 8 to decorate a greeting card. How many stickers does Luke have left?",
+        "toolformer.category": "multi_op"
+      },
+      "cpu_time_ms": 18.816,
+      "end_ns": 1777412840374068000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "f610768a2358f8bf",
+      "start_ns": 1777412831807886000,
+      "status": "ok",
+      "trace_id": "641f0a7d60c809aaf7fe26dd705bf2f5",
+      "wall_time_ms": 8566.182
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 0
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777412837397417000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "f610768a2358f8bf",
+      "span_id": "873a29be1ce80457",
+      "start_ns": 1777412831810554000,
+      "status": "ok",
+      "trace_id": "641f0a7d60c809aaf7fe26dd705bf2f5",
+      "wall_time_ms": 5586.863
+    },
+    {
+      "attrs": {
+        "expression": "20 + 12 + 20 - 5 - 8",
+        "result": 39,
+        "tool.input_hash": "a9edfac296e6840f",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.05,
+      "end_ns": 1777412837401666000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "f610768a2358f8bf",
+      "span_id": "cff855467876104f",
+      "start_ns": 1777412837401627000,
+      "status": "ok",
+      "trace_id": "641f0a7d60c809aaf7fe26dd705bf2f5",
+      "wall_time_ms": 0.039
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 1
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777412840093698000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "f610768a2358f8bf",
+      "span_id": "42568fda66a33db4",
+      "start_ns": 1777412837436306000,
+      "status": "ok",
+      "trace_id": "641f0a7d60c809aaf7fe26dd705bf2f5",
+      "wall_time_ms": 2657.392
+    }
+  ],
+  "trace_id": "641f0a7d60c809aaf7fe26dd705bf2f5"
+}

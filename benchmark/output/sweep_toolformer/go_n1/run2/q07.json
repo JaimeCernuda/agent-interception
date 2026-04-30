@@ -1,0 +1,138 @@
+{
+  "config": "toolformer_go",
+  "label": "two_op",
+  "query_id": "q07",
+  "spans": [
+    {
+      "attrs": {
+        "agent.cpu_time_ms": 12.447999999999993,
+        "agent.duration_api_ms": 8676,
+        "agent.duration_ms": 7573,
+        "agent.is_error": false,
+        "agent.num_turns": 3,
+        "agent.total_cost_usd": 0.01822195,
+        "agent.truncated": false,
+        "config": "toolformer_go",
+        "query_id": "q07",
+        "query_text": "Each chocolate bar in a box cost $3. If a box had 9 bars total and Wendy sold all but 3 bars, how much money would she have made?",
+        "toolformer.category": "two_op"
+      },
+      "cpu_time_ms": 12.449,
+      "end_ns": 1777412154461201000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "4f565ed6bbc877de",
+      "start_ns": 1777412144288673000,
+      "status": "ok",
+      "trace_id": "a51e0ef54ae42dde3321383b005b8350",
+      "wall_time_ms": 10172.528
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 0
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777412149996856000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "4f565ed6bbc877de",
+      "span_id": "43dcf1c09f27fb88",
+      "start_ns": 1777412144291536000,
+      "status": "ok",
+      "trace_id": "a51e0ef54ae42dde3321383b005b8350",
+      "wall_time_ms": 5705.32
+    },
+    {
+      "attrs": {
+        "expression": "9 - 3",
+        "result": 6,
+        "tool.input_hash": "dde1bee24d428347",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.031,
+      "end_ns": 1777412150002468000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "4f565ed6bbc877de",
+      "span_id": "dd91d34fef257f57",
+      "start_ns": 1777412150002445000,
+      "status": "ok",
+      "trace_id": "a51e0ef54ae42dde3321383b005b8350",
+      "wall_time_ms": 0.023
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 1
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777412152029216000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "4f565ed6bbc877de",
+      "span_id": "b3f037c8156e7501",
+      "start_ns": 1777412150113708000,
+      "status": "ok",
+      "trace_id": "a51e0ef54ae42dde3321383b005b8350",
+      "wall_time_ms": 1915.508
+    },
+    {
+      "attrs": {
+        "expression": "6 * 3",
+        "result": 18,
+        "tool.input_hash": "bfbba7270a85e057",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.072,
+      "end_ns": 1777412152031665000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "4f565ed6bbc877de",
+      "span_id": "051ff24186dfed65",
+      "start_ns": 1777412152031634000,
+      "status": "ok",
+      "trace_id": "a51e0ef54ae42dde3321383b005b8350",
+      "wall_time_ms": 0.031
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 2
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777412154183752000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "4f565ed6bbc877de",
+      "span_id": "1e0f871fb07a6ed6",
+      "start_ns": 1777412152056830000,
+      "status": "ok",
+      "trace_id": "a51e0ef54ae42dde3321383b005b8350",
+      "wall_time_ms": 2126.922
+    }
+  ],
+  "trace_id": "a51e0ef54ae42dde3321383b005b8350"
+}

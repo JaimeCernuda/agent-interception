@@ -1,0 +1,52 @@
+[2026-04-28 16:21:58] BEGIN toolformer sweep: 10 points, runs=3, queries=20, avail_ram=2271MB
+[2026-04-28 16:21:58] START python N=1  avail_ram=2271MB  runs=3
+[2026-04-28 16:25:15]   run1/3 python N=1  rc=0  dt=197s wall=193.7s  ok=18/20  fail=0 (mcp_race=0)  peak_rss=382MB
+[2026-04-28 16:28:20]   run2/3 python N=1  rc=0  dt=184s wall=181.7s  ok=18/20  fail=0 (mcp_race=0)  peak_rss=378MB
+[2026-04-28 16:31:40]   run3/3 python N=1  rc=0  dt=200s wall=197.6s  ok=18/20  fail=0 (mcp_race=0)  peak_rss=382MB
+[2026-04-28 16:31:40] OK python N=1  wallclock=582s  p50=8696ms  agent_cpu=26.3ms  failures=0/60  (mcp_race=0)  peak_rss=382MB  thrash=False
+[2026-04-28 16:31:40] START go N=1  avail_ram=2193MB  runs=3
+[2026-04-28 16:34:52]   run1/3 go N=1  rc=0  dt=192s wall=191.3s  ok=19/20  fail=0 (mcp_race=0)  peak_rss=343MB
+[2026-04-28 16:37:50]   run2/3 go N=1  rc=0  dt=178s wall=177.9s  ok=19/20  fail=0 (mcp_race=0)  peak_rss=363MB
+[2026-04-28 16:41:09]   run3/3 go N=1  rc=0  dt=199s wall=198.1s  ok=18/20  fail=0 (mcp_race=0)  peak_rss=362MB
+[2026-04-28 16:41:09] OK go N=1  wallclock=569s  p50=9081ms  agent_cpu=12.6ms  failures=0/60  (mcp_race=0)  peak_rss=363MB  thrash=False
+[2026-04-28 16:41:09] START python N=2  avail_ram=2439MB  runs=3
+[2026-04-28 16:42:51]   run1/3 python N=2  rc=0  dt=103s wall=99.7s  ok=19/20  fail=0 (mcp_race=0)  peak_rss=692MB
+[2026-04-28 16:44:32]   run2/3 python N=2  rc=0  dt=101s wall=98.2s  ok=18/20  fail=0 (mcp_race=0)  peak_rss=677MB
+[2026-04-28 16:46:10]   run3/3 python N=2  rc=0  dt=97s wall=94.8s  ok=18/20  fail=0 (mcp_race=0)  peak_rss=683MB
+[2026-04-28 16:46:10] OK python N=2  wallclock=301s  p50=8716ms  agent_cpu=61.4ms  failures=0/60  (mcp_race=0)  peak_rss=692MB  thrash=False
+[2026-04-28 16:46:10] START go N=2  avail_ram=2649MB  runs=3
+[2026-04-28 16:47:46]   run1/3 go N=2  rc=0  dt=96s wall=95.8s  ok=17/20  fail=0 (mcp_race=0)  peak_rss=678MB
+[2026-04-28 16:49:17]   run2/3 go N=2  rc=0  dt=91s wall=90.3s  ok=19/20  fail=0 (mcp_race=0)  peak_rss=646MB
+[2026-04-28 16:50:49]   run3/3 go N=2  rc=0  dt=92s wall=91.2s  ok=18/20  fail=0 (mcp_race=0)  peak_rss=649MB
+[2026-04-28 16:50:49] OK go N=2  wallclock=279s  p50=8631ms  agent_cpu=25.1ms  failures=0/60  (mcp_race=0)  peak_rss=678MB  thrash=False
+[2026-04-28 16:50:49] START python N=4  avail_ram=2770MB  runs=3
+[2026-04-28 16:51:48]   run1/3 python N=4  rc=0  dt=60s wall=57.0s  ok=19/20  fail=0 (mcp_race=0)  peak_rss=1264MB
+[2026-04-28 16:52:58]   run2/3 python N=4  rc=0  dt=70s wall=66.9s  ok=19/20  fail=0 (mcp_race=0)  peak_rss=1276MB
+[2026-04-28 16:53:50]   run3/3 python N=4  rc=0  dt=52s wall=49.7s  ok=18/20  fail=0 (mcp_race=0)  peak_rss=1294MB
+[2026-04-28 16:53:50] OK python N=4  wallclock=182s  p50=9084ms  agent_cpu=122.3ms  failures=0/60  (mcp_race=0)  peak_rss=1294MB  thrash=False
+[2026-04-28 16:53:50] START go N=4  avail_ram=2723MB  runs=3
+[2026-04-28 16:54:37]   run1/3 go N=4  rc=0  dt=47s wall=46.2s  ok=19/20  fail=0 (mcp_race=0)  peak_rss=1195MB
+[2026-04-28 16:55:23]   run2/3 go N=4  rc=0  dt=45s wall=44.9s  ok=18/20  fail=0 (mcp_race=0)  peak_rss=1266MB
+[2026-04-28 16:56:16]   run3/3 go N=4  rc=0  dt=53s wall=52.8s  ok=18/20  fail=0 (mcp_race=0)  peak_rss=1245MB
+[2026-04-28 16:56:16] OK go N=4  wallclock=145s  p50=8301ms  agent_cpu=44.9ms  failures=0/60  (mcp_race=0)  peak_rss=1266MB  thrash=False
+[2026-04-28 16:56:16] START python N=8  avail_ram=2657MB  runs=3
+[2026-04-28 16:56:56]   run1/3 python N=8  rc=0  dt=40s wall=37.0s  ok=18/20  fail=0 (mcp_race=0)  peak_rss=2438MB
+[2026-04-28 16:57:32]   run2/3 python N=8  rc=0  dt=37s wall=34.1s  ok=18/20  fail=0 (mcp_race=0)  peak_rss=2363MB
+[2026-04-28 16:58:07]   run3/3 python N=8  rc=0  dt=35s wall=32.2s  ok=18/20  fail=0 (mcp_race=0)  peak_rss=2174MB
+[2026-04-28 16:58:07] OK python N=8  wallclock=111s  p50=11398ms  agent_cpu=291.5ms  failures=0/60  (mcp_race=0)  peak_rss=2438MB  thrash=False
+[2026-04-28 16:58:07] START go N=8  avail_ram=3420MB  runs=3
+[2026-04-28 16:58:40]   run1/3 go N=8  rc=0  dt=32s wall=31.7s  ok=18/20  fail=0 (mcp_race=0)  peak_rss=2377MB
+[2026-04-28 16:59:09]   run2/3 go N=8  rc=0  dt=29s wall=28.7s  ok=19/20  fail=0 (mcp_race=0)  peak_rss=2398MB
+[2026-04-28 16:59:38]   run3/3 go N=8  rc=0  dt=29s wall=28.7s  ok=18/20  fail=0 (mcp_race=0)  peak_rss=2283MB
+[2026-04-28 16:59:38] OK go N=8  wallclock=91s  p50=10283ms  agent_cpu=91.0ms  failures=0/60  (mcp_race=0)  peak_rss=2398MB  thrash=False
+[2026-04-28 16:59:38] START python N=16  avail_ram=2917MB  runs=3
+[2026-04-28 17:00:12]   run1/3 python N=16  rc=0  dt=35s wall=31.7s  ok=17/20  fail=0 (mcp_race=0)  peak_rss=3074MB
+[2026-04-28 17:00:42]   run2/3 python N=16  rc=0  dt=29s wall=26.8s  ok=18/20  fail=0 (mcp_race=0)  peak_rss=2760MB
+[2026-04-28 17:02:00]   run3/3 python N=16  rc=0  dt=78s wall=75.9s  ok=17/20  fail=0 (mcp_race=0)  peak_rss=3475MB
+[2026-04-28 17:02:00] OK python N=16  wallclock=142s  p50=14050ms  agent_cpu=400.1ms  failures=0/60  (mcp_race=0)  peak_rss=3475MB  thrash=False
+[2026-04-28 17:02:00] START go N=16  avail_ram=2644MB  runs=3
+[2026-04-28 17:02:34]   run1/3 go N=16  rc=0  dt=33s wall=32.7s  ok=18/20  fail=0 (mcp_race=0)  peak_rss=4275MB
+[2026-04-28 17:03:01]   run2/3 go N=16  rc=0  dt=27s wall=26.6s  ok=19/20  fail=0 (mcp_race=0)  peak_rss=4010MB
+[2026-04-28 17:03:34]   run3/3 go N=16  rc=0  dt=34s wall=33.1s  ok=17/20  fail=0 (mcp_race=0)  peak_rss=4047MB
+[2026-04-28 17:03:34] OK go N=16  wallclock=94s  p50=16497ms  agent_cpu=182.6ms  failures=0/60  (mcp_race=0)  peak_rss=4275MB  thrash=False
+[2026-04-28 17:03:34] END   toolformer sweep total_wallclock=2496s (0.69h)

@@ -1,0 +1,220 @@
+{
+  "config": "toolformer_go",
+  "label": "fractional",
+  "query_id": "q18",
+  "spans": [
+    {
+      "attrs": {
+        "agent.cpu_time_ms": 58.591999999999985,
+        "agent.duration_api_ms": 11212,
+        "agent.duration_ms": 9904,
+        "agent.is_error": false,
+        "agent.num_turns": 5,
+        "agent.total_cost_usd": 0.030607400000000003,
+        "agent.truncated": false,
+        "config": "toolformer_go",
+        "query_id": "q18",
+        "query_text": "A water flow restrictor has reduced the flow of water to 2 gallons per minute. This amount is 1 gallon per minute less than 0.6 the original flow rate. Find the original rate in gallons per minute.",
+        "toolformer.category": "fractional"
+      },
+      "cpu_time_ms": 58.599,
+      "end_ns": 1777413323076198000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "760ecbbf5725e4b0",
+      "start_ns": 1777413310627852000,
+      "status": "ok",
+      "trace_id": "a036028d1b760c086c063d986571e5e3",
+      "wall_time_ms": 12448.346
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 0
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777413316458061000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "760ecbbf5725e4b0",
+      "span_id": "c8af2fd49f049fc7",
+      "start_ns": 1777413310631176000,
+      "status": "ok",
+      "trace_id": "a036028d1b760c086c063d986571e5e3",
+      "wall_time_ms": 5826.885
+    },
+    {
+      "attrs": {
+        "expression": "2 + 1",
+        "result": 3,
+        "tool.input_hash": "ad6a3bbe835f4f7e",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.031,
+      "end_ns": 1777413316462278000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "760ecbbf5725e4b0",
+      "span_id": "f44bf3ead42b28f1",
+      "start_ns": 1777413316462252000,
+      "status": "ok",
+      "trace_id": "a036028d1b760c086c063d986571e5e3",
+      "wall_time_ms": 0.026
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 1
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777413317746017000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "760ecbbf5725e4b0",
+      "span_id": "c883fd2d92b7f574",
+      "start_ns": 1777413316497717000,
+      "status": "ok",
+      "trace_id": "a036028d1b760c086c063d986571e5e3",
+      "wall_time_ms": 1248.3
+    },
+    {
+      "attrs": {
+        "expression": "3 / 0.6",
+        "result": 5,
+        "tool.input_hash": "249468d381c1189a",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.043,
+      "end_ns": 1777413317748170000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "760ecbbf5725e4b0",
+      "span_id": "3fd6c3ae7e5eb8e8",
+      "start_ns": 1777413317748147000,
+      "status": "ok",
+      "trace_id": "a036028d1b760c086c063d986571e5e3",
+      "wall_time_ms": 0.023
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 2
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777413319948270000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "760ecbbf5725e4b0",
+      "span_id": "895950a75497ac21",
+      "start_ns": 1777413317772353000,
+      "status": "ok",
+      "trace_id": "a036028d1b760c086c063d986571e5e3",
+      "wall_time_ms": 2175.917
+    },
+    {
+      "attrs": {
+        "expression": "0.6 * 5",
+        "result": 3,
+        "tool.input_hash": "491ba7a6a69cd462",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.055,
+      "end_ns": 1777413319950239000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "760ecbbf5725e4b0",
+      "span_id": "9d285701f3509bb3",
+      "start_ns": 1777413319950216000,
+      "status": "ok",
+      "trace_id": "a036028d1b760c086c063d986571e5e3",
+      "wall_time_ms": 0.023
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 3
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777413321277596000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "760ecbbf5725e4b0",
+      "span_id": "9ea0bebd8f68954f",
+      "start_ns": 1777413319969878000,
+      "status": "ok",
+      "trace_id": "a036028d1b760c086c063d986571e5e3",
+      "wall_time_ms": 1307.718
+    },
+    {
+      "attrs": {
+        "expression": "3 - 1",
+        "result": 2,
+        "tool.input_hash": "ffa8f910681b9e45",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.054,
+      "end_ns": 1777413321279731000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "760ecbbf5725e4b0",
+      "span_id": "394c0af016144c41",
+      "start_ns": 1777413321279708000,
+      "status": "ok",
+      "trace_id": "a036028d1b760c086c063d986571e5e3",
+      "wall_time_ms": 0.023
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 4
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777413322783734000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "760ecbbf5725e4b0",
+      "span_id": "fd841eafb4335bb2",
+      "start_ns": 1777413321316214000,
+      "status": "ok",
+      "trace_id": "a036028d1b760c086c063d986571e5e3",
+      "wall_time_ms": 1467.52
+    }
+  ],
+  "trace_id": "a036028d1b760c086c063d986571e5e3"
+}

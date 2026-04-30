@@ -1,0 +1,140 @@
+{
+  "trace_id": "436b9b778048df132f7d147afc6223aa",
+  "config": "toolformer_py",
+  "query_id": "q07",
+  "label": "two_op",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "436b9b778048df132f7d147afc6223aa",
+      "span_id": "384d194cb57af7cb",
+      "parent_id": null,
+      "start_ns": 1777413455233867000,
+      "end_ns": 1777413465131441000,
+      "wall_time_ms": 9897.574,
+      "cpu_time_ms": 240.686,
+      "kind": "root",
+      "attrs": {
+        "config": "toolformer_py",
+        "query_id": "q07",
+        "query_text": "Each chocolate bar in a box cost $3. If a box had 9 bars total and Wendy sold all but 3 bars, how much money would she have made?",
+        "agent.num_turns": 3,
+        "agent.total_input_tokens": 18,
+        "agent.total_output_tokens": 347,
+        "agent.total_cost_usd": 0.01242625,
+        "agent.duration_ms": 4012.0,
+        "agent.duration_api_ms": 4518.0,
+        "agent.is_error": false,
+        "agent.truncated": false,
+        "agent.num_tool_calls": 2,
+        "agent.cpu_time_ms": 240.6690000000001
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "436b9b778048df132f7d147afc6223aa",
+      "span_id": "98b63bf5d38b1550",
+      "parent_id": "384d194cb57af7cb",
+      "start_ns": 1777413455233904000,
+      "end_ns": 1777413463307086000,
+      "wall_time_ms": 8073.182,
+      "cpu_time_ms": 176.789,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 0,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "436b9b778048df132f7d147afc6223aa",
+      "span_id": "4f6e678850fb0497",
+      "parent_id": "384d194cb57af7cb",
+      "start_ns": 1777413463313426000,
+      "end_ns": 1777413463313647000,
+      "wall_time_ms": 0.221,
+      "cpu_time_ms": 0.304,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "dde1bee24d428347",
+        "expression": "9 - 3",
+        "result": 6.0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "436b9b778048df132f7d147afc6223aa",
+      "span_id": "73dc69bc6e2f2f4f",
+      "parent_id": "384d194cb57af7cb",
+      "start_ns": 1777413463394186000,
+      "end_ns": 1777413463394650000,
+      "wall_time_ms": 0.464,
+      "cpu_time_ms": 0.405,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 1,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "436b9b778048df132f7d147afc6223aa",
+      "span_id": "e1f29742a859332e",
+      "parent_id": "384d194cb57af7cb",
+      "start_ns": 1777413463397024000,
+      "end_ns": 1777413463397188000,
+      "wall_time_ms": 0.164,
+      "cpu_time_ms": 0.228,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "bfbba7270a85e057",
+        "expression": "6 * 3",
+        "result": 18.0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "436b9b778048df132f7d147afc6223aa",
+      "span_id": "92fff4d07280669e",
+      "parent_id": "384d194cb57af7cb",
+      "start_ns": 1777413463425495000,
+      "end_ns": 1777413464861105000,
+      "wall_time_ms": 1435.61,
+      "cpu_time_ms": 30.07,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 2,
+        "llm.has_tool_use": false,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

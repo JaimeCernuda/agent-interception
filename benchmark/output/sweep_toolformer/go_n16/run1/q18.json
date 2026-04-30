@@ -1,0 +1,138 @@
+{
+  "config": "toolformer_go",
+  "label": "fractional",
+  "query_id": "q18",
+  "spans": [
+    {
+      "attrs": {
+        "agent.cpu_time_ms": 89.94900000000001,
+        "agent.duration_api_ms": 6793,
+        "agent.duration_ms": 6037,
+        "agent.is_error": false,
+        "agent.num_turns": 3,
+        "agent.total_cost_usd": 0.018886250000000004,
+        "agent.truncated": false,
+        "config": "toolformer_go",
+        "query_id": "q18",
+        "query_text": "A water flow restrictor has reduced the flow of water to 2 gallons per minute. This amount is 1 gallon per minute less than 0.6 the original flow rate. Find the original rate in gallons per minute.",
+        "toolformer.category": "fractional"
+      },
+      "cpu_time_ms": 89.945,
+      "end_ns": 1777413746683013000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "ccd09148823d3f4a",
+      "start_ns": 1777413736408809000,
+      "status": "ok",
+      "trace_id": "af002485da168a8733a16a3a13ab041f",
+      "wall_time_ms": 10274.204
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 0
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777413742332000000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "ccd09148823d3f4a",
+      "span_id": "3ea246f8d502ead2",
+      "start_ns": 1777413736412110000,
+      "status": "ok",
+      "trace_id": "af002485da168a8733a16a3a13ab041f",
+      "wall_time_ms": 5919.89
+    },
+    {
+      "attrs": {
+        "expression": "3 / 0.6",
+        "result": 5,
+        "tool.input_hash": "249468d381c1189a",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.053,
+      "end_ns": 1777413742336189000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "ccd09148823d3f4a",
+      "span_id": "b8a3bd3fdafbeb63",
+      "start_ns": 1777413742336164000,
+      "status": "ok",
+      "trace_id": "af002485da168a8733a16a3a13ab041f",
+      "wall_time_ms": 0.025
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 1
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777413744441535000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "ccd09148823d3f4a",
+      "span_id": "4a2a6c00fcd18126",
+      "start_ns": 1777413742361558000,
+      "status": "ok",
+      "trace_id": "af002485da168a8733a16a3a13ab041f",
+      "wall_time_ms": 2079.977
+    },
+    {
+      "attrs": {
+        "expression": "0.6 * 5 - 1",
+        "result": 2,
+        "tool.input_hash": "0d1c1cfd67c9a964",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.051,
+      "end_ns": 1777413744443359000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "ccd09148823d3f4a",
+      "span_id": "cad0403087d54c2a",
+      "start_ns": 1777413744443337000,
+      "status": "ok",
+      "trace_id": "af002485da168a8733a16a3a13ab041f",
+      "wall_time_ms": 0.022
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 2
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777413746172551000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "ccd09148823d3f4a",
+      "span_id": "b91e6449698fa2ef",
+      "start_ns": 1777413744488883000,
+      "status": "ok",
+      "trace_id": "af002485da168a8733a16a3a13ab041f",
+      "wall_time_ms": 1683.668
+    }
+  ],
+  "trace_id": "af002485da168a8733a16a3a13ab041f"
+}

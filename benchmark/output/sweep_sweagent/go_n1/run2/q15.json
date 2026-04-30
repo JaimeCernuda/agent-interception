@@ -1,0 +1,313 @@
+{
+  "config": "sweagent_go",
+  "label": "bug_diagnosis",
+  "query_id": "q15",
+  "spans": [
+    {
+      "attrs": {
+        "agent.cpu_time_ms": 31.730000000000132,
+        "agent.duration_api_ms": 16961,
+        "agent.duration_ms": 16240,
+        "agent.is_error": false,
+        "agent.num_turns": 5,
+        "agent.total_cost_usd": 0.03486775,
+        "agent.truncated": false,
+        "agent.workspace_dir": "../benchmark/output/sweep_sweagent/go_n1/run2/workspaces/q15",
+        "config": "sweagent_go",
+        "query_id": "q15",
+        "query_text": "There is a failing test in this workspace. Run 'bash runtests.sh' to see which test fails and why. Read the relevant source, identify the bug, and produce a unified diff that fixes it. Then verify by running the tests again and reporting the new output.",
+        "sweagent.category": "C",
+        "sweagent.label": "bug_diagnosis"
+      },
+      "cpu_time_ms": 31.741,
+      "end_ns": 1777418186256599000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "f640d97a3e9a2933",
+      "start_ns": 1777418167430985000,
+      "status": "ok",
+      "trace_id": "4d3df8d3670b4d3d101bee3da6ba7922",
+      "wall_time_ms": 18825.614
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 0
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777418172303414000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "f640d97a3e9a2933",
+      "span_id": "77931d81a2882aec",
+      "start_ns": 1777418167448202000,
+      "status": "ok",
+      "trace_id": "4d3df8d3670b4d3d101bee3da6ba7922",
+      "wall_time_ms": 4855.212
+    },
+    {
+      "attrs": {
+        "bash.command_preview": "bash runtests.sh",
+        "bash.exit_code": 0,
+        "bash.shell_wrapped": false,
+        "bash.stderr_bytes": 0,
+        "bash.stderr_truncated": false,
+        "bash.stdout_bytes": 261,
+        "bash.stdout_truncated": false,
+        "bash.timed_out": false,
+        "bash.timeout_seconds": 30,
+        "tool.input_hash": "c1ff3d4b472ff839",
+        "tool.name": "bash_run"
+      },
+      "cpu_time_ms": 3.488,
+      "end_ns": 1777418172457956000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.bash_run",
+      "parent_id": "f640d97a3e9a2933",
+      "span_id": "2e5c6d3c50991c6f",
+      "start_ns": 1777418172308540000,
+      "status": "ok",
+      "trace_id": "4d3df8d3670b4d3d101bee3da6ba7922",
+      "wall_time_ms": 149.416
+    },
+    {
+      "attrs": {
+        "bash.pid": 15396,
+        "bash.shell_wrapped": false,
+        "tool.name": "bash_spawn"
+      },
+      "cpu_time_ms": 2.855,
+      "end_ns": 1777418172311688000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.bash_spawn",
+      "parent_id": "2e5c6d3c50991c6f",
+      "span_id": "73bee5f22d1a6e95",
+      "start_ns": 1777418172308833000,
+      "status": "ok",
+      "trace_id": "4d3df8d3670b4d3d101bee3da6ba7922",
+      "wall_time_ms": 2.855
+    },
+    {
+      "attrs": {
+        "bash.exit_code": 0,
+        "bash.stderr_bytes": 0,
+        "bash.stdout_bytes": 261,
+        "bash.timed_out": false,
+        "tool.name": "bash_work"
+      },
+      "cpu_time_ms": 146.205,
+      "end_ns": 1777418172457893000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.bash_work",
+      "parent_id": "2e5c6d3c50991c6f",
+      "span_id": "4b3678b50044ccfa",
+      "start_ns": 1777418172311688000,
+      "status": "ok",
+      "trace_id": "4d3df8d3670b4d3d101bee3da6ba7922",
+      "wall_time_ms": 146.205
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 1
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777418175419430000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "f640d97a3e9a2933",
+      "span_id": "a4a9e1f2ef9db336",
+      "start_ns": 1777418172463523000,
+      "status": "ok",
+      "trace_id": "4d3df8d3670b4d3d101bee3da6ba7922",
+      "wall_time_ms": 2955.907
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "bcff63061200f221",
+        "tool.name": "read_file",
+        "tool.path": "perm.py",
+        "tool.size_bytes": 235,
+        "tool.truncated": false
+      },
+      "cpu_time_ms": 0.483,
+      "end_ns": 1777418175422209000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.read_file",
+      "parent_id": "f640d97a3e9a2933",
+      "span_id": "0872c3e4a17df13b",
+      "start_ns": 1777418175421891000,
+      "status": "ok",
+      "trace_id": "4d3df8d3670b4d3d101bee3da6ba7922",
+      "wall_time_ms": 0.318
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 2
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777418180274153000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "f640d97a3e9a2933",
+      "span_id": "7561941fadde6e77",
+      "start_ns": 1777418175452375000,
+      "status": "ok",
+      "trace_id": "4d3df8d3670b4d3d101bee3da6ba7922",
+      "wall_time_ms": 4821.778
+    },
+    {
+      "attrs": {
+        "tool.input_hash": "bcff63061200f221",
+        "tool.name": "write_file",
+        "tool.path": "perm.py",
+        "tool.size_bytes": 234
+      },
+      "cpu_time_ms": 0.707,
+      "end_ns": 1777418180277246000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.write_file",
+      "parent_id": "f640d97a3e9a2933",
+      "span_id": "dbd2cfb5ca41b7e1",
+      "start_ns": 1777418180276647000,
+      "status": "ok",
+      "trace_id": "4d3df8d3670b4d3d101bee3da6ba7922",
+      "wall_time_ms": 0.599
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 3
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777418182308476000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "f640d97a3e9a2933",
+      "span_id": "c9250d4fe22fc6c0",
+      "start_ns": 1777418180309923000,
+      "status": "ok",
+      "trace_id": "4d3df8d3670b4d3d101bee3da6ba7922",
+      "wall_time_ms": 1998.553
+    },
+    {
+      "attrs": {
+        "bash.command_preview": "bash runtests.sh",
+        "bash.exit_code": 0,
+        "bash.shell_wrapped": false,
+        "bash.stderr_bytes": 0,
+        "bash.stderr_truncated": false,
+        "bash.stdout_bytes": 77,
+        "bash.stdout_truncated": false,
+        "bash.timed_out": false,
+        "bash.timeout_seconds": 30,
+        "tool.input_hash": "c1ff3d4b472ff839",
+        "tool.name": "bash_run"
+      },
+      "cpu_time_ms": 3.343,
+      "end_ns": 1777418182415494000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.bash_run",
+      "parent_id": "f640d97a3e9a2933",
+      "span_id": "777b3512cb3ae2ac",
+      "start_ns": 1777418182310698000,
+      "status": "ok",
+      "trace_id": "4d3df8d3670b4d3d101bee3da6ba7922",
+      "wall_time_ms": 104.796
+    },
+    {
+      "attrs": {
+        "bash.pid": 15474,
+        "bash.shell_wrapped": false,
+        "tool.name": "bash_spawn"
+      },
+      "cpu_time_ms": 3.003,
+      "end_ns": 1777418182314025000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.bash_spawn",
+      "parent_id": "777b3512cb3ae2ac",
+      "span_id": "b9715cf2cae3330b",
+      "start_ns": 1777418182311022000,
+      "status": "ok",
+      "trace_id": "4d3df8d3670b4d3d101bee3da6ba7922",
+      "wall_time_ms": 3.003
+    },
+    {
+      "attrs": {
+        "bash.exit_code": 0,
+        "bash.stderr_bytes": 0,
+        "bash.stdout_bytes": 77,
+        "bash.timed_out": false,
+        "tool.name": "bash_work"
+      },
+      "cpu_time_ms": 101.354,
+      "end_ns": 1777418182415379000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.bash_work",
+      "parent_id": "777b3512cb3ae2ac",
+      "span_id": "c36ada2a0aaeefc5",
+      "start_ns": 1777418182314025000,
+      "status": "ok",
+      "trace_id": "4d3df8d3670b4d3d101bee3da6ba7922",
+      "wall_time_ms": 101.354
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 4
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777418186106604000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "f640d97a3e9a2933",
+      "span_id": "0a8569779d8da54a",
+      "start_ns": 1777418182418725000,
+      "status": "ok",
+      "trace_id": "4d3df8d3670b4d3d101bee3da6ba7922",
+      "wall_time_ms": 3687.879
+    }
+  ],
+  "trace_id": "4d3df8d3670b4d3d101bee3da6ba7922"
+}

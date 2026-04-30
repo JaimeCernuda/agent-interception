@@ -1,0 +1,23 @@
+[run] config=sweagent_go queries=20 concurrency=1 out=../benchmark/output/sweep_sweagent/go_n1/run2
+  [  1/20] q01 ok  (36.89s) answer="## HTTP Status Code Distribution  Based on analyzing the access.log file, here are the HTTP status c..."
+  [  2/20] q02 ok  (50.93s) answer="Based on my analysis of the second half (last 20,000 events) of events.jsonl, here are the **top 5 m..."
+  [  3/20] q03 ok  (91.40s) answer="**Answer: 51.1**  For host 'host-042' with metric 'cpu_pct', I found: - **708 matching records** - *..."
+  [  4/20] q04 ok  (20.66s) answer="## Results  Yes, there are **12 transaction IDs that appear more than once** in the log. Each of the..."
+  [  5/20] q05 ok  (21.06s) answer="**user-q performed the most distinct actions: 16**  The 16 distinct actions performed by user-q are:..."
+  [  6/20] q06 ok  (13.64s) answer="## Classes Inheriting from BaseHandler  Here's a complete list of every class that inherits from `Ba..."
+  [  7/20] q07 ok  (18.97s) answer="Now I'll generate the unified diff for renaming `legacy_utils` to `compat_utils`:  ```diff diff --gi..."
+  [  8/20] q08 ok  (24.48s) answer="Perfect! Here are all the functions that take a 'request' parameter but **do NOT** call `validate_re..."
+  [  9/20] q09 ok  (12.95s) answer="Based on my analysis of the project files, I found **one circular import cycle**:  **Cycle: mod_a \xe2\x86..."
+  [ 10/20] q10 ok  (13.31s) answer="Perfect! Here's the summary of TODO comments by author:  ## TODO Comments by Author  | Author | Coun..."
+  [ 11/20] q11 ok  (40.46s) answer="Perfect! All tests are now passing. Here's a summary of the bugs found and fixed:  ## Bug Summary  *..."
+  [ 12/20] q12 ok  (61.55s) answer="Perfect! ✅ **Both tests now pass!**  ## Summary  I found and fixed **two bugs**:  ### Bug 1: `desc..."
+  [ 13/20] q13 ok  (18.54s) answer="## ✅ Fixed!  **The Bug:** In `counter.py`, the `is_positive()` function was comparing an integer v..."
+  [ 14/20] q14 ok  (19.86s) answer="Excellent! The fix is complete and verified. Here's a summary:  ## Bug Identified The `test_mean_emp..."
+  [ 15/20] q15 ok  (18.83s) answer="Perfect! The fix is working. Here's the unified diff:  ```diff --- perm.py +++ perm.py @@ -1,4 +1,4 ..."
+  [ 16/20] q16 ok  (18.52s) answer="## Timeout Fields Found  Here are all 11 service configs that have a 'timeout' field:  | Config File..."
+  [ 17/20] q17 ok  (16.19s) answer="## Summary  **Total distinct exception types: 7**  Here's the breakdown of each exception type and t..."
+  [ 18/20] q18 ok  (14.89s) answer="Here are the heading hierarchies for all .md files in the workspace:  ## **ops.md** ``` # Operations..."
+  [ 19/20] q19 ok  (14.64s) answer="Perfect! Here's the dependency graph as an adjacency list showing which files each `src_*.py` file i..."
+  [ 20/20] q20 ok  ( 9.88s) answer="Perfect! I found all 10 frag_*.log files and stitched them together by sorting on the unix timestamp..."
+WALLCLOCK_MS=537842.157
+[run] done. 20/20 succeeded, 0 failed. wallclock=537.84s

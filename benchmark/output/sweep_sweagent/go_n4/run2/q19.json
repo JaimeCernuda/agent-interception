@@ -1,0 +1,230 @@
+{
+  "config": "sweagent_go",
+  "label": "aggregate_analysis",
+  "query_id": "q19",
+  "spans": [
+    {
+      "attrs": {
+        "agent.cpu_time_ms": 89.54399999999987,
+        "agent.duration_api_ms": 10349,
+        "agent.duration_ms": 9835,
+        "agent.is_error": false,
+        "agent.num_turns": 3,
+        "agent.total_cost_usd": 0.023045750000000004,
+        "agent.truncated": false,
+        "agent.workspace_dir": "../benchmark/output/sweep_sweagent/go_n4/run2/workspaces/q19",
+        "config": "sweagent_go",
+        "query_id": "q19",
+        "query_text": "Build a dependency graph from the src_*.py files in this workspace. Which file imports from which other file? Report the result as an adjacency list (file -\u003e [files it imports from]).",
+        "sweagent.category": "D",
+        "sweagent.label": "aggregate_analysis"
+      },
+      "cpu_time_ms": 89.547,
+      "end_ns": 1777424202524206000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "4d4eacef39ea42c7",
+      "start_ns": 1777424188330698000,
+      "status": "ok",
+      "trace_id": "aa8a19c781389bb0f47313aca384ef45",
+      "wall_time_ms": 14193.508
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 0
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777424195055190000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "4d4eacef39ea42c7",
+      "span_id": "d5d15633157920c5",
+      "start_ns": 1777424188337719000,
+      "status": "ok",
+      "trace_id": "aa8a19c781389bb0f47313aca384ef45",
+      "wall_time_ms": 6717.471
+    },
+    {
+      "attrs": {
+        "bash.command_preview": "find . -name \"src_*.py\" -type f",
+        "bash.exit_code": 0,
+        "bash.shell_wrapped": false,
+        "bash.stderr_bytes": 0,
+        "bash.stderr_truncated": false,
+        "bash.stdout_bytes": 216,
+        "bash.stdout_truncated": false,
+        "bash.timed_out": false,
+        "bash.timeout_seconds": 30,
+        "tool.input_hash": "4df2b95332b6b957",
+        "tool.name": "bash_run"
+      },
+      "cpu_time_ms": 2.852,
+      "end_ns": 1777424195069886000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.bash_run",
+      "parent_id": "4d4eacef39ea42c7",
+      "span_id": "0b475111269fbc74",
+      "start_ns": 1777424195059637000,
+      "status": "ok",
+      "trace_id": "aa8a19c781389bb0f47313aca384ef45",
+      "wall_time_ms": 10.249
+    },
+    {
+      "attrs": {
+        "bash.pid": 59011,
+        "bash.shell_wrapped": false,
+        "tool.name": "bash_spawn"
+      },
+      "cpu_time_ms": 4.717,
+      "end_ns": 1777424195064764000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.bash_spawn",
+      "parent_id": "0b475111269fbc74",
+      "span_id": "8adbff4bf83ff798",
+      "start_ns": 1777424195060047000,
+      "status": "ok",
+      "trace_id": "aa8a19c781389bb0f47313aca384ef45",
+      "wall_time_ms": 4.717
+    },
+    {
+      "attrs": {
+        "bash.exit_code": 0,
+        "bash.stderr_bytes": 0,
+        "bash.stdout_bytes": 216,
+        "bash.timed_out": false,
+        "tool.name": "bash_work"
+      },
+      "cpu_time_ms": 5.071,
+      "end_ns": 1777424195069835000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.bash_work",
+      "parent_id": "0b475111269fbc74",
+      "span_id": "9fd594e626cd3be0",
+      "start_ns": 1777424195064764000,
+      "status": "ok",
+      "trace_id": "aa8a19c781389bb0f47313aca384ef45",
+      "wall_time_ms": 5.071
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 1
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777424196762095000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "4d4eacef39ea42c7",
+      "span_id": "863680fc32eefaba",
+      "start_ns": 1777424195115729000,
+      "status": "ok",
+      "trace_id": "aa8a19c781389bb0f47313aca384ef45",
+      "wall_time_ms": 1646.366
+    },
+    {
+      "attrs": {
+        "bash.command_preview": "for file in ./src_*.py; do echo \"=== $file ===\"; cat \"$file\"; done",
+        "bash.exit_code": 0,
+        "bash.shell_wrapped": true,
+        "bash.stderr_bytes": 0,
+        "bash.stderr_truncated": false,
+        "bash.stdout_bytes": 2290,
+        "bash.stdout_truncated": false,
+        "bash.timed_out": false,
+        "bash.timeout_seconds": 30,
+        "tool.input_hash": "22f96acb26e4b6eb",
+        "tool.name": "bash_run"
+      },
+      "cpu_time_ms": 5.627,
+      "end_ns": 1777424196898450000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.bash_run",
+      "parent_id": "4d4eacef39ea42c7",
+      "span_id": "6fe74f80f7a408cf",
+      "start_ns": 1777424196764065000,
+      "status": "ok",
+      "trace_id": "aa8a19c781389bb0f47313aca384ef45",
+      "wall_time_ms": 134.385
+    },
+    {
+      "attrs": {
+        "bash.pid": 59023,
+        "bash.shell_wrapped": true,
+        "tool.name": "bash_spawn"
+      },
+      "cpu_time_ms": 3.18,
+      "end_ns": 1777424196767331000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.bash_spawn",
+      "parent_id": "6fe74f80f7a408cf",
+      "span_id": "d417ce3938dd2600",
+      "start_ns": 1777424196764151000,
+      "status": "ok",
+      "trace_id": "aa8a19c781389bb0f47313aca384ef45",
+      "wall_time_ms": 3.18
+    },
+    {
+      "attrs": {
+        "bash.exit_code": 0,
+        "bash.stderr_bytes": 0,
+        "bash.stdout_bytes": 2290,
+        "bash.timed_out": false,
+        "tool.name": "bash_work"
+      },
+      "cpu_time_ms": 131.067,
+      "end_ns": 1777424196898398000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.bash_work",
+      "parent_id": "6fe74f80f7a408cf",
+      "span_id": "f4196889de121fad",
+      "start_ns": 1777424196767331000,
+      "status": "ok",
+      "trace_id": "aa8a19c781389bb0f47313aca384ef45",
+      "wall_time_ms": 131.067
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 2
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777424202240042000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "4d4eacef39ea42c7",
+      "span_id": "1f15b020c703958b",
+      "start_ns": 1777424196903022000,
+      "status": "ok",
+      "trace_id": "aa8a19c781389bb0f47313aca384ef45",
+      "wall_time_ms": 5337.02
+    }
+  ],
+  "trace_id": "aa8a19c781389bb0f47313aca384ef45"
+}

@@ -1,0 +1,138 @@
+{
+  "config": "toolformer_go",
+  "label": "two_op",
+  "query_id": "q09",
+  "spans": [
+    {
+      "attrs": {
+        "agent.cpu_time_ms": 24.025000000000006,
+        "agent.duration_api_ms": 4925,
+        "agent.duration_ms": 4012,
+        "agent.is_error": false,
+        "agent.num_turns": 3,
+        "agent.total_cost_usd": 0.01289525,
+        "agent.truncated": false,
+        "config": "toolformer_go",
+        "query_id": "q09",
+        "query_text": "Tiffany baked 8 brownies, but needed 17 total for her party. If she used 8 cups of flour on each one, how much cups of flour does she still need?",
+        "toolformer.category": "two_op"
+      },
+      "cpu_time_ms": 24.013,
+      "end_ns": 1777412910133032000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "4b2ddac4a5cebfa3",
+      "start_ns": 1777412902135337000,
+      "status": "ok",
+      "trace_id": "25c54d9a6061369fac02443db6a4afc1",
+      "wall_time_ms": 7997.695
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 0
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777412907892545000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "4b2ddac4a5cebfa3",
+      "span_id": "f0dde4c3a0a2ecfb",
+      "start_ns": 1777412902138584000,
+      "status": "ok",
+      "trace_id": "25c54d9a6061369fac02443db6a4afc1",
+      "wall_time_ms": 5753.961
+    },
+    {
+      "attrs": {
+        "expression": "17 - 8",
+        "result": 9,
+        "tool.input_hash": "35881e223b26e3cf",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.034,
+      "end_ns": 1777412907898480000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "4b2ddac4a5cebfa3",
+      "span_id": "6b74fcb06f66d003",
+      "start_ns": 1777412907898450000,
+      "status": "ok",
+      "trace_id": "25c54d9a6061369fac02443db6a4afc1",
+      "wall_time_ms": 0.03
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 1
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777412908020744000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "4b2ddac4a5cebfa3",
+      "span_id": "db39d79ede61adf7",
+      "start_ns": 1777412908019240000,
+      "status": "ok",
+      "trace_id": "25c54d9a6061369fac02443db6a4afc1",
+      "wall_time_ms": 1.504
+    },
+    {
+      "attrs": {
+        "expression": "9 * 8",
+        "result": 72,
+        "tool.input_hash": "78dc2a28ab01f859",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.044,
+      "end_ns": 1777412908023019000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "4b2ddac4a5cebfa3",
+      "span_id": "da03841ea620b40f",
+      "start_ns": 1777412908022998000,
+      "status": "ok",
+      "trace_id": "25c54d9a6061369fac02443db6a4afc1",
+      "wall_time_ms": 0.021
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 2
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777412909767554000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "4b2ddac4a5cebfa3",
+      "span_id": "8939c31db2dd211e",
+      "start_ns": 1777412908058150000,
+      "status": "ok",
+      "trace_id": "25c54d9a6061369fac02443db6a4afc1",
+      "wall_time_ms": 1709.404
+    }
+  ],
+  "trace_id": "25c54d9a6061369fac02443db6a4afc1"
+}

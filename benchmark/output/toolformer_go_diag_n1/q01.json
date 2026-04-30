@@ -5,29 +5,29 @@
   "spans": [
     {
       "attrs": {
-        "agent.cpu_time_ms": 13.055999999999997,
-        "agent.duration_api_ms": 6948,
-        "agent.duration_ms": 6155,
+        "agent.cpu_time_ms": 9.852999999999998,
+        "agent.duration_api_ms": 5092,
+        "agent.duration_ms": 4451,
         "agent.is_error": false,
         "agent.num_turns": 2,
-        "agent.total_cost_usd": 0.056567099999999995,
+        "agent.total_cost_usd": 0.01201955,
         "agent.truncated": false,
         "config": "toolformer_go",
         "query_id": "q01",
         "query_text": "Jeff had some Pen. Denise took 88 from him. Now Jeff has 96 Pen. How many Pen Jeff had primitively?",
         "toolformer.category": "single_op"
       },
-      "cpu_time_ms": 16173.843,
-      "end_ns": 1777405820403407000,
+      "cpu_time_ms": 9.846,
+      "end_ns": 1777411108434981000,
       "error": null,
       "kind": "root",
       "name": "agent.query",
       "parent_id": null,
-      "span_id": "c4bc8d88d166744b",
-      "start_ns": 1777405804229565000,
+      "span_id": "b27c0f9c5aff4682",
+      "start_ns": 1777411100225377000,
       "status": "ok",
-      "trace_id": "c75f8ddec49fb697f25da14df67ad41c",
-      "wall_time_ms": 16173.842
+      "trace_id": "9835257c1a70de29287747a539c868ad",
+      "wall_time_ms": 8209.604
     },
     {
       "attrs": {
@@ -40,16 +40,16 @@
         "llm.turn": 0
       },
       "cpu_time_ms": 0,
-      "end_ns": 1777405817397670000,
+      "end_ns": 1777411106307571000,
       "error": null,
       "kind": "llm",
       "name": "llm.generate",
-      "parent_id": "c4bc8d88d166744b",
-      "span_id": "7e2f8f85c3316cab",
-      "start_ns": 1777405804231975000,
+      "parent_id": "b27c0f9c5aff4682",
+      "span_id": "a588b8ddc5a6d26a",
+      "start_ns": 1777411100227412000,
       "status": "ok",
-      "trace_id": "c75f8ddec49fb697f25da14df67ad41c",
-      "wall_time_ms": 13165.695
+      "trace_id": "9835257c1a70de29287747a539c868ad",
+      "wall_time_ms": 6080.159
     },
     {
       "attrs": {
@@ -58,17 +58,17 @@
         "tool.input_hash": "55e53acc9f39f432",
         "tool.name": "calculator"
       },
-      "cpu_time_ms": 0.133,
-      "end_ns": 1777405817402419000,
+      "cpu_time_ms": 0.046,
+      "end_ns": 1777411106312608000,
       "error": null,
       "kind": "tool",
       "name": "tool.calculator",
-      "parent_id": "c4bc8d88d166744b",
-      "span_id": "0a4bf7895d7a0712",
-      "start_ns": 1777405817402286000,
+      "parent_id": "b27c0f9c5aff4682",
+      "span_id": "4df855f97f4478fd",
+      "start_ns": 1777411106312568000,
       "status": "ok",
-      "trace_id": "c75f8ddec49fb697f25da14df67ad41c",
-      "wall_time_ms": 0.133
+      "trace_id": "9835257c1a70de29287747a539c868ad",
+      "wall_time_ms": 0.04
     },
     {
       "attrs": {
@@ -81,17 +81,17 @@
         "llm.turn": 1
       },
       "cpu_time_ms": 0,
-      "end_ns": 1777405819767066000,
+      "end_ns": 1777411108117271000,
       "error": null,
       "kind": "llm",
       "name": "llm.generate",
-      "parent_id": "c4bc8d88d166744b",
-      "span_id": "559ec72439882509",
-      "start_ns": 1777405817413347000,
+      "parent_id": "b27c0f9c5aff4682",
+      "span_id": "29a2e2d4c1c8561e",
+      "start_ns": 1777411106351266000,
       "status": "ok",
-      "trace_id": "c75f8ddec49fb697f25da14df67ad41c",
-      "wall_time_ms": 2353.719
+      "trace_id": "9835257c1a70de29287747a539c868ad",
+      "wall_time_ms": 1766.005
     }
   ],
-  "trace_id": "c75f8ddec49fb697f25da14df67ad41c"
+  "trace_id": "9835257c1a70de29287747a539c868ad"
 }

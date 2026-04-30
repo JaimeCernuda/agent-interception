@@ -23,6 +23,7 @@ import (
 	"sort"
 	"strings"
 	"sync"
+	"syscall"
 	"time"
 )
 
@@ -35,12 +36,21 @@ type Clock interface {
 type realClock struct{}
 
 func (realClock) WallNs() int64 { return time.Now().UnixNano() }
+
+// CPUNs returns process-wide user+system CPU time in nanoseconds, matching
+// Python's time.process_time_ns() (which getrusage(RUSAGE_SELF) underlies on
+// POSIX). Process-wide is the right semantics for cross-language comparison
+// and is what the Python obs reports — under concurrency this means a span's
+// cpu_time_ms reflects all goroutine CPU during the span, identical to the
+// Python side under threading/asyncio.
 func (realClock) CPUNs() int64 {
-	// Go has no public process-CPU clock that matches Python's
-	// time.process_time_ns() exactly. We use monotonic - wall jitter is
-	// small; the Python side measures CPU at Python granularity (nanosec
-	// but coarse on macOS). Documented honestly in the report.
-	return monotonicNs()
+	var r syscall.Rusage
+	if err := syscall.Getrusage(syscall.RUSAGE_SELF, &r); err != nil {
+		return 0
+	}
+	userNs := int64(r.Utime.Sec)*int64(time.Second) + int64(r.Utime.Usec)*int64(time.Microsecond)
+	sysNs := int64(r.Stime.Sec)*int64(time.Second) + int64(r.Stime.Usec)*int64(time.Microsecond)
+	return userNs + sysNs
 }
 
 // Observer is one trace per query, same contract as benchmark/obs.py.
@@ -352,6 +362,3 @@ func randHex(nBytes int) string {
 	return hex.EncodeToString(b)
 }
 
-// monotonicNs returns a monotonic-ish timestamp in ns. time.Now().UnixNano()
-// is sufficient for our durations (ms granularity matters, ns does not).
-func monotonicNs() int64 { return time.Now().UnixNano() }

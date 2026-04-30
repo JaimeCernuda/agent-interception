@@ -1,0 +1,116 @@
+{
+  "config": "toolformer_go",
+  "label": "two_op",
+  "query_id": "q10",
+  "spans": [
+    {
+      "attrs": {
+        "agent.cpu_time_ms": 13.632000000000005,
+        "agent.duration_api_ms": 8898,
+        "agent.duration_ms": 8206,
+        "agent.is_error": false,
+        "agent.num_turns": 3,
+        "agent.total_cost_usd": 0.0123766,
+        "agent.truncated": false,
+        "config": "toolformer_go",
+        "query_id": "q10",
+        "query_text": "Bianca picked 39 tulips and 49 roses to make flower bouquets. If she only used 81 of the flowers though, how many extra flowers did Bianca pick?",
+        "toolformer.category": "two_op"
+      },
+      "cpu_time_ms": 13.631,
+      "end_ns": 1777412366829003000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "07f6a7505d9701d7",
+      "start_ns": 1777412355415539000,
+      "status": "ok",
+      "trace_id": "d677adbdf5d6563c97edcb3cc22ae524",
+      "wall_time_ms": 11413.464
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 0
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777412364797114000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "07f6a7505d9701d7",
+      "span_id": "38969be7c5c8707c",
+      "start_ns": 1777412355417948000,
+      "status": "ok",
+      "trace_id": "d677adbdf5d6563c97edcb3cc22ae524",
+      "wall_time_ms": 9379.166
+    },
+    {
+      "attrs": {
+        "expression": "39 + 49",
+        "result": 88,
+        "tool.input_hash": "12b271fe0c1074e4",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.031,
+      "end_ns": 1777412364795875000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "07f6a7505d9701d7",
+      "span_id": "4b8fffbe07c00be8",
+      "start_ns": 1777412364795844000,
+      "status": "ok",
+      "trace_id": "d677adbdf5d6563c97edcb3cc22ae524",
+      "wall_time_ms": 0.031
+    },
+    {
+      "attrs": {
+        "expression": "88 - 81",
+        "result": 7,
+        "tool.input_hash": "d3078ae13848f258",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.035,
+      "end_ns": 1777412364806124000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "07f6a7505d9701d7",
+      "span_id": "52af6a90077a9a92",
+      "start_ns": 1777412364806090000,
+      "status": "ok",
+      "trace_id": "d677adbdf5d6563c97edcb3cc22ae524",
+      "wall_time_ms": 0.034
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 1
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777412366544623000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "07f6a7505d9701d7",
+      "span_id": "2f7f3c24699d4cec",
+      "start_ns": 1777412364808564000,
+      "status": "ok",
+      "trace_id": "d677adbdf5d6563c97edcb3cc22ae524",
+      "wall_time_ms": 1736.059
+    }
+  ],
+  "trace_id": "d677adbdf5d6563c97edcb3cc22ae524"
+}

@@ -1,0 +1,231 @@
+{
+  "trace_id": "55099b42b31e16e28ef0404706c087dc",
+  "config": "sweagent_py",
+  "query_id": "q19",
+  "label": "aggregate_analysis",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "55099b42b31e16e28ef0404706c087dc",
+      "span_id": "c841fd683781a54e",
+      "parent_id": null,
+      "start_ns": 1777419174570820000,
+      "end_ns": 1777419190669798000,
+      "wall_time_ms": 16098.978,
+      "cpu_time_ms": 135.168,
+      "kind": "root",
+      "attrs": {
+        "config": "sweagent_py",
+        "query_id": "q19",
+        "query_text": "Build a dependency graph from the src_*.py files in this workspace. Which file imports from which other file? Report the result as an adjacency list (file -> [files it imports from]).",
+        "agent.workspace_dir": "/Users/anna/Desktop/agent-interception/benchmark/output/sweep_sweagent/python_n2/run2/workspaces/q19",
+        "agent.num_turns": 3,
+        "agent.total_input_tokens": 26,
+        "agent.total_output_tokens": 1176,
+        "agent.total_cost_usd": 0.0228433,
+        "agent.duration_ms": 12734.0,
+        "agent.duration_api_ms": 13779.0,
+        "agent.is_error": false,
+        "agent.truncated": false,
+        "agent.num_tool_calls": 2,
+        "agent.cpu_time_ms": 135.19399999999996
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "55099b42b31e16e28ef0404706c087dc",
+      "span_id": "08d8c245ec7f3ece",
+      "parent_id": "c841fd683781a54e",
+      "start_ns": 1777419174570871000,
+      "end_ns": 1777419180541718000,
+      "wall_time_ms": 5970.847,
+      "cpu_time_ms": 50.583,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 0,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.bash_run",
+      "trace_id": "55099b42b31e16e28ef0404706c087dc",
+      "span_id": "56f13bde348188d0",
+      "parent_id": "c841fd683781a54e",
+      "start_ns": 1777419180546894000,
+      "end_ns": 1777419180556800000,
+      "wall_time_ms": 9.906,
+      "cpu_time_ms": 6.016,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "bash_run",
+        "tool.input_hash": "d8d6a41f4ceb6982",
+        "bash.command_preview": "find . -maxdepth 1 -name \"src_*.py\" -type f",
+        "bash.shell_wrapped": false,
+        "bash.timeout_seconds": 30,
+        "bash.exit_code": 0,
+        "bash.timed_out": false,
+        "bash.stdout_bytes": 216,
+        "bash.stderr_bytes": 0,
+        "bash.stdout_truncated": false,
+        "bash.stderr_truncated": false
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.bash_spawn",
+      "trace_id": "55099b42b31e16e28ef0404706c087dc",
+      "span_id": "2a3ee39317b02a93",
+      "parent_id": "56f13bde348188d0",
+      "start_ns": 1777419180547058000,
+      "end_ns": 1777419180552747000,
+      "wall_time_ms": 5.689,
+      "cpu_time_ms": 4.2,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "bash_spawn",
+        "bash.shell_wrapped": false,
+        "bash.pid": 22673
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.bash_work",
+      "trace_id": "55099b42b31e16e28ef0404706c087dc",
+      "span_id": "edcebd7baa91e708",
+      "parent_id": "56f13bde348188d0",
+      "start_ns": 1777419180552747000,
+      "end_ns": 1777419180556559000,
+      "wall_time_ms": 3.812,
+      "cpu_time_ms": 1.214,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "bash_work",
+        "bash.exit_code": 0,
+        "bash.timed_out": false,
+        "bash.stdout_bytes": 216,
+        "bash.stderr_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "55099b42b31e16e28ef0404706c087dc",
+      "span_id": "d5fe6826b45560ae",
+      "parent_id": "c841fd683781a54e",
+      "start_ns": 1777419180583133000,
+      "end_ns": 1777419182826500000,
+      "wall_time_ms": 2243.367,
+      "cpu_time_ms": 15.638,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 1,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.bash_run",
+      "trace_id": "55099b42b31e16e28ef0404706c087dc",
+      "span_id": "64ca4214f719d3ed",
+      "parent_id": "c841fd683781a54e",
+      "start_ns": 1777419182830687000,
+      "end_ns": 1777419182917708000,
+      "wall_time_ms": 87.021,
+      "cpu_time_ms": 8.803,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "bash_run",
+        "tool.input_hash": "9f86b77fa7f12775",
+        "bash.command_preview": "for file in src_*.py; do echo \"=== $file ===\"; grep -E \"^from src_|^import src_\" \"$file\" || echo \"(no internal imports)\"; done",
+        "bash.shell_wrapped": true,
+        "bash.timeout_seconds": 30,
+        "bash.exit_code": 0,
+        "bash.timed_out": false,
+        "bash.stdout_bytes": 1479,
+        "bash.stderr_bytes": 0,
+        "bash.stdout_truncated": false,
+        "bash.stderr_truncated": false
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.bash_spawn",
+      "trace_id": "55099b42b31e16e28ef0404706c087dc",
+      "span_id": "6c2c866f120827c5",
+      "parent_id": "64ca4214f719d3ed",
+      "start_ns": 1777419182830763000,
+      "end_ns": 1777419182837211000,
+      "wall_time_ms": 6.448,
+      "cpu_time_ms": 5.236,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "bash_spawn",
+        "bash.shell_wrapped": true,
+        "bash.pid": 22694
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.bash_work",
+      "trace_id": "55099b42b31e16e28ef0404706c087dc",
+      "span_id": "451cfceaecdf132a",
+      "parent_id": "64ca4214f719d3ed",
+      "start_ns": 1777419182837211000,
+      "end_ns": 1777419182917450000,
+      "wall_time_ms": 80.239,
+      "cpu_time_ms": 3.109,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "bash_work",
+        "bash.exit_code": 0,
+        "bash.timed_out": false,
+        "bash.stdout_bytes": 1479,
+        "bash.stderr_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "55099b42b31e16e28ef0404706c087dc",
+      "span_id": "04854c9292e0f254",
+      "parent_id": "c841fd683781a54e",
+      "start_ns": 1777419182922671000,
+      "end_ns": 1777419190337717000,
+      "wall_time_ms": 7415.046,
+      "cpu_time_ms": 41.843,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 2,
+        "llm.has_tool_use": false,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

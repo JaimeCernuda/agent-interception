@@ -1,0 +1,99 @@
+{
+  "trace_id": "d37bbf4232576fed3e5db6bc8f84a1f4",
+  "config": "toolformer_py",
+  "query_id": "q16",
+  "label": "fractional",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "d37bbf4232576fed3e5db6bc8f84a1f4",
+      "span_id": "f0ade6356ca1f684",
+      "parent_id": null,
+      "start_ns": 1777409336440619000,
+      "end_ns": 1777409343689544000,
+      "wall_time_ms": 7248.925,
+      "cpu_time_ms": 25.951,
+      "kind": "root",
+      "attrs": {
+        "config": "toolformer_py",
+        "query_id": "q16",
+        "query_text": "Nancy has saved 1 dozen quarters from washing cars.  How much money does Nancy have ?",
+        "agent.num_turns": 2,
+        "agent.total_input_tokens": 18,
+        "agent.total_output_tokens": 251,
+        "agent.total_cost_usd": 0.0117472,
+        "agent.duration_ms": 3403.0,
+        "agent.duration_api_ms": 4298.0,
+        "agent.is_error": false,
+        "agent.truncated": false,
+        "agent.num_tool_calls": 1,
+        "agent.cpu_time_ms": 25.95799999999963
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "d37bbf4232576fed3e5db6bc8f84a1f4",
+      "span_id": "739ea8f516c31514",
+      "parent_id": "f0ade6356ca1f684",
+      "start_ns": 1777409336440659000,
+      "end_ns": 1777409341977254000,
+      "wall_time_ms": 5536.595,
+      "cpu_time_ms": 17.633,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 0,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "d37bbf4232576fed3e5db6bc8f84a1f4",
+      "span_id": "5f41d9008f37d4f0",
+      "parent_id": "f0ade6356ca1f684",
+      "start_ns": 1777409341984354000,
+      "end_ns": 1777409341984783000,
+      "wall_time_ms": 0.429,
+      "cpu_time_ms": 0.7,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "2318e0d02f3da8e6",
+        "expression": "12 * 0.25",
+        "result": 3.0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "d37bbf4232576fed3e5db6bc8f84a1f4",
+      "span_id": "27dd2bfc2f3037a3",
+      "parent_id": "f0ade6356ca1f684",
+      "start_ns": 1777409341990931000,
+      "end_ns": 1777409343324787000,
+      "wall_time_ms": 1333.856,
+      "cpu_time_ms": 1.136,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 1,
+        "llm.has_tool_use": false,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

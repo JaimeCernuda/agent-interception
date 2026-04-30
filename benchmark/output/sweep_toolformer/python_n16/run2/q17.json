@@ -1,0 +1,140 @@
+{
+  "trace_id": "a18429e5b239310bfedba5ccf423d7a1",
+  "config": "toolformer_py",
+  "query_id": "q17",
+  "label": "fractional",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "a18429e5b239310bfedba5ccf423d7a1",
+      "span_id": "7e45c5936aa9d610",
+      "parent_id": null,
+      "start_ns": 1777413615264785000,
+      "end_ns": 1777413632206395000,
+      "wall_time_ms": 16941.61,
+      "cpu_time_ms": 571.88,
+      "kind": "root",
+      "attrs": {
+        "config": "toolformer_py",
+        "query_id": "q17",
+        "query_text": "0.5 of the students in the band are in the trumpet section. 0.125 of the students in the band are in the trombone section. What fraction of the students in the band are in either the trumpet section or the trombone section?",
+        "agent.num_turns": 3,
+        "agent.total_input_tokens": 26,
+        "agent.total_output_tokens": 589,
+        "agent.total_cost_usd": 0.018787500000000002,
+        "agent.duration_ms": 8140.0,
+        "agent.duration_api_ms": 10072.0,
+        "agent.is_error": false,
+        "agent.truncated": false,
+        "agent.num_tool_calls": 2,
+        "agent.cpu_time_ms": 571.874
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "a18429e5b239310bfedba5ccf423d7a1",
+      "span_id": "8e547740ca10e4e1",
+      "parent_id": "7e45c5936aa9d610",
+      "start_ns": 1777413615264817000,
+      "end_ns": 1777413626904106000,
+      "wall_time_ms": 11639.289,
+      "cpu_time_ms": 315.769,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 0,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "a18429e5b239310bfedba5ccf423d7a1",
+      "span_id": "28dfed0294d5b244",
+      "parent_id": "7e45c5936aa9d610",
+      "start_ns": 1777413626909495000,
+      "end_ns": 1777413626909649000,
+      "wall_time_ms": 0.154,
+      "cpu_time_ms": 0.22,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "788324f511e25be9",
+        "expression": "0.5 + 0.125",
+        "result": 0.625
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "a18429e5b239310bfedba5ccf423d7a1",
+      "span_id": "650db64bb2a742c4",
+      "parent_id": "7e45c5936aa9d610",
+      "start_ns": 1777413626935066000,
+      "end_ns": 1777413629305505000,
+      "wall_time_ms": 2370.439,
+      "cpu_time_ms": 156.317,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 1,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "a18429e5b239310bfedba5ccf423d7a1",
+      "span_id": "478f8ec715a14bbc",
+      "parent_id": "7e45c5936aa9d610",
+      "start_ns": 1777413629309389000,
+      "end_ns": 1777413629309718000,
+      "wall_time_ms": 0.329,
+      "cpu_time_ms": 0.555,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "723eb67036c81692",
+        "expression": "5/8",
+        "result": 0.625
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "a18429e5b239310bfedba5ccf423d7a1",
+      "span_id": "234f86dd888ed6bc",
+      "parent_id": "7e45c5936aa9d610",
+      "start_ns": 1777413629349610000,
+      "end_ns": 1777413631877865000,
+      "wall_time_ms": 2528.255,
+      "cpu_time_ms": 89.447,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 2,
+        "llm.has_tool_use": false,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

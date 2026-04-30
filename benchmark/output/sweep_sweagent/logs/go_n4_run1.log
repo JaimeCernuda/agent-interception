@@ -1,0 +1,23 @@
+[run] config=sweagent_go queries=20 concurrency=4 out=../benchmark/output/sweep_sweagent/go_n4/run1
+  [  4/20] q04 ok  (31.33s) answer="## Result  **No duplicate transaction IDs found.**  I analyzed all 69,987 transaction IDs in the log..."
+  [  2/20] q02 ok  (31.95s) answer="Perfect! Here are the **top 5 most frequent event types in the second half** of events.jsonl (lines ..."
+  [  6/20] q06 ok  (11.83s) answer="## Classes Inheriting from BaseHandler  Here are all the classes that inherit from `BaseHandler` and..."
+  [  1/20] q01 ok  (49.74s) answer="Perfect! Here's the distribution of HTTP status codes from the access.log file, sorted by count in d..."
+  [  5/20] q05 ok  (22.82s) answer="**Answer:**  **Username:** user-q   **Count of distinct actions:** 16  This user performed significa..."
+  [  9/20] q09 ok  (12.65s) answer="Perfect! I've analyzed all the files. Here are the results:  ## Circular Import Detected ✓  **File..."
+  [  8/20] q08 ok  (17.90s) answer="Based on my analysis of the project files, here are the functions that take a 'request' parameter bu..."
+  [  7/20] q07 ok  (25.18s) answer="Here's the complete unified diff for renaming `legacy_utils` to `compat_utils` across the project:  ..."
+  [ 10/20] q10 ok  (10.01s) answer="Perfect! Here's the summary of TODO comments grouped by author:  ## TODO Comments by Author  | Autho..."
+  [  3/20] q03 ok  (91.15s) answer="## Answer  For host 'host-042' and metric 'cpu_pct', the **average value is 51.10**.  **Breakdown:**..."
+  [ 13/20] q13 ok  (18.90s) answer="## Summary  **Bug Found:** In `counter.py` line 3, the function was comparing an integer value with ..."
+  [ 11/20] q11 ok  (32.39s) answer="Perfect! All tests now pass. Here's the summary:  ## Bug Found and Fixed  **Location:** `slicer.py`,..."
+  [ 14/20] q14 ok  (20.78s) answer="Perfect! All tests now pass.   ## Summary  **Bug Found:** The `mean()` function in `stats.py` didn't..."
+  [ 16/20] q16 ok  (17.62s) answer="Perfect! I've read all 15 service config files. Here are all the configs with timeout fields:  ## Co..."
+  [ 15/20] q15 ok  (22.97s) answer="**Unified Diff:**  ```diff --- perm.py (original) +++ perm.py (fixed) @@ -1,4 +1,4 @@  def can_acces..."
+  [ 17/20] q17 ok  (13.64s) answer="Perfect! Here's a summary of the distinct exception types raised across all module_*.py files:  ## S..."
+  [ 12/20] q12 ok  (56.79s) answer="Perfect! ✅ All tests now pass. Here's a summary of the bugs I found and fixed:  ## Bug #1: describ..."
+  [ 19/20] q19 ok  (11.65s) answer="Perfect! Here's the dependency graph as an adjacency list (showing which files each src_*.py file im..."
+  [ 18/20] q18 ok  (16.02s) answer="Here are the heading hierarchies for all .md files in the workspace:  ## **ops.md** ``` # Operations..."
+  [ 20/20] q20 ok  (17.53s) answer="Perfect! I've stitched together all 10 frag_*.log files (1000 total events) sorted by Unix timestamp..."
+WALLCLOCK_MS=143189.270
+[run] done. 20/20 succeeded, 0 failed. wallclock=143.19s

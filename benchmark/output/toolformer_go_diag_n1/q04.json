@@ -5,29 +5,29 @@
   "spans": [
     {
       "attrs": {
-        "agent.cpu_time_ms": 94.41599999999998,
-        "agent.duration_api_ms": 16003,
-        "agent.duration_ms": 11786,
+        "agent.cpu_time_ms": 10.909999999999997,
+        "agent.duration_api_ms": 5503,
+        "agent.duration_ms": 4941,
         "agent.is_error": false,
         "agent.num_turns": 2,
-        "agent.total_cost_usd": 0.010034000000000001,
+        "agent.total_cost_usd": 0.0128262,
         "agent.truncated": false,
         "config": "toolformer_go",
         "query_id": "q04",
         "query_text": "Jeffrey acquire 14 bags of fig . how many fig in each bag? If total 83 fig Jeffrey  acquire.",
         "toolformer.category": "single_op"
       },
-      "cpu_time_ms": 74413.349,
-      "end_ns": 1777405954415679000,
+      "cpu_time_ms": 10.901,
+      "end_ns": 1777411130664198000,
       "error": null,
       "kind": "root",
       "name": "agent.query",
       "parent_id": null,
-      "span_id": "789dd6c03fb2c272",
-      "start_ns": 1777405880002331000,
+      "span_id": "f5f6b9a2cfc57791",
+      "start_ns": 1777411122418126000,
       "status": "ok",
-      "trace_id": "6aadf1b9c2466ecbf45e88fab85f2c93",
-      "wall_time_ms": 74413.348
+      "trace_id": "b87b7194db37bec2cb616b28b6848ed2",
+      "wall_time_ms": 8246.072
     },
     {
       "attrs": {
@@ -40,16 +40,16 @@
         "llm.turn": 0
       },
       "cpu_time_ms": 0,
-      "end_ns": 1777405948161713000,
+      "end_ns": 1777411127608978000,
       "error": null,
       "kind": "llm",
       "name": "llm.generate",
-      "parent_id": "789dd6c03fb2c272",
-      "span_id": "2979aa0a05f043ad",
-      "start_ns": 1777405880034360000,
+      "parent_id": "f5f6b9a2cfc57791",
+      "span_id": "e60d7d4dc0244aec",
+      "start_ns": 1777411122420526000,
       "status": "ok",
-      "trace_id": "6aadf1b9c2466ecbf45e88fab85f2c93",
-      "wall_time_ms": 68127.353
+      "trace_id": "b87b7194db37bec2cb616b28b6848ed2",
+      "wall_time_ms": 5188.452
     },
     {
       "attrs": {
@@ -58,17 +58,17 @@
         "tool.input_hash": "0db37b3db549374a",
         "tool.name": "calculator"
       },
-      "cpu_time_ms": 2.061,
-      "end_ns": 1777405948256161000,
+      "cpu_time_ms": 0.045,
+      "end_ns": 1777411127613426000,
       "error": null,
       "kind": "tool",
       "name": "tool.calculator",
-      "parent_id": "789dd6c03fb2c272",
-      "span_id": "3cf23c13ece0e484",
-      "start_ns": 1777405948254101000,
+      "parent_id": "f5f6b9a2cfc57791",
+      "span_id": "8b08ac39916fd860",
+      "start_ns": 1777411127613407000,
       "status": "ok",
-      "trace_id": "6aadf1b9c2466ecbf45e88fab85f2c93",
-      "wall_time_ms": 2.06
+      "trace_id": "b87b7194db37bec2cb616b28b6848ed2",
+      "wall_time_ms": 0.019
     },
     {
       "attrs": {
@@ -81,17 +81,17 @@
         "llm.turn": 1
       },
       "cpu_time_ms": 0,
-      "end_ns": 1777405953727218000,
+      "end_ns": 1777411130397665000,
       "error": null,
       "kind": "llm",
       "name": "llm.generate",
-      "parent_id": "789dd6c03fb2c272",
-      "span_id": "623bd2776a8ae7ba",
-      "start_ns": 1777405948309569000,
+      "parent_id": "f5f6b9a2cfc57791",
+      "span_id": "09d9a7eff6d4ca4f",
+      "start_ns": 1777411127643903000,
       "status": "ok",
-      "trace_id": "6aadf1b9c2466ecbf45e88fab85f2c93",
-      "wall_time_ms": 5417.649
+      "trace_id": "b87b7194db37bec2cb616b28b6848ed2",
+      "wall_time_ms": 2753.762
     }
   ],
-  "trace_id": "6aadf1b9c2466ecbf45e88fab85f2c93"
+  "trace_id": "b87b7194db37bec2cb616b28b6848ed2"
 }

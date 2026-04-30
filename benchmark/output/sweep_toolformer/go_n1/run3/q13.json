@@ -1,0 +1,97 @@
+{
+  "config": "toolformer_go",
+  "label": "multi_op",
+  "query_id": "q13",
+  "spans": [
+    {
+      "attrs": {
+        "agent.cpu_time_ms": 10.938999999999993,
+        "agent.duration_api_ms": 4152,
+        "agent.duration_ms": 3545,
+        "agent.is_error": false,
+        "agent.num_turns": 2,
+        "agent.total_cost_usd": 0.01222925,
+        "agent.truncated": false,
+        "config": "toolformer_go",
+        "query_id": "q13",
+        "query_text": "You deposit 70 dollars in a savings account that pays an annual interest rate of 3 %. How much simple interest would you earn in 2.5 years , in dollars?",
+        "toolformer.category": "multi_op"
+      },
+      "cpu_time_ms": 10.934,
+      "end_ns": 1777412406118641000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "0196a7d1cff1a96c",
+      "start_ns": 1777412398942513000,
+      "status": "ok",
+      "trace_id": "7c85db8648a3ad6aaa4f3ec15fee6618",
+      "wall_time_ms": 7176.128
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 0
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777412404024693000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "0196a7d1cff1a96c",
+      "span_id": "40c704691716e8a7",
+      "start_ns": 1777412398945376000,
+      "status": "ok",
+      "trace_id": "7c85db8648a3ad6aaa4f3ec15fee6618",
+      "wall_time_ms": 5079.317
+    },
+    {
+      "attrs": {
+        "expression": "70 * 0.03 * 2.5",
+        "result": 5.25,
+        "tool.input_hash": "03877be2cdbe9495",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.045,
+      "end_ns": 1777412404029782000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "0196a7d1cff1a96c",
+      "span_id": "5198b504aeaa8c40",
+      "start_ns": 1777412404029746000,
+      "status": "ok",
+      "trace_id": "7c85db8648a3ad6aaa4f3ec15fee6618",
+      "wall_time_ms": 0.036
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 1
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777412405802645000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "0196a7d1cff1a96c",
+      "span_id": "31191a66ce47e05e",
+      "start_ns": 1777412404054038000,
+      "status": "ok",
+      "trace_id": "7c85db8648a3ad6aaa4f3ec15fee6618",
+      "wall_time_ms": 1748.607
+    }
+  ],
+  "trace_id": "7c85db8648a3ad6aaa4f3ec15fee6618"
+}

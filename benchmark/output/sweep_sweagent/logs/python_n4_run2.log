@@ -1,0 +1,24 @@
+[batch] 20 queries  concurrency=4  out=/Users/anna/Desktop/agent-interception/benchmark/output/sweep_sweagent/python_n4/run2
+  [OK] q18 (23.10s)
+  [OK] q05 (30.28s)
+  [OK] q19 (32.68s)
+  [OK] q20 (11.73s)
+  [OK] q13 (24.72s)
+  [OK] q06 (17.90s)
+  [OK] q12 (60.58s)
+  [OK] q14 (23.62s)
+  [OK] q07 (22.18s)
+  [OK] q15 (29.11s)
+  [OK] q16 (13.74s)
+  [OK] q09 (21.65s)
+  [OK] q08 (41.65s)
+  [OK] q01 (42.40s)
+  [OK] q10 (9.76s)
+  [OK] q17 (14.70s)
+  [OK] q02 (48.66s)
+  [OK] q11 (20.96s)
+  [OK] q04 (27.95s)
+  [OK] q03 (54.44s)
+
+[batch] wallclock=165.01s
+[batch] succeeded: 20/20

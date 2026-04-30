@@ -1,0 +1,23 @@
+[run] config=toolformer_go queries=20 concurrency=8 out=../benchmark/output/sweep_toolformer/go_n8/run2
+  [  8/20] q08 ok  ( 9.78s) answer="Sally has **18 nickels** now.  Here's how: - Sally started with: 7 nickels - Dad gave her: 9 nickels..."
+  [  4/20] q04 ok  ( 9.78s) answer="**Answer:** Each bag contains approximately **5.93 figs** (or about **5.9 figs per bag**).  This is ..."
+  [  5/20] q05 ok  (10.50s) answer="**Answer: Jacqueline had 52 cherries incipiently (initially).**  Here's the reasoning: - Let x = the..."
+  [  2/20] q02 ok  (10.75s) answer="**Robert conferred (gave) Chris 146 apricots.**  Here's the solution: - Chris started with: 39 apric..."
+  [  7/20] q07 ok  (11.25s) answer="**Answer: $18**  Here's the breakdown: - Total bars in the box: 9 - Bars left (not sold): 3 - Bars s..."
+  [  1/20] q01 ok  (11.37s) answer="**Jeff originally had 184 Pen.**  Here's how I solved this: - Jeff started with some amount (unknown..."
+  [  3/20] q03 ok  (12.81s) answer="Based on the problem:  **John would have 38 flowers.**  Here's the reasoning: - Ronald is sharing fl..."
+  [  6/20] q06 ok  (13.19s) answer="Sam should buy **8 cupcakes**.  Here's the breakdown: - Sam invited 9 friends, and 6 couldn't come, ..."
+  [  9/20] q09 ok  ( 9.00s) answer="**Solution:**  1. **Brownies still needed:** 17 - 8 = **9 brownies** 2. **Flour needed for remaining..."
+  [ 10/20] q10 ok  ( 9.32s) answer="Bianca picked a total of **88 flowers** (39 tulips + 49 roses).  Since she only used 81 of them, she..."
+  [ 14/20] q14 ok  ( 8.05s) answer="Luke has **39 stickers** left.  Here's how I calculated it: - Started with: 20 stickers - Bought: +1..."
+  [ 13/20] q13 ok  ( 8.61s) answer="The simple interest earned would be **$5.25**.  Here's how I calculated it:  **Simple Interest Formu..."
+  [ 11/20] q11 ok  (11.53s) answer="**Solution:**  1. **Cost for 5 days of rental:**    - 5 days × $24.95/day = **$124.75**  2. **Money..."
+  [ 16/20] q16 ok  ( 8.87s) answer="Nancy has **$3.00** (3 dollars).  Here's the breakdown: - 1 dozen quarters = 12 quarters - Each quar..."
+  [ 12/20] q12 ok  (12.89s) answer="**The cost per pound of the trail mix is $5.46.**  Here's how I calculated it:  1. **Cost of raisins..."
+  [ 17/20] q17 ok  ( 7.53s) answer="**Answer: 0.625 or 5/8**  To find the fraction of students in either the trumpet section or the trom..."
+  [ 18/20] q18 ok  ( 8.17s) answer="I need to set up an equation based on the problem.  Let x = the original flow rate (in gallons per m..."
+  [ 15/20] q15 ok  (14.64s) answer="Fred received **$1.37** in change.  Here's the breakdown: - 2 movie tickets at $5.92 each = $11.84 -..."
+  [ 20/20] q20 ok  ( 8.63s) answer="**1.22 pounds** of fruit is left.  Here's the calculation: - Started with: 3.42 pounds - Ate: 2.2 po..."
+  [ 19/20] q19 ok  ( 9.29s) answer="Mike spent **$151.00** at the music store.  The calculation is: - Trumpet: $145.16 - Song book: $5.8..."
+WALLCLOCK_MS=28713.579
+[run] done. 20/20 succeeded, 0 failed. wallclock=28.71s

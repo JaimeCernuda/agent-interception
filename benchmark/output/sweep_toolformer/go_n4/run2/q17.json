@@ -1,0 +1,97 @@
+{
+  "config": "toolformer_go",
+  "label": "fractional",
+  "query_id": "q17",
+  "spans": [
+    {
+      "attrs": {
+        "agent.cpu_time_ms": 52.690999999999974,
+        "agent.duration_api_ms": 6331,
+        "agent.duration_ms": 5411,
+        "agent.is_error": false,
+        "agent.num_turns": 2,
+        "agent.total_cost_usd": 0.0131982,
+        "agent.truncated": false,
+        "config": "toolformer_go",
+        "query_id": "q17",
+        "query_text": "0.5 of the students in the band are in the trumpet section. 0.125 of the students in the band are in the trombone section. What fraction of the students in the band are in either the trumpet section or the trombone section?",
+        "toolformer.category": "fractional"
+      },
+      "cpu_time_ms": 52.672,
+      "end_ns": 1777413318512664000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "228c89c93449497c",
+      "start_ns": 1777413309849190000,
+      "status": "ok",
+      "trace_id": "ad6a13234a6a0fff8fdcbdb3826162e1",
+      "wall_time_ms": 8663.474
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 0
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777413315329803000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "228c89c93449497c",
+      "span_id": "6a6d09291e570925",
+      "start_ns": 1777413309851883000,
+      "status": "ok",
+      "trace_id": "ad6a13234a6a0fff8fdcbdb3826162e1",
+      "wall_time_ms": 5477.92
+    },
+    {
+      "attrs": {
+        "expression": "0.5 + 0.125",
+        "result": 0.625,
+        "tool.input_hash": "788324f511e25be9",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.069,
+      "end_ns": 1777413315335349000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "228c89c93449497c",
+      "span_id": "0b50a22261defb5d",
+      "start_ns": 1777413315335308000,
+      "status": "ok",
+      "trace_id": "ad6a13234a6a0fff8fdcbdb3826162e1",
+      "wall_time_ms": 0.041
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 1
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777413318233737000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "228c89c93449497c",
+      "span_id": "37ce6f1c4f8b3600",
+      "start_ns": 1777413315433340000,
+      "status": "ok",
+      "trace_id": "ad6a13234a6a0fff8fdcbdb3826162e1",
+      "wall_time_ms": 2800.397
+    }
+  ],
+  "trace_id": "ad6a13234a6a0fff8fdcbdb3826162e1"
+}

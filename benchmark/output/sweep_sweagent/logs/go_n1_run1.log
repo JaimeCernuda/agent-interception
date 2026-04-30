@@ -1,0 +1,23 @@
+[run] config=sweagent_go queries=20 concurrency=1 out=../benchmark/output/sweep_sweagent/go_n1/run1
+  [  1/20] q01 ok  (34.13s) answer="## HTTP Status Code Distribution  Here's the distribution of HTTP status codes from the access.log f..."
+  [  2/20] q02 ok  (47.75s) answer="Based on extracting the 20,000 type fields from the second half of the file (lines 20,001–40,000),..."
+  [  3/20] q03 ok  (51.11s) answer="Based on my analysis of metrics.csv:  I filtered the data for host-042 with metric 'cpu_pct' using b..."
+  [  4/20] q04 ok  (22.47s) answer="Yes, there are **12 duplicate transaction IDs**, each appearing exactly twice:  1. **TXN-25799907** ..."
+  [  5/20] q05 ok  (34.32s) answer="## Result  **Username:** `user-q`   **Count of distinct actions:** `16`  User-q performed the follow..."
+  [  6/20] q06 ok  (14.42s) answer="## Classes Inheriting from BaseHandler  Here are all the classes that inherit from `BaseHandler` and..."
+  [  7/20] q07 ok  (19.14s) answer="Here's the unified diff for renaming `legacy_utils` to `compat_utils` across the entire project:  ``..."
+  [  8/20] q08 ok  (20.85s) answer="## Results  Here are all the functions that take a 'request' parameter but do NOT call `validate_req..."
+  [  9/20] q09 ok  (15.77s) answer="Based on my analysis of the imports, here's the circular import I detected:  ## Circular Import Dete..."
+  [ 10/20] q10 ok  (19.58s) answer="## TODO Comments Summary  I found **12 TODO comments** in the project. Here's the breakdown by autho..."
+  [ 11/20] q11 ok  (24.80s) answer="Perfect! All tests now pass. Here's a summary of the bugs and fixes:  ## Unified Diffs  ### slicer.p..."
+  [ 12/20] q12 ok  (33.80s) answer="Perfect! All tests now pass. Here's a summary of the fix:  ## Bug Analysis The bug was in `describe...."
+  [ 13/20] q13 ok  (18.64s) answer="Perfect! ✅ All tests now pass.  ## Summary  **Bug Found:** In `counter.py`, line 3, the `is_positi..."
+  [ 14/20] q14 ok  (22.51s) answer="Perfect! All tests now pass. Here's a summary:  ## Bug Identified The `mean()` function in `stats.py..."
+  [ 15/20] q15 ok  (28.69s) answer="Perfect! Here's the unified diff that fixes the bug:  ```diff --- perm.py +++ perm.py @@ -1,4 +1,4 @..."
+  [ 16/20] q16 ok  (19.04s) answer="Perfect! I've found and examined all 15 config files. Here are the results:  ## Configs WITH Timeout..."
+  [ 17/20] q17 ok  (11.74s) answer="## Summary  **Total number of distinct exception types: 7**  Here's the breakdown of each exception ..."
+  [ 18/20] q18 ok  (14.50s) answer="Here are all the .md files in the workspace with their heading hierarchies:  ## **ops.md** ``` # Ope..."
+  [ 19/20] q19 ok  (21.40s) answer="## Dependency Graph - Adjacency List  Here's the dependency graph showing which files import from wh..."
+  [ 20/20] q20 ok  (10.31s) answer="Perfect! I've stitched together all 10 frag_*.log files by sorting them by unix timestamp.  **FIRST ..."
+WALLCLOCK_MS=485199.228
+[run] done. 20/20 succeeded, 0 failed. wallclock=485.20s

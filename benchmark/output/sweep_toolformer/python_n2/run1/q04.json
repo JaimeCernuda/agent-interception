@@ -1,0 +1,99 @@
+{
+  "trace_id": "8e97920c2452bf4ce1658da0f2cac1f6",
+  "config": "toolformer_py",
+  "query_id": "q04",
+  "label": "single_op",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "8e97920c2452bf4ce1658da0f2cac1f6",
+      "span_id": "84602046c3b35d11",
+      "parent_id": null,
+      "start_ns": 1777412537453604000,
+      "end_ns": 1777412544415494000,
+      "wall_time_ms": 6961.89,
+      "cpu_time_ms": 58.043,
+      "kind": "root",
+      "attrs": {
+        "config": "toolformer_py",
+        "query_id": "q04",
+        "query_text": "Jeffrey acquire 14 bags of fig . how many fig in each bag? If total 83 fig Jeffrey  acquire.",
+        "agent.num_turns": 2,
+        "agent.total_input_tokens": 18,
+        "agent.total_output_tokens": 391,
+        "agent.total_cost_usd": 0.01245565,
+        "agent.duration_ms": 4300.0,
+        "agent.duration_api_ms": 5066.0,
+        "agent.is_error": false,
+        "agent.truncated": false,
+        "agent.num_tool_calls": 1,
+        "agent.cpu_time_ms": 58.041999999999916
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "8e97920c2452bf4ce1658da0f2cac1f6",
+      "span_id": "344e81192bfb9dd5",
+      "parent_id": "84602046c3b35d11",
+      "start_ns": 1777412537453642000,
+      "end_ns": 1777412541471281000,
+      "wall_time_ms": 4017.639,
+      "cpu_time_ms": 45.714,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 0,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "8e97920c2452bf4ce1658da0f2cac1f6",
+      "span_id": "da246d11e31b19e6",
+      "parent_id": "84602046c3b35d11",
+      "start_ns": 1777412541477142000,
+      "end_ns": 1777412541477461000,
+      "wall_time_ms": 0.319,
+      "cpu_time_ms": 0.544,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "0db37b3db549374a",
+        "expression": "83 / 14",
+        "result": 5.928571428571429
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "8e97920c2452bf4ce1658da0f2cac1f6",
+      "span_id": "e2ef2bdb10998b97",
+      "parent_id": "84602046c3b35d11",
+      "start_ns": 1777412541486369000,
+      "end_ns": 1777412544145636000,
+      "wall_time_ms": 2659.267,
+      "cpu_time_ms": 5.19,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 1,
+        "llm.has_tool_use": false,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

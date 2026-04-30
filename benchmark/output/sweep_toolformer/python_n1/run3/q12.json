@@ -1,0 +1,263 @@
+{
+  "trace_id": "b87beb8e270ea8aa09b3ca4ff8ff1000",
+  "config": "toolformer_py",
+  "query_id": "q12",
+  "label": "multi_op",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "b87beb8e270ea8aa09b3ca4ff8ff1000",
+      "span_id": "d28bd2f452218ec1",
+      "parent_id": null,
+      "start_ns": 1777411837401169000,
+      "end_ns": 1777411850439280000,
+      "wall_time_ms": 13038.111,
+      "cpu_time_ms": 44.935,
+      "kind": "root",
+      "attrs": {
+        "config": "toolformer_py",
+        "query_id": "q12",
+        "query_text": "Find the cost per pound of a trail mix made from 10 pounds of raisins that costs 4.20 dollars per pound and 90 pounds of granola that costs 5.60 dollars per pound.",
+        "agent.num_turns": 6,
+        "agent.total_input_tokens": 34,
+        "agent.total_output_tokens": 884,
+        "agent.total_cost_usd": 0.0256824,
+        "agent.duration_ms": 9717.0,
+        "agent.duration_api_ms": 10488.0,
+        "agent.is_error": false,
+        "agent.truncated": false,
+        "agent.num_tool_calls": 5,
+        "agent.cpu_time_ms": 44.939000000000306
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "b87beb8e270ea8aa09b3ca4ff8ff1000",
+      "span_id": "de15ce11df5c2e4b",
+      "parent_id": "d28bd2f452218ec1",
+      "start_ns": 1777411837401205000,
+      "end_ns": 1777411843072432000,
+      "wall_time_ms": 5671.227,
+      "cpu_time_ms": 17.882,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 0,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "b87beb8e270ea8aa09b3ca4ff8ff1000",
+      "span_id": "8623441d3ba418ff",
+      "parent_id": "d28bd2f452218ec1",
+      "start_ns": 1777411843079977000,
+      "end_ns": 1777411843080363000,
+      "wall_time_ms": 0.386,
+      "cpu_time_ms": 0.666,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "1121a6d297554b50",
+        "expression": "10 * 4.20",
+        "result": 42.0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "b87beb8e270ea8aa09b3ca4ff8ff1000",
+      "span_id": "449ae7c2b04223f7",
+      "parent_id": "d28bd2f452218ec1",
+      "start_ns": 1777411843232754000,
+      "end_ns": 1777411843235407000,
+      "wall_time_ms": 2.653,
+      "cpu_time_ms": 0.792,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 1,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "b87beb8e270ea8aa09b3ca4ff8ff1000",
+      "span_id": "21dbba0e280c93fb",
+      "parent_id": "d28bd2f452218ec1",
+      "start_ns": 1777411843239117000,
+      "end_ns": 1777411843239357000,
+      "wall_time_ms": 0.24,
+      "cpu_time_ms": 0.321,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "65af2f4aac3791f0",
+        "expression": "90 * 5.60",
+        "result": 503.99999999999994
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "b87beb8e270ea8aa09b3ca4ff8ff1000",
+      "span_id": "bf53a960bbfb5815",
+      "parent_id": "d28bd2f452218ec1",
+      "start_ns": 1777411843249098000,
+      "end_ns": 1777411843249884000,
+      "wall_time_ms": 0.786,
+      "cpu_time_ms": 0.49,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 2,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "b87beb8e270ea8aa09b3ca4ff8ff1000",
+      "span_id": "a442a76dc0e4d62b",
+      "parent_id": "d28bd2f452218ec1",
+      "start_ns": 1777411843253001000,
+      "end_ns": 1777411843253227000,
+      "wall_time_ms": 0.226,
+      "cpu_time_ms": 0.318,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "979c9f25c93b309f",
+        "expression": "10 + 90",
+        "result": 100.0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "b87beb8e270ea8aa09b3ca4ff8ff1000",
+      "span_id": "19fa3e3eaccd5079",
+      "parent_id": "d28bd2f452218ec1",
+      "start_ns": 1777411843263460000,
+      "end_ns": 1777411845565966000,
+      "wall_time_ms": 2302.506,
+      "cpu_time_ms": 1.463,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 3,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "b87beb8e270ea8aa09b3ca4ff8ff1000",
+      "span_id": "f21d789d015c3187",
+      "parent_id": "d28bd2f452218ec1",
+      "start_ns": 1777411845569666000,
+      "end_ns": 1777411845569895000,
+      "wall_time_ms": 0.229,
+      "cpu_time_ms": 0.324,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "6f501b77c37b401c",
+        "expression": "42.0 + 504",
+        "result": 546.0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "b87beb8e270ea8aa09b3ca4ff8ff1000",
+      "span_id": "311a591060979450",
+      "parent_id": "d28bd2f452218ec1",
+      "start_ns": 1777411845576600000,
+      "end_ns": 1777411848228786000,
+      "wall_time_ms": 2652.186,
+      "cpu_time_ms": 1.087,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 4,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "b87beb8e270ea8aa09b3ca4ff8ff1000",
+      "span_id": "808ba195b1792208",
+      "parent_id": "d28bd2f452218ec1",
+      "start_ns": 1777411848231564000,
+      "end_ns": 1777411848231761000,
+      "wall_time_ms": 0.197,
+      "cpu_time_ms": 0.281,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "333754a03fa4f168",
+        "expression": "546.0 / 100",
+        "result": 5.46
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "b87beb8e270ea8aa09b3ca4ff8ff1000",
+      "span_id": "2324e49684b6d334",
+      "parent_id": "d28bd2f452218ec1",
+      "start_ns": 1777411848296600000,
+      "end_ns": 1777411850161690000,
+      "wall_time_ms": 1865.09,
+      "cpu_time_ms": 0.955,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 5,
+        "llm.has_tool_use": false,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

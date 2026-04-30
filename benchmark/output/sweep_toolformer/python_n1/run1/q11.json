@@ -1,0 +1,181 @@
+{
+  "trace_id": "2039bd7c0c3ba051f6bad7087c7102ed",
+  "config": "toolformer_py",
+  "query_id": "q11",
+  "label": "multi_op",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "2039bd7c0c3ba051f6bad7087c7102ed",
+      "span_id": "50bc0c4198b7e49c",
+      "parent_id": null,
+      "start_ns": 1777411420859654000,
+      "end_ns": 1777411432272032000,
+      "wall_time_ms": 11412.378,
+      "cpu_time_ms": 49.536,
+      "kind": "root",
+      "attrs": {
+        "config": "toolformer_py",
+        "query_id": "q11",
+        "query_text": "A car rental agency advertised renting a luxury , full size car for 24.95 dollars per day and 0.49 dollars per mile. If you rent this car for 5 days , how many whole miles can you drive if you only have 200.00 dollars to spend?",
+        "agent.num_turns": 4,
+        "agent.total_input_tokens": 34,
+        "agent.total_output_tokens": 783,
+        "agent.total_cost_usd": 0.0249003,
+        "agent.duration_ms": 7574.0,
+        "agent.duration_api_ms": 8186.0,
+        "agent.is_error": false,
+        "agent.truncated": false,
+        "agent.num_tool_calls": 3,
+        "agent.cpu_time_ms": 49.54100000000017
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "2039bd7c0c3ba051f6bad7087c7102ed",
+      "span_id": "f94e3cf01c9de991",
+      "parent_id": "50bc0c4198b7e49c",
+      "start_ns": 1777411420859693000,
+      "end_ns": 1777411426754728000,
+      "wall_time_ms": 5895.035,
+      "cpu_time_ms": 16.533,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 0,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "2039bd7c0c3ba051f6bad7087c7102ed",
+      "span_id": "0b6f1be87dc3bf76",
+      "parent_id": "50bc0c4198b7e49c",
+      "start_ns": 1777411426775639000,
+      "end_ns": 1777411426775898000,
+      "wall_time_ms": 0.259,
+      "cpu_time_ms": 0.475,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "a103152273e3f2f3",
+        "expression": "5 * 24.95",
+        "result": 124.75
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "2039bd7c0c3ba051f6bad7087c7102ed",
+      "span_id": "1d7c59406e4d544d",
+      "parent_id": "50bc0c4198b7e49c",
+      "start_ns": 1777411426781962000,
+      "end_ns": 1777411428109663000,
+      "wall_time_ms": 1327.701,
+      "cpu_time_ms": 1.446,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 1,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "2039bd7c0c3ba051f6bad7087c7102ed",
+      "span_id": "11d0607a57fe909d",
+      "parent_id": "50bc0c4198b7e49c",
+      "start_ns": 1777411428113436000,
+      "end_ns": 1777411428113670000,
+      "wall_time_ms": 0.234,
+      "cpu_time_ms": 0.327,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "c0c7d7a4a5fed1b7",
+        "expression": "200.00 - 124.75",
+        "result": 75.25
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "2039bd7c0c3ba051f6bad7087c7102ed",
+      "span_id": "c5b08f865d293546",
+      "parent_id": "50bc0c4198b7e49c",
+      "start_ns": 1777411428140434000,
+      "end_ns": 1777411429402703000,
+      "wall_time_ms": 1262.269,
+      "cpu_time_ms": 1.376,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 2,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "2039bd7c0c3ba051f6bad7087c7102ed",
+      "span_id": "c1a3111f13396fe2",
+      "parent_id": "50bc0c4198b7e49c",
+      "start_ns": 1777411429407047000,
+      "end_ns": 1777411429407355000,
+      "wall_time_ms": 0.308,
+      "cpu_time_ms": 0.429,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "3024362d5dd38af3",
+        "expression": "75.25 / 0.49",
+        "result": 153.57142857142858
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "2039bd7c0c3ba051f6bad7087c7102ed",
+      "span_id": "4e13fde4ae92a546",
+      "parent_id": "50bc0c4198b7e49c",
+      "start_ns": 1777411429431448000,
+      "end_ns": 1777411431945929000,
+      "wall_time_ms": 2514.481,
+      "cpu_time_ms": 1.318,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 3,
+        "llm.has_tool_use": false,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

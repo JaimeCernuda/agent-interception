@@ -1,0 +1,99 @@
+{
+  "trace_id": "2495b00be387ae4c8dd2e57236b31c1c",
+  "config": "toolformer_py",
+  "query_id": "q05",
+  "label": "single_op",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "2495b00be387ae4c8dd2e57236b31c1c",
+      "span_id": "97c156e4ce21b1e9",
+      "parent_id": null,
+      "start_ns": 1777413476405310000,
+      "end_ns": 1777413484669772000,
+      "wall_time_ms": 8264.462,
+      "cpu_time_ms": 177.665,
+      "kind": "root",
+      "attrs": {
+        "config": "toolformer_py",
+        "query_id": "q05",
+        "query_text": "Jacqueline had some cherry. Bruce took 24 from him. Now Jacqueline has 28 cherry. How many cherry Jacqueline had incipiently?",
+        "agent.num_turns": 2,
+        "agent.total_input_tokens": 18,
+        "agent.total_output_tokens": 321,
+        "agent.total_cost_usd": 0.01213995,
+        "agent.duration_ms": 4404.0,
+        "agent.duration_api_ms": 5422.0,
+        "agent.is_error": false,
+        "agent.truncated": false,
+        "agent.num_tool_calls": 1,
+        "agent.cpu_time_ms": 177.67799999999988
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "2495b00be387ae4c8dd2e57236b31c1c",
+      "span_id": "8ac8346e435351c0",
+      "parent_id": "97c156e4ce21b1e9",
+      "start_ns": 1777413476405350000,
+      "end_ns": 1777413482279372000,
+      "wall_time_ms": 5874.022,
+      "cpu_time_ms": 146.648,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 0,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "2495b00be387ae4c8dd2e57236b31c1c",
+      "span_id": "1adcbe29a2708dbf",
+      "parent_id": "97c156e4ce21b1e9",
+      "start_ns": 1777413482284523000,
+      "end_ns": 1777413482284679000,
+      "wall_time_ms": 0.156,
+      "cpu_time_ms": 0.229,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "759a022dd19d081e",
+        "expression": "28 + 24",
+        "result": 52.0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "2495b00be387ae4c8dd2e57236b31c1c",
+      "span_id": "1190bdac2e171d28",
+      "parent_id": "97c156e4ce21b1e9",
+      "start_ns": 1777413482315424000,
+      "end_ns": 1777413484349019000,
+      "wall_time_ms": 2033.595,
+      "cpu_time_ms": 20.558,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 1,
+        "llm.has_tool_use": false,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

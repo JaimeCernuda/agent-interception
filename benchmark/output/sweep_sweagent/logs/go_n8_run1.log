@@ -1,0 +1,23 @@
+[run] config=sweagent_go queries=20 concurrency=8 out=../benchmark/output/sweep_sweagent/go_n8/run1
+  [  6/20] q06 ok  (19.18s) answer="## Classes Inheriting from BaseHandler  I found **4 classes** that inherit from `BaseHandler`:  ### ..."
+  [  7/20] q07 ok  (25.17s) answer="Now I'll create a unified diff for the rename. Here's the complete patch:  ```diff diff --git a/lega..."
+  [  8/20] q08 ok  (34.92s) answer="Based on my analysis of the project, here are all the functions that take a 'request' parameter but ..."
+  [  9/20] q09 ok  (22.09s) answer="## Circular Import Detected  **Files forming the cycle (in order):** ``` mod_a → mod_b → mod_c \xe2..."
+  [  1/20] q01 ok  (41.49s) answer="Perfect! Here's the distribution of HTTP status codes from the access.log file:  | Status Code | Cou..."
+  [ 10/20] q10 ok  (20.28s) answer="Perfect! Here's a summary of all TODO comments in the project, grouped by author:  ## TODO Comments ..."
+  [  2/20] q02 ok  (53.31s) answer="## Top 5 Event Types in Second Half of events.jsonl  | Event Type    | Count | |---------------|----..."
+  [ 11/20] q11 ok  (24.04s) answer="Perfect! ✅ All tests are now passing. Here's the summary:  ## Bug Found and Fixed  **Location**: `..."
+  [  5/20] q05 ok  (62.89s) answer="## Result  **User: user-q**   **Distinct Actions: 16**  User-q performed the most distinct actions i..."
+  [ 14/20] q14 ok  (20.56s) answer="Perfect! Here's the unified diff of the fix:  ```diff --- stats.py (original) +++ stats.py (fixed) @..."
+  [ 13/20] q13 ok  (26.32s) answer="Excellent! The tests are now passing. Here's a summary:  ## Bug Found & Fixed  **Location:** `counte..."
+  [ 16/20] q16 ok  (19.00s) answer="Perfect! I've found all the timeout fields. Here's the complete report:  ## Service Configs with Tim..."
+  [ 17/20] q17 ok  (15.85s) answer="## Summary  **Total distinct exception types: 7**  Here's the mapping of exception types to files th..."
+  [ 18/20] q18 ok  (14.59s) answer="Here are the heading outlines for all 12 markdown files in the workspace:  ---  ### **ops.md** ``` #..."
+  [ 15/20] q15 ok  (29.34s) answer="Perfect! ✅ All tests are now passing.  ## Summary  **Bug Found:** Operator precedence error in `pe..."
+  [ 19/20] q19 ok  (15.22s) answer="## Dependency Graph (Adjacency List)  Here's the dependency graph showing which files import from wh..."
+  [ 20/20] q20 ok  ( 9.79s) answer="**FIRST event:** - Timestamp: `1710000002` - Message: `config reloaded`  **LAST event:** - Timestamp..."
+  [  3/20] q03 ok  (90.39s) answer="**Answer: 51.10**  I filtered the metrics.csv file for rows where `host='host-042'` and `metric='cpu..."
+  [  4/20] q04 ok  (113.86s) answer="## Answer  Yes, there are **12 transaction IDs that appear more than once** in `transactions.log`. E..."
+  [ 12/20] q12 ok  (97.47s) answer="Excellent! Both tests now pass. Here's a summary of the bugs found and fixed:  ## Issues Found and F..."
+WALLCLOCK_MS=138771.025
+[run] done. 20/20 succeeded, 0 failed. wallclock=138.77s

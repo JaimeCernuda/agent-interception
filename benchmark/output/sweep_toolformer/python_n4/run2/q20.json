@@ -1,0 +1,99 @@
+{
+  "trace_id": "5e72543e0102a1e3c55260759d693878",
+  "config": "toolformer_py",
+  "query_id": "q20",
+  "label": "fractional",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "5e72543e0102a1e3c55260759d693878",
+      "span_id": "8ba4a12d579dbf32",
+      "parent_id": null,
+      "start_ns": 1777413146024488000,
+      "end_ns": 1777413152696136000,
+      "wall_time_ms": 6671.648,
+      "cpu_time_ms": 95.113,
+      "kind": "root",
+      "attrs": {
+        "config": "toolformer_py",
+        "query_id": "q20",
+        "query_text": "Gordon bought 3.42 pounds of fruit for a class party. The class ate 2.2 pounds of the fruit. How much fruit is left?",
+        "agent.num_turns": 2,
+        "agent.total_input_tokens": 18,
+        "agent.total_output_tokens": 265,
+        "agent.total_cost_usd": 0.0118165,
+        "agent.duration_ms": 3410.0,
+        "agent.duration_api_ms": 4203.0,
+        "agent.is_error": false,
+        "agent.truncated": false,
+        "agent.num_tool_calls": 1,
+        "agent.cpu_time_ms": 95.12099999999964
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "5e72543e0102a1e3c55260759d693878",
+      "span_id": "46d2a4d136d5c12a",
+      "parent_id": "8ba4a12d579dbf32",
+      "start_ns": 1777413146024526000,
+      "end_ns": 1777413150753176000,
+      "wall_time_ms": 4728.65,
+      "cpu_time_ms": 82.191,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 0,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "5e72543e0102a1e3c55260759d693878",
+      "span_id": "fb1d6f775f8ec818",
+      "parent_id": "8ba4a12d579dbf32",
+      "start_ns": 1777413150759866000,
+      "end_ns": 1777413150760032000,
+      "wall_time_ms": 0.166,
+      "cpu_time_ms": 0.244,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "2e0ce5a1f73145a6",
+        "expression": "3.42 - 2.2",
+        "result": 1.2199999999999998
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "5e72543e0102a1e3c55260759d693878",
+      "span_id": "6cda5b005791da95",
+      "parent_id": "8ba4a12d579dbf32",
+      "start_ns": 1777413150782686000,
+      "end_ns": 1777413152428879000,
+      "wall_time_ms": 1646.193,
+      "cpu_time_ms": 6.241,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 1,
+        "llm.has_tool_use": false,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

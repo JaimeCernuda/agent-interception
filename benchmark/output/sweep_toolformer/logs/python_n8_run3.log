@@ -1,0 +1,26 @@
+[batch] 20 queries  concurrency=8  out=/Users/anna/Desktop/agent-interception/benchmark/output/sweep_toolformer/python_n8/run3
+  [OK ] q08  extracted=18.0  (9.84s)
+  [OK ] q07  extracted=18.0  (9.90s)
+  [OK ] q16  extracted=3.0  (10.04s)
+  [OK ] q02  extracted=146.0  (10.11s)
+  [OK ] q09  extracted=72.0  (10.73s)
+  [OK ] q01  extracted=184.0  (11.37s)
+  [OK ] q17  extracted=0.625  (11.39s)
+  [OK ] q15  extracted=1.370000000000001  (14.95s)
+  [OK ] q19  extracted=151.0  (10.44s)
+  [OK ] q18  extracted=5.0  (12.21s)
+  [OK ] q10  extracted=7.0  (12.43s)
+  [OK ] q03  extracted=38.0  (12.46s)
+  [OK ] q20  extracted=1.2199999999999998  (7.80s)
+  [OK ] q04  extracted=5.928571428571429  (11.42s)
+  [OK ] q11  extracted=153.57142857142858  (15.24s)
+  [OK ] q12  extracted=5.46  (17.90s)
+  [OK ] q05  extracted=52.0  (8.27s)
+  [OK ] q13  extracted=5.25  (8.29s)
+  [OK ] q14  extracted=39.0  (8.13s)
+  [FAIL] q06  extracted=8.0  (9.88s)
+
+[batch] wallclock=32.16s
+[batch] correctness: 19/20
+[batch] failures:
+   q06: expected=6.0 extracted=8.0

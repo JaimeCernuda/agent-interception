@@ -1,0 +1,35 @@
+[2026-04-28 19:48:50] BEGIN sweagent sweep: 8 points, runs=2, queries=20, avail_ram=1818MB
+[2026-04-28 19:48:50] SKIP-DONE python N=1  already complete (3 runs on disk, status=OK)
+[2026-04-28 19:48:50] SKIP-DONE go N=1  already complete (3 runs on disk, status=OK)
+[2026-04-28 19:48:50] SKIP-DONE python N=2  already complete (3 runs on disk, status=OK)
+[2026-04-28 19:48:50] SKIP-DONE go N=2  already complete (3 runs on disk, status=OK)
+[2026-04-28 19:48:50] START python N=4  avail_ram=1818MB  existing_runs=[1]  new_runs=[2]  target=2
+[2026-04-28 19:48:50]   run1/2 python N=4  REUSED  ok=20/20  peak_rss=1334MB (from master log)
+[2026-04-28 19:51:39]   run2/2 python N=4  rc=0  dt=169s wall=165.0s  ok=20/20  fail=0 (mcp_race=0)  peak_rss=1260MB
+[2026-04-28 19:51:39] OK python N=4  wallclock=169s  p50=21913ms  agent_cpu=336.4ms  failures=0/40  (mcp_race=0)  peak_rss=1334MB  thrash=False
+[2026-04-28 19:51:39] START go N=4  avail_ram=2400MB  existing_runs=[]  new_runs=[1, 2]  target=2
+[2026-04-28 19:54:03]   run1/2 go N=4  rc=0  dt=144s wall=143.2s  ok=20/20  fail=0 (mcp_race=0)  peak_rss=1334MB
+[2026-04-28 19:56:53]   run2/2 go N=4  rc=0  dt=170s wall=169.4s  ok=20/20  fail=0 (mcp_race=0)  peak_rss=1360MB
+[2026-04-28 19:56:53] OK go N=4  wallclock=314s  p50=21142ms  agent_cpu=167.2ms  failures=0/40  (mcp_race=0)  peak_rss=1360MB  thrash=False
+[2026-04-28 19:56:53] START python N=8  avail_ram=2353MB  existing_runs=[]  new_runs=[1, 2]  target=2
+[2026-04-28 19:58:51]   run1/2 python N=8  rc=0  dt=118s wall=115.6s  ok=20/20  fail=0 (mcp_race=0)  peak_rss=2406MB
+[2026-04-28 20:00:33]   run2/2 python N=8  rc=0  dt=101s wall=98.7s  ok=20/20  fail=0 (mcp_race=0)  peak_rss=2430MB
+[2026-04-28 20:00:33] OK python N=8  wallclock=220s  p50=24171ms  agent_cpu=729.7ms  failures=0/40  (mcp_race=0)  peak_rss=2430MB  thrash=False
+[2026-04-28 20:00:33] START go N=8  avail_ram=2660MB  existing_runs=[]  new_runs=[1, 2]  target=2
+[2026-04-28 20:02:52]   run1/2 go N=8  rc=0  dt=139s wall=138.8s  ok=20/20  fail=0 (mcp_race=0)  peak_rss=2276MB
+[2026-04-28 20:05:01]   run2/2 go N=8  rc=0  dt=129s wall=128.8s  ok=20/20  fail=0 (mcp_race=0)  peak_rss=2235MB
+[2026-04-28 20:05:01] OK go N=8  wallclock=269s  p50=25100ms  agent_cpu=341.0ms  failures=0/40  (mcp_race=0)  peak_rss=2276MB  thrash=False
+[2026-04-28 20:05:01] END   sweagent sweep total_wallclock=971s (0.27h)
+
+========================================================================================================================
+lang      N  status               wall_p50    cpu_p50   spawn_p50   work_p50       fail   mcp_race   peak_MB
+------------------------------------------------------------------------------------------------------------------------
+python    1  OK                      19770      88.25        5.45      87.66     0/60            0       418
+go        1  OK                      19359      43.48        3.16      75.43     0/60            0       395
+python    2  OK                      20227     173.46        5.93      68.46     0/60            0       745
+go        2  OK                      21263      91.80        3.11      58.61     0/60            0       721
+python    4  OK                      21913     336.35        5.53      75.36     0/40            0      1334
+go        4  OK                      21142     167.23        3.02      78.23     0/40            0      1360
+python    8  OK                      24171     729.74        5.98     100.83     0/40            0      2430
+go        8  OK                      25100     340.99        4.76      99.45     0/40            0      2276
+========================================================================================================================

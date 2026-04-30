@@ -1,0 +1,99 @@
+{
+  "trace_id": "beef32ab8048b526be44a5d37c7c4370",
+  "config": "toolformer_py",
+  "query_id": "q08",
+  "label": "two_op",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "beef32ab8048b526be44a5d37c7c4370",
+      "span_id": "225670896abb6a3d",
+      "parent_id": null,
+      "start_ns": 1777409326377799000,
+      "end_ns": 1777409336437296000,
+      "wall_time_ms": 10059.497,
+      "cpu_time_ms": 26.717,
+      "kind": "root",
+      "attrs": {
+        "config": "toolformer_py",
+        "query_id": "q08",
+        "query_text": "Sally had 8 pennies and 7 nickels in her bank . Her dad gave her 9 nickels and her mother gave her 2 nickels . How many nickels does Sally have now ?",
+        "agent.num_turns": 2,
+        "agent.total_input_tokens": 18,
+        "agent.total_output_tokens": 366,
+        "agent.total_cost_usd": 0.012382150000000001,
+        "agent.duration_ms": 5953.0,
+        "agent.duration_api_ms": 6847.0,
+        "agent.is_error": false,
+        "agent.truncated": false,
+        "agent.num_tool_calls": 1,
+        "agent.cpu_time_ms": 26.72300000000041
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "beef32ab8048b526be44a5d37c7c4370",
+      "span_id": "4ed38885e7912300",
+      "parent_id": "225670896abb6a3d",
+      "start_ns": 1777409326377840000,
+      "end_ns": 1777409333866557000,
+      "wall_time_ms": 7488.717,
+      "cpu_time_ms": 17.661,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 0,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "beef32ab8048b526be44a5d37c7c4370",
+      "span_id": "6ba3db820fd80a03",
+      "parent_id": "225670896abb6a3d",
+      "start_ns": 1777409333874056000,
+      "end_ns": 1777409333874541000,
+      "wall_time_ms": 0.485,
+      "cpu_time_ms": 0.811,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "a7facc51b9dda586",
+        "expression": "7 + 9 + 2",
+        "result": 18.0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "beef32ab8048b526be44a5d37c7c4370",
+      "span_id": "ae620ba599e3b4ca",
+      "parent_id": "225670896abb6a3d",
+      "start_ns": 1777409333903227000,
+      "end_ns": 1777409336160499000,
+      "wall_time_ms": 2257.272,
+      "cpu_time_ms": 1.231,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 1,
+        "llm.has_tool_use": false,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

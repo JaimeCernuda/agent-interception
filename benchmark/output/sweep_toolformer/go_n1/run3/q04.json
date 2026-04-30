@@ -1,0 +1,97 @@
+{
+  "config": "toolformer_go",
+  "label": "single_op",
+  "query_id": "q04",
+  "spans": [
+    {
+      "attrs": {
+        "agent.cpu_time_ms": 12.969000000000001,
+        "agent.duration_api_ms": 7250,
+        "agent.duration_ms": 6324,
+        "agent.is_error": false,
+        "agent.num_turns": 2,
+        "agent.total_cost_usd": 0.0128512,
+        "agent.truncated": false,
+        "config": "toolformer_go",
+        "query_id": "q04",
+        "query_text": "Jeffrey acquire 14 bags of fig . how many fig in each bag? If total 83 fig Jeffrey  acquire.",
+        "toolformer.category": "single_op"
+      },
+      "cpu_time_ms": 12.988,
+      "end_ns": 1777412308675784000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "7f983c8c480eb2e9",
+      "start_ns": 1777412299148177000,
+      "status": "ok",
+      "trace_id": "17637894fbc7e7997ef6f909000dbdef",
+      "wall_time_ms": 9527.607
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 0
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777412304572021000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "7f983c8c480eb2e9",
+      "span_id": "5ab7b6afa96f369c",
+      "start_ns": 1777412299150885000,
+      "status": "ok",
+      "trace_id": "17637894fbc7e7997ef6f909000dbdef",
+      "wall_time_ms": 5421.136
+    },
+    {
+      "attrs": {
+        "expression": "83 / 14",
+        "result": 5.928571428571429,
+        "tool.input_hash": "0db37b3db549374a",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.039,
+      "end_ns": 1777412304578008000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "7f983c8c480eb2e9",
+      "span_id": "eecf5f4a6e528a1c",
+      "start_ns": 1777412304577975000,
+      "status": "ok",
+      "trace_id": "17637894fbc7e7997ef6f909000dbdef",
+      "wall_time_ms": 0.033
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 1
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777412308368283000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "7f983c8c480eb2e9",
+      "span_id": "c742614b28738728",
+      "start_ns": 1777412304606850000,
+      "status": "ok",
+      "trace_id": "17637894fbc7e7997ef6f909000dbdef",
+      "wall_time_ms": 3761.433
+    }
+  ],
+  "trace_id": "17637894fbc7e7997ef6f909000dbdef"
+}

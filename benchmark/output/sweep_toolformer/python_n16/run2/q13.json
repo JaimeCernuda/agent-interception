@@ -1,0 +1,99 @@
+{
+  "trace_id": "8f454fbb50a3e27728323f11492b8ca9",
+  "config": "toolformer_py",
+  "query_id": "q13",
+  "label": "multi_op",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "8f454fbb50a3e27728323f11492b8ca9",
+      "span_id": "284c3c321a77e075",
+      "parent_id": null,
+      "start_ns": 1777413630235807000,
+      "end_ns": 1777413639939358000,
+      "wall_time_ms": 9703.551,
+      "cpu_time_ms": 216.781,
+      "kind": "root",
+      "attrs": {
+        "config": "toolformer_py",
+        "query_id": "q13",
+        "query_text": "You deposit 70 dollars in a savings account that pays an annual interest rate of 3 %. How much simple interest would you earn in 2.5 years , in dollars?",
+        "agent.num_turns": 2,
+        "agent.total_input_tokens": 18,
+        "agent.total_output_tokens": 382,
+        "agent.total_cost_usd": 0.012481200000000001,
+        "agent.duration_ms": 3999.0,
+        "agent.duration_api_ms": 5004.0,
+        "agent.is_error": false,
+        "agent.truncated": false,
+        "agent.num_tool_calls": 1,
+        "agent.cpu_time_ms": 216.81100000000015
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "8f454fbb50a3e27728323f11492b8ca9",
+      "span_id": "2c1ef3e3cbd5cd29",
+      "parent_id": "284c3c321a77e075",
+      "start_ns": 1777413630235866000,
+      "end_ns": 1777413637907629000,
+      "wall_time_ms": 7671.763,
+      "cpu_time_ms": 183.715,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 0,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "8f454fbb50a3e27728323f11492b8ca9",
+      "span_id": "935eb7641a8a6682",
+      "parent_id": "284c3c321a77e075",
+      "start_ns": 1777413637913098000,
+      "end_ns": 1777413637913253000,
+      "wall_time_ms": 0.155,
+      "cpu_time_ms": 0.221,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "03877be2cdbe9495",
+        "expression": "70 * 0.03 * 2.5",
+        "result": 5.25
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "8f454fbb50a3e27728323f11492b8ca9",
+      "span_id": "1b704b7057eafa5b",
+      "parent_id": "284c3c321a77e075",
+      "start_ns": 1777413637920176000,
+      "end_ns": 1777413639638625000,
+      "wall_time_ms": 1718.449,
+      "cpu_time_ms": 22.836,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 1,
+        "llm.has_tool_use": false,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

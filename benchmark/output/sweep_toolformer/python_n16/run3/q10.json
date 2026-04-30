@@ -1,0 +1,140 @@
+{
+  "trace_id": "38e4e817c63505a17b8a73403fd2714b",
+  "config": "toolformer_py",
+  "query_id": "q10",
+  "label": "two_op",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "38e4e817c63505a17b8a73403fd2714b",
+      "span_id": "e003c9b273a0bd0b",
+      "parent_id": null,
+      "start_ns": 1777413644611812000,
+      "end_ns": 1777413658774660000,
+      "wall_time_ms": 14162.848,
+      "cpu_time_ms": 485.492,
+      "kind": "root",
+      "attrs": {
+        "config": "toolformer_py",
+        "query_id": "q10",
+        "query_text": "Bianca picked 39 tulips and 49 roses to make flower bouquets. If she only used 81 of the flowers though, how many extra flowers did Bianca pick?",
+        "agent.num_turns": 3,
+        "agent.total_input_tokens": 26,
+        "agent.total_output_tokens": 380,
+        "agent.total_cost_usd": 0.01754825,
+        "agent.duration_ms": 5778.0,
+        "agent.duration_api_ms": 6675.0,
+        "agent.is_error": false,
+        "agent.truncated": false,
+        "agent.num_tool_calls": 2,
+        "agent.cpu_time_ms": 485.481
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "38e4e817c63505a17b8a73403fd2714b",
+      "span_id": "e525be0b2eb923da",
+      "parent_id": "e003c9b273a0bd0b",
+      "start_ns": 1777413644611841000,
+      "end_ns": 1777413655412713000,
+      "wall_time_ms": 10800.872,
+      "cpu_time_ms": 297.978,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 0,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "38e4e817c63505a17b8a73403fd2714b",
+      "span_id": "f92643456cd45971",
+      "parent_id": "e003c9b273a0bd0b",
+      "start_ns": 1777413655418421000,
+      "end_ns": 1777413655418654000,
+      "wall_time_ms": 0.233,
+      "cpu_time_ms": 0.332,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "12b271fe0c1074e4",
+        "expression": "39 + 49",
+        "result": 88.0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "38e4e817c63505a17b8a73403fd2714b",
+      "span_id": "7f18ced99fc540d5",
+      "parent_id": "e003c9b273a0bd0b",
+      "start_ns": 1777413655431447000,
+      "end_ns": 1777413656821250000,
+      "wall_time_ms": 1389.803,
+      "cpu_time_ms": 53.759,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 1,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "38e4e817c63505a17b8a73403fd2714b",
+      "span_id": "3509128a38d65018",
+      "parent_id": "e003c9b273a0bd0b",
+      "start_ns": 1777413656824441000,
+      "end_ns": 1777413656824819000,
+      "wall_time_ms": 0.378,
+      "cpu_time_ms": 0.526,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "d3078ae13848f258",
+        "expression": "88 - 81",
+        "result": 7.0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "38e4e817c63505a17b8a73403fd2714b",
+      "span_id": "edcc3462b8bd1ba4",
+      "parent_id": "e003c9b273a0bd0b",
+      "start_ns": 1777413656854848000,
+      "end_ns": 1777413658372615000,
+      "wall_time_ms": 1517.767,
+      "cpu_time_ms": 81.944,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 2,
+        "llm.has_tool_use": false,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

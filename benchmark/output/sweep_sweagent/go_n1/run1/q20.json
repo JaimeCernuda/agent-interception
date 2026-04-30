@@ -1,0 +1,230 @@
+{
+  "config": "sweagent_go",
+  "label": "aggregate_analysis",
+  "query_id": "q20",
+  "spans": [
+    {
+      "attrs": {
+        "agent.cpu_time_ms": 22.119000000000142,
+        "agent.duration_api_ms": 8185,
+        "agent.duration_ms": 7074,
+        "agent.is_error": false,
+        "agent.num_turns": 3,
+        "agent.total_cost_usd": 0.021539350000000002,
+        "agent.truncated": false,
+        "agent.workspace_dir": "../benchmark/output/sweep_sweagent/go_n1/run1/workspaces/q20",
+        "config": "sweagent_go",
+        "query_id": "q20",
+        "query_text": "Stitch together the 10 frag_*.log files in this workspace by timestamp (each line begins with a unix timestamp). Report the FIRST and LAST events overall (timestamp + message).",
+        "sweagent.category": "D",
+        "sweagent.label": "aggregate_analysis"
+      },
+      "cpu_time_ms": 22.123,
+      "end_ns": 1777417722053792000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "6c663bd1d8aa2119",
+      "start_ns": 1777417711749076000,
+      "status": "ok",
+      "trace_id": "678239b160e190a10ed5a7515803de33",
+      "wall_time_ms": 10304.716
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 0
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777417716949862000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "6c663bd1d8aa2119",
+      "span_id": "af078facc30df18f",
+      "start_ns": 1777417711766170000,
+      "status": "ok",
+      "trace_id": "678239b160e190a10ed5a7515803de33",
+      "wall_time_ms": 5183.692
+    },
+    {
+      "attrs": {
+        "bash.command_preview": "find . -name \"frag_*.log\" -type f | sort",
+        "bash.exit_code": 0,
+        "bash.shell_wrapped": true,
+        "bash.stderr_bytes": 0,
+        "bash.stderr_truncated": false,
+        "bash.stdout_bytes": 140,
+        "bash.stdout_truncated": false,
+        "bash.timed_out": false,
+        "bash.timeout_seconds": 30,
+        "tool.input_hash": "9395fc21a320c4cf",
+        "tool.name": "bash_run"
+      },
+      "cpu_time_ms": 2.469,
+      "end_ns": 1777417716972673000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.bash_run",
+      "parent_id": "6c663bd1d8aa2119",
+      "span_id": "06d39b1f66153a4e",
+      "start_ns": 1777417716954597000,
+      "status": "ok",
+      "trace_id": "678239b160e190a10ed5a7515803de33",
+      "wall_time_ms": 18.076
+    },
+    {
+      "attrs": {
+        "bash.pid": 11906,
+        "bash.shell_wrapped": true,
+        "tool.name": "bash_spawn"
+      },
+      "cpu_time_ms": 2.659,
+      "end_ns": 1777417716957336000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.bash_spawn",
+      "parent_id": "06d39b1f66153a4e",
+      "span_id": "d7d07121f0ace768",
+      "start_ns": 1777417716954677000,
+      "status": "ok",
+      "trace_id": "678239b160e190a10ed5a7515803de33",
+      "wall_time_ms": 2.659
+    },
+    {
+      "attrs": {
+        "bash.exit_code": 0,
+        "bash.stderr_bytes": 0,
+        "bash.stdout_bytes": 140,
+        "bash.timed_out": false,
+        "tool.name": "bash_work"
+      },
+      "cpu_time_ms": 15.308,
+      "end_ns": 1777417716972644000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.bash_work",
+      "parent_id": "06d39b1f66153a4e",
+      "span_id": "27d9e891ba8d8893",
+      "start_ns": 1777417716957336000,
+      "status": "ok",
+      "trace_id": "678239b160e190a10ed5a7515803de33",
+      "wall_time_ms": 15.308
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 1
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777417718845879000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "6c663bd1d8aa2119",
+      "span_id": "3bd2bb6ecba45792",
+      "start_ns": 1777417716981917000,
+      "status": "ok",
+      "trace_id": "678239b160e190a10ed5a7515803de33",
+      "wall_time_ms": 1863.962
+    },
+    {
+      "attrs": {
+        "bash.command_preview": "cat ./frag_*.log | sort -n | head -1 \u0026\u0026 cat ./frag_*.log | sort -n | tail -1",
+        "bash.exit_code": 0,
+        "bash.shell_wrapped": true,
+        "bash.stderr_bytes": 0,
+        "bash.stderr_truncated": false,
+        "bash.stdout_bytes": 57,
+        "bash.stdout_truncated": false,
+        "bash.timed_out": false,
+        "bash.timeout_seconds": 30,
+        "tool.input_hash": "54b9ef3e3000061c",
+        "tool.name": "bash_run"
+      },
+      "cpu_time_ms": 2.181,
+      "end_ns": 1777417718867630000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.bash_run",
+      "parent_id": "6c663bd1d8aa2119",
+      "span_id": "dced2ee2442be90e",
+      "start_ns": 1777417718847802000,
+      "status": "ok",
+      "trace_id": "678239b160e190a10ed5a7515803de33",
+      "wall_time_ms": 19.828
+    },
+    {
+      "attrs": {
+        "bash.pid": 11922,
+        "bash.shell_wrapped": true,
+        "tool.name": "bash_spawn"
+      },
+      "cpu_time_ms": 2.067,
+      "end_ns": 1777417718849940000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.bash_spawn",
+      "parent_id": "dced2ee2442be90e",
+      "span_id": "b316a18bb529d0b8",
+      "start_ns": 1777417718847873000,
+      "status": "ok",
+      "trace_id": "678239b160e190a10ed5a7515803de33",
+      "wall_time_ms": 2.067
+    },
+    {
+      "attrs": {
+        "bash.exit_code": 0,
+        "bash.stderr_bytes": 0,
+        "bash.stdout_bytes": 57,
+        "bash.timed_out": false,
+        "tool.name": "bash_work"
+      },
+      "cpu_time_ms": 17.613,
+      "end_ns": 1777417718867553000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.bash_work",
+      "parent_id": "dced2ee2442be90e",
+      "span_id": "b2bc5b76ba98a99f",
+      "start_ns": 1777417718849940000,
+      "status": "ok",
+      "trace_id": "678239b160e190a10ed5a7515803de33",
+      "wall_time_ms": 17.613
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 2
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777417721760736000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "6c663bd1d8aa2119",
+      "span_id": "953bfac4bcce71d2",
+      "start_ns": 1777417718876264000,
+      "status": "ok",
+      "trace_id": "678239b160e190a10ed5a7515803de33",
+      "wall_time_ms": 2884.472
+    }
+  ],
+  "trace_id": "678239b160e190a10ed5a7515803de33"
+}

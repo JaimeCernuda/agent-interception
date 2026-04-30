@@ -1,0 +1,99 @@
+{
+  "trace_id": "caeef33f313f93aa560cfb019edf4ac4",
+  "config": "toolformer_py",
+  "query_id": "q02",
+  "label": "single_op",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "caeef33f313f93aa560cfb019edf4ac4",
+      "span_id": "951a1caa34dfd478",
+      "parent_id": null,
+      "start_ns": 1777412602406711000,
+      "end_ns": 1777412611104945000,
+      "wall_time_ms": 8698.234,
+      "cpu_time_ms": 57.084,
+      "kind": "root",
+      "attrs": {
+        "config": "toolformer_py",
+        "query_id": "q02",
+        "query_text": "Chris had 39 apricot. Robert confered him some more. Now Chris has 185 apricot. How many did Robert confer him?",
+        "agent.num_turns": 2,
+        "agent.total_input_tokens": 18,
+        "agent.total_output_tokens": 274,
+        "agent.total_cost_usd": 0.011907750000000002,
+        "agent.duration_ms": 5315.0,
+        "agent.duration_api_ms": 6203.0,
+        "agent.is_error": false,
+        "agent.truncated": false,
+        "agent.num_tool_calls": 1,
+        "agent.cpu_time_ms": 57.093999999999596
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "caeef33f313f93aa560cfb019edf4ac4",
+      "span_id": "9d6ec665e631c8b5",
+      "parent_id": "951a1caa34dfd478",
+      "start_ns": 1777412602406749000,
+      "end_ns": 1777412609252403000,
+      "wall_time_ms": 6845.654,
+      "cpu_time_ms": 46.227,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 0,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "caeef33f313f93aa560cfb019edf4ac4",
+      "span_id": "1a5c37cce407121a",
+      "parent_id": "951a1caa34dfd478",
+      "start_ns": 1777412609259560000,
+      "end_ns": 1777412609259941000,
+      "wall_time_ms": 0.381,
+      "cpu_time_ms": 0.646,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "eac2892d0acc0e8a",
+        "expression": "185 - 39",
+        "result": 146.0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "caeef33f313f93aa560cfb019edf4ac4",
+      "span_id": "224372d8820209d2",
+      "parent_id": "951a1caa34dfd478",
+      "start_ns": 1777412609276566000,
+      "end_ns": 1777412610811055000,
+      "wall_time_ms": 1534.489,
+      "cpu_time_ms": 4.314,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 1,
+        "llm.has_tool_use": false,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

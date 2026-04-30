@@ -1,0 +1,23 @@
+[run] config=sweagent_go queries=20 concurrency=4 out=../benchmark/output/sweep_sweagent/go_n4/run2
+  [  4/20] q04 ok  (20.53s) answer="## Result  Yes, there are **12 transaction IDs that appear more than once** in the log. Each of thes..."
+  [  1/20] q01 ok  (31.18s) answer="## HTTP Status Code Distribution  Based on my analysis of the access.log file, here are the HTTP sta..."
+  [  2/20] q02 ok  (42.29s) answer="Based on my analysis of the second half of events.jsonl (lines 20,001-40,000), here are the **top 5 ..."
+  [  6/20] q06 ok  (15.46s) answer="Perfect! I found all classes that inherit from BaseHandler. Here's the complete breakdown:  ## Class..."
+  [  7/20] q07 ok  (19.14s) answer="Now I'll generate the unified diff for renaming `legacy_utils` to `compat_utils`:  ```diff diff --gi..."
+  [  9/20] q09 ok  (13.68s) answer="Based on my analysis of the project files, I found **one circular import cycle**:  **Circular Import..."
+  [  8/20] q08 ok  (29.88s) answer="Based on my analysis of the project, here are all the functions that take a 'request' parameter but ..."
+  [  5/20] q05 ok  (61.29s) answer="**Result:**  The user who performed the most distinct actions is **user-q** with **16 distinct actio..."
+  [ 10/20] q10 ok  (12.90s) answer="## TODO Comments Summary  Here's the breakdown of TODO comments by author:  | Author | Count | |----..."
+  [  3/20] q03 ok  (109.53s) answer="**Answer: 51.1**  Here's what I did: 1. Used `grep` and `cut` to filter for host-042 with cpu_pct me..."
+  [ 11/20] q11 ok  (34.31s) answer="Perfect! Both tests now pass. Here's a summary of the bugs I found and fixed:  ## Bugs Found and Fix..."
+  [ 13/20] q13 ok  (34.81s) answer="Perfect! Here's the summary:  ## Bug Found In `counter.py`, line 3 had a type comparison error: ```p..."
+  [ 14/20] q14 ok  (26.23s) answer="Perfect! Both tests now pass. Here's a summary of the fix:  ## Bug Found The `mean()` function in `s..."
+  [ 15/20] q15 ok  (26.45s) answer="Perfect! All tests now pass. Here's the summary:  ## Bug Analysis  The bug was in the operator prece..."
+  [ 16/20] q16 ok  (21.50s) answer="Perfect! I found all 15 config files. Here's the report of all configs with timeout fields:  ## Conf..."
+  [ 17/20] q17 ok  (17.59s) answer="## Summary: Exception Types Across module_*.py Files  **Total distinct exception types: 7**  | Excep..."
+  [ 18/20] q18 ok  (16.13s) answer="## Markdown Files Heading Hierarchy  ### **api.md** ``` # API   ## Endpoints     ### GET /users     ..."
+  [ 19/20] q19 ok  (14.19s) answer="Here's the dependency graph as an adjacency list (file → files it imports from):  ``` src_00.py \xe2\x86..."
+  [ 20/20] q20 ok  (12.67s) answer="Perfect! I've stitched together all 10 frag_*.log files by sorting them on the unix timestamp (first..."
+  [ 12/20] q12 ok  (87.53s) answer="Perfect! All tests now pass. Here's a summary of what I found and fixed:  ## Bug Summary  **Original..."
+WALLCLOCK_MS=169424.861
+[run] done. 20/20 succeeded, 0 failed. wallclock=169.42s

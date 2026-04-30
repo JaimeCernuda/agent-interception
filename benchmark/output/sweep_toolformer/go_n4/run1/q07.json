@@ -1,0 +1,138 @@
+{
+  "config": "toolformer_go",
+  "label": "two_op",
+  "query_id": "q07",
+  "spans": [
+    {
+      "attrs": {
+        "agent.cpu_time_ms": 33.911,
+        "agent.duration_api_ms": 4521,
+        "agent.duration_ms": 3766,
+        "agent.is_error": false,
+        "agent.num_turns": 3,
+        "agent.total_cost_usd": 0.01275055,
+        "agent.truncated": false,
+        "config": "toolformer_go",
+        "query_id": "q07",
+        "query_text": "Each chocolate bar in a box cost $3. If a box had 9 bars total and Wendy sold all but 3 bars, how much money would she have made?",
+        "toolformer.category": "two_op"
+      },
+      "cpu_time_ms": 33.916,
+      "end_ns": 1777413248079471000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "cbfbd90661cb90e4",
+      "start_ns": 1777413241511849000,
+      "status": "ok",
+      "trace_id": "e0094420d99cd6191c808cf34a033f65",
+      "wall_time_ms": 6567.622
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 0
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777413246374287000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "cbfbd90661cb90e4",
+      "span_id": "71a6235f7b5e5c73",
+      "start_ns": 1777413241514245000,
+      "status": "ok",
+      "trace_id": "e0094420d99cd6191c808cf34a033f65",
+      "wall_time_ms": 4860.042
+    },
+    {
+      "attrs": {
+        "expression": "9 - 3",
+        "result": 6,
+        "tool.input_hash": "dde1bee24d428347",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.03,
+      "end_ns": 1777413246378322000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "cbfbd90661cb90e4",
+      "span_id": "a76360214a129e2a",
+      "start_ns": 1777413246378299000,
+      "status": "ok",
+      "trace_id": "e0094420d99cd6191c808cf34a033f65",
+      "wall_time_ms": 0.023
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 1
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777413246407364000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "cbfbd90661cb90e4",
+      "span_id": "7b337ae2f8ba69d2",
+      "start_ns": 1777413246388928000,
+      "status": "ok",
+      "trace_id": "e0094420d99cd6191c808cf34a033f65",
+      "wall_time_ms": 18.436
+    },
+    {
+      "attrs": {
+        "expression": "6 * 3",
+        "result": 18,
+        "tool.input_hash": "bfbba7270a85e057",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.06,
+      "end_ns": 1777413246409022000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "cbfbd90661cb90e4",
+      "span_id": "be0db61c25d6c0dd",
+      "start_ns": 1777413246409003000,
+      "status": "ok",
+      "trace_id": "e0094420d99cd6191c808cf34a033f65",
+      "wall_time_ms": 0.019
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 2
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777413247792450000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "cbfbd90661cb90e4",
+      "span_id": "b55a4d64dfda3763",
+      "start_ns": 1777413246413053000,
+      "status": "ok",
+      "trace_id": "e0094420d99cd6191c808cf34a033f65",
+      "wall_time_ms": 1379.397
+    }
+  ],
+  "trace_id": "e0094420d99cd6191c808cf34a033f65"
+}

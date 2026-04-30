@@ -1,0 +1,23 @@
+[run] config=sweagent_go queries=20 concurrency=2 out=../benchmark/output/sweep_sweagent/go_n2/run2
+  [  1/20] q01 ok  (27.64s) answer="Perfect! Here's the distribution of HTTP status codes from the access.log file:  | Status Code | Cou..."
+  [  2/20] q02 ok  (37.47s) answer="## Top 5 Event Types in Second Half of events.jsonl  Based on analyzing the second half (lines 20,00..."
+  [  4/20] q04 ok  (27.18s) answer="**Yes, there are 12 transaction IDs that appear more than once:**  1. **TXN-25799907** — appears 2..."
+  [  5/20] q05 ok  (31.47s) answer="## Answer  **User: `user-q`**   **Distinct Actions Count: `16`**  The user **user-q** performed the ..."
+  [  6/20] q06 ok  (19.58s) answer="Here are all the classes that inherit from BaseHandler and their methods:  ## **AdminHandler** (`adm..."
+  [  3/20] q03 ok  (107.52s) answer="Perfect! I've filtered and calculated the average for you.  **Answer: 51.10**  Here's what I did: 1...."
+  [  7/20] q07 ok  (34.93s) answer="Perfect! Here's the complete unified diff for renaming `legacy_utils` to `compat_utils` across your ..."
+  [  8/20] q08 ok  (16.24s) answer="Based on my analysis of the codebase, here are all the functions that take a 'request' parameter but..."
+  [ 10/20] q10 ok  (13.41s) answer="Based on my search through the project, I found **12 TODO comments** total. Here's the breakdown gro..."
+  [  9/20] q09 ok  (14.80s) answer="Based on my analysis of the project, I found **one circular import cycle**:  ## Circular Dependency ..."
+  [ 11/20] q11 ok  (21.87s) answer="Excellent! All tests are now passing. Here's a summary:  ## Bug Found The `first_n()` function in `s..."
+  [ 12/20] q12 ok  (21.81s) answer="Perfect! All tests are now passing. Here's a summary:  ## Bug Found The `describe()` function in `de..."
+  [ 14/20] q14 ok  (20.53s) answer="Excellent! All tests pass now. Here's a summary:  ## Problem The `mean()` function in `stats.py` was..."
+  [ 13/20] q13 ok  (21.51s) answer="## ✅ Fix Complete  **Unified diff:** ```diff --- counter.py.orig +++ counter.py @@ -1,3 +1,3 @@  d..."
+  [ 16/20] q16 ok  (16.12s) answer="## Timeout Fields Found in Service Configs  I found **11 out of 15** config files with timeout field..."
+  [ 15/20] q15 ok  (24.88s) answer="Perfect! ✅ All tests now pass.  ## Summary  **Bug Found**: Operator precedence issue in `perm.py` ..."
+  [ 17/20] q17 ok  (16.14s) answer="## Summary  There are **7 distinct exception types** raised across all `module_*.py` files:  | Excep..."
+  [ 18/20] q18 ok  (15.53s) answer="Here's a summary of all the heading hierarchies found in the workspace:  ## **api.md** ``` # API   #..."
+  [ 19/20] q19 ok  (15.68s) answer="Perfect! Here's the dependency graph as an adjacency list (file → files it imports from):  ``` src..."
+  [ 20/20] q20 ok  (10.17s) answer="Perfect! I've stitched together all 10 frag_*.log files by timestamp. Here are the results:  **FIRST..."
+WALLCLOCK_MS=258552.765
+[run] done. 20/20 succeeded, 0 failed. wallclock=258.55s

@@ -1,0 +1,99 @@
+{
+  "trace_id": "d0eef7de494db29b58f5ebe7b01e561a",
+  "config": "toolformer_py",
+  "query_id": "q03",
+  "label": "single_op",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "d0eef7de494db29b58f5ebe7b01e561a",
+      "span_id": "777762491513909a",
+      "parent_id": null,
+      "start_ns": 1777409406957734000,
+      "end_ns": 1777409420706625000,
+      "wall_time_ms": 13748.891,
+      "cpu_time_ms": 33.431,
+      "kind": "root",
+      "attrs": {
+        "config": "toolformer_py",
+        "query_id": "q03",
+        "query_text": "Ronald wants to share some Flower among 17 friends.If each friend get 38 Flower, then how many Flower john would have?",
+        "agent.num_turns": 2,
+        "agent.total_input_tokens": 18,
+        "agent.total_output_tokens": 916,
+        "agent.total_cost_usd": 0.018284349999999998,
+        "agent.duration_ms": 9843.0,
+        "agent.duration_api_ms": 10680.0,
+        "agent.is_error": false,
+        "agent.truncated": false,
+        "agent.num_tool_calls": 1,
+        "agent.cpu_time_ms": 33.439000000000306
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "d0eef7de494db29b58f5ebe7b01e561a",
+      "span_id": "3d02a0c1b33facee",
+      "parent_id": "777762491513909a",
+      "start_ns": 1777409406957790000,
+      "end_ns": 1777409416409397000,
+      "wall_time_ms": 9451.607,
+      "cpu_time_ms": 22.565,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 0,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "d0eef7de494db29b58f5ebe7b01e561a",
+      "span_id": "7796eb4d9d59ae44",
+      "parent_id": "777762491513909a",
+      "start_ns": 1777409416415788000,
+      "end_ns": 1777409416416187000,
+      "wall_time_ms": 0.399,
+      "cpu_time_ms": 0.63,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "ae96442f3a7e3a67",
+        "expression": "17 * 38",
+        "result": 646.0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "d0eef7de494db29b58f5ebe7b01e561a",
+      "span_id": "74c95003308099f1",
+      "parent_id": "777762491513909a",
+      "start_ns": 1777409416431425000,
+      "end_ns": 1777409420430181000,
+      "wall_time_ms": 3998.756,
+      "cpu_time_ms": 1.332,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 1,
+        "llm.has_tool_use": false,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

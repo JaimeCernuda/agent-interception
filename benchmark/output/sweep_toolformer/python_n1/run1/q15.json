@@ -1,0 +1,140 @@
+{
+  "trace_id": "60bd851d3fb983e1e0e0d13b1925be97",
+  "config": "toolformer_py",
+  "query_id": "q15",
+  "label": "multi_op",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "60bd851d3fb983e1e0e0d13b1925be97",
+      "span_id": "9691afa7bc3412dd",
+      "parent_id": null,
+      "start_ns": 1777411331725827000,
+      "end_ns": 1777411340434170000,
+      "wall_time_ms": 8708.343,
+      "cpu_time_ms": 31.204,
+      "kind": "root",
+      "attrs": {
+        "config": "toolformer_py",
+        "query_id": "q15",
+        "query_text": "On Friday, Fred paid $5.92 each on 2 tickets to a movie theater. He also borrowed a movie for $6.79. Fred paid with a $20 bill. How much change did Fred receive?",
+        "agent.num_turns": 3,
+        "agent.total_input_tokens": 26,
+        "agent.total_output_tokens": 471,
+        "agent.total_cost_usd": 0.01808825,
+        "agent.duration_ms": 5442.0,
+        "agent.duration_api_ms": 6212.0,
+        "agent.is_error": false,
+        "agent.truncated": false,
+        "agent.num_tool_calls": 2,
+        "agent.cpu_time_ms": 31.210999999999785
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "60bd851d3fb983e1e0e0d13b1925be97",
+      "span_id": "bd1be146f050bb9c",
+      "parent_id": "9691afa7bc3412dd",
+      "start_ns": 1777411331725868000,
+      "end_ns": 1777411337143646000,
+      "wall_time_ms": 5417.778,
+      "cpu_time_ms": 18.745,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 0,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "60bd851d3fb983e1e0e0d13b1925be97",
+      "span_id": "c02c55949c6d72be",
+      "parent_id": "9691afa7bc3412dd",
+      "start_ns": 1777411337149697000,
+      "end_ns": 1777411337150022000,
+      "wall_time_ms": 0.325,
+      "cpu_time_ms": 0.55,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "1424b5e35485221c",
+        "expression": "5.92 * 2 + 6.79",
+        "result": 18.63
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "60bd851d3fb983e1e0e0d13b1925be97",
+      "span_id": "59e49c17a1b1bf7e",
+      "parent_id": "9691afa7bc3412dd",
+      "start_ns": 1777411337176571000,
+      "end_ns": 1777411338363124000,
+      "wall_time_ms": 1186.553,
+      "cpu_time_ms": 0.917,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 1,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.calculator",
+      "trace_id": "60bd851d3fb983e1e0e0d13b1925be97",
+      "span_id": "2efe97d56c2670a1",
+      "parent_id": "9691afa7bc3412dd",
+      "start_ns": 1777411338366191000,
+      "end_ns": 1777411338366350000,
+      "wall_time_ms": 0.159,
+      "cpu_time_ms": 0.223,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "calculator",
+        "tool.input_hash": "a5564c0ac35a0f2f",
+        "expression": "20 - 18.63",
+        "result": 1.370000000000001
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "60bd851d3fb983e1e0e0d13b1925be97",
+      "span_id": "7fbe08a7a72f16f4",
+      "parent_id": "9691afa7bc3412dd",
+      "start_ns": 1777411338387703000,
+      "end_ns": 1777411340137097000,
+      "wall_time_ms": 1749.394,
+      "cpu_time_ms": 1.227,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 2,
+        "llm.has_tool_use": false,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

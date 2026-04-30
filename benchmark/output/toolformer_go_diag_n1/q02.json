@@ -5,29 +5,29 @@
   "spans": [
     {
       "attrs": {
-        "agent.cpu_time_ms": 18.951000000000008,
-        "agent.duration_api_ms": 10342,
-        "agent.duration_ms": 10243,
+        "agent.cpu_time_ms": 10.177,
+        "agent.duration_api_ms": 4106,
+        "agent.duration_ms": 3075,
         "agent.is_error": false,
         "agent.num_turns": 2,
-        "agent.total_cost_usd": 0.014468750000000002,
+        "agent.total_cost_usd": 0.011774550000000002,
         "agent.truncated": false,
         "config": "toolformer_go",
         "query_id": "q02",
         "query_text": "Chris had 39 apricot. Robert confered him some more. Now Chris has 185 apricot. How many did Robert confer him?",
         "toolformer.category": "single_op"
       },
-      "cpu_time_ms": 19718.218,
-      "end_ns": 1777405840122525000,
+      "cpu_time_ms": 10.167,
+      "end_ns": 1777411114683625000,
       "error": null,
       "kind": "root",
       "name": "agent.query",
       "parent_id": null,
-      "span_id": "20fe534f596ae850",
-      "start_ns": 1777405820404308000,
+      "span_id": "7ac60b8629a0aadb",
+      "start_ns": 1777411108435790000,
       "status": "ok",
-      "trace_id": "0e3ab88328dc6d3d2606cf3092701749",
-      "wall_time_ms": 19718.217
+      "trace_id": "5b61f0ab38d9ba52d573c86e690bddcf",
+      "wall_time_ms": 6247.835
     },
     {
       "attrs": {
@@ -40,16 +40,16 @@
         "llm.turn": 0
       },
       "cpu_time_ms": 0,
-      "end_ns": 1777405835448825000,
+      "end_ns": 1777411113120383000,
       "error": null,
       "kind": "llm",
       "name": "llm.generate",
-      "parent_id": "20fe534f596ae850",
-      "span_id": "14f645e8b6a5f082",
-      "start_ns": 1777405820407212000,
+      "parent_id": "7ac60b8629a0aadb",
+      "span_id": "5cbaf676f139bd21",
+      "start_ns": 1777411108437758000,
       "status": "ok",
-      "trace_id": "0e3ab88328dc6d3d2606cf3092701749",
-      "wall_time_ms": 15041.613
+      "trace_id": "5b61f0ab38d9ba52d573c86e690bddcf",
+      "wall_time_ms": 4682.625
     },
     {
       "attrs": {
@@ -58,17 +58,17 @@
         "tool.input_hash": "eac2892d0acc0e8a",
         "tool.name": "calculator"
       },
-      "cpu_time_ms": 0.182,
-      "end_ns": 1777405835459567000,
+      "cpu_time_ms": 0.027,
+      "end_ns": 1777411113125781000,
       "error": null,
       "kind": "tool",
       "name": "tool.calculator",
-      "parent_id": "20fe534f596ae850",
-      "span_id": "77885ee7013ce5ac",
-      "start_ns": 1777405835459385000,
+      "parent_id": "7ac60b8629a0aadb",
+      "span_id": "130b26c5ac68baa0",
+      "start_ns": 1777411113125754000,
       "status": "ok",
-      "trace_id": "0e3ab88328dc6d3d2606cf3092701749",
-      "wall_time_ms": 0.182
+      "trace_id": "5b61f0ab38d9ba52d573c86e690bddcf",
+      "wall_time_ms": 0.027
     },
     {
       "attrs": {
@@ -81,17 +81,17 @@
         "llm.turn": 1
       },
       "cpu_time_ms": 0,
-      "end_ns": 1777405838535771000,
+      "end_ns": 1777411114385582000,
       "error": null,
       "kind": "llm",
       "name": "llm.generate",
-      "parent_id": "20fe534f596ae850",
-      "span_id": "8a6d006a75f36e65",
-      "start_ns": 1777405835471520000,
+      "parent_id": "7ac60b8629a0aadb",
+      "span_id": "4ee035eaaca67143",
+      "start_ns": 1777411113142824000,
       "status": "ok",
-      "trace_id": "0e3ab88328dc6d3d2606cf3092701749",
-      "wall_time_ms": 3064.251
+      "trace_id": "5b61f0ab38d9ba52d573c86e690bddcf",
+      "wall_time_ms": 1242.758
     }
   ],
-  "trace_id": "0e3ab88328dc6d3d2606cf3092701749"
+  "trace_id": "5b61f0ab38d9ba52d573c86e690bddcf"
 }

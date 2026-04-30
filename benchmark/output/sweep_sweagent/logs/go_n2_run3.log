@@ -1,0 +1,23 @@
+[run] config=sweagent_go queries=20 concurrency=2 out=../benchmark/output/sweep_sweagent/go_n2/run3
+  [  1/20] q01 ok  (27.10s) answer="## HTTP Status Code Distribution  Based on my analysis of the access.log file, here is the distribut..."
+  [  2/20] q02 ok  (33.72s) answer="Perfect! Here are the **top 5 most frequent event types in the second half** of `events.jsonl`:  1. ..."
+  [  4/20] q04 ok  (21.01s) answer="## Results  Yes, there are **12 transaction IDs that appear more than once** in the transactions.log..."
+  [  3/20] q03 ok  (58.55s) answer="**Answer: 51.10**  For host 'host-042' with the 'cpu_pct' metric: - **708 data points** match the fi..."
+  [  5/20] q05 ok  (39.70s) answer="## Results  **User with most distinct actions: `user-q`**   **Number of distinct actions: `16`**  ##..."
+  [  6/20] q06 ok  (20.51s) answer="## Classes Inheriting from BaseHandler  Here are all the classes that inherit from `BaseHandler` and..."
+  [  8/20] q08 ok  (18.94s) answer="Based on my analysis of the codebase, here are the functions that take a `request` parameter but **d..."
+  [  9/20] q09 ok  (14.92s) answer="Based on my analysis of the project files, I've detected **one circular import cycle**:  ## Circular..."
+  [  7/20] q07 ok  (45.86s) answer="Perfect! Here's the complete unified diff for renaming `legacy_utils` to `compat_utils` across your ..."
+  [ 10/20] q10 ok  (22.74s) answer="Perfect! Here's the summary of TODO comments grouped by author:  ## TODO Comments by Author  | Autho..."
+  [ 11/20] q11 ok  (26.26s) answer="Perfect! ✅ Both tests now pass. Here's a summary of the fix:  ## Bug Found The `first_n()` functio..."
+  [ 13/20] q13 ok  (15.24s) answer="Excellent! The tests now pass. Here's the unified diff of the fix:  ```diff --- counter.py +++ count..."
+  [ 14/20] q14 ok  (17.48s) answer="Excellent! Both tests now pass. Here's the unified diff of the fix:  ```diff --- stats.py\t(original)..."
+  [ 12/20] q12 ok  (48.15s) answer="Perfect! Both tests now pass. Here's the summary:  ## Bug Summary  **Location:** `describe.py`  **Is..."
+  [ 15/20] q15 ok  (23.93s) answer="Perfect! ✅ Both tests now pass.  ## Summary  **The Bug:** Operator precedence error in the `can_ac..."
+  [ 16/20] q16 ok  (16.58s) answer="Perfect! I've found all 15 config files. Here's the complete report of configs with timeout fields: ..."
+  [ 18/20] q18 ok  (12.24s) answer="## Heading Hierarchies by File  ### ./ops.md ``` # Operations   ## Deploy   ## Rollback   ## Oncall ..."
+  [ 17/20] q17 ok  (17.07s) answer="## Summary  Across all `module_*.py` files, there are **7 distinct exception types** raised:  | Exce..."
+  [ 20/20] q20 ok  (11.02s) answer="Perfect! I've stitched together all 10 frag_*.log files by timestamp. Here are the results:  **FIRST..."
+  [ 19/20] q19 ok  (16.26s) answer="## Dependency Graph (Adjacency List)  Here's the dependency graph showing which files import from wh..."
+WALLCLOCK_MS=256138.133
+[run] done. 20/20 succeeded, 0 failed. wallclock=256.14s

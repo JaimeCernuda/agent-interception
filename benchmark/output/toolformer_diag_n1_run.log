@@ -1,0 +1,27 @@
+[batch] 20 queries  concurrency=1  out=benchmark/output/toolformer_diag_n1
+  [OK ] q07  extracted=18.0  (10.80s)
+  [OK ] q15  extracted=1.370000000000001  (9.69s)
+  [OK ] q08  extracted=18.0  (10.06s)
+  [OK ] q16  extracted=3.0  (7.25s)
+  [OK ] q01  extracted=184.0  (8.44s)
+  [OK ] q09  extracted=72.0  (11.65s)
+  [OK ] q17  extracted=0.625  (8.85s)
+  [OK ] q02  extracted=146.0  (9.53s)
+  [OK ] q10  extracted=7.0  (11.01s)
+  [FAIL] q18  extracted=2.0  (13.78s)
+  [OK ] q03  extracted=646.0  (13.75s)
+  [OK ] q11  extracted=153.57142857142858  (12.49s)
+  [OK ] q19  extracted=151.0  (8.36s)
+  [OK ] q04  extracted=5.928571428571429  (9.48s)
+  [OK ] q12  extracted=5.46  (12.83s)
+  [OK ] q20  extracted=1.2199999999999998  (8.70s)
+  [OK ] q05  extracted=52.0  (10.64s)
+  [OK ] q13  extracted=5.25  (8.64s)
+  [FAIL] q06  extracted=8.0  (9.28s)
+  [OK ] q14  extracted=39.0  (9.73s)
+
+[batch] wallclock=204.97s
+[batch] correctness: 18/20
+[batch] failures:
+   q18: expected=5.0 extracted=2.0
+   q06: expected=6.0 extracted=8.0

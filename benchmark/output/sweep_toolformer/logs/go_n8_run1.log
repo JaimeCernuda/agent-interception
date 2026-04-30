@@ -1,0 +1,23 @@
+[run] config=toolformer_go queries=20 concurrency=8 out=../benchmark/output/sweep_toolformer/go_n8/run1
+  [  5/20] q05 ok  ( 9.81s) answer="**Jacqueline had 52 cherry initially.**  Here's the solution: - Let x = the number of cherry Jacquel..."
+  [  1/20] q01 ok  (10.23s) answer="**Jeff originally had 184 Pen.**  Here's how I solved it: - Let X = the amount of Pen Jeff had origi..."
+  [  2/20] q02 ok  (10.35s) answer="Robert gave Chris **146 apricots**.  Here's the calculation: - Chris started with: 39 apricots - Chr..."
+  [  8/20] q08 ok  (11.80s) answer="I need to find how many nickels Sally has now. Let me identify what she starts with and what she rec..."
+  [  7/20] q07 ok  (12.17s) answer="**Answer: $18**  Here's the breakdown: - Total bars in the box: 9 - Bars sold: 9 - 3 = 6 bars - Mone..."
+  [  4/20] q04 ok  (13.23s) answer="**Answer: Approximately 5.93 figs per bag** (or about **6 figs per bag** on average)  **Calculation:..."
+  [  6/20] q06 ok  (14.49s) answer="**Answer: 8 cupcakes**  Here's the breakdown: - Friends invited: 9 - Friends who couldn't come: 6 - ..."
+  [  3/20] q03 ok  (16.24s) answer="Looking at this problem, I need to clarify the question a bit.  The problem states: - Ronald shares ..."
+  [  9/20] q09 ok  ( 8.53s) answer="To solve this problem:  1. **How many more brownies does she need?**    - She needs 17 total and alr..."
+  [ 13/20] q13 ok  ( 8.04s) answer="I need to calculate the simple interest using the formula: **I = P × r × t**  Where: - P (Principa..."
+  [ 11/20] q11 ok  (11.73s) answer="I need to find how many miles you can drive with a $200 budget. Let me break this down step by step...."
+  [ 10/20] q10 ok  (13.16s) answer="Bianca picked a total of **88 flowers** (39 tulips + 49 roses = 88).  Since she only used 81 flowers..."
+  [ 12/20] q12 ok  (12.15s) answer="## Solution  **Cost of raisins:** 10 pounds × $4.20/pound = $42.00  **Cost of granola:** 90 pounds ..."
+  [ 15/20] q15 ok  ( 9.49s) answer="I'll solve this step-by-step using the calculator. **Solution:**  1. **Cost of 2 movie tickets:** $5..."
+  [ 16/20] q16 ok  ( 8.83s) answer="Nancy has **$3.00**.  Here's the breakdown: - 1 dozen = 12 quarters - Each quarter is worth $0.25 - ..."
+  [ 17/20] q17 ok  ( 8.66s) answer="The fraction of students in either the trumpet section or the trombone section is **0.625** or **5/8..."
+  [ 14/20] q14 ok  (14.78s) answer="**Luke has 39 stickers left.**  Here's how I solved it: - Started with: 20 stickers - Bought from st..."
+  [ 19/20] q19 ok  ( 6.98s) answer="Mike spent **$151.00** at the music store.  The calculation: - Trumpet: $145.16 - Song book: $5.84 -..."
+  [ 20/20] q20 ok  ( 8.02s) answer="The answer is **1.22 pounds** of fruit is left.  Here's the calculation: - Started with: 3.42 pounds..."
+  [ 18/20] q18 ok  (11.47s) answer="I need to find the original flow rate. Let me set up and solve the equation.  **Given information:**..."
+WALLCLOCK_MS=31682.039
+[run] done. 20/20 succeeded, 0 failed. wallclock=31.68s

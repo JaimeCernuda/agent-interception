@@ -1,0 +1,97 @@
+{
+  "config": "toolformer_go",
+  "label": "fractional",
+  "query_id": "q16",
+  "spans": [
+    {
+      "attrs": {
+        "agent.cpu_time_ms": 12.742999999999995,
+        "agent.duration_api_ms": 5894,
+        "agent.duration_ms": 3825,
+        "agent.is_error": false,
+        "agent.num_turns": 2,
+        "agent.total_cost_usd": 0.011811499999999999,
+        "agent.truncated": false,
+        "config": "toolformer_go",
+        "query_id": "q16",
+        "query_text": "Nancy has saved 1 dozen quarters from washing cars.  How much money does Nancy have ?",
+        "toolformer.category": "fractional"
+      },
+      "cpu_time_ms": 12.737,
+      "end_ns": 1777412236771480000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "db4b9907df47e23d",
+      "start_ns": 1777412230005730000,
+      "status": "ok",
+      "trace_id": "17c6fd412ec12afed58173f3afcbca3f",
+      "wall_time_ms": 6765.75
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 0
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777412234695171000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "db4b9907df47e23d",
+      "span_id": "3cedf253b66ad511",
+      "start_ns": 1777412230009047000,
+      "status": "ok",
+      "trace_id": "17c6fd412ec12afed58173f3afcbca3f",
+      "wall_time_ms": 4686.124
+    },
+    {
+      "attrs": {
+        "expression": "12 * 0.25",
+        "result": 3,
+        "tool.input_hash": "2318e0d02f3da8e6",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.048,
+      "end_ns": 1777412234700676000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "db4b9907df47e23d",
+      "span_id": "8d7ab0b68f70d29a",
+      "start_ns": 1777412234700653000,
+      "status": "ok",
+      "trace_id": "17c6fd412ec12afed58173f3afcbca3f",
+      "wall_time_ms": 0.023
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 1
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777412236468886000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "db4b9907df47e23d",
+      "span_id": "9cb82b03ff203e9f",
+      "start_ns": 1777412234738827000,
+      "status": "ok",
+      "trace_id": "17c6fd412ec12afed58173f3afcbca3f",
+      "wall_time_ms": 1730.059
+    }
+  ],
+  "trace_id": "17c6fd412ec12afed58173f3afcbca3f"
+}

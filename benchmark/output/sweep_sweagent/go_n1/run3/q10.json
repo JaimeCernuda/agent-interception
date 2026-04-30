@@ -1,0 +1,144 @@
+{
+  "config": "sweagent_go",
+  "label": "multifile_refactor",
+  "query_id": "q10",
+  "spans": [
+    {
+      "attrs": {
+        "agent.cpu_time_ms": 20.22199999999998,
+        "agent.duration_api_ms": 7245,
+        "agent.duration_ms": 6485,
+        "agent.is_error": false,
+        "agent.num_turns": 2,
+        "agent.total_cost_usd": 0.014710500000000001,
+        "agent.truncated": false,
+        "agent.workspace_dir": "../benchmark/output/sweep_sweagent/go_n1/run3/workspaces/q10",
+        "config": "sweagent_go",
+        "query_id": "q10",
+        "query_text": "Find every TODO comment in this project. Group them by author tag (i.e. the name inside TODO(name): ...). Report the count per author.",
+        "sweagent.category": "B",
+        "sweagent.label": "multifile_refactor"
+      },
+      "cpu_time_ms": 20.245,
+      "end_ns": 1777418559316135000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "74e1744a106e8e59",
+      "start_ns": 1777418549802240000,
+      "status": "ok",
+      "trace_id": "4e0dc57eb56c1fdb18c70abf92226784",
+      "wall_time_ms": 9513.895
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 0
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777418556095078000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "74e1744a106e8e59",
+      "span_id": "c43c338b225f04b4",
+      "start_ns": 1777418549821379000,
+      "status": "ok",
+      "trace_id": "4e0dc57eb56c1fdb18c70abf92226784",
+      "wall_time_ms": 6273.699
+    },
+    {
+      "attrs": {
+        "bash.command_preview": "find . -type f \\( -name \"*.js\" -o -name \"*.jsx\" -o -name \"*.ts\" -o -name \"*.tsx\" -o -name \"*.py\" -o -name \"*.java\" -o -name \"*.cpp\" -o -name \"*.c\" -o -name \"*.go\" -o -name \"*.rb\" -o -name \"*.php\" -o -",
+        "bash.exit_code": 0,
+        "bash.shell_wrapped": true,
+        "bash.stderr_bytes": 0,
+        "bash.stderr_truncated": false,
+        "bash.stdout_bytes": 405,
+        "bash.stdout_truncated": false,
+        "bash.timed_out": false,
+        "bash.timeout_seconds": 30,
+        "tool.input_hash": "137829849aca0661",
+        "tool.name": "bash_run"
+      },
+      "cpu_time_ms": 2.476,
+      "end_ns": 1777418556118902000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.bash_run",
+      "parent_id": "74e1744a106e8e59",
+      "span_id": "de9226f4b21ebac1",
+      "start_ns": 1777418556099982000,
+      "status": "ok",
+      "trace_id": "4e0dc57eb56c1fdb18c70abf92226784",
+      "wall_time_ms": 18.92
+    },
+    {
+      "attrs": {
+        "bash.pid": 18236,
+        "bash.shell_wrapped": true,
+        "tool.name": "bash_spawn"
+      },
+      "cpu_time_ms": 2.526,
+      "end_ns": 1777418556102589000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.bash_spawn",
+      "parent_id": "de9226f4b21ebac1",
+      "span_id": "7c67171821a9faa1",
+      "start_ns": 1777418556100063000,
+      "status": "ok",
+      "trace_id": "4e0dc57eb56c1fdb18c70abf92226784",
+      "wall_time_ms": 2.526
+    },
+    {
+      "attrs": {
+        "bash.exit_code": 0,
+        "bash.stderr_bytes": 0,
+        "bash.stdout_bytes": 405,
+        "bash.timed_out": false,
+        "tool.name": "bash_work"
+      },
+      "cpu_time_ms": 16.261,
+      "end_ns": 1777418556118850000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.bash_work",
+      "parent_id": "de9226f4b21ebac1",
+      "span_id": "8389a9fbc0ee14f6",
+      "start_ns": 1777418556102589000,
+      "status": "ok",
+      "trace_id": "4e0dc57eb56c1fdb18c70abf92226784",
+      "wall_time_ms": 16.261
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 1
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777418559050595000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "74e1744a106e8e59",
+      "span_id": "ac80621958907af2",
+      "start_ns": 1777418556124320000,
+      "status": "ok",
+      "trace_id": "4e0dc57eb56c1fdb18c70abf92226784",
+      "wall_time_ms": 2926.275
+    }
+  ],
+  "trace_id": "4e0dc57eb56c1fdb18c70abf92226784"
+}

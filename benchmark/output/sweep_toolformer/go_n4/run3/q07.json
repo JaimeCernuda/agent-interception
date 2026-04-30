@@ -1,0 +1,138 @@
+{
+  "config": "toolformer_go",
+  "label": "two_op",
+  "query_id": "q07",
+  "spans": [
+    {
+      "attrs": {
+        "agent.cpu_time_ms": 40.70000000000002,
+        "agent.duration_api_ms": 5577,
+        "agent.duration_ms": 4743,
+        "agent.is_error": false,
+        "agent.num_turns": 3,
+        "agent.total_cost_usd": 0.012839300000000001,
+        "agent.truncated": false,
+        "config": "toolformer_go",
+        "query_id": "q07",
+        "query_text": "Each chocolate bar in a box cost $3. If a box had 9 bars total and Wendy sold all but 3 bars, how much money would she have made?",
+        "toolformer.category": "two_op"
+      },
+      "cpu_time_ms": 40.698,
+      "end_ns": 1777413340131374000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "0f0c32df63106a2f",
+      "start_ns": 1777413332267389000,
+      "status": "ok",
+      "trace_id": "11405df54a424ad06ad630a802ea0e96",
+      "wall_time_ms": 7863.985
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 0
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777413337805949000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "0f0c32df63106a2f",
+      "span_id": "239497c46b3b5e73",
+      "start_ns": 1777413332270049000,
+      "status": "ok",
+      "trace_id": "11405df54a424ad06ad630a802ea0e96",
+      "wall_time_ms": 5535.9
+    },
+    {
+      "attrs": {
+        "expression": "9 - 3",
+        "result": 6,
+        "tool.input_hash": "dde1bee24d428347",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.074,
+      "end_ns": 1777413337810860000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "0f0c32df63106a2f",
+      "span_id": "68565616713ef875",
+      "start_ns": 1777413337810833000,
+      "status": "ok",
+      "trace_id": "11405df54a424ad06ad630a802ea0e96",
+      "wall_time_ms": 0.027
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 1
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777413337823183000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "0f0c32df63106a2f",
+      "span_id": "8dfeea4e9eeff3d0",
+      "start_ns": 1777413337816213000,
+      "status": "ok",
+      "trace_id": "11405df54a424ad06ad630a802ea0e96",
+      "wall_time_ms": 6.97
+    },
+    {
+      "attrs": {
+        "expression": "6 * 3",
+        "result": 18,
+        "tool.input_hash": "bfbba7270a85e057",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.035,
+      "end_ns": 1777413337824722000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "0f0c32df63106a2f",
+      "span_id": "e145b03a5aec678e",
+      "start_ns": 1777413337824706000,
+      "status": "ok",
+      "trace_id": "11405df54a424ad06ad630a802ea0e96",
+      "wall_time_ms": 0.016
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 2
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777413339832059000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "0f0c32df63106a2f",
+      "span_id": "640a4412e5831f2f",
+      "start_ns": 1777413337846889000,
+      "status": "ok",
+      "trace_id": "11405df54a424ad06ad630a802ea0e96",
+      "wall_time_ms": 1985.17
+    }
+  ],
+  "trace_id": "11405df54a424ad06ad630a802ea0e96"
+}

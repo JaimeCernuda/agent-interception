@@ -1,0 +1,231 @@
+{
+  "trace_id": "68f4027d1c62c92d1beb7bf8429bd156",
+  "config": "sweagent_py",
+  "query_id": "q16",
+  "label": "aggregate_analysis",
+  "spans": [
+    {
+      "name": "agent.query",
+      "trace_id": "68f4027d1c62c92d1beb7bf8429bd156",
+      "span_id": "625e0fb57be84623",
+      "parent_id": null,
+      "start_ns": 1777419543670820000,
+      "end_ns": 1777419553507730000,
+      "wall_time_ms": 9836.91,
+      "cpu_time_ms": 83.149,
+      "kind": "root",
+      "attrs": {
+        "config": "sweagent_py",
+        "query_id": "q16",
+        "query_text": "This workspace contains 15 service config files in mixed formats (.json, .yaml, .toml, .ini). Find every config that has a 'timeout' field and report the value and unit (seconds, ms, etc.) for each. Skip configs with no timeout.",
+        "agent.workspace_dir": "/Users/anna/Desktop/agent-interception/benchmark/output/sweep_sweagent/python_n2/run3/workspaces/q16",
+        "agent.num_turns": 3,
+        "agent.total_input_tokens": 26,
+        "agent.total_output_tokens": 749,
+        "agent.total_cost_usd": 0.02098155,
+        "agent.duration_ms": 7334.0,
+        "agent.duration_api_ms": 8115.0,
+        "agent.is_error": false,
+        "agent.truncated": false,
+        "agent.num_tool_calls": 2,
+        "agent.cpu_time_ms": 83.16199999999981
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "68f4027d1c62c92d1beb7bf8429bd156",
+      "span_id": "f408715d7f57cc3f",
+      "parent_id": "625e0fb57be84623",
+      "start_ns": 1777419543670872000,
+      "end_ns": 1777419548365029000,
+      "wall_time_ms": 4694.157,
+      "cpu_time_ms": 29.903,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 0,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.bash_run",
+      "trace_id": "68f4027d1c62c92d1beb7bf8429bd156",
+      "span_id": "fbcecba5952afa07",
+      "parent_id": "625e0fb57be84623",
+      "start_ns": 1777419548373063000,
+      "end_ns": 1777419548396930000,
+      "wall_time_ms": 23.867,
+      "cpu_time_ms": 4.881,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "bash_run",
+        "tool.input_hash": "efd6d236ab1c177e",
+        "bash.command_preview": "find . -type f \\( -name \"*.json\" -o -name \"*.yaml\" -o -name \"*.yml\" -o -name \"*.toml\" -o -name \"*.ini\" \\) | head -20",
+        "bash.shell_wrapped": true,
+        "bash.timeout_seconds": 30,
+        "bash.exit_code": 0,
+        "bash.timed_out": false,
+        "bash.stdout_bytes": 192,
+        "bash.stderr_bytes": 0,
+        "bash.stdout_truncated": false,
+        "bash.stderr_truncated": false
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.bash_spawn",
+      "trace_id": "68f4027d1c62c92d1beb7bf8429bd156",
+      "span_id": "eb6c364286a8f46f",
+      "parent_id": "fbcecba5952afa07",
+      "start_ns": 1777419548373126000,
+      "end_ns": 1777419548378718000,
+      "wall_time_ms": 5.592,
+      "cpu_time_ms": 3.051,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "bash_spawn",
+        "bash.shell_wrapped": true,
+        "bash.pid": 25188
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.bash_work",
+      "trace_id": "68f4027d1c62c92d1beb7bf8429bd156",
+      "span_id": "d7cac45a612a52d8",
+      "parent_id": "fbcecba5952afa07",
+      "start_ns": 1777419548378718000,
+      "end_ns": 1777419548396602000,
+      "wall_time_ms": 17.884,
+      "cpu_time_ms": 1.38,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "bash_work",
+        "bash.exit_code": 0,
+        "bash.timed_out": false,
+        "bash.stdout_bytes": 192,
+        "bash.stderr_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "68f4027d1c62c92d1beb7bf8429bd156",
+      "span_id": "69d79f71d4b56414",
+      "parent_id": "625e0fb57be84623",
+      "start_ns": 1777419548408742000,
+      "end_ns": 1777419550185323000,
+      "wall_time_ms": 1776.581,
+      "cpu_time_ms": 12.248,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 1,
+        "llm.has_tool_use": true,
+        "llm.stop_reason": "tool_use"
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.bash_run",
+      "trace_id": "68f4027d1c62c92d1beb7bf8429bd156",
+      "span_id": "aeab7695f2188f19",
+      "parent_id": "625e0fb57be84623",
+      "start_ns": 1777419550188909000,
+      "end_ns": 1777419550265570000,
+      "wall_time_ms": 76.661,
+      "cpu_time_ms": 6.13,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "bash_run",
+        "tool.input_hash": "742e84002c21498a",
+        "bash.command_preview": "for file in ./svc_*.{json,yaml,yml,toml,ini}; do\n  if [ -f \"$file\" ]; then\n    echo \"=== $file ===\"\n    grep -i \"timeout\" \"$file\" || echo \"(no timeout)\"\n  fi\ndone",
+        "bash.shell_wrapped": true,
+        "bash.timeout_seconds": 30,
+        "bash.exit_code": 0,
+        "bash.timed_out": false,
+        "bash.stdout_bytes": 823,
+        "bash.stderr_bytes": 0,
+        "bash.stdout_truncated": false,
+        "bash.stderr_truncated": false
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.bash_spawn",
+      "trace_id": "68f4027d1c62c92d1beb7bf8429bd156",
+      "span_id": "07802f36f112bc6b",
+      "parent_id": "aeab7695f2188f19",
+      "start_ns": 1777419550188965000,
+      "end_ns": 1777419550193268000,
+      "wall_time_ms": 4.303,
+      "cpu_time_ms": 3.199,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "bash_spawn",
+        "bash.shell_wrapped": true,
+        "bash.pid": 25200
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "tool.bash_work",
+      "trace_id": "68f4027d1c62c92d1beb7bf8429bd156",
+      "span_id": "6032e5dc1e8e2d40",
+      "parent_id": "aeab7695f2188f19",
+      "start_ns": 1777419550193268000,
+      "end_ns": 1777419550265307000,
+      "wall_time_ms": 72.039,
+      "cpu_time_ms": 2.546,
+      "kind": "tool",
+      "attrs": {
+        "tool.name": "bash_work",
+        "bash.exit_code": 0,
+        "bash.timed_out": false,
+        "bash.stdout_bytes": 823,
+        "bash.stderr_bytes": 0
+      },
+      "status": "ok",
+      "error": null
+    },
+    {
+      "name": "llm.generate",
+      "trace_id": "68f4027d1c62c92d1beb7bf8429bd156",
+      "span_id": "a049fb0b71aafc0c",
+      "parent_id": "625e0fb57be84623",
+      "start_ns": 1777419550270522000,
+      "end_ns": 1777419553167974000,
+      "wall_time_ms": 2897.452,
+      "cpu_time_ms": 16.545,
+      "kind": "llm",
+      "attrs": {
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.provider": "anthropic",
+        "llm.parse_error": false,
+        "llm.attempt": 0,
+        "llm.turn": 2,
+        "llm.has_tool_use": false,
+        "llm.stop_reason": "end_turn"
+      },
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+Fatal error in message reader: Command failed with exit code 1 (exit code: 1)
+Error output: Check stderr output for details
+Fatal error in message reader: Command failed with exit code 1 (exit code: 1)
+Error output: Check stderr output for details
+Fatal error in message reader: Command failed with exit code 1 (exit code: 1)
+Error output: Check stderr output for details
+Fatal error in message reader: Command failed with exit code 1 (exit code: 1)
+Error output: Check stderr output for details
+Fatal error in message reader: Command failed with exit code 1 (exit code: 1)
+Error output: Check stderr output for details
+Fatal error in message reader: Command failed with exit code 1 (exit code: 1)
+Error output: Check stderr output for details
+Fatal error in message reader: Command failed with exit code 1 (exit code: 1)
+Error output: Check stderr output for details
+Fatal error in message reader: Command failed with exit code 1 (exit code: 1)
+Error output: Check stderr output for details
+Fatal error in message reader: Command failed with exit code 1 (exit code: 1)
+Error output: Check stderr output for details
+Fatal error in message reader: Command failed with exit code 1 (exit code: 1)
+Error output: Check stderr output for details
+Fatal error in message reader: Command failed with exit code 1 (exit code: 1)
+Error output: Check stderr output for details
+Fatal error in message reader: Command failed with exit code 1 (exit code: 1)
+Error output: Check stderr output for details
+Fatal error in message reader: Command failed with exit code 1 (exit code: 1)
+Error output: Check stderr output for details
+Fatal error in message reader: Command failed with exit code 1 (exit code: 1)
+Error output: Check stderr output for details
+Fatal error in message reader: Command failed with exit code 1 (exit code: 1)
+Error output: Check stderr output for details
+Fatal error in message reader: Command failed with exit code 1 (exit code: 1)
+Error output: Check stderr output for details
+Fatal error in message reader: Command failed with exit code 1 (exit code: 1)
+Error output: Check stderr output for details
+Fatal error in message reader: Command failed with exit code 1 (exit code: 1)
+Error output: Check stderr output for details
+Fatal error in message reader: Command failed with exit code 1 (exit code: 1)
+Error output: Check stderr output for details
+Fatal error in message reader: Command failed with exit code 1 (exit code: 1)
+Error output: Check stderr output for details
+[batch] 20 queries  concurrency=4  out=/Users/anna/Desktop/agent-interception/benchmark/output/sweep_sweagent/python_n4/run3
+  [FAIL] q19 (4.98s) Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+  [FAIL] q18 (5.16s) Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+  [FAIL] q12 (5.72s) Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+  [FAIL] q05 (5.73s) Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+  [FAIL] q06 (4.56s) Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+  [FAIL] q14 (4.30s) Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+  [FAIL] q13 (5.02s) Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+  [FAIL] q20 (4.94s) Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+  [FAIL] q07 (4.28s) Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+  [FAIL] q15 (4.18s) Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+  [FAIL] q08 (5.63s) Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+  [FAIL] q01 (4.99s) Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+  [FAIL] q09 (4.86s) Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+  [FAIL] q16 (5.22s) Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+  [FAIL] q02 (4.33s) Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+  [FAIL] q17 (4.36s) Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+  [FAIL] q03 (4.33s) Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+  [FAIL] q10 (4.94s) Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+  [FAIL] q11 (4.59s) Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+  [FAIL] q04 (4.58s) Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+
+[batch] wallclock=24.73s
+[batch] succeeded: 0/20
+[batch] failures:
+   q19: Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+   q18: Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+   q12: Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+   q05: Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+   q06: Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+   q14: Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+   q13: Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+   q20: Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+   q07: Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+   q15: Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+   q08: Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+   q01: Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+   q09: Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+   q16: Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+   q02: Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+   q17: Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+   q03: Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+   q10: Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+   q11: Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')
+   q04: Exception('Command failed with exit code 1 (exit code: 1)\nError output: Check stderr output for details')

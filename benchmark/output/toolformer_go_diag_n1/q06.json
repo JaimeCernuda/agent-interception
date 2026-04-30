@@ -5,29 +5,29 @@
   "spans": [
     {
       "attrs": {
-        "agent.cpu_time_ms": 46.87099999999998,
-        "agent.duration_api_ms": 12800,
-        "agent.duration_ms": 12330,
+        "agent.cpu_time_ms": 17.554000000000002,
+        "agent.duration_api_ms": 8271,
+        "agent.duration_ms": 7731,
         "agent.is_error": false,
         "agent.num_turns": 4,
-        "agent.total_cost_usd": 0.021165200000000002,
+        "agent.total_cost_usd": 0.024215300000000002,
         "agent.truncated": false,
         "config": "toolformer_go",
         "query_id": "q06",
         "query_text": "Sam invited 9 friends to a birthday party, but 6 couldn't come. If he wanted to buy enough cupcakes so each person could have exactly 2, how many should he buy?",
         "toolformer.category": "two_op"
       },
-      "cpu_time_ms": 23513.515,
-      "end_ns": 1777405999786947000,
+      "cpu_time_ms": 17.554,
+      "end_ns": 1777411152236639000,
       "error": null,
       "kind": "root",
       "name": "agent.query",
       "parent_id": null,
-      "span_id": "089d1eddd227ac02",
-      "start_ns": 1777405976273433000,
+      "span_id": "61d3468cfd7783f7",
+      "start_ns": 1777411141103732000,
       "status": "ok",
-      "trace_id": "ac7464a6221afcf828b2a14aa2560400",
-      "wall_time_ms": 23513.514
+      "trace_id": "aefb3da127a7c9b19a73b3d8cf086819",
+      "wall_time_ms": 11132.907
     },
     {
       "attrs": {
@@ -40,16 +40,16 @@
         "llm.turn": 0
       },
       "cpu_time_ms": 0,
-      "end_ns": 1777405990553835000,
+      "end_ns": 1777411146960859000,
       "error": null,
       "kind": "llm",
       "name": "llm.generate",
-      "parent_id": "089d1eddd227ac02",
-      "span_id": "a34452a96888aa8d",
-      "start_ns": 1777405976296408000,
+      "parent_id": "61d3468cfd7783f7",
+      "span_id": "78212495b325d2be",
+      "start_ns": 1777411141107551000,
       "status": "ok",
-      "trace_id": "ac7464a6221afcf828b2a14aa2560400",
-      "wall_time_ms": 14257.427
+      "trace_id": "aefb3da127a7c9b19a73b3d8cf086819",
+      "wall_time_ms": 5853.308
     },
     {
       "attrs": {
@@ -58,36 +58,17 @@
         "tool.input_hash": "725c4c6896b49eae",
         "tool.name": "calculator"
       },
-      "cpu_time_ms": 0.141,
-      "end_ns": 1777405990549830000,
+      "cpu_time_ms": 0.046,
+      "end_ns": 1777411146964986000,
       "error": null,
       "kind": "tool",
       "name": "tool.calculator",
-      "parent_id": "089d1eddd227ac02",
-      "span_id": "7892fa0f47ceedd9",
-      "start_ns": 1777405990549690000,
+      "parent_id": "61d3468cfd7783f7",
+      "span_id": "d016ee44f21c8988",
+      "start_ns": 1777411146964962000,
       "status": "ok",
-      "trace_id": "ac7464a6221afcf828b2a14aa2560400",
-      "wall_time_ms": 0.14
-    },
-    {
-      "attrs": {
-        "expression": "(9 - 6) + 1",
-        "result": 4,
-        "tool.input_hash": "e11a095b9a393e0c",
-        "tool.name": "calculator"
-      },
-      "cpu_time_ms": 2.134,
-      "end_ns": 1777405990585093000,
-      "error": null,
-      "kind": "tool",
-      "name": "tool.calculator",
-      "parent_id": "089d1eddd227ac02",
-      "span_id": "f7ba226faa928506",
-      "start_ns": 1777405990582959000,
-      "status": "ok",
-      "trace_id": "ac7464a6221afcf828b2a14aa2560400",
-      "wall_time_ms": 2.134
+      "trace_id": "aefb3da127a7c9b19a73b3d8cf086819",
+      "wall_time_ms": 0.024
     },
     {
       "attrs": {
@@ -100,16 +81,57 @@
         "llm.turn": 1
       },
       "cpu_time_ms": 0,
-      "end_ns": 1777405994340902000,
+      "end_ns": 1777411148536566000,
       "error": null,
       "kind": "llm",
       "name": "llm.generate",
-      "parent_id": "089d1eddd227ac02",
-      "span_id": "3893b609757cacea",
-      "start_ns": 1777405990610872000,
+      "parent_id": "61d3468cfd7783f7",
+      "span_id": "9e1f19b77687bdb5",
+      "start_ns": 1777411146987492000,
       "status": "ok",
-      "trace_id": "ac7464a6221afcf828b2a14aa2560400",
-      "wall_time_ms": 3730.03
+      "trace_id": "aefb3da127a7c9b19a73b3d8cf086819",
+      "wall_time_ms": 1549.074
+    },
+    {
+      "attrs": {
+        "expression": "3 + 1",
+        "result": 4,
+        "tool.input_hash": "122c7d61fb69daea",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.042,
+      "end_ns": 1777411148539095000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "61d3468cfd7783f7",
+      "span_id": "375244ee1692726b",
+      "start_ns": 1777411148539066000,
+      "status": "ok",
+      "trace_id": "aefb3da127a7c9b19a73b3d8cf086819",
+      "wall_time_ms": 0.029
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 2
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777411149989646000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "61d3468cfd7783f7",
+      "span_id": "b00b360d7ee307a1",
+      "start_ns": 1777411148570776000,
+      "status": "ok",
+      "trace_id": "aefb3da127a7c9b19a73b3d8cf086819",
+      "wall_time_ms": 1418.87
     },
     {
       "attrs": {
@@ -118,17 +140,17 @@
         "tool.input_hash": "20c845cd6900fcd7",
         "tool.name": "calculator"
       },
-      "cpu_time_ms": 0.039,
-      "end_ns": 1777405994355421000,
+      "cpu_time_ms": 0.084,
+      "end_ns": 1777411149993421000,
       "error": null,
       "kind": "tool",
       "name": "tool.calculator",
-      "parent_id": "089d1eddd227ac02",
-      "span_id": "d2df9dfd5f92d291",
-      "start_ns": 1777405994355382000,
+      "parent_id": "61d3468cfd7783f7",
+      "span_id": "3e2a571ed54efac5",
+      "start_ns": 1777411149993375000,
       "status": "ok",
-      "trace_id": "ac7464a6221afcf828b2a14aa2560400",
-      "wall_time_ms": 0.039
+      "trace_id": "aefb3da127a7c9b19a73b3d8cf086819",
+      "wall_time_ms": 0.046
     },
     {
       "attrs": {
@@ -138,20 +160,20 @@
         "llm.parse_error": false,
         "llm.provider": "anthropic",
         "llm.stop_reason": "end_turn",
-        "llm.turn": 2
+        "llm.turn": 3
       },
       "cpu_time_ms": 0,
-      "end_ns": 1777405999015613000,
+      "end_ns": 1777411151959317000,
       "error": null,
       "kind": "llm",
       "name": "llm.generate",
-      "parent_id": "089d1eddd227ac02",
-      "span_id": "2608e09c0ec806c6",
-      "start_ns": 1777405994416650000,
+      "parent_id": "61d3468cfd7783f7",
+      "span_id": "0aba2638fe7d93ed",
+      "start_ns": 1777411150001975000,
       "status": "ok",
-      "trace_id": "ac7464a6221afcf828b2a14aa2560400",
-      "wall_time_ms": 4598.963
+      "trace_id": "aefb3da127a7c9b19a73b3d8cf086819",
+      "wall_time_ms": 1957.342
     }
   ],
-  "trace_id": "ac7464a6221afcf828b2a14aa2560400"
+  "trace_id": "aefb3da127a7c9b19a73b3d8cf086819"
 }

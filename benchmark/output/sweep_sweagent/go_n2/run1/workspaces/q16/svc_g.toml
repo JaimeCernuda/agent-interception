@@ -1,0 +1,4 @@
+[svc]
+name = "svc_g"
+timeout = 60
+timeout_unit = "seconds"

@@ -1,0 +1,138 @@
+{
+  "config": "toolformer_go",
+  "label": "fractional",
+  "query_id": "q17",
+  "spans": [
+    {
+      "attrs": {
+        "agent.cpu_time_ms": 104.99099999999999,
+        "agent.duration_api_ms": 8646,
+        "agent.duration_ms": 8207,
+        "agent.is_error": false,
+        "agent.num_turns": 3,
+        "agent.total_cost_usd": 0.01858185,
+        "agent.truncated": false,
+        "config": "toolformer_go",
+        "query_id": "q17",
+        "query_text": "0.5 of the students in the band are in the trumpet section. 0.125 of the students in the band are in the trombone section. What fraction of the students in the band are in either the trumpet section or the trombone section?",
+        "toolformer.category": "fractional"
+      },
+      "cpu_time_ms": 104.992,
+      "end_ns": 1777413781135371000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "877edef18f792f0e",
+      "start_ns": 1777413769266167000,
+      "status": "ok",
+      "trace_id": "4cf62cc66548d746f92a050f21685eb0",
+      "wall_time_ms": 11869.204
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 0
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777413775107384000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "877edef18f792f0e",
+      "span_id": "a7eb35a9cef42e69",
+      "start_ns": 1777413769270283000,
+      "status": "ok",
+      "trace_id": "4cf62cc66548d746f92a050f21685eb0",
+      "wall_time_ms": 5837.101
+    },
+    {
+      "attrs": {
+        "expression": "0.5 + 0.125",
+        "result": 0.625,
+        "tool.input_hash": "788324f511e25be9",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.068,
+      "end_ns": 1777413775111566000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "877edef18f792f0e",
+      "span_id": "bb703ca5a9be47ae",
+      "start_ns": 1777413775111541000,
+      "status": "ok",
+      "trace_id": "4cf62cc66548d746f92a050f21685eb0",
+      "wall_time_ms": 0.025
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 1
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777413778231841000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "877edef18f792f0e",
+      "span_id": "7bcaea474c97b3ce",
+      "start_ns": 1777413775131961000,
+      "status": "ok",
+      "trace_id": "4cf62cc66548d746f92a050f21685eb0",
+      "wall_time_ms": 3099.88
+    },
+    {
+      "attrs": {
+        "expression": "5/8",
+        "result": 0.625,
+        "tool.input_hash": "723eb67036c81692",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.06,
+      "end_ns": 1777413778233621000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "877edef18f792f0e",
+      "span_id": "f9bfbffa78d1abe4",
+      "start_ns": 1777413778233589000,
+      "status": "ok",
+      "trace_id": "4cf62cc66548d746f92a050f21685eb0",
+      "wall_time_ms": 0.032
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 2
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777413780786189000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "877edef18f792f0e",
+      "span_id": "9647743597c62165",
+      "start_ns": 1777413778261378000,
+      "status": "ok",
+      "trace_id": "4cf62cc66548d746f92a050f21685eb0",
+      "wall_time_ms": 2524.811
+    }
+  ],
+  "trace_id": "4cf62cc66548d746f92a050f21685eb0"
+}

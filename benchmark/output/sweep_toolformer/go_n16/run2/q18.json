@@ -1,0 +1,97 @@
+{
+  "config": "toolformer_go",
+  "label": "fractional",
+  "query_id": "q18",
+  "spans": [
+    {
+      "attrs": {
+        "agent.cpu_time_ms": 87.38499999999999,
+        "agent.duration_api_ms": 7333,
+        "agent.duration_ms": 6314,
+        "agent.is_error": false,
+        "agent.num_turns": 2,
+        "agent.total_cost_usd": 0.01337365,
+        "agent.truncated": false,
+        "config": "toolformer_go",
+        "query_id": "q18",
+        "query_text": "A water flow restrictor has reduced the flow of water to 2 gallons per minute. This amount is 1 gallon per minute less than 0.6 the original flow rate. Find the original rate in gallons per minute.",
+        "toolformer.category": "fractional"
+      },
+      "cpu_time_ms": 87.375,
+      "end_ns": 1777413780704148000,
+      "error": null,
+      "kind": "root",
+      "name": "agent.query",
+      "parent_id": null,
+      "span_id": "eb8ba9410c3a4d06",
+      "start_ns": 1777413770200683000,
+      "status": "ok",
+      "trace_id": "35e174f53cbf0c51c0607757166c61b1",
+      "wall_time_ms": 10503.465
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": true,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "tool_use",
+        "llm.turn": 0
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777413776501029000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "eb8ba9410c3a4d06",
+      "span_id": "313f1682e09cc522",
+      "start_ns": 1777413770203159000,
+      "status": "ok",
+      "trace_id": "35e174f53cbf0c51c0607757166c61b1",
+      "wall_time_ms": 6297.87
+    },
+    {
+      "attrs": {
+        "expression": "3 / 0.6",
+        "result": 5,
+        "tool.input_hash": "249468d381c1189a",
+        "tool.name": "calculator"
+      },
+      "cpu_time_ms": 0.043,
+      "end_ns": 1777413776506193000,
+      "error": null,
+      "kind": "tool",
+      "name": "tool.calculator",
+      "parent_id": "eb8ba9410c3a4d06",
+      "span_id": "5d3de90b0ef2cfa5",
+      "start_ns": 1777413776506168000,
+      "status": "ok",
+      "trace_id": "35e174f53cbf0c51c0607757166c61b1",
+      "wall_time_ms": 0.025
+    },
+    {
+      "attrs": {
+        "llm.attempt": 0,
+        "llm.has_tool_use": false,
+        "llm.model": "claude-haiku-4-5-20251001",
+        "llm.parse_error": false,
+        "llm.provider": "anthropic",
+        "llm.stop_reason": "end_turn",
+        "llm.turn": 1
+      },
+      "cpu_time_ms": 0,
+      "end_ns": 1777413780405335000,
+      "error": null,
+      "kind": "llm",
+      "name": "llm.generate",
+      "parent_id": "eb8ba9410c3a4d06",
+      "span_id": "5cc3f5baa7127e2a",
+      "start_ns": 1777413776529253000,
+      "status": "ok",
+      "trace_id": "35e174f53cbf0c51c0607757166c61b1",
+      "wall_time_ms": 3876.082
+    }
+  ],
+  "trace_id": "35e174f53cbf0c51c0607757166c61b1"
+}
